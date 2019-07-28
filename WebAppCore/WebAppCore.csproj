@@ -1,0 +1,97 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-WebAppCore-3CDBEF63-4902-4A15-ADAF-64C47196F74E</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\Admin\View\**" />
+    <Compile Remove="wwwroot\lib\signalr\dist\cjs\**" />
+    <Compile Remove="wwwroot\lib\signalr\dist\esm\**" />
+    <Compile Remove="wwwroot\lib\signalr\src\**" />
+    <Content Remove="Areas\Admin\View\**" />
+    <Content Remove="wwwroot\lib\signalr\dist\cjs\**" />
+    <Content Remove="wwwroot\lib\signalr\dist\esm\**" />
+    <Content Remove="wwwroot\lib\signalr\src\**" />
+    <EmbeddedResource Remove="Areas\Admin\View\**" />
+    <EmbeddedResource Remove="wwwroot\lib\signalr\dist\cjs\**" />
+    <EmbeddedResource Remove="wwwroot\lib\signalr\dist\esm\**" />
+    <EmbeddedResource Remove="wwwroot\lib\signalr\src\**" />
+    <None Remove="Areas\Admin\View\**" />
+    <None Remove="wwwroot\lib\signalr\dist\cjs\**" />
+    <None Remove="wwwroot\lib\signalr\dist\esm\**" />
+    <None Remove="wwwroot\lib\signalr\src\**" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.1.0" />
+    <PackageReference Include="EPPlus.Core" Version="1.5.4" />
+    <PackageReference Include="Git-Windows-Minimal" Version="2.18.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" />
+    <PackageReference Include="Microsoft.AspNetCore.Connections.Abstractions" Version="2.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" PrivateAssets="All" />
+    <PackageReference Include="PaulMiami.AspNetCore.Mvc.Recaptcha" Version="1.2.1" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="1.1.0" />
+    <PackageReference Include="SkiaSharp" Version="1.60.3" />
+    <PackageReference Include="WebMarkupMin.AspNetCore2" Version="2.4.2" />
+    <PackageReference Include="WebMarkupMin.NUglify" Version="2.4.2" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <None Include="wwwroot\admin-side\js\custom.js" />
+    <None Include="wwwroot\admin-side\js\custom.min.js" />
+    <None Include="wwwroot\client-side\fonts\font-awesome\fontawesome-webfont.svg" />
+    <None Include="wwwroot\client-side\fonts\font-awesome\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\client-side\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\client-side\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\client-side\fonts\pe-icon-7-stroke\Pe-icon-7-stroke.svg" />
+    <None Include="wwwroot\client-side\fonts\revicons.svg" />
+    <None Include="wwwroot\client-side\fonts\revicons\index.php" />
+    <None Include="wwwroot\client-side\fonts\revicons\revicons.svg" />
+    <None Include="wwwroot\client-side\fonts\simple-line-icons\Simple-Line-Icons.dev.svg" />
+    <None Include="wwwroot\client-side\fonts\simple-line-icons\Simple-Line-Icons.svg" />
+    <None Include="wwwroot\client-side\fonts\simple-line-icons\Simple-Line-Icons.woff2" />
+    <None Include="wwwroot\client-side\js\bootstrap.min.js" />
+    <None Include="wwwroot\client-side\js\cloud-zoom.js" />
+    <None Include="wwwroot\client-side\js\countdown.js" />
+    <None Include="wwwroot\client-side\js\jquery-ui.js" />
+    <None Include="wwwroot\client-side\js\jquery.bxslider.js" />
+    <None Include="wwwroot\client-side\js\jquery.flexslider.js" />
+    <None Include="wwwroot\client-side\js\jquery.magnifying-zoom.js" />
+    <None Include="wwwroot\client-side\js\jquery.min.js" />
+    <None Include="wwwroot\client-side\js\main.js" />
+    <None Include="wwwroot\client-side\js\mobile-menu.js" />
+    <None Include="wwwroot\client-side\js\owl.carousel.min.js" />
+    <None Include="wwwroot\client-side\js\revolution-extension.js" />
+    <None Include="wwwroot\client-side\js\revolution-slider.js" />
+    <None Include="wwwroot\lib\signalr\dist\browser\signalr.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dapper\WebAppCore.Application.Dapper.csproj" />
+    <ProjectReference Include="..\WebAppCore.Application\WebAppCore.Application.csproj" />
+    <ProjectReference Include="..\WebAppCore.Data.EF\WebAppCore.Data.EF.csproj" />
+    <ProjectReference Include="..\WebAppCore.Data\WebAppCore.Data.csproj" />
+    <ProjectReference Include="..\WebAppCore.Infrastructure\WebAppCore.Infrastructure.csproj" />
+    <ProjectReference Include="..\WebAppCore.Utilities\WebAppCore.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Shared\Components\MainMenu\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\Components\MobileMenu\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
+</Project>

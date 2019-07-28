@@ -1,0 +1,1250 @@
+2019-06-18T11:57:26.4316049+07:00 0HLNJL5QDANQH:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/   (ca22a1cb)
+2019-06-18T11:57:27.2161174+07:00 0HLNJL5QDANQH:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing action "WebAppCore.Controllers.HomeController.Index (WebAppCore)" (a44c0341)
+2019-06-18T11:57:27.2618913+07:00 0HLNJL5QDANQH:00000001 [INF] Executing action method "WebAppCore.Controllers.HomeController.Index (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T11:57:27.2761097+07:00 0HLNJL5QDANQH:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T11:57:27.3798671+07:00 0HLNJL5QDANQH:00000001 [WRN] The Include operation for navigation '"[c].Products"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-18T11:57:27.4819957+07:00 0HLNJL5QDANQH:00000001 [ERR] An error occurred using the connection to database '"WebAppCore"' on server '"."'. (5fc3407c)
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "WebAppCore" requested by the login. The login failed.
+Login failed for user 'sa'.
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SelectEnumerableIterator`2.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+ClientConnectionId:961cdc3a-71ba-4dee-972f-506a0dfd2e0f
+Error Number:4060,State:1,Class:11
+2019-06-18T11:57:27.4928357+07:00 0HLNJL5QDANQH:00000001 [ERR] An exception occurred in the database while iterating the results of a query for context type '"WebAppCore.Data.EF.AppDbContext"'."
+""System.Data.SqlClient.SqlException (0x80131904): Cannot open database \"WebAppCore\" requested by the login. The login failed.
+Login failed for user 'sa'.
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SelectEnumerableIterator`2.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+ClientConnectionId:961cdc3a-71ba-4dee-972f-506a0dfd2e0f
+Error Number:4060,State:1,Class:11" (64e2593c)
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "WebAppCore" requested by the login. The login failed.
+Login failed for user 'sa'.
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SelectEnumerableIterator`2.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+ClientConnectionId:961cdc3a-71ba-4dee-972f-506a0dfd2e0f
+Error Number:4060,State:1,Class:11
+2019-06-18T11:58:12.2794570+07:00 0HLNJL5QDANQH:00000001 [INF] Executed action "WebAppCore.Controllers.HomeController.Index (WebAppCore)" in 45028.2128ms (afa2e885)
+2019-06-18T11:58:12.4474624+07:00 0HLNJL5QDANQH:00000001 [INF] Request finished in 46028.3311ms 500 text/html; charset=utf-8 (791a596a)
+2019-06-18T11:58:12.6702718+07:00 0HLNJL5QDANQH:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico   (ca22a1cb)
+2019-06-18T11:58:12.7283702+07:00 0HLNJL5QDANQH:00000002 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\favicon.ico"' (27b0a520)
+2019-06-18T11:58:12.7313085+07:00 0HLNJL5QDANQH:00000002 [INF] Request finished in 60.7175ms 200 image/x-icon (791a596a)
+2019-06-18T11:58:34.4763352+07:00 0HLNJL5QDANQH:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5000/   (ca22a1cb)
+2019-06-18T11:58:34.4805062+07:00 0HLNJL5QDANQH:00000003 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing action "WebAppCore.Controllers.HomeController.Index (WebAppCore)" (a44c0341)
+2019-06-18T11:58:34.4852858+07:00 0HLNJL5QDANQH:00000003 [INF] Executing action method "WebAppCore.Controllers.HomeController.Index (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T11:58:34.4894158+07:00 0HLNJL5QDANQH:00000003 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T11:58:44.5065330+07:00 0HLNJL5QDANQH:00000003 [ERR] An error occurred using the connection to database '"WebAppCore"' on server '"."'. (5fc3407c)
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "WebAppCore" requested by the login. The login failed.
+Login failed for user 'sa'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SelectEnumerableIterator`2.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+ClientConnectionId:68ede93b-a57c-4ed7-b62a-2eda4a78c548
+Error Number:4060,State:1,Class:11
+2019-06-18T12:00:17.5710967+07:00 0HLNJL7DG4PFL:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/   (ca22a1cb)
+2019-06-18T12:00:17.9025845+07:00 0HLNJL7DG4PFL:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing action "WebAppCore.Controllers.HomeController.Index (WebAppCore)" (a44c0341)
+2019-06-18T12:00:17.9236878+07:00 0HLNJL7DG4PFL:00000001 [INF] Executing action method "WebAppCore.Controllers.HomeController.Index (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:17.9299277+07:00 0HLNJL7DG4PFL:00000001 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:17.9839764+07:00 0HLNJL7DG4PFL:00000001 [WRN] The Include operation for navigation '"[c].Products"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-18T12:00:18.0524352+07:00 0HLNJL7DG4PFL:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name], [c].[Description], [c].[ParentId], [c].[HomeOrder], [c].[Image], [c].[HomeFlag], [c].[DateCreated], [c].[DateModified], [c].[SortOrder], [c].[Status], [c].[SeoPageTitle], [c].[SeoAlias], [c].[SeoKeywords], [c].[SeoDescription]
+FROM [ProductCategories] AS [c]
+WHERE [c].[HomeFlag] = 1
+ORDER BY [c].[HomeOrder], [c].[Id]" (0723d8ff)
+2019-06-18T12:00:18.1175113+07:00 0HLNJL7DG4PFL:00000001 [INF] Executed DbCommand ("8"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE ([x].[Status] = 1) AND ([x].[HotFlag] = 1)
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2019-06-18T12:00:18.1693911+07:00 0HLNJL7DG4PFL:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE [x].[Status] = 1
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2019-06-18T12:00:18.1896953+07:00 0HLNJL7DG4PFL:00000001 [INF] Executed DbCommand ("7"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE [x0].[Status] = 1
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2019-06-18T12:00:18.2291193+07:00 0HLNJL7DG4PFL:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[Image], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[DateCreated], [x].[DateModified], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [Blogs] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC, [x].[Id]" (0723d8ff)
+2019-06-18T12:00:18.2551693+07:00 0HLNJL7DG4PFL:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=["@__groupAlias_0='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[Image], [x].[Url], [x].[DisplayOrder], [x].[Status], [x].[Content], [x].[GroupAlias]
+FROM [Slides] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[GroupAlias] = @__groupAlias_0)" (0723d8ff)
+2019-06-18T12:00:18.2655293+07:00 0HLNJL7DG4PFL:00000001 [INF] Executed action method "WebAppCore.Controllers.HomeController.Index (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 336.7431ms. (50a9e262)
+2019-06-18T12:00:18.3041243+07:00 0HLNJL7DG4PFL:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-18T12:00:18.5595491+07:00 0HLNJL7DG4PFL:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2019-06-18T12:00:18.5659486+07:00 0HLNJL7DG4PFL:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2019-06-18T12:00:18.6157028+07:00 0HLNJL7DG4PFL:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2019-06-18T12:00:18.6204859+07:00 0HLNJL7DG4PFL:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2019-06-18T12:00:18.6369158+07:00 0HLNJL7DG4PFL:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2019-06-18T12:00:18.6408755+07:00 0HLNJL7DG4PFL:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2019-06-18T12:00:18.7140885+07:00 0HLNJL7DG4PFP:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/flag-english.jpg   (ca22a1cb)
+2019-06-18T12:00:18.7222414+07:00 0HLNJL7DG4PFM:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/style.css   (ca22a1cb)
+2019-06-18T12:00:18.7227111+07:00 0HLNJL7DG4PFN:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/notifyjs/dist/styles/metro/notify-metro.css   (ca22a1cb)
+2019-06-18T12:00:18.7259732+07:00 0HLNJL7DG4PFO:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/flag-default.jpg   (ca22a1cb)
+2019-06-18T12:00:18.7373099+07:00 0HLNJL7DG4PFL:00000001 [INF] Executed ViewResult - view "Index" executed in 452.655ms. (f66409e9)
+2019-06-18T12:00:18.7797924+07:00 0HLNJL7DG4PFL:00000001 [INF] Executed action "WebAppCore.Controllers.HomeController.Index (WebAppCore)" in 866.0781ms (afa2e885)
+2019-06-18T12:00:18.7823591+07:00 0HLNJL7DG4PFN:00000001 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.css"' (27b0a520)
+2019-06-18T12:00:18.7876900+07:00 0HLNJL7DG4PFM:00000001 [INF] Sending file. Request path: '"/client-side/style.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\style.css"' (27b0a520)
+2019-06-18T12:00:18.7970022+07:00 0HLNJL7DG4PFP:00000001 [INF] Sending file. Request path: '"/client-side/images/flag-english.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\flag-english.jpg"' (27b0a520)
+2019-06-18T12:00:18.8368287+07:00 0HLNJL7DG4PFQ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/flag-spain.jpg   (ca22a1cb)
+2019-06-18T12:00:18.8546533+07:00 0HLNJL7DG4PFN:00000001 [INF] Request finished in 104.1584ms 200 text/css (791a596a)
+2019-06-18T12:00:18.8547092+07:00 0HLNJL7DG4PFM:00000001 [INF] Request finished in 104.2612ms 200 text/css (791a596a)
+2019-06-18T12:00:18.8569056+07:00 0HLNJL7DG4PFL:00000001 [INF] Request finished in 1339.3194ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-18T12:00:18.8591830+07:00 0HLNJL7DG4PFM:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/flag-chile.jpg   (ca22a1cb)
+2019-06-18T12:00:18.8631617+07:00 0HLNJL7DG4PFN:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/flag-german.jpg   (ca22a1cb)
+2019-06-18T12:00:18.8655408+07:00 0HLNJL7DG4PFQ:00000001 [INF] Sending file. Request path: '"/client-side/images/flag-spain.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\flag-spain.jpg"' (27b0a520)
+2019-06-18T12:00:18.8719686+07:00 0HLNJL7DG4PFL:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/bootstrap.min.css   (ca22a1cb)
+2019-06-18T12:00:18.8742221+07:00 0HLNJL7DG4PFO:00000001 [INF] Sending file. Request path: '"/client-side/images/flag-default.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\flag-default.jpg"' (27b0a520)
+2019-06-18T12:00:18.8766467+07:00 0HLNJL7DG4PFP:00000001 [INF] Request finished in 113.7254ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:18.8788339+07:00 0HLNJL7DG4PFQ:00000001 [INF] Request finished in 62.1649ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:18.8829646+07:00 0HLNJL7DG4PFO:00000001 [INF] Request finished in 164.151ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:18.8885423+07:00 0HLNJL7DG4PFM:00000002 [INF] Sending file. Request path: '"/client-side/images/flag-chile.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\flag-chile.jpg"' (27b0a520)
+2019-06-18T12:00:18.8905880+07:00 0HLNJL7DG4PFQ:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/animate.css   (ca22a1cb)
+2019-06-18T12:00:18.8932089+07:00 0HLNJL7DG4PFN:00000002 [INF] Sending file. Request path: '"/client-side/images/flag-german.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\flag-german.jpg"' (27b0a520)
+2019-06-18T12:00:18.8947979+07:00 0HLNJL7DG4PFM:00000002 [INF] Request finished in 34.6469ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:18.8971728+07:00 0HLNJL7DG4PFO:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/logo.png   (ca22a1cb)
+2019-06-18T12:00:18.9020234+07:00 0HLNJL7DG4PFM:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/font-awesome.min.css   (ca22a1cb)
+2019-06-18T12:00:18.9062002+07:00 0HLNJL7DG4PFN:00000002 [INF] Request finished in 37.7503ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:18.9086655+07:00 0HLNJL7DG4PFP:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/flag-brazil.jpg   (ca22a1cb)
+2019-06-18T12:00:18.9122596+07:00 0HLNJL7DG4PFN:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/simple-line-icons.css   (ca22a1cb)
+2019-06-18T12:00:18.9150987+07:00 0HLNJL7DG4PFQ:00000002 [INF] Sending file. Request path: '"/client-side/css/animate.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\animate.css"' (27b0a520)
+2019-06-18T12:00:18.9193102+07:00 0HLNJL7DG4PFO:00000002 [INF] Sending file. Request path: '"/client-side/images/logo.png"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\logo.png"' (27b0a520)
+2019-06-18T12:00:18.9239637+07:00 0HLNJL7DG4PFQ:00000002 [INF] Request finished in 39.9243ms 200 text/css (791a596a)
+2019-06-18T12:00:18.9291987+07:00 0HLNJL7DG4PFO:00000002 [INF] Request finished in 38.8728ms 200 image/png (791a596a)
+2019-06-18T12:00:18.9324384+07:00 0HLNJL7DG4PFQ:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/pe-icon-7-stroke.min.css   (ca22a1cb)
+2019-06-18T12:00:18.9362346+07:00 0HLNJL7DG4PFO:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/owl.carousel.css   (ca22a1cb)
+2019-06-18T12:00:18.9388376+07:00 0HLNJL7DG4PFN:00000003 [INF] Sending file. Request path: '"/client-side/css/simple-line-icons.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\simple-line-icons.css"' (27b0a520)
+2019-06-18T12:00:18.9401140+07:00 0HLNJL7DG4PFL:00000002 [INF] Sending file. Request path: '"/client-side/css/bootstrap.min.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\bootstrap.min.css"' (27b0a520)
+2019-06-18T12:00:18.9427046+07:00 0HLNJL7DG4PFP:00000002 [INF] Sending file. Request path: '"/client-side/images/flag-brazil.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\flag-brazil.jpg"' (27b0a520)
+2019-06-18T12:00:18.9455905+07:00 0HLNJL7DG4PFN:00000003 [INF] Request finished in 32.651ms 200 text/css (791a596a)
+2019-06-18T12:00:18.9494764+07:00 0HLNJL7DG4PFL:00000002 [INF] Request finished in 82.3524ms 200 text/css (791a596a)
+2019-06-18T12:00:18.9520683+07:00 0HLNJL7DG4PFN:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/jquery-ui.css   (ca22a1cb)
+2019-06-18T12:00:18.9532293+07:00 0HLNJL7DG4PFQ:00000003 [INF] Sending file. Request path: '"/client-side/css/pe-icon-7-stroke.min.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\pe-icon-7-stroke.min.css"' (27b0a520)
+2019-06-18T12:00:18.9557185+07:00 0HLNJL7DG4PFO:00000003 [INF] Sending file. Request path: '"/client-side/css/owl.carousel.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\owl.carousel.css"' (27b0a520)
+2019-06-18T12:00:18.9592436+07:00 0HLNJL7DG4PFQ:00000003 [INF] Request finished in 28.5994ms 200 text/css (791a596a)
+2019-06-18T12:00:18.9610117+07:00 0HLNJL7DG4PFO:00000003 [INF] Request finished in 27.8884ms 200 text/css (791a596a)
+2019-06-18T12:00:18.9627794+07:00 0HLNJL7DG4PFL:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/owl.transitions.css   (ca22a1cb)
+2019-06-18T12:00:18.9649149+07:00 0HLNJL7DG4PFQ:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/quick_view_popup.css   (ca22a1cb)
+2019-06-18T12:00:18.9692060+07:00 0HLNJL7DG4PFO:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/blog.css   (ca22a1cb)
+2019-06-18T12:00:18.9704971+07:00 0HLNJL7DG4PFP:00000002 [INF] Request finished in 66.722ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:18.9733252+07:00 0HLNJL7DG4PFN:00000004 [INF] Sending file. Request path: '"/client-side/css/jquery-ui.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\jquery-ui.css"' (27b0a520)
+2019-06-18T12:00:18.9767731+07:00 0HLNJL7DG4PFP:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/flexslider.css   (ca22a1cb)
+2019-06-18T12:00:18.9786964+07:00 0HLNJL7DG4PFN:00000004 [INF] Request finished in 27.7584ms 200 text/css (791a596a)
+2019-06-18T12:00:18.9803613+07:00 0HLNJL7DG4PFM:00000003 [INF] Sending file. Request path: '"/client-side/css/font-awesome.min.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\font-awesome.min.css"' (27b0a520)
+2019-06-18T12:00:18.9841677+07:00 0HLNJL7DG4PFL:00000003 [INF] Sending file. Request path: '"/client-side/css/owl.transitions.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\owl.transitions.css"' (27b0a520)
+2019-06-18T12:00:18.9880740+07:00 0HLNJL7DG4PFO:00000004 [INF] Sending file. Request path: '"/client-side/css/blog.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\blog.css"' (27b0a520)
+2019-06-18T12:00:18.9910193+07:00 0HLNJL7DG4PFN:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/shortcode.css   (ca22a1cb)
+2019-06-18T12:00:18.9939995+07:00 0HLNJL7DG4PFL:00000003 [INF] Request finished in 36.423ms 200 text/css (791a596a)
+2019-06-18T12:00:18.9966122+07:00 0HLNJL7DG4PFO:00000004 [INF] Request finished in 27.0087ms 200 text/css (791a596a)
+2019-06-18T12:00:18.9978284+07:00 0HLNJL7DG4PFP:00000003 [INF] Sending file. Request path: '"/client-side/css/flexslider.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\flexslider.css"' (27b0a520)
+2019-06-18T12:00:19.0021644+07:00 0HLNJL7DG4PFL:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/shortcodes/shortcodes.css   (ca22a1cb)
+2019-06-18T12:00:19.0039991+07:00 0HLNJL7DG4PFO:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/shortcodes/featured-box.css   (ca22a1cb)
+2019-06-18T12:00:19.0060335+07:00 0HLNJL7DG4PFP:00000003 [INF] Request finished in 28.3989ms 200 text/css (791a596a)
+2019-06-18T12:00:19.0096069+07:00 0HLNJL7DG4PFQ:00000004 [INF] Sending file. Request path: '"/client-side/css/quick_view_popup.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\quick_view_popup.css"' (27b0a520)
+2019-06-18T12:00:19.0125445+07:00 0HLNJL7DG4PFP:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/shortcodes/tooltip.css   (ca22a1cb)
+2019-06-18T12:00:19.0148900+07:00 0HLNJL7DG4PFN:00000005 [INF] Sending file. Request path: '"/client-side/css/shortcode.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\shortcode.css"' (27b0a520)
+2019-06-18T12:00:19.0196140+07:00 0HLNJL7DG4PFQ:00000004 [INF] Request finished in 50.3939ms 200 text/css (791a596a)
+2019-06-18T12:00:19.0251251+07:00 0HLNJL7DG4PFM:00000003 [INF] Request finished in 85.6046ms 200 text/css (791a596a)
+2019-06-18T12:00:19.0299478+07:00 0HLNJL7DG4PFQ:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/shortcodes/pricing-table.css   (ca22a1cb)
+2019-06-18T12:00:19.0327430+07:00 0HLNJL7DG4PFL:00000004 [INF] Sending file. Request path: '"/client-side/css/shortcodes/shortcodes.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\shortcodes\shortcodes.css"' (27b0a520)
+2019-06-18T12:00:19.0378934+07:00 0HLNJL7DG4PFN:00000005 [INF] Request finished in 36.1826ms 200 text/css (791a596a)
+2019-06-18T12:00:19.0398124+07:00 0HLNJL7DG4PFL:00000004 [INF] Request finished in 37.4734ms 200 text/css (791a596a)
+2019-06-18T12:00:19.0418544+07:00 0HLNJL7DG4PFP:00000004 [INF] Sending file. Request path: '"/client-side/css/shortcodes/tooltip.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\shortcodes\tooltip.css"' (27b0a520)
+2019-06-18T12:00:19.0450861+07:00 0HLNJL7DG4PFN:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/shortcodes/post.css   (ca22a1cb)
+2019-06-18T12:00:19.0474611+07:00 0HLNJL7DG4PFP:00000004 [INF] Request finished in 34.8195ms 200 text/css (791a596a)
+2019-06-18T12:00:19.0500606+07:00 0HLNJL7DG4PFL:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/responsive.css   (ca22a1cb)
+2019-06-18T12:00:19.0533920+07:00 0HLNJL7DG4PFP:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/js/jquery.min.js   (ca22a1cb)
+2019-06-18T12:00:19.0545751+07:00 0HLNJL7DG4PFO:00000005 [INF] Sending file. Request path: '"/client-side/css/shortcodes/featured-box.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\shortcodes\featured-box.css"' (27b0a520)
+2019-06-18T12:00:19.0713803+07:00 0HLNJL7DG4PFQ:00000005 [INF] Sending file. Request path: '"/client-side/css/shortcodes/pricing-table.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\shortcodes\pricing-table.css"' (27b0a520)
+2019-06-18T12:00:19.0743929+07:00 0HLNJL7DG4PFO:00000005 [INF] Request finished in 58.8896ms 200 text/css (791a596a)
+2019-06-18T12:00:19.0762351+07:00 0HLNJL7DG4PFQ:00000005 [INF] Request finished in 51.556ms 200 text/css (791a596a)
+2019-06-18T12:00:19.0794160+07:00 0HLNJL7DG4PFO:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/style.css   (ca22a1cb)
+2019-06-18T12:00:19.0826754+07:00 0HLNJL7DG4PFN:00000006 [INF] Sending file. Request path: '"/client-side/css/shortcodes/post.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\shortcodes\post.css"' (27b0a520)
+2019-06-18T12:00:19.0885525+07:00 0HLNJL7DG4PFM:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/css/revolution-slider.css   (ca22a1cb)
+2019-06-18T12:00:19.0914179+07:00 0HLNJL7DG4PFL:00000005 [INF] Sending file. Request path: '"/client-side/css/responsive.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\responsive.css"' (27b0a520)
+2019-06-18T12:00:19.0940992+07:00 0HLNJL7DG4PFN:00000006 [INF] Request finished in 44.8104ms 200 text/css (791a596a)
+2019-06-18T12:00:19.0954837+07:00 0HLNJL7DG4PFL:00000005 [INF] Request finished in 51.5866ms 200 text/css (791a596a)
+2019-06-18T12:00:19.1130382+07:00 0HLNJL7DG4PFM:00000004 [INF] Sending file. Request path: '"/client-side/css/revolution-slider.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\revolution-slider.css"' (27b0a520)
+2019-06-18T12:00:19.1130692+07:00 0HLNJL7DG4PFO:00000006 [INF] Sending file. Request path: '"/client-side/css/style.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\css\style.css"' (27b0a520)
+2019-06-18T12:00:19.1168208+07:00 0HLNJL7DG4PFQ:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/js/main.js   (ca22a1cb)
+2019-06-18T12:00:19.1182676+07:00 0HLNJL7DG4PFM:00000004 [INF] Request finished in 87.1486ms 200 text/css (791a596a)
+2019-06-18T12:00:19.1214532+07:00 0HLNJL7DG4PFL:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/js/mobile-menu.js   (ca22a1cb)
+2019-06-18T12:00:19.1227004+07:00 0HLNJL7DG4PFO:00000006 [INF] Request finished in 39.6459ms 200 text/css (791a596a)
+2019-06-18T12:00:19.1253208+07:00 0HLNJL7DG4PFM:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/js/bootstrap.min.js   (ca22a1cb)
+2019-06-18T12:00:19.1278923+07:00 0HLNJL7DG4PFO:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/js/owl.carousel.min.js   (ca22a1cb)
+2019-06-18T12:00:19.1292393+07:00 0HLNJL7DG4PFN:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/js/jquery-ui.js   (ca22a1cb)
+2019-06-18T12:00:19.1436199+07:00 0HLNJL7DG4PFQ:00000006 [INF] Sending file. Request path: '"/client-side/js/main.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\js\main.js"' (27b0a520)
+2019-06-18T12:00:19.1513185+07:00 0HLNJL7DG4PFQ:00000006 [INF] Request finished in 34.6454ms 200 application/javascript (791a596a)
+2019-06-18T12:00:19.1542787+07:00 0HLNJL7DG4PFL:00000006 [INF] Sending file. Request path: '"/client-side/js/mobile-menu.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\js\mobile-menu.js"' (27b0a520)
+2019-06-18T12:00:19.1590856+07:00 0HLNJL7DG4PFL:00000006 [INF] Request finished in 40.7942ms 200 application/javascript (791a596a)
+2019-06-18T12:00:19.1645677+07:00 0HLNJL7DG4PFO:00000007 [INF] Sending file. Request path: '"/client-side/js/owl.carousel.min.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\js\owl.carousel.min.js"' (27b0a520)
+2019-06-18T12:00:19.1685915+07:00 0HLNJL7DG4PFP:00000005 [INF] Sending file. Request path: '"/client-side/js/jquery.min.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\js\jquery.min.js"' (27b0a520)
+2019-06-18T12:00:19.1696437+07:00 0HLNJL7DG4PFO:00000007 [INF] Request finished in 41.2063ms 200 application/javascript (791a596a)
+2019-06-18T12:00:19.1715366+07:00 0HLNJL7DG4PFP:00000005 [INF] Request finished in 120.824ms 200 application/javascript (791a596a)
+2019-06-18T12:00:19.1737301+07:00 0HLNJL7DG4PFM:00000005 [INF] Sending file. Request path: '"/client-side/js/bootstrap.min.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\js\bootstrap.min.js"' (27b0a520)
+2019-06-18T12:00:19.1753082+07:00 0HLNJL7DG4PFM:00000005 [INF] Request finished in 54.2601ms 200 application/javascript (791a596a)
+2019-06-18T12:00:19.1975355+07:00 0HLNJL7DG4PFN:00000007 [INF] Sending file. Request path: '"/client-side/js/jquery-ui.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\js\jquery-ui.js"' (27b0a520)
+2019-06-18T12:00:19.1999479+07:00 0HLNJL7DG4PFN:00000007 [INF] Request finished in 88.5546ms 200 application/javascript (791a596a)
+2019-06-18T12:00:19.3726247+07:00 0HLNJL7DG4PFN:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/js/countdown.js   (ca22a1cb)
+2019-06-18T12:00:19.3750302+07:00 0HLNJL7DG4PFM:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/js/revolution-slider.js   (ca22a1cb)
+2019-06-18T12:00:19.3768693+07:00 0HLNJL7DG4PFL:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/mustache/mustache.js   (ca22a1cb)
+2019-06-18T12:00:19.3795064+07:00 0HLNJL7DG4PFQ:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-app/shared/structures-client.js   (ca22a1cb)
+2019-06-18T12:00:19.3829874+07:00 0HLNJL7DG4PFP:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2019-06-18T12:00:19.3872713+07:00 0HLNJL7DG4PFO:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2019-06-18T12:00:19.4063992+07:00 0HLNJL7DG4PFN:00000008 [INF] Sending file. Request path: '"/client-side/js/countdown.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\js\countdown.js"' (27b0a520)
+2019-06-18T12:00:19.4086164+07:00 0HLNJL7DG4PFO:00000008 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.js"' (27b0a520)
+2019-06-18T12:00:19.4127476+07:00 0HLNJL7DG4PFQ:00000007 [INF] Sending file. Request path: '"/client-app/shared/structures-client.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-app\shared\structures-client.js"' (27b0a520)
+2019-06-18T12:00:19.4152399+07:00 0HLNJL7DG4PFN:00000008 [INF] Request finished in 40.5471ms 200 application/javascript (791a596a)
+2019-06-18T12:00:19.4198901+07:00 0HLNJL7DG4PFQ:00000007 [INF] Request finished in 38.687ms 200 application/javascript (791a596a)
+2019-06-18T12:00:19.4232479+07:00 0HLNJL7DG4PFN:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-app/base/index.js   (ca22a1cb)
+2019-06-18T12:00:19.4257866+07:00 0HLNJL7DG4PFQ:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/banner-left.jpg   (ca22a1cb)
+2019-06-18T12:00:19.4276562+07:00 0HLNJL7DG4PFL:00000007 [INF] Sending file. Request path: '"/lib/mustache/mustache.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\mustache\mustache.js"' (27b0a520)
+2019-06-18T12:00:19.4312190+07:00 0HLNJL7DG4PFO:00000008 [INF] Request finished in 39.6342ms 200 application/javascript (791a596a)
+2019-06-18T12:00:19.4341585+07:00 0HLNJL7DG4PFP:00000006 [INF] Sending file. Request path: '"/lib/notifyjs/dist/notify.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\notifyjs\dist\notify.js"' (27b0a520)
+2019-06-18T12:00:19.4387171+07:00 0HLNJL7DG4PFL:00000007 [INF] Request finished in 55.7391ms 200 application/javascript (791a596a)
+2019-06-18T12:00:19.4411414+07:00 0HLNJL7DG4PFO:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/slider/slide-3.jpg   (ca22a1cb)
+2019-06-18T12:00:19.4447344+07:00 0HLNJL7DG4PFP:00000006 [INF] Request finished in 67.1914ms 200 application/javascript (791a596a)
+2019-06-18T12:00:19.4465587+07:00 0HLNJL7DG4PFL:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/products/product-1.jpg   (ca22a1cb)
+2019-06-18T12:00:19.4516185+07:00 0HLNJL7DG4PFP:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/slider/slide-2.jpg   (ca22a1cb)
+2019-06-18T12:00:19.4532900+07:00 0HLNJL7DG4PFN:00000009 [INF] Sending file. Request path: '"/client-app/base/index.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-app\base\index.js"' (27b0a520)
+2019-06-18T12:00:19.4592866+07:00 0HLNJL7DG4PFN:00000009 [INF] Request finished in 38.0889ms 200 application/javascript (791a596a)
+2019-06-18T12:00:19.4619086+07:00 0HLNJL7DG4PFQ:00000008 [INF] Sending file. Request path: '"/client-side/images/banner-left.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\banner-left.jpg"' (27b0a520)
+2019-06-18T12:00:19.4640661+07:00 0HLNJL7DG4PFN:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/slider/slide-1.jpg   (ca22a1cb)
+2019-06-18T12:00:19.4672607+07:00 0HLNJL7DG4PFQ:00000008 [INF] Request finished in 42.0285ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.4745715+07:00 0HLNJL7DG4PFL:00000008 [INF] Sending file. Request path: '"/client-side/images/products/product-1.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\products\product-1.jpg"' (27b0a520)
+2019-06-18T12:00:19.4772975+07:00 0HLNJL7DG4PFQ:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/sub1.jpg   (ca22a1cb)
+2019-06-18T12:00:19.4800166+07:00 0HLNJL7DG4PFO:00000009 [INF] Sending file. Request path: '"/client-side/images/slider/slide-3.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\slider\slide-3.jpg"' (27b0a520)
+2019-06-18T12:00:19.4824262+07:00 0HLNJL7DG4PFL:00000008 [INF] Request finished in 35.9081ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.4883393+07:00 0HLNJL7DG4PFO:00000009 [INF] Request finished in 48.8175ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.4930747+07:00 0HLNJL7DG4PFL:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/products/product-1.jpg?w=190   (ca22a1cb)
+2019-06-18T12:00:19.4961264+07:00 0HLNJL7DG4PFP:00000007 [INF] Sending file. Request path: '"/client-side/images/slider/slide-2.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\slider\slide-2.jpg"' (27b0a520)
+2019-06-18T12:00:19.4982316+07:00 0HLNJL7DG4PFM:00000006 [INF] Sending file. Request path: '"/client-side/js/revolution-slider.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\js\revolution-slider.js"' (27b0a520)
+2019-06-18T12:00:19.5007619+07:00 0HLNJL7DG4PFQ:00000009 [INF] Sending file. Request path: '"/client-side/images/sub1.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\sub1.jpg"' (27b0a520)
+2019-06-18T12:00:19.5040073+07:00 0HLNJL7DG4PFP:00000007 [INF] Request finished in 49.8373ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.5058685+07:00 0HLNJL7DG4PFM:00000006 [INF] Request finished in 128.9943ms 200 application/javascript (791a596a)
+2019-06-18T12:00:19.5085495+07:00 0HLNJL7DG4PFQ:00000009 [INF] Request finished in 30.0013ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.5107965+07:00 0HLNJL7DG4PFP:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/banner-mob.jpg   (ca22a1cb)
+2019-06-18T12:00:19.5131322+07:00 0HLNJL7DG4PFQ:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/banner-kids.jpg   (ca22a1cb)
+2019-06-18T12:00:19.5166348+07:00 0HLNJL7DG4PFM:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/sub1a.jpg   (ca22a1cb)
+2019-06-18T12:00:19.5191056+07:00 0HLNJL7DG4PFO:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/banner-laptop.jpg   (ca22a1cb)
+2019-06-18T12:00:19.5207122+07:00 0HLNJL7DG4PFN:0000000A [INF] Sending file. Request path: '"/client-side/images/slider/slide-1.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\slider\slide-1.jpg"' (27b0a520)
+2019-06-18T12:00:19.5236719+07:00 0HLNJL7DG4PFN:0000000A [INF] Request finished in 61.5128ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.5294522+07:00 0HLNJL7DG4PFL:00000009 [INF] Resizing /client-side/images/products/product-1.jpg with params w: 190, h: 0, autorotate: False, quality: 100, format: jpg, mode: max (d9bba74d)
+2019-06-18T12:00:19.5316091+07:00 0HLNJL7DG4PFN:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/banner-sunglasses.jpg   (ca22a1cb)
+2019-06-18T12:00:19.5398956+07:00 0HLNJL7DG4PFM:00000007 [INF] Sending file. Request path: '"/client-side/images/sub1a.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\sub1a.jpg"' (27b0a520)
+2019-06-18T12:00:19.5426874+07:00 0HLNJL7DG4PFQ:0000000A [INF] Sending file. Request path: '"/client-side/images/banner-kids.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\banner-kids.jpg"' (27b0a520)
+2019-06-18T12:00:19.5442686+07:00 0HLNJL7DG4PFP:00000008 [INF] Sending file. Request path: '"/client-side/images/banner-mob.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\banner-mob.jpg"' (27b0a520)
+2019-06-18T12:00:19.5480512+07:00 0HLNJL7DG4PFO:0000000A [INF] Sending file. Request path: '"/client-side/images/banner-laptop.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\banner-laptop.jpg"' (27b0a520)
+2019-06-18T12:00:19.5507904+07:00 0HLNJL7DG4PFP:00000008 [INF] Request finished in 41.1475ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.5544457+07:00 0HLNJL7DG4PFM:00000007 [INF] Request finished in 34.0123ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.5574605+07:00 0HLNJL7DG4PFP:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/testimonials-img3.jpg   (ca22a1cb)
+2019-06-18T12:00:19.5602615+07:00 0HLNJL7DG4PFO:0000000A [INF] Request finished in 59.4585ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.5623541+07:00 0HLNJL7DG4PFM:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/banner-women.jpg   (ca22a1cb)
+2019-06-18T12:00:19.5633747+07:00 0HLNJL7DG4PFN:0000000B [INF] Sending file. Request path: '"/client-side/images/banner-sunglasses.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\banner-sunglasses.jpg"' (27b0a520)
+2019-06-18T12:00:19.5664825+07:00 0HLNJL7DG4PFO:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/testimonials-img1.jpg   (ca22a1cb)
+2019-06-18T12:00:19.5679085+07:00 0HLNJL7DG4PFN:0000000B [INF] Request finished in 39.2209ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.5719399+07:00 0HLNJL7DG4PFQ:0000000A [INF] Request finished in 33.0257ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.5748557+07:00 0HLNJL7DG4PFN:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/testimonials-img2.jpg   (ca22a1cb)
+2019-06-18T12:00:19.5795675+07:00 0HLNJL7DG4PFQ:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/banner-arrival.jpg   (ca22a1cb)
+2019-06-18T12:00:19.5818813+07:00 0HLNJL7DG4PFP:00000009 [INF] Sending file. Request path: '"/client-side/images/testimonials-img3.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\testimonials-img3.jpg"' (27b0a520)
+2019-06-18T12:00:19.5881157+07:00 0HLNJL7DG4PFM:00000008 [INF] Sending file. Request path: '"/client-side/images/banner-women.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\banner-women.jpg"' (27b0a520)
+2019-06-18T12:00:19.5902906+07:00 0HLNJL7DG4PFP:00000009 [INF] Request finished in 32.9905ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.5930353+07:00 0HLNJL7DG4PFM:00000008 [INF] Request finished in 34.7139ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.5955495+07:00 0HLNJL7DG4PFP:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/testimonials-img4.jpg   (ca22a1cb)
+2019-06-18T12:00:19.5973875+07:00 0HLNJL7DG4PFN:0000000C [INF] Sending file. Request path: '"/client-side/images/testimonials-img2.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\testimonials-img2.jpg"' (27b0a520)
+2019-06-18T12:00:19.6009371+07:00 0HLNJL7DG4PFO:0000000B [INF] Sending file. Request path: '"/client-side/images/testimonials-img1.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\testimonials-img1.jpg"' (27b0a520)
+2019-06-18T12:00:19.6034459+07:00 0HLNJL7DG4PFM:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/footer-logo.png   (ca22a1cb)
+2019-06-18T12:00:19.6054204+07:00 0HLNJL7DG4PFO:0000000B [INF] Request finished in 40.8264ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.6066648+07:00 0HLNJL7DG4PFN:0000000C [INF] Request finished in 29.0853ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.6114035+07:00 0HLNJL7DG4PFO:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/visa.png   (ca22a1cb)
+2019-06-18T12:00:19.6121740+07:00 0HLNJL7DG4PFN:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/paypal.png   (ca22a1cb)
+2019-06-18T12:00:19.6137194+07:00 0HLNJL7DG4PFQ:0000000B [INF] Sending file. Request path: '"/client-side/images/banner-arrival.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\banner-arrival.jpg"' (27b0a520)
+2019-06-18T12:00:19.6163938+07:00 0HLNJL7DG4PFP:0000000A [INF] Sending file. Request path: '"/client-side/images/testimonials-img4.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\testimonials-img4.jpg"' (27b0a520)
+2019-06-18T12:00:19.6222792+07:00 0HLNJL7DG4PFM:00000009 [INF] Sending file. Request path: '"/client-side/images/footer-logo.png"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\footer-logo.png"' (27b0a520)
+2019-06-18T12:00:19.6247069+07:00 0HLNJL7DG4PFO:0000000C [INF] Sending file. Request path: '"/client-side/images/visa.png"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\visa.png"' (27b0a520)
+2019-06-18T12:00:19.6274752+07:00 0HLNJL7DG4PFM:00000009 [INF] Request finished in 29.1947ms 200 image/png (791a596a)
+2019-06-18T12:00:19.6288687+07:00 0HLNJL7DG4PFO:0000000C [INF] Request finished in 19.3463ms 200 image/png (791a596a)
+2019-06-18T12:00:19.6318793+07:00 0HLNJL7DG4PFN:0000000D [INF] Sending file. Request path: '"/client-side/images/paypal.png"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\paypal.png"' (27b0a520)
+2019-06-18T12:00:19.6349575+07:00 0HLNJL7DG4PFM:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/bg_text_des.png   (ca22a1cb)
+2019-06-18T12:00:19.6387746+07:00 0HLNJL7DG4PFN:0000000D [INF] Request finished in 24.5123ms 200 image/png (791a596a)
+2019-06-18T12:00:19.6408498+07:00 0HLNJL7DG4PFQ:0000000B [INF] Request finished in 42.6041ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.6428759+07:00 0HLNJL7DG4PFP:0000000A [INF] Request finished in 28.349ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.6460376+07:00 0HLNJL7DG4PFQ:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/discover.png   (ca22a1cb)
+2019-06-18T12:00:19.6480261+07:00 0HLNJL7DG4PFP:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/images/master-card.png   (ca22a1cb)
+2019-06-18T12:00:19.6522554+07:00 0HLNJL7DG4PFM:0000000A [INF] Sending file. Request path: '"/client-side/images/bg_text_des.png"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\bg_text_des.png"' (27b0a520)
+2019-06-18T12:00:19.6558470+07:00 0HLNJL7DG4PFM:0000000A [INF] Request finished in 24.8391ms 200 image/png (791a596a)
+2019-06-18T12:00:19.6599795+07:00 0HLNJL7DG4PFP:0000000B [INF] Sending file. Request path: '"/client-side/images/master-card.png"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\master-card.png"' (27b0a520)
+2019-06-18T12:00:19.6633700+07:00 0HLNJL7DG4PFP:0000000B [INF] Request finished in 16.4243ms 200 image/png (791a596a)
+2019-06-18T12:00:19.6646628+07:00 0HLNJL7DG4PFQ:0000000C [INF] Sending file. Request path: '"/client-side/images/discover.png"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\images\discover.png"' (27b0a520)
+2019-06-18T12:00:19.6672583+07:00 0HLNJL7DG4PFQ:0000000C [INF] Request finished in 23.0076ms 200 image/png (791a596a)
+2019-06-18T12:00:19.7449033+07:00 0HLNJL7DG4PFL:00000009 [INF] Request finished in 260.0629ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:19.8251574+07:00 0HLNJL7DG4PFL:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/fonts/font-awesome/fontawesome-webfont.woff2?v=4.7.0   (ca22a1cb)
+2019-06-18T12:00:19.8266979+07:00 0HLNJL7DG4PFQ:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:5000/client-side/fonts/simple-line-icons/Simple-Line-Icons.woff2?v=2.4.0   (ca22a1cb)
+2019-06-18T12:00:19.8416872+07:00 0HLNJL7DG4PFL:0000000A [INF] Sending file. Request path: '"/client-side/fonts/font-awesome/fontawesome-webfont.woff2"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\fonts\font-awesome\fontawesome-webfont.woff2"' (27b0a520)
+2019-06-18T12:00:19.8457022+07:00 0HLNJL7DG4PFQ:0000000D [INF] Sending file. Request path: '"/client-side/fonts/simple-line-icons/Simple-Line-Icons.woff2"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\client-side\fonts\simple-line-icons\Simple-Line-Icons.woff2"' (27b0a520)
+2019-06-18T12:00:19.8483044+07:00 0HLNJL7DG4PFL:0000000A [INF] Request finished in 23.1547ms 200 font/woff2 (791a596a)
+2019-06-18T12:00:19.8506698+07:00 0HLNJL7DG4PFQ:0000000D [INF] Request finished in 22.4888ms 200 font/woff2 (791a596a)
+2019-06-18T12:00:20.3676127+07:00 0HLNJL7DG4PFL:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:5000/   (ca22a1cb)
+2019-06-18T12:00:20.3726707+07:00 0HLNJL7DG4PFL:0000000B [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing action "WebAppCore.Controllers.HomeController.Index (WebAppCore)" (a44c0341)
+2019-06-18T12:00:20.3766608+07:00 0HLNJL7DG4PFL:0000000B [INF] Executing action method "WebAppCore.Controllers.HomeController.Index (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:20.3813684+07:00 0HLNJL7DG4PFL:0000000B [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:20.3865088+07:00 0HLNJL7DG4PFL:0000000B [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name], [c].[Description], [c].[ParentId], [c].[HomeOrder], [c].[Image], [c].[HomeFlag], [c].[DateCreated], [c].[DateModified], [c].[SortOrder], [c].[Status], [c].[SeoPageTitle], [c].[SeoAlias], [c].[SeoKeywords], [c].[SeoDescription]
+FROM [ProductCategories] AS [c]
+WHERE [c].[HomeFlag] = 1
+ORDER BY [c].[HomeOrder], [c].[Id]" (0723d8ff)
+2019-06-18T12:00:20.3918767+07:00 0HLNJL7DG4PFL:0000000B [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE ([x].[Status] = 1) AND ([x].[HotFlag] = 1)
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2019-06-18T12:00:20.3960779+07:00 0HLNJL7DG4PFL:0000000B [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE [x].[Status] = 1
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2019-06-18T12:00:20.4004272+07:00 0HLNJL7DG4PFL:0000000B [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE [x0].[Status] = 1
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2019-06-18T12:00:20.4055417+07:00 0HLNJL7DG4PFL:0000000B [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[Image], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[DateCreated], [x].[DateModified], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [Blogs] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC, [x].[Id]" (0723d8ff)
+2019-06-18T12:00:20.4087688+07:00 0HLNJL7DG4PFL:0000000B [INF] Executed DbCommand ("0"ms) [Parameters=["@__groupAlias_0='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[Image], [x].[Url], [x].[DisplayOrder], [x].[Status], [x].[Content], [x].[GroupAlias]
+FROM [Slides] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[GroupAlias] = @__groupAlias_0)" (0723d8ff)
+2019-06-18T12:00:20.4116868+07:00 0HLNJL7DG4PFL:0000000B [INF] Executed action method "WebAppCore.Controllers.HomeController.Index (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 31.4449ms. (50a9e262)
+2019-06-18T12:00:20.4148114+07:00 0HLNJL7DG4PFL:0000000B [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-18T12:00:20.4198446+07:00 0HLNJL7DG4PFL:0000000B [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2019-06-18T12:00:20.4256480+07:00 0HLNJL7DG4PFL:0000000B [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2019-06-18T12:00:20.4355425+07:00 0HLNJL7DG4PFL:0000000B [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2019-06-18T12:00:20.4402728+07:00 0HLNJL7DG4PFL:0000000B [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2019-06-18T12:00:20.4475054+07:00 0HLNJL7DG4PFL:0000000B [INF] Executed ViewResult - view "Index" executed in 31.5407ms. (f66409e9)
+2019-06-18T12:00:20.4516352+07:00 0HLNJL7DG4PFL:0000000B [INF] Executed action "WebAppCore.Controllers.HomeController.Index (WebAppCore)" in 75.9798ms (afa2e885)
+2019-06-18T12:00:20.4550616+07:00 0HLNJL7DG4PFL:0000000B [INF] Request finished in 86.932ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-18T12:00:31.0131287+07:00 0HLNJL7DG4PFQ:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin   (ca22a1cb)
+2019-06-18T12:00:31.0202496+07:00 0HLNJL7DG4PFQ:0000000E [INF] Route matched with "{area = \"Admin\", action = \"Index\", controller = \"Login\"}". Executing action "WebAppCore.Areas.Admin.Controllers.LoginController.Index (WebAppCore)" (a44c0341)
+2019-06-18T12:00:31.0290703+07:00 0HLNJL7DG4PFQ:0000000E [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.LoginController.Index (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:31.0322144+07:00 0HLNJL7DG4PFQ:0000000E [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.LoginController.Index (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.6066ms. (50a9e262)
+2019-06-18T12:00:31.0427864+07:00 0HLNJL7DG4PFQ:0000000E [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-18T12:00:31.0806773+07:00 0HLNJL7DG4PFQ:0000000E [INF] Executed ViewResult - view "Index" executed in 46.1048ms. (f66409e9)
+2019-06-18T12:00:31.0836641+07:00 0HLNJL7DG4PFQ:0000000E [INF] Executed action "WebAppCore.Areas.Admin.Controllers.LoginController.Index (WebAppCore)" in 59.9109ms (afa2e885)
+2019-06-18T12:00:31.0869250+07:00 0HLNJL7DG4PFQ:0000000E [INF] Request finished in 73.7886ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-18T12:00:31.1316902+07:00 0HLNJL7DG4PFQ:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/css/bootstrap.css   (ca22a1cb)
+2019-06-18T12:00:31.1337501+07:00 0HLNJL7DG4PFN:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/animate.css/animate.css   (ca22a1cb)
+2019-06-18T12:00:31.1404753+07:00 0HLNJL7DG4PFM:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/nprogress/nprogress.css   (ca22a1cb)
+2019-06-18T12:00:31.1458719+07:00 0HLNJL7DG4PFO:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin-side/css/custom.css   (ca22a1cb)
+2019-06-18T12:00:31.1486170+07:00 0HLNJL7DG4PFP:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-06-18T12:00:31.1520541+07:00 0HLNJL7DG4PFR:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery/dist/jquery.js   (ca22a1cb)
+2019-06-18T12:00:31.1703752+07:00 0HLNJL7DG4PFM:0000000B [INF] Sending file. Request path: '"/lib/nprogress/nprogress.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\nprogress\nprogress.css"' (27b0a520)
+2019-06-18T12:00:31.1817781+07:00 0HLNJL7DG4PFM:0000000B [INF] Request finished in 53.8857ms 200 text/css (791a596a)
+2019-06-18T12:00:31.1971141+07:00 0HLNJL7DG4PFP:0000000C [INF] Sending file. Request path: '"/lib/font-awesome/css/font-awesome.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\font-awesome\css\font-awesome.css"' (27b0a520)
+2019-06-18T12:00:31.2131082+07:00 0HLNJL7DG4PFN:0000000E [INF] Sending file. Request path: '"/lib/animate.css/animate.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\animate.css\animate.css"' (27b0a520)
+2019-06-18T12:00:31.2337260+07:00 0HLNJL7DG4PFM:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery-validation/dist/jquery.validate.js   (ca22a1cb)
+2019-06-18T12:00:31.2415641+07:00 0HLNJL7DG4PFN:0000000E [INF] Request finished in 99.9849ms 200 text/css (791a596a)
+2019-06-18T12:00:31.2433140+07:00 0HLNJL7DG4PFP:0000000C [INF] Request finished in 84.0278ms 200 text/css (791a596a)
+2019-06-18T12:00:31.2464216+07:00 0HLNJL7DG4PFO:0000000D [INF] Sending file. Request path: '"/admin-side/css/custom.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\admin-side\css\custom.css"' (27b0a520)
+2019-06-18T12:00:31.2498961+07:00 0HLNJL7DG4PFN:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:5000/bundled/site-admin.min.js   (ca22a1cb)
+2019-06-18T12:00:31.2538135+07:00 0HLNJL7DG4PFO:0000000D [INF] Request finished in 115.6563ms 200 text/css (791a596a)
+2019-06-18T12:00:31.2584067+07:00 0HLNJL7DG4PFQ:0000000F [INF] Sending file. Request path: '"/lib/bootstrap/dist/css/bootstrap.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\bootstrap\dist\css\bootstrap.css"' (27b0a520)
+2019-06-18T12:00:31.2615963+07:00 0HLNJL7DG4PFO:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:5000/app/shared/structures.js   (ca22a1cb)
+2019-06-18T12:00:31.2633687+07:00 0HLNJL7DG4PFQ:0000000F [INF] Request finished in 155.4915ms 200 text/css (791a596a)
+2019-06-18T12:00:31.2694594+07:00 0HLNJL7DG4PFM:0000000C [INF] Sending file. Request path: '"/lib/jquery-validation/dist/jquery.validate.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\jquery-validation\dist\jquery.validate.js"' (27b0a520)
+2019-06-18T12:00:31.2747612+07:00 0HLNJL7DG4PFR:00000001 [INF] Sending file. Request path: '"/lib/jquery/dist/jquery.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\jquery\dist\jquery.js"' (27b0a520)
+2019-06-18T12:00:31.2774028+07:00 0HLNJL7DG4PFM:0000000C [INF] Request finished in 90.0627ms 200 application/javascript (791a596a)
+2019-06-18T12:00:31.2799921+07:00 0HLNJL7DG4PFR:00000001 [INF] Request finished in 158.7324ms 200 application/javascript (791a596a)
+2019-06-18T12:00:31.2849968+07:00 0HLNJL7DG4PFO:0000000E [INF] Sending file. Request path: '"/app/shared/structures.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\app\shared\structures.js"' (27b0a520)
+2019-06-18T12:00:31.2883349+07:00 0HLNJL7DG4PFO:0000000E [INF] Request finished in 31.164ms 200 application/javascript (791a596a)
+2019-06-18T12:00:31.3014405+07:00 0HLNJL7DG4PFN:0000000F [INF] Sending file. Request path: '"/bundled/site-admin.min.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\bundled\site-admin.min.js"' (27b0a520)
+2019-06-18T12:00:31.3107446+07:00 0HLNJL7DG4PFN:0000000F [INF] Request finished in 60.8423ms 200 application/javascript (791a596a)
+2019-06-18T12:00:31.3137545+07:00 0HLNJL7DG4PFN:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0   (ca22a1cb)
+2019-06-18T12:00:31.3386308+07:00 0HLNJL7DG4PFN:00000010 [INF] Sending file. Request path: '"/lib/font-awesome/fonts/fontawesome-webfont.woff2"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\font-awesome\fonts\fontawesome-webfont.woff2"' (27b0a520)
+2019-06-18T12:00:31.3434321+07:00 0HLNJL7DG4PFN:00000010 [INF] Request finished in 28.0847ms 200 font/woff2 (791a596a)
+2019-06-18T12:00:33.1518237+07:00 0HLNJL7DG4PFN:00000011 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Admin/Login/Authen application/x-www-form-urlencoded; charset=UTF-8 30 (ca22a1cb)
+2019-06-18T12:00:33.1556039+07:00 0HLNJL7DG4PFN:00000011 [INF] Policy execution successful. (0204925d)
+2019-06-18T12:00:33.1804711+07:00 0HLNJL7DG4PFN:00000011 [INF] Route matched with "{area = \"Admin\", action = \"Authen\", controller = \"Login\"}". Executing action "WebAppCore.Areas.Admin.Controllers.LoginController.Authen (WebAppCore)" (a44c0341)
+2019-06-18T12:00:33.2387767+07:00 0HLNJL7DG4PFN:00000011 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.LoginController.Authen (WebAppCore)" with arguments (["WebAppCore.Models.AccountViewModels.LoginViewModel"]) - Validation state: Valid (4e3479ed)
+2019-06-18T12:00:33.2463144+07:00 0HLNJL7DG4PFN:00000011 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:33.2497621+07:00 0HLNJL7DG4PFN:00000011 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2019-06-18T12:00:33.3173291+07:00 0HLNJL7DG4PFN:00000011 [INF] Executed DbCommand ("1"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2019-06-18T12:00:33.3579987+07:00 0HLNJL7DG4PFN:00000011 [INF] Executed DbCommand ("7"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-18T12:00:33.3649480+07:00 0HLNJL7DG4PFN:00000011 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2019-06-18T12:00:33.3793471+07:00 0HLNJL7DG4PFN:00000011 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2019-06-18T12:00:33.3902742+07:00 0HLNJL7DG4PFN:00000011 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2019-06-18T12:00:33.4036981+07:00 0HLNJL7DG4PFN:00000011 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2019-06-18T12:00:33.4091965+07:00 0HLNJL7DG4PFN:00000011 [INF] User logged in. (fdce0db4)
+2019-06-18T12:00:33.4142062+07:00 0HLNJL7DG4PFN:00000011 [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.LoginController.Authen (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 173.2867ms. (50a9e262)
+2019-06-18T12:00:33.4251358+07:00 0HLNJL7DG4PFN:00000011 [INF] Executing ObjectResult, writing value of type '"WebAppCore.Utilities.Dtos.GenericResult"'. (8a1b66c8)
+2019-06-18T12:00:33.4824695+07:00 0HLNJL7DG4PFN:00000011 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.LoginController.Authen (WebAppCore)" in 299.7037ms (afa2e885)
+2019-06-18T12:00:33.4858066+07:00 0HLNJL7DG4PFN:00000011 [INF] Request finished in 333.962ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:33.4931896+07:00 0HLNJL7DG4PFN:00000012 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/Home/Index   (ca22a1cb)
+2019-06-18T12:00:33.5059264+07:00 0HLNJL7DG4PFN:00000012 [INF] Route matched with "{area = \"Admin\", action = \"Index\", controller = \"Home\"}". Executing action "WebAppCore.Areas.Admin.Controllers.HomeController.Index (WebAppCore)" (a44c0341)
+2019-06-18T12:00:33.5205795+07:00 0HLNJL7DG4PFN:00000012 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:33.5247493+07:00 0HLNJL7DG4PFN:00000012 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.HomeController.Index (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:33.5283456+07:00 0HLNJL7DG4PFN:00000012 [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.HomeController.Index (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 1.1383ms. (50a9e262)
+2019-06-18T12:00:33.5333459+07:00 0HLNJL7DG4PFN:00000012 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-18T12:00:33.5846291+07:00 0HLNJL7DG4PFN:00000012 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:33.5994481+07:00 0HLNJL7DG4PFN:00000012 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[URL], [x].[ParentId], [x].[IconCss], [x].[SortOrder], [x].[Status]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-06-18T12:00:33.6697135+07:00 0HLNJL7DG4PFN:00000012 [INF] Executed ViewResult - view "Index" executed in 138.5692ms. (f66409e9)
+2019-06-18T12:00:33.6725085+07:00 0HLNJL7DG4PFN:00000012 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.HomeController.Index (WebAppCore)" in 163.8869ms (afa2e885)
+2019-06-18T12:00:33.6761926+07:00 0HLNJL7DG4PFN:00000012 [INF] Request finished in 182.7144ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-18T12:00:33.6862580+07:00 0HLNJL7DG4PFN:00000013 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap-daterangepicker/daterangepicker.css   (ca22a1cb)
+2019-06-18T12:00:33.6911831+07:00 0HLNJL7DG4PFO:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/ckeditor/skins/moono/editor.css   (ca22a1cb)
+2019-06-18T12:00:33.7078048+07:00 0HLNJL7DG4PFR:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin-side/css/custom.min.css   (ca22a1cb)
+2019-06-18T12:00:33.7105889+07:00 0HLNJL7DG4PFQ:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/signalr/dist/browser/signalr.js   (ca22a1cb)
+2019-06-18T12:00:33.7127141+07:00 0HLNJL7DG4PFM:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin-side/images/img.jpg   (ca22a1cb)
+2019-06-18T12:00:33.7186204+07:00 0HLNJL7DG4PFP:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/js/bootstrap.js   (ca22a1cb)
+2019-06-18T12:00:33.7351272+07:00 0HLNJL7DG4PFN:00000013 [INF] Sending file. Request path: '"/lib/bootstrap-daterangepicker/daterangepicker.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\bootstrap-daterangepicker\daterangepicker.css"' (27b0a520)
+2019-06-18T12:00:33.7449844+07:00 0HLNJL7DG4PFN:00000013 [INF] Request finished in 52.5554ms 200 text/css (791a596a)
+2019-06-18T12:00:33.7475418+07:00 0HLNJL7DG4PFR:00000002 [INF] Sending file. Request path: '"/admin-side/css/custom.min.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\admin-side\css\custom.min.css"' (27b0a520)
+2019-06-18T12:00:33.7520375+07:00 0HLNJL7DG4PFO:0000000F [INF] Sending file. Request path: '"/lib/ckeditor/skins/moono/editor.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\ckeditor\skins\moono\editor.css"' (27b0a520)
+2019-06-18T12:00:33.7549016+07:00 0HLNJL7DG4PFN:00000014 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/fastclick/lib/fastclick.js   (ca22a1cb)
+2019-06-18T12:00:33.7584469+07:00 0HLNJL7DG4PFR:00000002 [INF] Request finished in 63.1743ms 200 text/css (791a596a)
+2019-06-18T12:00:33.7621146+07:00 0HLNJL7DG4PFO:0000000F [INF] Request finished in 68.3694ms 200 text/css (791a596a)
+2019-06-18T12:00:33.7662471+07:00 0HLNJL7DG4PFR:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/nprogress/nprogress.js   (ca22a1cb)
+2019-06-18T12:00:33.7690575+07:00 0HLNJL7DG4PFO:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/Chart.js/dist/Chart.js   (ca22a1cb)
+2019-06-18T12:00:33.7728025+07:00 0HLNJL7DG4PFM:0000000D [INF] Sending file. Request path: '"/admin-side/images/img.jpg"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\admin-side\images\img.jpg"' (27b0a520)
+2019-06-18T12:00:33.7762057+07:00 0HLNJL7DG4PFM:0000000D [INF] Request finished in 86.3984ms 200 image/jpeg (791a596a)
+2019-06-18T12:00:33.7844477+07:00 0HLNJL7DG4PFP:0000000D [INF] Sending file. Request path: '"/lib/bootstrap/dist/js/bootstrap.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\bootstrap\dist\js\bootstrap.js"' (27b0a520)
+2019-06-18T12:00:33.7915623+07:00 0HLNJL7DG4PFM:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/twbs-pagination/jquery.twbsPagination.js   (ca22a1cb)
+2019-06-18T12:00:33.7952245+07:00 0HLNJL7DG4PFQ:00000010 [INF] Sending file. Request path: '"/lib/signalr/dist/browser/signalr.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\signalr\dist\browser\signalr.js"' (27b0a520)
+2019-06-18T12:00:33.7987468+07:00 0HLNJL7DG4PFP:0000000D [INF] Request finished in 71.762ms 200 application/javascript (791a596a)
+2019-06-18T12:00:33.8012190+07:00 0HLNJL7DG4PFN:00000014 [INF] Sending file. Request path: '"/lib/fastclick/lib/fastclick.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\fastclick\lib\fastclick.js"' (27b0a520)
+2019-06-18T12:00:33.8040839+07:00 0HLNJL7DG4PFQ:00000010 [INF] Request finished in 105.4132ms 200 application/javascript (791a596a)
+2019-06-18T12:00:33.8075048+07:00 0HLNJL7DG4PFR:00000003 [INF] Sending file. Request path: '"/lib/nprogress/nprogress.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\nprogress\nprogress.js"' (27b0a520)
+2019-06-18T12:00:33.8099697+07:00 0HLNJL7DG4PFN:00000014 [INF] Request finished in 53.9576ms 200 application/javascript (791a596a)
+2019-06-18T12:00:33.8118408+07:00 0HLNJL7DG4PFQ:00000011 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery-sparkline/dist/jquery.sparkline.js   (ca22a1cb)
+2019-06-18T12:00:33.8141070+07:00 0HLNJL7DG4PFN:00000015 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/ckeditor/ckeditor.js   (ca22a1cb)
+2019-06-18T12:00:33.8268087+07:00 0HLNJL7DG4PFR:00000003 [INF] Request finished in 48.8115ms 200 application/javascript (791a596a)
+2019-06-18T12:00:33.8297653+07:00 0HLNJL7DG4PFP:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery-validation/dist/additional-methods.js   (ca22a1cb)
+2019-06-18T12:00:33.8321876+07:00 0HLNJL7DG4PFR:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js   (ca22a1cb)
+2019-06-18T12:00:33.8357019+07:00 0HLNJL7DG4PFM:0000000E [INF] Sending file. Request path: '"/lib/twbs-pagination/jquery.twbsPagination.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\twbs-pagination\jquery.twbsPagination.js"' (27b0a520)
+2019-06-18T12:00:33.8404388+07:00 0HLNJL7DG4PFM:0000000E [INF] Request finished in 57.2864ms 200 application/javascript (791a596a)
+2019-06-18T12:00:33.8436624+07:00 0HLNJL7DG4PFM:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/moment/moment.js   (ca22a1cb)
+2019-06-18T12:00:33.8617798+07:00 0HLNJL7DG4PFR:00000004 [INF] Sending file. Request path: '"/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js"' (27b0a520)
+2019-06-18T12:00:33.8637836+07:00 0HLNJL7DG4PFP:0000000E [INF] Sending file. Request path: '"/lib/jquery-validation/dist/additional-methods.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\jquery-validation\dist\additional-methods.js"' (27b0a520)
+2019-06-18T12:00:33.8667659+07:00 0HLNJL7DG4PFR:00000004 [INF] Request finished in 34.9847ms 200 application/javascript (791a596a)
+2019-06-18T12:00:33.8686125+07:00 0HLNJL7DG4PFP:0000000E [INF] Request finished in 65.0494ms 200 application/javascript (791a596a)
+2019-06-18T12:00:33.8745951+07:00 0HLNJL7DG4PFR:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/bootbox/bootbox.js   (ca22a1cb)
+2019-06-18T12:00:33.8765937+07:00 0HLNJL7DG4PFP:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap-daterangepicker/daterangepicker.js   (ca22a1cb)
+2019-06-18T12:00:33.8874553+07:00 0HLNJL7DG4PFQ:00000011 [INF] Sending file. Request path: '"/lib/jquery-sparkline/dist/jquery.sparkline.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\jquery-sparkline\dist\jquery.sparkline.js"' (27b0a520)
+2019-06-18T12:00:33.8988729+07:00 0HLNJL7DG4PFO:00000010 [INF] Sending file. Request path: '"/lib/Chart.js/dist/Chart.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\Chart.js\dist\Chart.js"' (27b0a520)
+2019-06-18T12:00:33.9141414+07:00 0HLNJL7DG4PFQ:00000011 [INF] Request finished in 88.6927ms 200 application/javascript (791a596a)
+2019-06-18T12:00:33.9174661+07:00 0HLNJL7DG4PFO:00000010 [INF] Request finished in 140.15ms 200 application/javascript (791a596a)
+2019-06-18T12:00:33.9208436+07:00 0HLNJL7DG4PFR:00000005 [INF] Sending file. Request path: '"/lib/bootbox/bootbox.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\bootbox\bootbox.js"' (27b0a520)
+2019-06-18T12:00:33.9256674+07:00 0HLNJL7DG4PFO:00000011 [INF] Request starting HTTP/1.1 GET http://localhost:5000/app/shared/base.js   (ca22a1cb)
+2019-06-18T12:00:33.9289870+07:00 0HLNJL7DG4PFP:0000000F [INF] Sending file. Request path: '"/lib/bootstrap-daterangepicker/daterangepicker.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\bootstrap-daterangepicker\daterangepicker.js"' (27b0a520)
+2019-06-18T12:00:33.9309092+07:00 0HLNJL7DG4PFR:00000005 [INF] Request finished in 54.0632ms 200 application/javascript (791a596a)
+2019-06-18T12:00:33.9348545+07:00 0HLNJL7DG4PFQ:00000012 [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin-side/js/custom.js   (ca22a1cb)
+2019-06-18T12:00:33.9411579+07:00 0HLNJL7DG4PFP:0000000F [INF] Request finished in 63.1083ms 200 application/javascript (791a596a)
+2019-06-18T12:00:33.9440719+07:00 0HLNJL7DG4PFR:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2   (ca22a1cb)
+2019-06-18T12:00:33.9508124+07:00 0HLNJL7DG4PFM:0000000F [INF] Sending file. Request path: '"/lib/moment/moment.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\moment\moment.js"' (27b0a520)
+2019-06-18T12:00:33.9608689+07:00 0HLNJL7DG4PFP:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:5000/app/shared/signalR.js   (ca22a1cb)
+2019-06-18T12:00:33.9828666+07:00 0HLNJL7DG4PFM:0000000F [INF] Request finished in 110.3138ms 200 application/javascript (791a596a)
+2019-06-18T12:00:33.9928511+07:00 0HLNJL7DG4PFM:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/flot/jquery.flot.js   (ca22a1cb)
+2019-06-18T12:00:33.9957268+07:00 0HLNJL7DG4PFP:00000010 [INF] Sending file. Request path: '"/app/shared/signalR.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\app\shared\signalR.js"' (27b0a520)
+2019-06-18T12:00:33.9974071+07:00 0HLNJL7DG4PFO:00000011 [INF] Sending file. Request path: '"/app/shared/base.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\app\shared\base.js"' (27b0a520)
+2019-06-18T12:00:34.0014040+07:00 0HLNJL7DG4PFP:00000010 [INF] Request finished in 54.4707ms 200 application/javascript (791a596a)
+2019-06-18T12:00:34.0029047+07:00 0HLNJL7DG4PFQ:00000012 [INF] Sending file. Request path: '"/admin-side/js/custom.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\admin-side\js\custom.js"' (27b0a520)
+2019-06-18T12:00:34.0064285+07:00 0HLNJL7DG4PFO:00000011 [INF] Request finished in 80.9808ms 200 application/javascript (791a596a)
+2019-06-18T12:00:34.0104427+07:00 0HLNJL7DG4PFP:00000011 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/flot/jquery.flot.stack.js   (ca22a1cb)
+2019-06-18T12:00:34.0138222+07:00 0HLNJL7DG4PFQ:00000012 [INF] Request finished in 89.4328ms 200 application/javascript (791a596a)
+2019-06-18T12:00:34.0168470+07:00 0HLNJL7DG4PFO:00000012 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/flot/jquery.flot.time.js   (ca22a1cb)
+2019-06-18T12:00:34.0198991+07:00 0HLNJL7DG4PFQ:00000013 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/flot/jquery.flot.resize.js   (ca22a1cb)
+2019-06-18T12:00:34.0213346+07:00 0HLNJL7DG4PFR:00000006 [INF] Sending file. Request path: '"/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2"' (27b0a520)
+2019-06-18T12:00:34.0246426+07:00 0HLNJL7DG4PFR:00000006 [INF] Request finished in 89.5264ms 200 font/woff2 (791a596a)
+2019-06-18T12:00:34.0287546+07:00 0HLNJL7DG4PFR:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/flot/jquery.flot.pie.js   (ca22a1cb)
+2019-06-18T12:00:34.0487154+07:00 0HLNJL7DG4PFM:00000010 [INF] Sending file. Request path: '"/lib/flot/jquery.flot.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\flot\jquery.flot.js"' (27b0a520)
+2019-06-18T12:00:34.0539138+07:00 0HLNJL7DG4PFP:00000011 [INF] Sending file. Request path: '"/lib/flot/jquery.flot.stack.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\flot\jquery.flot.stack.js"' (27b0a520)
+2019-06-18T12:00:34.0588972+07:00 0HLNJL7DG4PFQ:00000013 [INF] Sending file. Request path: '"/lib/flot/jquery.flot.resize.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\flot\jquery.flot.resize.js"' (27b0a520)
+2019-06-18T12:00:34.0629247+07:00 0HLNJL7DG4PFM:00000010 [INF] Request finished in 64.9005ms 200 application/javascript (791a596a)
+2019-06-18T12:00:34.0659496+07:00 0HLNJL7DG4PFQ:00000013 [INF] Request finished in 45.1475ms 200 application/javascript (791a596a)
+2019-06-18T12:00:34.0700229+07:00 0HLNJL7DG4PFM:00000011 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/flot.orderbars/js/jquery.flot.orderBars.js   (ca22a1cb)
+2019-06-18T12:00:34.0745064+07:00 0HLNJL7DG4PFQ:00000014 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/flot.curvedlines/curvedLines.js   (ca22a1cb)
+2019-06-18T12:00:34.0779224+07:00 0HLNJL7DG4PFP:00000011 [INF] Request finished in 52.489ms 200 application/javascript (791a596a)
+2019-06-18T12:00:34.0814032+07:00 0HLNJL7DG4PFR:00000007 [INF] Sending file. Request path: '"/lib/flot/jquery.flot.pie.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\flot\jquery.flot.pie.js"' (27b0a520)
+2019-06-18T12:00:34.0845302+07:00 0HLNJL7DG4PFP:00000012 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/flot-spline/js/jquery.flot.spline.min.js   (ca22a1cb)
+2019-06-18T12:00:34.0859582+07:00 0HLNJL7DG4PFR:00000007 [INF] Request finished in 56.6826ms 200 application/javascript (791a596a)
+2019-06-18T12:00:34.0920202+07:00 0HLNJL7DG4PFO:00000012 [INF] Sending file. Request path: '"/lib/flot/jquery.flot.time.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\flot\jquery.flot.time.js"' (27b0a520)
+2019-06-18T12:00:34.0951511+07:00 0HLNJL7DG4PFR:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:5000/app/Controller/home/index.js?v=OWkH2CHqYEcjBEs20spYa0PJ614Zyr1vBxdLmI5rkII   (ca22a1cb)
+2019-06-18T12:00:34.0992461+07:00 0HLNJL7DG4PFO:00000012 [INF] Request finished in 85.5474ms 200 application/javascript (791a596a)
+2019-06-18T12:00:34.1025182+07:00 0HLNJL7DG4PFQ:00000014 [INF] Sending file. Request path: '"/lib/flot.curvedlines/curvedLines.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\flot.curvedlines\curvedLines.js"' (27b0a520)
+2019-06-18T12:00:34.1052185+07:00 0HLNJL7DG4PFO:00000013 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/DateJS/build/date.js   (ca22a1cb)
+2019-06-18T12:00:34.1084564+07:00 0HLNJL7DG4PFQ:00000014 [INF] Request finished in 36.5683ms 200 application/javascript (791a596a)
+2019-06-18T12:00:34.1095639+07:00 0HLNJL7DG4PFM:00000011 [INF] Sending file. Request path: '"/lib/flot.orderbars/js/jquery.flot.orderBars.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\flot.orderbars\js\jquery.flot.orderBars.js"' (27b0a520)
+2019-06-18T12:00:34.1114651+07:00 0HLNJL7DG4PFR:00000008 [INF] Sending file. Request path: '"/app/Controller/home/index.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\app\Controller\home\index.js"' (27b0a520)
+2019-06-18T12:00:34.1131687+07:00 0HLNJL7DG4PFM:00000011 [INF] Request finished in 47.3075ms 200 application/javascript (791a596a)
+2019-06-18T12:00:34.1151591+07:00 0HLNJL7DG4PFR:00000008 [INF] Request finished in 25.0257ms 200 application/javascript (791a596a)
+2019-06-18T12:00:34.1173346+07:00 0HLNJL7DG4PFP:00000012 [INF] Sending file. Request path: '"/lib/flot-spline/js/jquery.flot.spline.min.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\flot-spline\js\jquery.flot.spline.min.js"' (27b0a520)
+2019-06-18T12:00:34.1194143+07:00 0HLNJL7DG4PFP:00000012 [INF] Request finished in 39.4042ms 200 application/javascript (791a596a)
+2019-06-18T12:00:34.1583241+07:00 0HLNJL7DG4PFO:00000013 [INF] Sending file. Request path: '"/lib/DateJS/build/date.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\DateJS\build\date.js"' (27b0a520)
+2019-06-18T12:00:34.1604385+07:00 0HLNJL7DG4PFO:00000013 [INF] Request finished in 59.0406ms 200 application/javascript (791a596a)
+2019-06-18T12:00:34.5319033+07:00 0HLNJL7DG4PFN:00000015 [INF] Sending file. Request path: '"/lib/ckeditor/ckeditor.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\ckeditor\ckeditor.js"' (27b0a520)
+2019-06-18T12:00:34.5347541+07:00 0HLNJL7DG4PFN:00000015 [INF] Request finished in 720.9162ms 200 application/javascript (791a596a)
+2019-06-18T12:00:34.5872203+07:00 0HLNJL7DG4PFN:00000016 [INF] Request starting HTTP/1.1 POST http://localhost:5000/signalRHub/negotiate text/plain;charset=UTF-8 0 (ca22a1cb)
+2019-06-18T12:00:34.5918674+07:00 0HLNJL7DG4PFO:00000014 [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin/announcement/GetAllPaging?page=1&pageSize=10   (ca22a1cb)
+2019-06-18T12:00:34.5959626+07:00 0HLNJL7DG4PFN:00000016 [INF] Policy execution successful. (0204925d)
+2019-06-18T12:00:34.6023119+07:00 0HLNJL7DG4PFO:00000014 [INF] Route matched with "{area = \"Admin\", action = \"GetAllPaging\", controller = \"Announcement\"}". Executing action "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)" (a44c0341)
+2019-06-18T12:00:34.6095500+07:00 0HLNJL7DG4PFO:00000014 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:34.6143675+07:00 0HLNJL7DG4PFO:00000014 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)" with arguments (["1", "10"]) - Validation state: Valid (4e3479ed)
+2019-06-18T12:00:34.6277135+07:00 0HLNJL7DG4PFO:00000014 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:34.6338749+07:00 0HLNJL7DG4PFN:00000016 [INF] Request finished in 47.4578ms 200 application/json (791a596a)
+2019-06-18T12:00:34.6471345+07:00 0HLNJL7DG4PFN:00000017 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/Home/GetRevenue   (ca22a1cb)
+2019-06-18T12:00:34.6555984+07:00 0HLNJL7DG4PFN:00000017 [INF] Route matched with "{area = \"Admin\", action = \"GetRevenue\", controller = \"Home\"}". Executing action "WebAppCore.Areas.Admin.Controllers.HomeController.GetRevenue (WebAppCore)" (a44c0341)
+2019-06-18T12:00:34.6599039+07:00 0HLNJL7DG4PFN:00000017 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:34.6635376+07:00 0HLNJL7DG4PFN:00000017 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.HomeController.GetRevenue (WebAppCore)" with arguments (["", ""]) - Validation state: Valid (4e3479ed)
+2019-06-18T12:00:34.9511602+07:00 0HLNJL7DG4PFO:00000014 [INF] Executed DbCommand ("5"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))" (0723d8ff)
+2019-06-18T12:00:34.9542429+07:00 0HLNJL7DG4PFS:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/signalRHub?id=vioEHOoyNRxDiM8gdhyzpw   (ca22a1cb)
+2019-06-18T12:00:34.9593060+07:00 0HLNJL7DG4PFS:00000001 [INF] Policy execution successful. (0204925d)
+2019-06-18T12:00:34.9870951+07:00 0HLNJL7DG4PFO:00000014 [INF] Executed DbCommand ("4"ms) [Parameters=["@__userId_0='?' (DbType = Guid), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Title], [x].[Content], [x].[UserId], [x].[DateCreated], [x].[DateModified], [x].[Status]
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY" (0723d8ff)
+2019-06-18T12:00:34.9974466+07:00 0HLNJL7DG4PFO:00000014 [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 379.6583ms. (50a9e262)
+2019-06-18T12:00:35.0022118+07:00 0HLNJL7DG4PFO:00000014 [INF] Executing ObjectResult, writing value of type '"WebAppCore.Utilities.Dtos.PagedResult`1[[WebAppCore.Application.ViewModels.System.AnnouncementViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:35.0195888+07:00 0HLNJL7DG4PFO:00000014 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)" in 414.429ms (afa2e885)
+2019-06-18T12:00:35.0278186+07:00 0HLNJL7DG4PFO:00000014 [INF] Request finished in 432.5071ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:35.2226051+07:00 0HLNJL7DG4PFN:00000017 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.HomeController.GetRevenue (WebAppCore)" in 564.9815ms (afa2e885)
+2019-06-18T12:00:35.3507773+07:00 0HLNJL7DG4PFS:00000001 [INF] Completed connection handshake. Using HubProtocol '"json"'. (421947a1)
+2019-06-18T12:00:35.4297519+07:00 0HLNJL7DG4PFN:00000017 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'GetRevenueDaily'.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in C:\projects\dapper\Dapper\SqlMapper.Async.cs:line 419
+   at WebAppCore.Application.Dapper.Implementation.ReportService.GetReportAsync(String fromDate, String toDate) in D:\WebAppliCation-Core\Dapper\Implementation\ReportService.cs:line 38
+   at WebAppCore.Areas.Admin.Controllers.HomeController.GetRevenue(String fromDate, String toDate) in D:\WebAppliCation-Core\WebAppCore\Areas\Admin\Controllers\HomeController.cs:line 32
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at WebAppCore.Middleware.ImageResizerMiddleware.Invoke(HttpContext context) in D:\WebAppliCation-Core\WebAppCore\Middleware\ImageResizerMiddleware.cs:line 70
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:8d4534fc-ad34-406e-a307-4d9c8116a75a
+Error Number:2812,State:62,Class:16
+2019-06-18T12:00:35.4930247+07:00 0HLNJL7DG4PFN:00000017 [INF] Request finished in 845.3496ms 500 text/html; charset=utf-8 (791a596a)
+2019-06-18T12:00:41.0810999+07:00 0HLNJL7DG4PFN:00000018 [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin/bill/index   (ca22a1cb)
+2019-06-18T12:00:41.0895079+07:00 0HLNJL7DG4PFN:00000018 [INF] Route matched with "{area = \"Admin\", action = \"Index\", controller = \"Bill\"}". Executing action "WebAppCore.Areas.Admin.Controllers.BillController.Index (WebAppCore)" (a44c0341)
+2019-06-18T12:00:41.0950070+07:00 0HLNJL7DG4PFN:00000018 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:41.0994658+07:00 0HLNJL7DG4PFN:00000018 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.BillController.Index (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:41.1029023+07:00 0HLNJL7DG4PFN:00000018 [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.BillController.Index (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.3355ms. (50a9e262)
+2019-06-18T12:00:41.1115445+07:00 0HLNJL7DG4PFN:00000018 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-18T12:00:41.1463893+07:00 0HLNJL7DG4PFN:00000018 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:41.1538113+07:00 0HLNJL7DG4PFN:00000018 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[URL], [x].[ParentId], [x].[IconCss], [x].[SortOrder], [x].[Status]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-06-18T12:00:41.1963891+07:00 0HLNJL7DG4PFN:00000018 [INF] Executed ViewResult - view "Index" executed in 90.4727ms. (f66409e9)
+2019-06-18T12:00:41.2004733+07:00 0HLNJL7DG4PFN:00000018 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.BillController.Index (WebAppCore)" in 107.0853ms (afa2e885)
+2019-06-18T12:00:41.2056631+07:00 0HLNJL7DG4PFN:00000018 [INF] Request finished in 123.2003ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-18T12:00:41.2374149+07:00 0HLNJL7DG4PFN:00000019 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.css   (ca22a1cb)
+2019-06-18T12:00:41.2440637+07:00 0HLNJL7DG4PFR:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:5000/app/Controller/bill/index.js?v=EwgHIRXfzAd__ry6YGfSAj1AadOfSsPwZfDnFVmNUeo   (ca22a1cb)
+2019-06-18T12:00:41.2528813+07:00 0HLNJL7DG4PFO:00000015 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js   (ca22a1cb)
+2019-06-18T12:00:41.2666879+07:00 0HLNJL7DG4PFR:00000009 [INF] Sending file. Request path: '"/app/Controller/bill/index.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\app\Controller\bill\index.js"' (27b0a520)
+2019-06-18T12:00:41.2717237+07:00 0HLNJL7DG4PFN:00000019 [INF] Sending file. Request path: '"/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\bootstrap-datepicker\dist\css\bootstrap-datepicker.css"' (27b0a520)
+2019-06-18T12:00:41.2773744+07:00 0HLNJL7DG4PFR:00000009 [INF] Request finished in 38.476ms 200 application/javascript (791a596a)
+2019-06-18T12:00:41.2837869+07:00 0HLNJL7DG4PFN:00000019 [INF] Request finished in 48.7944ms 200 text/css (791a596a)
+2019-06-18T12:00:41.3035680+07:00 0HLNJL7DG4PFO:00000015 [INF] Sending file. Request path: '"/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\bootstrap-datepicker\dist\js\bootstrap-datepicker.js"' (27b0a520)
+2019-06-18T12:00:41.3063759+07:00 0HLNJL7DG4PFO:00000015 [INF] Request finished in 74.6792ms 200 application/javascript (791a596a)
+2019-06-18T12:00:41.3180512+07:00 0HLNJL7DG4PFS:00000001 [INF] Request finished in 6364.2628ms 101  (791a596a)
+2019-06-18T12:00:41.4442707+07:00 0HLNJL7DG4PFO:00000016 [INF] Request starting HTTP/1.1 POST http://localhost:5000/signalRHub/negotiate text/plain;charset=UTF-8 0 (ca22a1cb)
+2019-06-18T12:00:41.4479881+07:00 0HLNJL7DG4PFO:00000016 [INF] Policy execution successful. (0204925d)
+2019-06-18T12:00:41.4505272+07:00 0HLNJL7DG4PFN:0000001A [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin/announcement/GetAllPaging?page=1&pageSize=10   (ca22a1cb)
+2019-06-18T12:00:41.4543069+07:00 0HLNJL7DG4PFO:00000016 [INF] Request finished in 10.5474ms 200 application/json (791a596a)
+2019-06-18T12:00:41.4587888+07:00 0HLNJL7DG4PFN:0000001A [INF] Route matched with "{area = \"Admin\", action = \"GetAllPaging\", controller = \"Announcement\"}". Executing action "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)" (a44c0341)
+2019-06-18T12:00:41.4622378+07:00 0HLNJL7DG4PFN:0000001A [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:41.4653950+07:00 0HLNJL7DG4PFN:0000001A [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)" with arguments (["1", "10"]) - Validation state: Valid (4e3479ed)
+2019-06-18T12:00:41.4683303+07:00 0HLNJL7DG4PFN:0000001A [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:41.4740910+07:00 0HLNJL7DG4PFN:0000001A [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))" (0723d8ff)
+2019-06-18T12:00:41.4815138+07:00 0HLNJL7DG4PFN:0000001A [INF] Executed DbCommand ("4"ms) [Parameters=["@__userId_0='?' (DbType = Guid), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Title], [x].[Content], [x].[UserId], [x].[DateCreated], [x].[DateModified], [x].[Status]
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY" (0723d8ff)
+2019-06-18T12:00:41.4845679+07:00 0HLNJL7DG4PFN:0000001A [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 16.1269ms. (50a9e262)
+2019-06-18T12:00:41.4875232+07:00 0HLNJL7DG4PFN:0000001A [INF] Executing ObjectResult, writing value of type '"WebAppCore.Utilities.Dtos.PagedResult`1[[WebAppCore.Application.ViewModels.System.AnnouncementViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:41.4909957+07:00 0HLNJL7DG4PFN:0000001A [INF] Executed action "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)" in 28.8406ms (afa2e885)
+2019-06-18T12:00:41.4954314+07:00 0HLNJL7DG4PFN:0000001A [INF] Request finished in 44.866ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:41.5176404+07:00 0HLNJL7DG4PFT:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/signalRHub?id=iYRHUfghIQ5V-vPkNIHxlw   (ca22a1cb)
+2019-06-18T12:00:41.5312666+07:00 0HLNJL7DG4PFT:00000001 [INF] Policy execution successful. (0204925d)
+2019-06-18T12:00:41.5344947+07:00 0HLNJL7DG4PFN:0000001B [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin/bill/GetBillStatus   (ca22a1cb)
+2019-06-18T12:00:41.5383877+07:00 0HLNJL7DG4PFO:00000017 [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin/bill/GetPaymentMethod   (ca22a1cb)
+2019-06-18T12:00:41.5447080+07:00 0HLNJL7DG4PFP:00000013 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/Product/GetAll   (ca22a1cb)
+2019-06-18T12:00:41.5497835+07:00 0HLNJL7DG4PFN:0000001B [INF] Route matched with "{area = \"Admin\", action = \"GetBillStatus\", controller = \"Bill\"}". Executing action "WebAppCore.Areas.Admin.Controllers.BillController.GetBillStatus (WebAppCore)" (a44c0341)
+2019-06-18T12:00:41.5536929+07:00 0HLNJL7DG4PFO:00000017 [INF] Route matched with "{area = \"Admin\", action = \"GetPaymentMethod\", controller = \"Bill\"}". Executing action "WebAppCore.Areas.Admin.Controllers.BillController.GetPaymentMethod (WebAppCore)" (a44c0341)
+2019-06-18T12:00:41.5606497+07:00 0HLNJL7DG4PFP:00000013 [INF] Route matched with "{area = \"Admin\", action = \"GetAll\", controller = \"Product\"}". Executing action "WebAppCore.Areas.Admin.Controllers.ProductController.GetAll (WebAppCore)" (a44c0341)
+2019-06-18T12:00:41.5620688+07:00 0HLNJL7DG4PFO:00000017 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:41.5657706+07:00 0HLNJL7DG4PFP:00000013 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:41.5700410+07:00 0HLNJL7DG4PFO:00000017 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.BillController.GetPaymentMethod (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:41.5730371+07:00 0HLNJL7DG4PFP:00000013 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.ProductController.GetAll (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:41.5775865+07:00 0HLNJL7DG4PFN:0000001B [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:41.5831874+07:00 0HLNJL7DG4PFM:00000012 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/Bill/GetSizes   (ca22a1cb)
+2019-06-18T12:00:41.5884897+07:00 0HLNJL7DG4PFP:00000013 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:41.5925806+07:00 0HLNJL7DG4PFN:0000001B [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.BillController.GetBillStatus (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:41.5977547+07:00 0HLNJL7DG4PFM:00000012 [INF] Route matched with "{area = \"Admin\", action = \"GetSizes\", controller = \"Bill\"}". Executing action "WebAppCore.Areas.Admin.Controllers.BillController.GetSizes (WebAppCore)" (a44c0341)
+2019-06-18T12:00:41.6041383+07:00 0HLNJL7DG4PFR:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/Bill/GetColors   (ca22a1cb)
+2019-06-18T12:00:41.6073402+07:00 0HLNJL7DG4PFO:00000017 [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.BillController.GetPaymentMethod (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 29.0501ms. (50a9e262)
+2019-06-18T12:00:41.6112043+07:00 0HLNJL7DG4PFM:00000012 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:41.6142523+07:00 0HLNJL7DG4PFO:00000017 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[WebAppCore.Application.ViewModels.Common.EnumModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:41.6184869+07:00 0HLNJL7DG4PFM:00000012 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.BillController.GetSizes (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:41.6202511+07:00 0HLNJL7DG4PFN:0000001B [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.BillController.GetBillStatus (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 22.1235ms. (50a9e262)
+2019-06-18T12:00:41.6228871+07:00 0HLNJL7DG4PFR:0000000A [INF] Route matched with "{area = \"Admin\", action = \"GetColors\", controller = \"Bill\"}". Executing action "WebAppCore.Areas.Admin.Controllers.BillController.GetColors (WebAppCore)" (a44c0341)
+2019-06-18T12:00:41.6272995+07:00 0HLNJL7DG4PFN:0000001B [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[WebAppCore.Application.ViewModels.Common.EnumModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:41.6301445+07:00 0HLNJL7DG4PFR:0000000A [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:41.6335241+07:00 0HLNJL7DG4PFM:00000012 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:41.6366282+07:00 0HLNJL7DG4PFN:0000001B [INF] Executed action "WebAppCore.Areas.Admin.Controllers.BillController.GetBillStatus (WebAppCore)" in 80.478ms (afa2e885)
+2019-06-18T12:00:41.6407055+07:00 0HLNJL7DG4PFO:00000017 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.BillController.GetPaymentMethod (WebAppCore)" in 78.8388ms (afa2e885)
+2019-06-18T12:00:41.6665612+07:00 0HLNJL7DG4PFP:00000013 [WRN] The Include operation for navigation '"[x].ProductCategory"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-06-18T12:00:41.6712005+07:00 0HLNJL7DG4PFO:00000017 [INF] Request finished in 114.1479ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:41.6774338+07:00 0HLNJL7DG4PFN:0000001B [INF] Request finished in 113.1212ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:41.6800548+07:00 0HLNJL7DG4PFR:0000000A [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.BillController.GetColors (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:41.6844964+07:00 0HLNJL7DG4PFT:00000001 [INF] Completed connection handshake. Using HubProtocol '"json"'. (421947a1)
+2019-06-18T12:00:41.6893689+07:00 0HLNJL7DG4PFR:0000000A [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:41.7168264+07:00 0HLNJL7DG4PFM:00000012 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [dto].[Id], [dto].[Name]
+FROM [Sizes] AS [dto]" (0723d8ff)
+2019-06-18T12:00:41.7217394+07:00 0HLNJL7DG4PFM:00000012 [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.BillController.GetSizes (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 100.1574ms. (50a9e262)
+2019-06-18T12:00:41.7366310+07:00 0HLNJL7DG4PFM:00000012 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[WebAppCore.Application.ViewModels.Product.SizeViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:41.7499892+07:00 0HLNJL7DG4PFM:00000012 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.BillController.GetSizes (WebAppCore)" in 145.8364ms (afa2e885)
+2019-06-18T12:00:41.7540120+07:00 0HLNJL7DG4PFM:00000012 [INF] Request finished in 221.7698ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:41.7560656+07:00 0HLNJL7DG4PFR:0000000A [INF] Executed DbCommand ("18"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [dto].[Id], [dto].[Name], [dto].[Code]
+FROM [Colors] AS [dto]" (0723d8ff)
+2019-06-18T12:00:41.7634386+07:00 0HLNJL7DG4PFR:0000000A [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.BillController.GetColors (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 78.1098ms. (50a9e262)
+2019-06-18T12:00:41.7668538+07:00 0HLNJL7DG4PFR:0000000A [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[WebAppCore.Application.ViewModels.Product.ColorViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:41.7771509+07:00 0HLNJL7DG4PFR:0000000A [INF] Executed action "WebAppCore.Areas.Admin.Controllers.BillController.GetColors (WebAppCore)" in 147.6992ms (afa2e885)
+2019-06-18T12:00:41.7833078+07:00 0HLNJL7DG4PFR:0000000A [INF] Request finished in 250.3074ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:41.8176735+07:00 0HLNJL7DG4PFP:00000013 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+ORDER BY [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2019-06-18T12:00:41.8311359+07:00 0HLNJL7DG4PFP:00000013 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[Id], [t].[Id0]" (0723d8ff)
+2019-06-18T12:00:41.8464484+07:00 0HLNJL7DG4PFP:00000013 [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.ProductController.GetAll (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 270.2891ms. (50a9e262)
+2019-06-18T12:00:41.8489970+07:00 0HLNJL7DG4PFP:00000013 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[WebAppCore.Application.ViewModels.Product.ProductViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:41.8740729+07:00 0HLNJL7DG4PFP:00000013 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.ProductController.GetAll (WebAppCore)" in 311.217ms (afa2e885)
+2019-06-18T12:00:41.8789866+07:00 0HLNJL7DG4PFP:00000013 [INF] Request finished in 344.0303ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:41.8855843+07:00 0HLNJL7DG4PFP:00000014 [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin/bill/GetAllPaging?startDate=&endDate=&keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-06-18T12:00:41.8909122+07:00 0HLNJL7DG4PFP:00000014 [INF] Route matched with "{area = \"Admin\", action = \"GetAllPaging\", controller = \"Bill\"}". Executing action "WebAppCore.Areas.Admin.Controllers.BillController.GetAllPaging (WebAppCore)" (a44c0341)
+2019-06-18T12:00:41.8943527+07:00 0HLNJL7DG4PFP:00000014 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:41.8976679+07:00 0HLNJL7DG4PFP:00000014 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.BillController.GetAllPaging (WebAppCore)" with arguments (["", "", "", "1", "10"]) - Validation state: Valid (4e3479ed)
+2019-06-18T12:00:41.9025605+07:00 0HLNJL7DG4PFP:00000014 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:41.9097085+07:00 0HLNJL7DG4PFP:00000014 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Bills] AS [b]" (0723d8ff)
+2019-06-18T12:00:42.0590565+07:00 0HLNJL7DG4PFP:00000014 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[CustomerName], [x].[CustomerAddress], [x].[CustomerMobile], [x].[CustomerMessage], [x].[PaymentMethod], [x].[BillStatus], [x].[DateCreated], [x].[DateModified], [x].[Status], [x].[CustomerId]
+FROM [Bills] AS [x]
+ORDER BY [x].[DateCreated] DESC, [x].[Id]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-18T12:00:42.0682483+07:00 0HLNJL7DG4PFP:00000014 [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.BillController.GetAllPaging (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 168.3432ms. (50a9e262)
+2019-06-18T12:00:42.0707967+07:00 0HLNJL7DG4PFP:00000014 [INF] Executing ObjectResult, writing value of type '"WebAppCore.Utilities.Dtos.PagedResult`1[[WebAppCore.Application.ViewModels.Product.BillViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:42.0812360+07:00 0HLNJL7DG4PFP:00000014 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.BillController.GetAllPaging (WebAppCore)" in 187.9891ms (afa2e885)
+2019-06-18T12:00:42.0845108+07:00 0HLNJL7DG4PFP:00000014 [INF] Request finished in 197.7007ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:44.2540890+07:00 0HLNJL7DG4PFP:00000015 [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin/page/index   (ca22a1cb)
+2019-06-18T12:00:44.2586965+07:00 0HLNJL7DG4PFP:00000015 [INF] Route matched with "{area = \"Admin\", action = \"Index\", controller = \"Page\"}". Executing action "WebAppCore.Areas.Admin.Controllers.PageController.Index (WebAppCore)" (a44c0341)
+2019-06-18T12:00:44.2613466+07:00 0HLNJL7DG4PFP:00000015 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:44.2642322+07:00 0HLNJL7DG4PFP:00000015 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.PageController.Index (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:44.2664877+07:00 0HLNJL7DG4PFP:00000015 [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.PageController.Index (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.2615ms. (50a9e262)
+2019-06-18T12:00:44.2706609+07:00 0HLNJL7DG4PFP:00000015 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-18T12:00:44.2924395+07:00 0HLNJL7DG4PFP:00000015 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:44.3006586+07:00 0HLNJL7DG4PFP:00000015 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[URL], [x].[ParentId], [x].[IconCss], [x].[SortOrder], [x].[Status]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-06-18T12:00:44.3380480+07:00 0HLNJL7DG4PFP:00000015 [INF] Executed ViewResult - view "Index" executed in 68.558ms. (f66409e9)
+2019-06-18T12:00:44.3412066+07:00 0HLNJL7DG4PFP:00000015 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.PageController.Index (WebAppCore)" in 79.529ms (afa2e885)
+2019-06-18T12:00:44.3459203+07:00 0HLNJL7DG4PFP:00000015 [INF] Request finished in 90.2676ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-18T12:00:44.3499202+07:00 0HLNJL7DG4PFT:00000001 [INF] Request finished in 2833.91ms 101  (791a596a)
+2019-06-18T12:00:44.3626368+07:00 0HLNJL7DG4PFP:00000016 [INF] Request starting HTTP/1.1 GET http://localhost:5000/app/Controller/page/index.js?v=8V6lD6StJE2tcLBHMBIwBcMSmpdchTD3OCEzDwKrPWQ   (ca22a1cb)
+2019-06-18T12:00:44.3721568+07:00 0HLNJL7DG4PFP:00000016 [INF] Sending file. Request path: '"/app/Controller/page/index.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\app\Controller\page\index.js"' (27b0a520)
+2019-06-18T12:00:44.3759786+07:00 0HLNJL7DG4PFP:00000016 [INF] Request finished in 16.5895ms 200 application/javascript (791a596a)
+2019-06-18T12:00:44.4890153+07:00 0HLNJL7DG4PFP:00000017 [INF] Request starting HTTP/1.1 POST http://localhost:5000/signalRHub/negotiate text/plain;charset=UTF-8 0 (ca22a1cb)
+2019-06-18T12:00:44.4922065+07:00 0HLNJL7DG4PFR:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin/announcement/GetAllPaging?page=1&pageSize=10   (ca22a1cb)
+2019-06-18T12:00:44.4957067+07:00 0HLNJL7DG4PFP:00000017 [INF] Policy execution successful. (0204925d)
+2019-06-18T12:00:44.5045588+07:00 0HLNJL7DG4PFP:00000017 [INF] Request finished in 9.7958ms 200 application/json (791a596a)
+2019-06-18T12:00:44.5093619+07:00 0HLNJL7DG4PFR:0000000B [INF] Route matched with "{area = \"Admin\", action = \"GetAllPaging\", controller = \"Announcement\"}". Executing action "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)" (a44c0341)
+2019-06-18T12:00:44.5120524+07:00 0HLNJL7DG4PFM:00000013 [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin/page/GetAllPaging?keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-06-18T12:00:44.5157801+07:00 0HLNJL7DG4PFR:0000000B [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:44.5190049+07:00 0HLNJL7DG4PFR:0000000B [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)" with arguments (["1", "10"]) - Validation state: Valid (4e3479ed)
+2019-06-18T12:00:44.5226459+07:00 0HLNJL7DG4PFR:0000000B [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:44.5311337+07:00 0HLNJL7DG4PFM:00000013 [INF] Route matched with "{area = \"Admin\", action = \"GetAllPaging\", controller = \"Page\"}". Executing action "WebAppCore.Areas.Admin.Controllers.PageController.GetAllPaging (WebAppCore)" (a44c0341)
+2019-06-18T12:00:44.5354476+07:00 0HLNJL7DG4PFR:0000000B [INF] Executed DbCommand ("5"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))" (0723d8ff)
+2019-06-18T12:00:44.5375020+07:00 0HLNJL7DG4PFM:00000013 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:44.5424721+07:00 0HLNJL7DG4PFM:00000013 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.PageController.GetAllPaging (WebAppCore)" with arguments (["", "1", "10"]) - Validation state: Valid (4e3479ed)
+2019-06-18T12:00:44.5484346+07:00 0HLNJL7DG4PFU:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/signalRHub?id=bfPJkdLydivKNT2CqT6hdQ   (ca22a1cb)
+2019-06-18T12:00:44.5527469+07:00 0HLNJL7DG4PFP:00000018 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/ckeditor/config.js?t=H8DC   (ca22a1cb)
+2019-06-18T12:00:44.5559962+07:00 0HLNJL7DG4PFU:00000001 [INF] Policy execution successful. (0204925d)
+2019-06-18T12:00:44.5616678+07:00 0HLNJL7DG4PFR:0000000B [INF] Executed DbCommand ("11"ms) [Parameters=["@__userId_0='?' (DbType = Guid), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Title], [x].[Content], [x].[UserId], [x].[DateCreated], [x].[DateModified], [x].[Status]
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY" (0723d8ff)
+2019-06-18T12:00:44.5679952+07:00 0HLNJL7DG4PFM:00000013 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:44.5711064+07:00 0HLNJL7DG4PFR:0000000B [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 43.5316ms. (50a9e262)
+2019-06-18T12:00:44.5730631+07:00 0HLNJL7DG4PFU:00000001 [INF] Completed connection handshake. Using HubProtocol '"json"'. (421947a1)
+2019-06-18T12:00:44.5756424+07:00 0HLNJL7DG4PFR:0000000B [INF] Executing ObjectResult, writing value of type '"WebAppCore.Utilities.Dtos.PagedResult`1[[WebAppCore.Application.ViewModels.System.AnnouncementViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:44.5833130+07:00 0HLNJL7DG4PFR:0000000B [INF] Executed action "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)" in 66.3774ms (afa2e885)
+2019-06-18T12:00:44.5875711+07:00 0HLNJL7DG4PFR:0000000B [INF] Request finished in 94.4376ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:44.5977231+07:00 0HLNJL7DG4PFM:00000013 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Pages] AS [p]" (0723d8ff)
+2019-06-18T12:00:44.6171875+07:00 0HLNJL7DG4PFM:00000013 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Alias], [x].[Content], [x].[Status]
+FROM [Pages] AS [x]
+ORDER BY [x].[Alias] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-18T12:00:44.6236950+07:00 0HLNJL7DG4PFM:00000013 [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.PageController.GetAllPaging (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 76.346ms. (50a9e262)
+2019-06-18T12:00:44.6281688+07:00 0HLNJL7DG4PFM:00000013 [INF] Executing ObjectResult, writing value of type '"WebAppCore.Utilities.Dtos.PagedResult`1[[WebAppCore.Application.ViewModels.Blog.PageViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:44.6381950+07:00 0HLNJL7DG4PFM:00000013 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.PageController.GetAllPaging (WebAppCore)" in 104.1401ms (afa2e885)
+2019-06-18T12:00:44.6413492+07:00 0HLNJL7DG4PFM:00000013 [INF] Request finished in 141.1619ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:44.6587667+07:00 0HLNJL7DG4PFP:00000018 [INF] Sending file. Request path: '"/lib/ckeditor/config.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\ckeditor\config.js"' (27b0a520)
+2019-06-18T12:00:44.6625980+07:00 0HLNJL7DG4PFP:00000018 [INF] Request finished in 110.5229ms 200 application/javascript (791a596a)
+2019-06-18T12:00:44.6909590+07:00 0HLNJL7DG4PFP:00000019 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/ckeditor/skins/moono-lisa/editor.css?t=H8DC   (ca22a1cb)
+2019-06-18T12:00:44.6936681+07:00 0HLNJL7DG4PFM:00000014 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/ckeditor/lang/vi.js?t=H8DC   (ca22a1cb)
+2019-06-18T12:00:44.7070623+07:00 0HLNJL7DG4PFP:00000019 [INF] Sending file. Request path: '"/lib/ckeditor/skins/moono-lisa/editor.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\ckeditor\skins\moono-lisa\editor.css"' (27b0a520)
+2019-06-18T12:00:44.7107837+07:00 0HLNJL7DG4PFP:00000019 [INF] Request finished in 20.0119ms 200 text/css (791a596a)
+2019-06-18T12:00:44.7366171+07:00 0HLNJL7DG4PFM:00000014 [INF] Sending file. Request path: '"/lib/ckeditor/lang/vi.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\ckeditor\lang\vi.js"' (27b0a520)
+2019-06-18T12:00:44.7397305+07:00 0HLNJL7DG4PFM:00000014 [INF] Request finished in 48.3265ms 200 application/javascript (791a596a)
+2019-06-18T12:00:44.7501661+07:00 0HLNJL7DG4PFM:00000015 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/ckeditor/styles.js?t=H8DC   (ca22a1cb)
+2019-06-18T12:00:44.7710814+07:00 0HLNJL7DG4PFM:00000015 [INF] Sending file. Request path: '"/lib/ckeditor/styles.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\ckeditor\styles.js"' (27b0a520)
+2019-06-18T12:00:44.7863949+07:00 0HLNJL7DG4PFM:00000015 [INF] Request finished in 25.3066ms 200 application/javascript (791a596a)
+2019-06-18T12:00:44.8078816+07:00 0HLNJL7DG4PFM:00000016 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/ckeditor/plugins/colorbutton/plugin.js?t=H8DC   (ca22a1cb)
+2019-06-18T12:00:44.8376303+07:00 0HLNJL7DG4PFM:00000016 [INF] Sending file. Request path: '"/lib/ckeditor/plugins/colorbutton/plugin.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\ckeditor\plugins\colorbutton\plugin.js"' (27b0a520)
+2019-06-18T12:00:44.8447353+07:00 0HLNJL7DG4PFM:00000016 [INF] Request finished in 51.1536ms 200 application/javascript (791a596a)
+2019-06-18T12:00:44.8506288+07:00 0HLNJL7DG4PFM:00000017 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/ckeditor/plugins/panelbutton/plugin.js?t=H8DC   (ca22a1cb)
+2019-06-18T12:00:44.8799774+07:00 0HLNJL7DG4PFM:00000017 [INF] Sending file. Request path: '"/lib/ckeditor/plugins/panelbutton/plugin.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\ckeditor\plugins\panelbutton\plugin.js"' (27b0a520)
+2019-06-18T12:00:44.8843895+07:00 0HLNJL7DG4PFM:00000017 [INF] Request finished in 34.8543ms 200 application/javascript (791a596a)
+2019-06-18T12:00:44.8962827+07:00 0HLNJL7DG4PFM:00000018 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css   (ca22a1cb)
+2019-06-18T12:00:44.9006534+07:00 0HLNJL7DG4PFP:0000001A [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/ckeditor/plugins/scayt/dialogs/dialog.css   (ca22a1cb)
+2019-06-18T12:00:44.9038899+07:00 0HLNJL7DG4PFR:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/ckeditor/plugins/tableselection/styles/tableselection.css   (ca22a1cb)
+2019-06-18T12:00:44.9072045+07:00 0HLNJL7DG4PFN:0000001C [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/ckeditor/plugins/colorbutton/lang/vi.js?t=H8DC   (ca22a1cb)
+2019-06-18T12:00:44.9142207+07:00 0HLNJL7DG4PFO:00000018 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css   (ca22a1cb)
+2019-06-18T12:00:44.9185237+07:00 0HLNJL7DG4PFM:00000018 [INF] Sending file. Request path: '"/lib/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\ckeditor\plugins\scayt\skins\moono-lisa\scayt.css"' (27b0a520)
+2019-06-18T12:00:44.9246613+07:00 0HLNJL7DG4PFP:0000001A [INF] Sending file. Request path: '"/lib/ckeditor/plugins/scayt/dialogs/dialog.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\ckeditor\plugins\scayt\dialogs\dialog.css"' (27b0a520)
+2019-06-18T12:00:44.9291651+07:00 0HLNJL7DG4PFM:00000018 [INF] Request finished in 29.9955ms 200 text/css (791a596a)
+2019-06-18T12:00:44.9330274+07:00 0HLNJL7DG4PFP:0000001A [INF] Request finished in 33.6186ms 200 text/css (791a596a)
+2019-06-18T12:00:44.9366807+07:00 0HLNJL7DG4PFR:0000000C [INF] Sending file. Request path: '"/lib/ckeditor/plugins/tableselection/styles/tableselection.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\ckeditor\plugins\tableselection\styles\tableselection.css"' (27b0a520)
+2019-06-18T12:00:44.9394224+07:00 0HLNJL7DG4PFN:0000001C [INF] Sending file. Request path: '"/lib/ckeditor/plugins/colorbutton/lang/vi.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\ckeditor\plugins\colorbutton\lang\vi.js"' (27b0a520)
+2019-06-18T12:00:44.9458978+07:00 0HLNJL7DG4PFO:00000018 [INF] Sending file. Request path: '"/lib/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\ckeditor\plugins\wsc\skins\moono-lisa\wsc.css"' (27b0a520)
+2019-06-18T12:00:44.9487218+07:00 0HLNJL7DG4PFR:0000000C [INF] Request finished in 41.3184ms 200 text/css (791a596a)
+2019-06-18T12:00:44.9518555+07:00 0HLNJL7DG4PFN:0000001C [INF] Request finished in 44.2169ms 200 application/javascript (791a596a)
+2019-06-18T12:00:44.9548559+07:00 0HLNJL7DG4PFO:00000018 [INF] Request finished in 49.9312ms 200 text/css (791a596a)
+2019-06-18T12:00:45.0212652+07:00 0HLNJL7DG4PFN:0000001D [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/ckeditor/contents.css?t=H8DC   (ca22a1cb)
+2019-06-18T12:00:45.0321458+07:00 0HLNJL7DG4PFN:0000001D [INF] Sending file. Request path: '"/lib/ckeditor/contents.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\ckeditor\contents.css"' (27b0a520)
+2019-06-18T12:00:45.0355091+07:00 0HLNJL7DG4PFN:0000001D [INF] Request finished in 13.1072ms 200 text/css (791a596a)
+2019-06-18T12:00:46.9929824+07:00 0HLNJL7DG4PFN:0000001E [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin/blog/index   (ca22a1cb)
+2019-06-18T12:00:46.9997913+07:00 0HLNJL7DG4PFN:0000001E [INF] Request finished in 7.3294ms 404  (791a596a)
+2019-06-18T12:00:47.0089120+07:00 0HLNJL7DG4PFU:00000001 [INF] Request finished in 2466.5322ms 101  (791a596a)
+2019-06-18T12:00:48.1872252+07:00 0HLNJL7DG4PFN:0000001F [INF] Request starting HTTP/1.1 POST http://localhost:5000/signalRHub/negotiate text/plain;charset=UTF-8 0 (ca22a1cb)
+2019-06-18T12:00:48.1923972+07:00 0HLNJL7DG4PFN:0000001F [INF] Policy execution successful. (0204925d)
+2019-06-18T12:00:48.1969243+07:00 0HLNJL7DG4PFN:0000001F [INF] Request finished in 8.0579ms 200 application/json (791a596a)
+2019-06-18T12:00:48.2336692+07:00 0HLNJL7DG4PFV:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/signalRHub?id=LZbWrvvC8-47-tEsaNjKXw   (ca22a1cb)
+2019-06-18T12:00:48.2364625+07:00 0HLNJL7DG4PFV:00000001 [INF] Policy execution successful. (0204925d)
+2019-06-18T12:00:48.2630056+07:00 0HLNJL7DG4PFV:00000001 [INF] Completed connection handshake. Using HubProtocol '"json"'. (421947a1)
+2019-06-18T12:00:50.4273888+07:00 0HLNJL7DG4PFN:00000020 [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin/product/index   (ca22a1cb)
+2019-06-18T12:00:50.4352907+07:00 0HLNJL7DG4PFN:00000020 [INF] Route matched with "{area = \"Admin\", action = \"Index\", controller = \"Product\"}". Executing action "WebAppCore.Areas.Admin.Controllers.ProductController.Index (WebAppCore)" (a44c0341)
+2019-06-18T12:00:50.4374981+07:00 0HLNJL7DG4PFN:00000020 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:50.4402080+07:00 0HLNJL7DG4PFN:00000020 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.ProductController.Index (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:50.4668662+07:00 0HLNJL7DG4PFN:00000020 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:50.5125786+07:00 0HLNJL7DG4PFN:00000020 [INF] Executed DbCommand ("8"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Functions] AS [f]
+        INNER JOIN [Permissions] AS [p] ON [f].[Id] = [p].[FunctionId]
+        INNER JOIN [AppRoles] AS [r] ON [p].[RoleId] = [r].[Id]
+        WHERE ([r].[Name] IN (N'Admin') AND ([f].[Id] = @__functionId_1)) AND ([p].[CanRead] = 1))
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2019-06-18T12:00:50.5287315+07:00 0HLNJL7DG4PFN:00000020 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:50.5326237+07:00 0HLNJL7DG4PFN:00000020 [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.ProductController.Index (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 88.8181ms. (50a9e262)
+2019-06-18T12:00:50.5387115+07:00 0HLNJL7DG4PFN:00000020 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-06-18T12:00:50.5616432+07:00 0HLNJL7DG4PFN:00000020 [INF] Executed DbCommand ("6"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Functions] AS [f]
+        INNER JOIN [Permissions] AS [p] ON [f].[Id] = [p].[FunctionId]
+        INNER JOIN [AppRoles] AS [r] ON [p].[RoleId] = [r].[Id]
+        WHERE ([r].[Name] IN (N'Admin') AND ([f].[Id] = @__functionId_1)) AND ([p].[CanCreate] = 1))
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2019-06-18T12:00:50.5644562+07:00 0HLNJL7DG4PFN:00000020 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:50.6114710+07:00 0HLNJL7DG4PFN:00000020 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[URL], [x].[ParentId], [x].[IconCss], [x].[SortOrder], [x].[Status]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2019-06-18T12:00:50.6897833+07:00 0HLNJL7DG4PFN:00000020 [INF] Executed ViewResult - view "Index" executed in 154.4802ms. (f66409e9)
+2019-06-18T12:00:50.6925753+07:00 0HLNJL7DG4PFN:00000020 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.ProductController.Index (WebAppCore)" in 254.5593ms (afa2e885)
+2019-06-18T12:00:50.6977401+07:00 0HLNJL7DG4PFN:00000020 [INF] Request finished in 269.2958ms 200 text/html; charset=utf-8 (791a596a)
+2019-06-18T12:00:50.7034835+07:00 0HLNJL7DG4PFV:00000001 [INF] Request finished in 2469.3124ms 101  (791a596a)
+2019-06-18T12:00:50.7222926+07:00 0HLNJL7DG4PFN:00000021 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/jQuery-EasyUI/themes/bootstrap/easyui.css   (ca22a1cb)
+2019-06-18T12:00:50.7248128+07:00 0HLNJL7DG4PFO:00000019 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/jQuery-EasyUI/themes/icon.css   (ca22a1cb)
+2019-06-18T12:00:50.7324181+07:00 0HLNJL7DG4PFR:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/jQuery-EasyUI/jquery.easyui.min.js   (ca22a1cb)
+2019-06-18T12:00:50.7412484+07:00 0HLNJL7DG4PFP:0000001B [INF] Request starting HTTP/1.1 GET http://localhost:5000/app/Controller/product/image-management.js?v=D8rhOKCRXYXYlnb3T5pCzqUBwyo4Oiwy52PPAzKu_ic   (ca22a1cb)
+2019-06-18T12:00:50.7498588+07:00 0HLNJL7DG4PFQ:00000015 [INF] Request starting HTTP/1.1 GET http://localhost:5000/app/Controller/product/whole-price-management.js?v=hAJlQHNmYsTUVujQ2LDtyBbBjoKUbExz13GlnWp2elI   (ca22a1cb)
+2019-06-18T12:00:50.7538996+07:00 0HLNJL7DG4PFM:00000019 [INF] Request starting HTTP/1.1 GET http://localhost:5000/app/Controller/product/quantity-management.js?v=hrrKV2vS5nV6gHwd5mBXRH9Z9tTZheoCQGBHechak8k   (ca22a1cb)
+2019-06-18T12:00:50.7573628+07:00 0HLNJL7DG4PFO:00000019 [INF] Sending file. Request path: '"/lib/jQuery-EasyUI/themes/icon.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\jQuery-EasyUI\themes\icon.css"' (27b0a520)
+2019-06-18T12:00:50.7625001+07:00 0HLNJL7DG4PFN:00000021 [INF] Sending file. Request path: '"/lib/jQuery-EasyUI/themes/bootstrap/easyui.css"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\jQuery-EasyUI\themes\bootstrap\easyui.css"' (27b0a520)
+2019-06-18T12:00:50.7695312+07:00 0HLNJL7DG4PFP:0000001B [INF] Sending file. Request path: '"/app/Controller/product/image-management.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\app\Controller\product\image-management.js"' (27b0a520)
+2019-06-18T12:00:50.7722085+07:00 0HLNJL7DG4PFN:00000021 [INF] Request finished in 55.1141ms 200 text/css (791a596a)
+2019-06-18T12:00:50.7752377+07:00 0HLNJL7DG4PFP:0000001B [INF] Request finished in 49.3182ms 200 application/javascript (791a596a)
+2019-06-18T12:00:50.7769666+07:00 0HLNJL7DG4PFM:00000019 [INF] Sending file. Request path: '"/app/Controller/product/quantity-management.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\app\Controller\product\quantity-management.js"' (27b0a520)
+2019-06-18T12:00:50.7826631+07:00 0HLNJL7DG4PFQ:00000015 [INF] Sending file. Request path: '"/app/Controller/product/whole-price-management.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\app\Controller\product\whole-price-management.js"' (27b0a520)
+2019-06-18T12:00:50.7847007+07:00 0HLNJL7DG4PFM:00000019 [INF] Request finished in 34.3047ms 200 application/javascript (791a596a)
+2019-06-18T12:00:50.7888930+07:00 0HLNJL7DG4PFQ:00000015 [INF] Request finished in 40.8923ms 200 application/javascript (791a596a)
+2019-06-18T12:00:50.8153005+07:00 0HLNJL7DG4PFO:00000019 [INF] Request finished in 43.201ms 200 text/css (791a596a)
+2019-06-18T12:00:50.8180201+07:00 0HLNJL7DG4PFO:0000001A [INF] Request starting HTTP/1.1 GET http://localhost:5000/app/Controller/product/index.js?v=qACsN7ZPP_u06qxcu33Fouqi_NhB_qiVsOseUwAI86E   (ca22a1cb)
+2019-06-18T12:00:50.8221757+07:00 0HLNJL7DG4PFO:0000001A [INF] Sending file. Request path: '"/app/Controller/product/index.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\app\Controller\product\index.js"' (27b0a520)
+2019-06-18T12:00:50.8251989+07:00 0HLNJL7DG4PFO:0000001A [INF] Request finished in 6.8685ms 200 application/javascript (791a596a)
+2019-06-18T12:00:50.8534156+07:00 0HLNJL7DG4PFR:0000000D [INF] Sending file. Request path: '"/lib/jQuery-EasyUI/jquery.easyui.min.js"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\jQuery-EasyUI\jquery.easyui.min.js"' (27b0a520)
+2019-06-18T12:00:50.8559832+07:00 0HLNJL7DG4PFR:0000000D [INF] Request finished in 133.1696ms 200 application/javascript (791a596a)
+2019-06-18T12:00:50.8718668+07:00 0HLNJL7DG4PFR:0000000E [INF] Request starting HTTP/1.1 POST http://localhost:5000/signalRHub/negotiate text/plain;charset=UTF-8 0 (ca22a1cb)
+2019-06-18T12:00:50.8742317+07:00 0HLNJL7DG4PFO:0000001B [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin/announcement/GetAllPaging?page=1&pageSize=10   (ca22a1cb)
+2019-06-18T12:00:50.8767653+07:00 0HLNJL7DG4PFR:0000000E [INF] Policy execution successful. (0204925d)
+2019-06-18T12:00:50.8792928+07:00 0HLNJL7DG4PFO:0000001B [INF] Route matched with "{area = \"Admin\", action = \"GetAllPaging\", controller = \"Announcement\"}". Executing action "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)" (a44c0341)
+2019-06-18T12:00:50.8827762+07:00 0HLNJL7DG4PFR:0000000E [INF] Request finished in 9.698ms 200 application/json (791a596a)
+2019-06-18T12:00:50.8842378+07:00 0HLNJL7DG4PFO:0000001B [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:50.8870193+07:00 0HLNJL7DG4PFO:0000001B [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)" with arguments (["1", "10"]) - Validation state: Valid (4e3479ed)
+2019-06-18T12:00:50.8897508+07:00 0HLNJL7DG4PFO:0000001B [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:50.8966140+07:00 0HLNJL7DG4PFO:0000001B [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))" (0723d8ff)
+2019-06-18T12:00:50.9043995+07:00 0HLNJL7DG4PFO:0000001B [INF] Executed DbCommand ("5"ms) [Parameters=["@__userId_0='?' (DbType = Guid), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Title], [x].[Content], [x].[UserId], [x].[DateCreated], [x].[DateModified], [x].[Status]
+FROM [Announcements] AS [x]
+LEFT JOIN [AnnouncementUsers] AS [y] ON [x].[Id] = [y].[AnnouncementId]
+WHERE ([y].[HasRead] = 0) AND ([y].[UserId] IS NULL OR ([y].[UserId] = @__userId_0))
+ORDER BY [x].[DateCreated] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY" (0723d8ff)
+2019-06-18T12:00:50.9071901+07:00 0HLNJL7DG4PFO:0000001B [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 17.4698ms. (50a9e262)
+2019-06-18T12:00:50.9105865+07:00 0HLNJL7DG4PFO:0000001B [INF] Executing ObjectResult, writing value of type '"WebAppCore.Utilities.Dtos.PagedResult`1[[WebAppCore.Application.ViewModels.System.AnnouncementViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:50.9155699+07:00 0HLNJL7DG4PFO:0000001B [INF] Executed action "WebAppCore.Areas.Admin.Controllers.AnnouncementController.GetAllPaging (WebAppCore)" in 31.413ms (afa2e885)
+2019-06-18T12:00:50.9190138+07:00 0HLNJL7DG4PFO:0000001B [INF] Request finished in 43.8291ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:50.9387153+07:00 0HLNJL7DG4PG0:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/signalRHub?id=EQ5wgWzSqTWGtX8xMnm9Yw   (ca22a1cb)
+2019-06-18T12:00:50.9420016+07:00 0HLNJL7DG4PG0:00000001 [INF] Policy execution successful. (0204925d)
+2019-06-18T12:00:50.9485325+07:00 0HLNJL7DG4PG0:00000001 [INF] Completed connection handshake. Using HubProtocol '"json"'. (421947a1)
+2019-06-18T12:00:50.9756310+07:00 0HLNJL7DG4PFO:0000001C [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/Product/GetAllCategory   (ca22a1cb)
+2019-06-18T12:00:50.9769525+07:00 0HLNJL7DG4PFR:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin/product/GetAllPaging?categoryId=&keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-06-18T12:00:50.9817383+07:00 0HLNJL7DG4PFM:0000001A [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/Bill/GetSizes   (ca22a1cb)
+2019-06-18T12:00:50.9830166+07:00 0HLNJL7DG4PFN:00000022 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/Bill/GetColors   (ca22a1cb)
+2019-06-18T12:00:50.9876320+07:00 0HLNJL7DG4PFM:0000001A [INF] Route matched with "{area = \"Admin\", action = \"GetSizes\", controller = \"Bill\"}". Executing action "WebAppCore.Areas.Admin.Controllers.BillController.GetSizes (WebAppCore)" (a44c0341)
+2019-06-18T12:00:50.9894521+07:00 0HLNJL7DG4PFN:00000022 [INF] Route matched with "{area = \"Admin\", action = \"GetColors\", controller = \"Bill\"}". Executing action "WebAppCore.Areas.Admin.Controllers.BillController.GetColors (WebAppCore)" (a44c0341)
+2019-06-18T12:00:50.9949263+07:00 0HLNJL7DG4PFO:0000001C [INF] Route matched with "{area = \"Admin\", action = \"GetAllCategory\", controller = \"Product\"}". Executing action "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllCategory (WebAppCore)" (a44c0341)
+2019-06-18T12:00:50.9978120+07:00 0HLNJL7DG4PFM:0000001A [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:51.0011451+07:00 0HLNJL7DG4PFN:00000022 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:51.0032688+07:00 0HLNJL7DG4PFO:0000001C [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:51.0072998+07:00 0HLNJL7DG4PFM:0000001A [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.BillController.GetSizes (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:51.0095791+07:00 0HLNJL7DG4PFN:00000022 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.BillController.GetColors (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:51.0137459+07:00 0HLNJL7DG4PFO:0000001C [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllCategory (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:51.0159630+07:00 0HLNJL7DG4PFM:0000001A [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:51.0180170+07:00 0HLNJL7DG4PFN:00000022 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:51.0202738+07:00 0HLNJL7DG4PFO:0000001C [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:51.0230029+07:00 0HLNJL7DG4PFR:0000000F [INF] Route matched with "{area = \"Admin\", action = \"GetAllPaging\", controller = \"Product\"}". Executing action "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllPaging (WebAppCore)" (a44c0341)
+2019-06-18T12:00:51.0302074+07:00 0HLNJL7DG4PFR:0000000F [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:51.0349585+07:00 0HLNJL7DG4PFM:0000001A [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [dto].[Id], [dto].[Name]
+FROM [Sizes] AS [dto]" (0723d8ff)
+2019-06-18T12:00:51.0388320+07:00 0HLNJL7DG4PFN:00000022 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [dto].[Id], [dto].[Name], [dto].[Code]
+FROM [Colors] AS [dto]" (0723d8ff)
+2019-06-18T12:00:51.0427307+07:00 0HLNJL7DG4PFR:0000000F [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllPaging (WebAppCore)" with arguments (["", "", "1", "10"]) - Validation state: Valid (4e3479ed)
+2019-06-18T12:00:51.0455325+07:00 0HLNJL7DG4PFN:00000022 [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.BillController.GetColors (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 28.0748ms. (50a9e262)
+2019-06-18T12:00:51.0511356+07:00 0HLNJL7DG4PFM:0000001A [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.BillController.GetSizes (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 31.4996ms. (50a9e262)
+2019-06-18T12:00:51.0541422+07:00 0HLNJL7DG4PFO:0000001C [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2019-06-18T12:00:51.0562019+07:00 0HLNJL7DG4PFN:00000022 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[WebAppCore.Application.ViewModels.Product.ColorViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:51.0594408+07:00 0HLNJL7DG4PFM:0000001A [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[WebAppCore.Application.ViewModels.Product.SizeViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:51.0631357+07:00 0HLNJL7DG4PFN:00000022 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.BillController.GetColors (WebAppCore)" in 65.9061ms (afa2e885)
+2019-06-18T12:00:51.0678048+07:00 0HLNJL7DG4PFO:0000001C [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2019-06-18T12:00:51.0705824+07:00 0HLNJL7DG4PFM:0000001A [INF] Executed action "WebAppCore.Areas.Admin.Controllers.BillController.GetSizes (WebAppCore)" in 75.3005ms (afa2e885)
+2019-06-18T12:00:51.0735861+07:00 0HLNJL7DG4PFN:00000022 [INF] Request finished in 87.5693ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:51.0752631+07:00 0HLNJL7DG4PFO:0000001C [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllCategory (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 56.7337ms. (50a9e262)
+2019-06-18T12:00:51.0847673+07:00 0HLNJL7DG4PFM:0000001A [INF] Request finished in 95.8246ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:51.0906411+07:00 0HLNJL7DG4PFO:0000001C [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[WebAppCore.Application.ViewModels.Product.ProductCategoryViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:51.0921757+07:00 0HLNJL7DG4PFR:0000000F [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:51.0977079+07:00 0HLNJL7DG4PFO:0000001C [INF] Executed action "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllCategory (WebAppCore)" in 97.5873ms (afa2e885)
+2019-06-18T12:00:51.1020222+07:00 0HLNJL7DG4PFO:0000001C [INF] Request finished in 126.7052ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:51.1071457+07:00 0HLNJL7DG4PFR:0000000F [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2019-06-18T12:00:51.1721114+07:00 0HLNJL7DG4PFR:0000000F [INF] Executed DbCommand ("7"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE [x].[Status] = 1
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-18T12:00:51.1874340+07:00 0HLNJL7DG4PFR:0000000F [INF] Executed DbCommand ("10"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE [x0].[Status] = 1
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2019-06-18T12:00:51.1913079+07:00 0HLNJL7DG4PFR:0000000F [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllPaging (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 145.8426ms. (50a9e262)
+2019-06-18T12:00:51.1937878+07:00 0HLNJL7DG4PFR:0000000F [INF] Executing ObjectResult, writing value of type '"WebAppCore.Utilities.Dtos.PagedResult`1[[WebAppCore.Application.ViewModels.Product.ProductViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:51.2036352+07:00 0HLNJL7DG4PFR:0000000F [INF] Executed action "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllPaging (WebAppCore)" in 178.0936ms (afa2e885)
+2019-06-18T12:00:51.2060670+07:00 0HLNJL7DG4PFR:0000000F [INF] Request finished in 231.1671ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:51.2460319+07:00 0HLNJL7DG4PFR:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin/product/GetAllPaging?categoryId=&keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-06-18T12:00:51.2504838+07:00 0HLNJL7DG4PFR:00000010 [INF] Route matched with "{area = \"Admin\", action = \"GetAllPaging\", controller = \"Product\"}". Executing action "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllPaging (WebAppCore)" (a44c0341)
+2019-06-18T12:00:51.2530236+07:00 0HLNJL7DG4PFR:00000010 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:51.2557961+07:00 0HLNJL7DG4PFR:00000010 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllPaging (WebAppCore)" with arguments (["", "", "1", "10"]) - Validation state: Valid (4e3479ed)
+2019-06-18T12:00:51.2588153+07:00 0HLNJL7DG4PFR:00000010 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:51.2621502+07:00 0HLNJL7DG4PFR:00000010 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2019-06-18T12:00:51.2673828+07:00 0HLNJL7DG4PFR:00000010 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE [x].[Status] = 1
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-18T12:00:51.2704860+07:00 0HLNJL7DG4PFR:00000010 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE [x0].[Status] = 1
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2019-06-18T12:00:51.2737759+07:00 0HLNJL7DG4PFR:00000010 [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllPaging (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 15.688ms. (50a9e262)
+2019-06-18T12:00:51.2762680+07:00 0HLNJL7DG4PFR:00000010 [INF] Executing ObjectResult, writing value of type '"WebAppCore.Utilities.Dtos.PagedResult`1[[WebAppCore.Application.ViewModels.Product.ProductViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:51.2815770+07:00 0HLNJL7DG4PFR:00000010 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllPaging (WebAppCore)" in 26.8924ms (afa2e885)
+2019-06-18T12:00:51.2843920+07:00 0HLNJL7DG4PFR:00000010 [INF] Request finished in 38.988ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:56.9837453+07:00 0HLNJL7DG4PFR:00000011 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/Role/GetById?id=20   (ca22a1cb)
+2019-06-18T12:00:56.9839795+07:00 0HLNJL7DG4PFO:0000001D [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/Product/GetById?id=20   (ca22a1cb)
+2019-06-18T12:00:56.9890092+07:00 0HLNJL7DG4PFO:0000001D [INF] Route matched with "{area = \"Admin\", action = \"GetById\", controller = \"Product\"}". Executing action "WebAppCore.Areas.Admin.Controllers.ProductController.GetById (WebAppCore)" (a44c0341)
+2019-06-18T12:00:56.9926653+07:00 0HLNJL7DG4PFO:0000001D [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:56.9958251+07:00 0HLNJL7DG4PFO:0000001D [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.ProductController.GetById (WebAppCore)" with arguments (["20"]) - Validation state: Valid (4e3479ed)
+2019-06-18T12:00:57.0013090+07:00 0HLNJL7DG4PFO:0000001D [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:57.0058549+07:00 0HLNJL7DG4PFR:00000011 [INF] Route matched with "{area = \"Admin\", action = \"GetById\", controller = \"Role\"}". Executing action "WebAppCore.Areas.Admin.Controllers.RoleController.GetById (WebAppCore)" (a44c0341)
+2019-06-18T12:00:57.0088395+07:00 0HLNJL7DG4PFR:00000011 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:57.0199485+07:00 0HLNJL7DG4PFR:00000011 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.RoleController.GetById (WebAppCore)" with arguments (["00000000-0000-0000-0000-000000000000"]) - Validation state: Invalid (4e3479ed)
+2019-06-18T12:00:57.0298518+07:00 0HLNJL7DG4PFR:00000011 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:57.0351732+07:00 0HLNJL7DG4PFO:0000001D [INF] Executed DbCommand ("2"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[CategoryId], [x].[Content], [x].[DateCreated], [x].[DateModified], [x].[Description], [x].[HomeFlag], [x].[HotFlag], [x].[Image], [x].[Name], [x].[OriginalPrice], [x].[Price], [x].[PromotionPrice], [x].[SeoAlias], [x].[SeoDescription], [x].[SeoKeywords], [x].[SeoPageTitle], [x].[Status], [x].[Tags], [x].[Unit], [x].[ViewCount]
+FROM [Products] AS [x]
+WHERE [x].[Id] = @__id_0" (0723d8ff)
+2019-06-18T12:00:57.0462008+07:00 0HLNJL7DG4PFR:00000011 [INF] Executed DbCommand ("3"ms) [Parameters=["@__roleId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[ConcurrencyStamp], [u].[Description], [u].[Name], [u].[NormalizedName]
+FROM [AppRoles] AS [u]
+WHERE [u].[Id] = @__roleId_0" (0723d8ff)
+2019-06-18T12:00:57.0648860+07:00 0HLNJL7DG4PFR:00000011 [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.RoleController.GetById (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 42.8533ms. (50a9e262)
+2019-06-18T12:00:57.0670450+07:00 0HLNJL7DG4PFR:00000011 [INF] Executing ObjectResult, writing value of type '"null"'. (8a1b66c8)
+2019-06-18T12:00:57.0693746+07:00 0HLNJL7DG4PFR:00000011 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.RoleController.GetById (WebAppCore)" in 61.462ms (afa2e885)
+2019-06-18T12:00:57.0718404+07:00 0HLNJL7DG4PFR:00000011 [INF] Request finished in 91.545ms 204  (791a596a)
+2019-06-18T12:00:57.1046104+07:00 0HLNJL7DG4PFO:0000001D [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.ProductController.GetById (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 106.7513ms. (50a9e262)
+2019-06-18T12:00:57.1068272+07:00 0HLNJL7DG4PFO:0000001D [INF] Executing ObjectResult, writing value of type '"WebAppCore.Application.ViewModels.Product.ProductViewModel"'. (8a1b66c8)
+2019-06-18T12:00:57.1089447+07:00 0HLNJL7DG4PFO:0000001D [INF] Executed action "WebAppCore.Areas.Admin.Controllers.ProductController.GetById (WebAppCore)" in 117.9157ms (afa2e885)
+2019-06-18T12:00:57.1115135+07:00 0HLNJL7DG4PFO:0000001D [INF] Request finished in 129.9367ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:57.1180095+07:00 0HLNJL7DG4PFO:0000001E [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/ProductCategory/GetAll   (ca22a1cb)
+2019-06-18T12:00:57.1220519+07:00 0HLNJL7DG4PFO:0000001E [INF] Route matched with "{area = \"Admin\", action = \"GetAll\", controller = \"ProductCategory\"}". Executing action "WebAppCore.Areas.Admin.Controllers.ProductCategoryController.GetAll (WebAppCore)" (a44c0341)
+2019-06-18T12:00:57.1246117+07:00 0HLNJL7DG4PFO:0000001E [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:00:57.1268590+07:00 0HLNJL7DG4PFO:0000001E [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.ProductCategoryController.GetAll (WebAppCore)" - Validation state: Valid (dad538d7)
+2019-06-18T12:00:57.1293179+07:00 0HLNJL7DG4PFO:0000001E [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:00:57.1324785+07:00 0HLNJL7DG4PFO:0000001E [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2019-06-18T12:00:57.1355117+07:00 0HLNJL7DG4PFO:0000001E [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2019-06-18T12:00:57.1381422+07:00 0HLNJL7DG4PFO:0000001E [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.ProductCategoryController.GetAll (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 9.1661ms. (50a9e262)
+2019-06-18T12:00:57.1405649+07:00 0HLNJL7DG4PFO:0000001E [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[WebAppCore.Application.ViewModels.Product.ProductCategoryViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:00:57.1433939+07:00 0HLNJL7DG4PFO:0000001E [INF] Executed action "WebAppCore.Areas.Admin.Controllers.ProductCategoryController.GetAll (WebAppCore)" in 19.0868ms (afa2e885)
+2019-06-18T12:00:57.1458038+07:00 0HLNJL7DG4PFO:0000001E [INF] Request finished in 27.5127ms 200 application/json; charset=utf-8 (791a596a)
+2019-06-18T12:00:57.1688918+07:00 0HLNJL7DG4PFO:0000001F [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/jQuery-EasyUI/themes/bootstrap/images/combo_arrow.png   (ca22a1cb)
+2019-06-18T12:00:57.1754823+07:00 0HLNJL7DG4PFO:0000001F [INF] Sending file. Request path: '"/lib/jQuery-EasyUI/themes/bootstrap/images/combo_arrow.png"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\jQuery-EasyUI\themes\bootstrap\images\combo_arrow.png"' (27b0a520)
+2019-06-18T12:00:57.1778755+07:00 0HLNJL7DG4PFO:0000001F [INF] Request finished in 9.7577ms 200 image/png (791a596a)
+2019-06-18T12:00:57.3645933+07:00 0HLNJL7DG4PFO:00000020 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/ckeditor/skins/moono-lisa/icons.png?t=H8DC   (ca22a1cb)
+2019-06-18T12:00:57.3750668+07:00 0HLNJL7DG4PFO:00000020 [INF] Sending file. Request path: '"/lib/ckeditor/skins/moono-lisa/icons.png"'. Physical path: '"D:\WebAppliCation-Core\WebAppCore\wwwroot\lib\ckeditor\skins\moono-lisa\icons.png"' (27b0a520)
+2019-06-18T12:00:57.3785837+07:00 0HLNJL7DG4PFO:00000020 [INF] Request finished in 15.2182ms 200 image/png (791a596a)
+2019-06-18T12:01:10.0432500+07:00 0HLNJL7DG4PFO:00000021 [INF] Request starting HTTP/1.1 GET http://localhost:5000/admin/product/GetAllPaging?categoryId=&keyword=&page=2&pageSize=10   (ca22a1cb)
+2019-06-18T12:01:10.0476565+07:00 0HLNJL7DG4PFO:00000021 [INF] Route matched with "{area = \"Admin\", action = \"GetAllPaging\", controller = \"Product\"}". Executing action "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllPaging (WebAppCore)" (a44c0341)
+2019-06-18T12:01:10.0517572+07:00 0HLNJL7DG4PFO:00000021 [INF] Authorization was successful. (0d575a54)
+2019-06-18T12:01:10.0572141+07:00 0HLNJL7DG4PFO:00000021 [INF] Executing action method "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllPaging (WebAppCore)" with arguments (["", "", "2", "10"]) - Validation state: Valid (4e3479ed)
+2019-06-18T12:01:10.0617682+07:00 0HLNJL7DG4PFO:00000021 [INF] Entity Framework Core "2.1.8-servicing-32085" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=WebAppCore.Data.EF " (9958f5bb)
+2019-06-18T12:01:10.0651344+07:00 0HLNJL7DG4PFO:00000021 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [x]
+WHERE [x].[Status] = 1" (0723d8ff)
+2019-06-18T12:01:10.0688419+07:00 0HLNJL7DG4PFO:00000021 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE [x].[Status] = 1
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2019-06-18T12:01:10.0731537+07:00 0HLNJL7DG4PFO:00000021 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE [x0].[Status] = 1
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2019-06-18T12:01:10.0765439+07:00 0HLNJL7DG4PFO:00000021 [INF] Executed action method "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllPaging (WebAppCore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 16.8602ms. (50a9e262)
+2019-06-18T12:01:10.0793291+07:00 0HLNJL7DG4PFO:00000021 [INF] Executing ObjectResult, writing value of type '"WebAppCore.Utilities.Dtos.PagedResult`1[[WebAppCore.Application.ViewModels.Product.ProductViewModel, WebAppCore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-06-18T12:01:10.0841345+07:00 0HLNJL7DG4PFO:00000021 [INF] Executed action "WebAppCore.Areas.Admin.Controllers.ProductController.GetAllPaging (WebAppCore)" in 33.2044ms (afa2e885)
+2019-06-18T12:01:10.0875225+07:00 0HLNJL7DG4PFO:00000021 [INF] Request finished in 44.2039ms 200 application/json; charset=utf-8 (791a596a)
