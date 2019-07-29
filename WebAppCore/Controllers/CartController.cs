@@ -13,6 +13,7 @@ using WebAppCore.Data.Enums;
 using System.Security.Claims;
 using WebAppCore.Services;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace WebAppCore.Controllers
 {
@@ -23,15 +24,17 @@ namespace WebAppCore.Controllers
         IViewRenderService _viewRenderService;
         IConfiguration _configuration;
         IEmailSender _emailSender;
+        private readonly ILogger _logger;
         public CartController(IProductService productService,
             IEmailSender emailSender, IViewRenderService viewRenderService,
-            IConfiguration configuration, IBillService billService)
+            IConfiguration configuration, IBillService billService, ILogger<CartController> logger)
         {
             _productService = productService;
             _billService = billService;
             _viewRenderService = viewRenderService;
             _configuration = configuration;
             _emailSender = emailSender;
+            _logger = logger;
         }
         [Route("cart.html", Name = "Cart")]
         public IActionResult Index()
