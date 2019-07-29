@@ -1,14 +1,18 @@
 ﻿var CartController = function () {
     var cachedObj = {
         colors: [],
-        sizes: [],
+        //sizes: [],
     }
     this.initialize = function () {
-        $.when(loadColors(),
-                loadSizes())
-        .then(function () {
+        //$.when(loadColors(),
+        //        loadSizes())
+        //.then(function () {
+        //    loadData();
+        //});
+
+        $.when(loadColors()).then(function () {
             loadData();
-        });
+            });
 
         registerEvents();
     }
@@ -24,7 +28,7 @@
                     productId: id
                 },
                 success: function () {
-                    structures.notify('Removing product is successful.', 'success');
+                    structures.notify('Loại bỏ sản phẩm là thành công.', 'success');
                     loadHeaderCart();
                     loadData();
                 }
@@ -43,13 +47,13 @@
                         quantity: q
                     },
                     success: function () {
-                        structures.notify('Update quantity is successful', 'success');
+                        structures.notify('Cập nhật số lượng thành công', 'success');
                         loadHeaderCart();
                         loadData();
                     }
                 });
             } else {
-                structures.notify('Your quantity is invalid', 'error');
+                structures.notify('Số lượng của bạn không hợp lệ', 'error');
             }
 
         });
@@ -72,13 +76,13 @@
                         size: sizeId
                     },
                     success: function () {
-                        structures.notify('Update quantity is successful', 'success');
+                        structures.notify('Cập nhật số lượng thành công', 'success');
                         loadHeaderCart();
                         loadData();
                     }
                 });
             } else {
-                structures.notify('Your quantity is invalid', 'error');
+                structures.notify('Số lượng của bạn không hợp lệ', 'error');
             }
 
         });
@@ -100,13 +104,13 @@
                         size: sizeId
                     },
                     success: function () {
-                        structures.notify('Update quantity is successful', 'success');
+                        structures.notify('Cập nhật số lượng thành công', 'success');
                         loadHeaderCart();
                         loadData();
                     }
                 });
             } else {
-                structures.notify('Your quantity is invalid', 'error');
+                structures.notify('Số lượng của bạn không hợp lệ', 'error');
             }
 
         });
@@ -116,7 +120,7 @@
                 url: '/Cart/ClearCart',
                 type: 'post',
                 success: function () {
-                    structures.notify('Clear cart is successful', 'success');
+                    structures.notify('Xóa giỏ hàng thành công', 'success');
                     loadHeaderCart();
                     loadData();
                 }
@@ -132,25 +136,26 @@
                 cachedObj.colors = response;
             },
             error: function () {
-                structures.notify('Has an error in progress', 'error');
+                structures.notify('Có lỗi trong tiến trình', 'error');
             }
         });
     }
 
-    function loadSizes() {
-        return $.ajax({
-            type: "GET",
-            url: "/Cart/GetSizes",
-            dataType: "json",
-            success: function (response) {
-                cachedObj.sizes = response;
-            },
-            error: function () {
-                structures.notify('Has an error in progress', 'error');
-            }
-        });
-    }
+    //function loadSizes() {
+    //    return $.ajax({
+    //        type: "GET",
+    //        url: "/Cart/GetSizes",
+    //        dataType: "json",
+    //        success: function (response) {
+    //            cachedObj.sizes = response;
+    //        },
+    //        error: function () {
+    //            structures.notify('Has an error in progress', 'error');
+    //        }
+    //    });
+    //}
     function getColorOptions(selectedId) {
+        //var value = 0;
         var colors = "<select class='form-control ddlColorId'><option value='0'></option>";
         $.each(cachedObj.colors, function (i, color) {
             if (selectedId === color.Id)
@@ -162,17 +167,17 @@
         return colors;
     }
 
-    function getSizeOptions(selectedId) {
-        var sizes = "<select class='form-control ddlSizeId'> <option value='0'></option>";
-        $.each(cachedObj.sizes, function (i, size) {
-            if (selectedId === size.Id)
-                sizes += '<option value="' + size.Id + '" selected="select">' + size.Name + '</option>';
-            else
-                sizes += '<option value="' + size.Id + '">' + size.Name + '</option>';
-        });
-        sizes += "</select>";
-        return sizes;
-    }
+    //function getSizeOptions(selectedId) {
+    //    var sizes = "<select class='form-control ddlSizeId'> <option value='0'></option>";
+    //    $.each(cachedObj.sizes, function (i, size) {
+    //        if (selectedId === size.Id)
+    //            sizes += '<option value="' + size.Id + '" selected="select">' + size.Name + '</option>';
+    //        else
+    //            sizes += '<option value="' + size.Id + '">' + size.Name + '</option>';
+    //    });
+    //    sizes += "</select>";
+    //    return sizes;
+    //}
     function loadHeaderCart() {
         $("#headerCart").load("/AjaxContent/HeaderCart");
     }
@@ -194,7 +199,7 @@
                             Price: structures.formatNumber(item.Price, 0),
                             Quantity: item.Quantity,
                             Colors: getColorOptions(item.Color == null ? 0 : item.Color.Id),
-                            Sizes: getSizeOptions(item.Size == null ? "" : item.Size.Id),
+                            //Sizes: getSizeOptions(item.Size == null ? "" : item.Size.Id),
                             Amount: structures.formatNumber(item.Price * item.Quantity, 0),
                             Url: '/' + item.Product.SeoAlias + "-p." + item.Product.Id + ".html"
                         });
@@ -204,7 +209,7 @@
                 if (render !== "")
                     $('#table-cart-content').html(render);
                 else
-                    $('#table-cart-content').html('You have no product in cart');
+                    $('#table-cart-content').html('Bạn không có sản phẩm trong giỏ hàng');
             }
         });
         return false;
