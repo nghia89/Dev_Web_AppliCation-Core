@@ -45,7 +45,7 @@ namespace WebAppCore.Controllers
         {
             var model = new CheckoutViewModel();
             var session = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
-            if (session.Any(x => x.Color == null || x.Size == null))
+            if (session.Any(x => x.Color == null))
             {
                 return Redirect("/cart.html");
             }
