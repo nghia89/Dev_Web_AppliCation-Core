@@ -35,7 +35,7 @@ namespace WebAppCore.Application.AutoMapper
 
             CreateMap<BillDetailViewModel, BillDetail>()
               .ConstructUsing(c => new BillDetail(c.Id, c.BillId, c.ProductId,
-              c.Quantity, c.Price, c.ColorId, c.SizeId));
+              c.Quantity, c.Price, c.ColorId));
 
             CreateMap<ContactViewModel, Contact>()
               .ConstructUsing(c => new Contact(c.Id, c.Name, c.Phone, c.Email, c.Website, c.Address, c.Other, c.Lng, c.Lat, c.Status));

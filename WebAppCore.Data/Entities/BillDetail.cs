@@ -11,7 +11,7 @@ namespace WebAppCore.Data.Entities
     {
         public BillDetail() { }
 
-        public BillDetail(int id, int billId, int productId, int quantity, decimal price, int colorId, int sizeId)
+        public BillDetail(int id, int billId, int productId, int quantity, decimal price, int colorId)
         {
             Id = id;
             BillId = billId;
@@ -19,17 +19,17 @@ namespace WebAppCore.Data.Entities
             Quantity = quantity;
             Price = price;
             ColorId = colorId;
-            SizeId = sizeId;
+            //SizeId = sizeId;
         }
 
-        public BillDetail(int billId, int productId, int quantity, decimal price, int colorId, int sizeId)
+        public BillDetail(int billId, int productId, int quantity, decimal price, int colorId)
         {
             BillId = billId;
             ProductId = productId;
             Quantity = quantity;
             Price = price;
             ColorId = colorId;
-            SizeId = sizeId;
+            //SizeId = sizeId;
         }
         public int BillId { set; get; }
 
@@ -52,7 +52,7 @@ namespace WebAppCore.Data.Entities
         [ForeignKey("ColorId")]
         public virtual Color Color { set; get; }
 
-        [ForeignKey("SizeId")]
-        public virtual Size Size { set; get; }
+        //[ForeignKey("SizeId")]
+       // public virtual Size Size { set; get; }
     }
 }
