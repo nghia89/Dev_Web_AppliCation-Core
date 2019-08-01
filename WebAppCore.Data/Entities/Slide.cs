@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using WebAppCore.Data.Enums;
 using WebAppCore.Infrastructure.SharedKernel;
 
 namespace WebAppCore.Data.Entities
@@ -11,7 +12,7 @@ namespace WebAppCore.Data.Entities
     public class Slide : DomainEntity<int>
     {
         public Slide() {  }
-        public Slide(string name,string description,string image,string url,int? displayOrder,bool status,string content, string groupAlias)
+        public Slide(string name,string description,string image,string url,int? displayOrder, Status status,string content, string groupAlias)
         {
             Name = name;
             Description = description;
@@ -22,7 +23,7 @@ namespace WebAppCore.Data.Entities
             Content = content;
             GroupAlias = groupAlias;
         }
-        public Slide(int id, string name, string description, string image, string url, int? displayOrder, bool status, string content, string groupAlias)
+        public Slide(int id, string name, string description, string image, string url, int? displayOrder, Status status, string content, string groupAlias)
         {
             Id = id;
             Name = name;
@@ -51,12 +52,11 @@ namespace WebAppCore.Data.Entities
 
         public int? DisplayOrder { set; get; }
 
-        public bool Status { set; get; }
+        public Status Status { set; get; }
 
         public string Content { set; get; }
 
         [StringLength(25)]
-        [Required]
         public string GroupAlias { get; set; }
     }
 }

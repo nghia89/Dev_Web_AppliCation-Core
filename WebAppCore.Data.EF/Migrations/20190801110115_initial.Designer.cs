@@ -10,8 +10,8 @@ using WebAppCore.Data.EF;
 namespace WebAppCore.Data.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190730153814_remove_Size")]
-    partial class remove_Size
+    [Migration("20190801110115_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -820,7 +820,6 @@ namespace WebAppCore.Data.EF.Migrations
                     b.Property<int?>("DisplayOrder");
 
                     b.Property<string>("GroupAlias")
-                        .IsRequired()
                         .HasMaxLength(25);
 
                     b.Property<string>("Image")
@@ -831,7 +830,7 @@ namespace WebAppCore.Data.EF.Migrations
                         .IsRequired()
                         .HasMaxLength(250);
 
-                    b.Property<bool>("Status");
+                    b.Property<int>("Status");
 
                     b.Property<string>("Url")
                         .HasMaxLength(250);

@@ -818,7 +818,6 @@ namespace WebAppCore.Data.EF.Migrations
                     b.Property<int?>("DisplayOrder");
 
                     b.Property<string>("GroupAlias")
-                        .IsRequired()
                         .HasMaxLength(25);
 
                     b.Property<string>("Image")
@@ -829,7 +828,7 @@ namespace WebAppCore.Data.EF.Migrations
                         .IsRequired()
                         .HasMaxLength(250);
 
-                    b.Property<bool>("Status");
+                    b.Property<int>("Status");
 
                     b.Property<string>("Url")
                         .HasMaxLength(250);
