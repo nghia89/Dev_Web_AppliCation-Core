@@ -35,16 +35,16 @@
                     {
                         if ((bool)ViewData["Success"] == true)
                         {
-                            <div class="alert alert-success">
-                                Thank you for your order. We are going to confirm your order soon.
-                            </div>
+                    <div class="alert alert-success">
+                        Cảm ơn bạn đã đặt hàng của bạn. Chúng tôi sẽ sớm xác nhận đơn hàng của bạn.
+                    </div>
 
                         }
                         else
                         {
-                            <div class="alert alert-danger">
-                                Have an error in order progress. Please contact to administrator.
-                            </div>
+                    <div class="alert alert-danger">
+                        Có một lỗi trong tiến trình đặt hàng. Vui lòng liên hệ với quản trị viên.
+                    </div>
 
                         }
 
@@ -125,7 +125,7 @@
                                         </li>
                                     }
                                 </ul>
-                                <button class="button"><i class="fa fa-angle-double-right"></i>&nbsp; <span>Continue</span></button>
+                                @*<button class="button"><i class="fa fa-angle-double-right"></i>&nbsp; <span>Continue</span></button>*@
                             </div>
                             <h4 class="checkout-sep last">4. Order Review</h4>
                             <div class="box-border">
@@ -148,7 +148,7 @@
                                                     <td class="cart_description">
                                                         <p class="product-name"><a href="/@item.Product.SeoAlias-p.@(item.Product.Id).html">@item.Product.Name </a></p>
                                                         <small><a href="#">Color : @item.Color.Name</a></small><br>
-                                                        <small><a href="#">Size : @item.Size.Name</a></small>
+                                                        @*<small><a href="#">Size : @item.Size.Name</a></small>*@
                                                     </td>
                                                     <td class="price"><span>@item.Price.ToString("N0") </span></td>
                                                     <td class="qty">@item.Quantity</td>

@@ -1,7 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using System;
-using System.Collections.Generic;
 
 namespace WebAppCore.Data.EF.Migrations
 {
@@ -27,9 +26,9 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    RoleId = table.Column<Guid>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
-                    ClaimValue = table.Column<string>(nullable: true),
-                    RoleId = table.Column<Guid>(nullable: false)
+                    ClaimValue = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -41,10 +40,10 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    ConcurrencyStamp = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(maxLength: 250, nullable: true),
                     Name = table.Column<string>(nullable: true),
-                    NormalizedName = table.Column<string>(nullable: true)
+                    NormalizedName = table.Column<string>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(maxLength: 250, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -57,9 +56,9 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    UserId = table.Column<Guid>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
-                    ClaimValue = table.Column<string>(nullable: true),
-                    UserId = table.Column<Guid>(nullable: false)
+                    ClaimValue = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -70,10 +69,10 @@ namespace WebAppCore.Data.EF.Migrations
                 name: "AppUserLogins",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(nullable: false),
                     LoginProvider = table.Column<string>(nullable: true),
+                    ProviderKey = table.Column<string>(nullable: true),
                     ProviderDisplayName = table.Column<string>(nullable: true),
-                    ProviderKey = table.Column<string>(nullable: true)
+                    UserId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -84,8 +83,8 @@ namespace WebAppCore.Data.EF.Migrations
                 name: "AppUserRoles",
                 columns: table => new
                 {
-                    RoleId = table.Column<Guid>(nullable: false),
-                    UserId = table.Column<Guid>(nullable: false)
+                    UserId = table.Column<Guid>(nullable: false),
+                    RoleId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -97,27 +96,27 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false),
-                    Avatar = table.Column<string>(nullable: true),
-                    Balance = table.Column<decimal>(nullable: false),
-                    BirthDay = table.Column<DateTime>(nullable: true),
-                    ConcurrencyStamp = table.Column<string>(nullable: true),
-                    DateCreated = table.Column<DateTime>(nullable: false),
-                    DateModified = table.Column<DateTime>(nullable: false),
-                    Email = table.Column<string>(nullable: true),
-                    EmailConfirmed = table.Column<bool>(nullable: false),
-                    FullName = table.Column<string>(nullable: true),
-                    LockoutEnabled = table.Column<bool>(nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
-                    NormalizedEmail = table.Column<string>(nullable: true),
+                    UserName = table.Column<string>(nullable: true),
                     NormalizedUserName = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    NormalizedEmail = table.Column<string>(nullable: true),
+                    EmailConfirmed = table.Column<bool>(nullable: false),
                     PasswordHash = table.Column<string>(nullable: true),
+                    SecurityStamp = table.Column<string>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true),
                     PhoneNumberConfirmed = table.Column<bool>(nullable: false),
-                    SecurityStamp = table.Column<string>(nullable: true),
-                    Status = table.Column<int>(nullable: false),
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
-                    UserName = table.Column<string>(nullable: true)
+                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
+                    LockoutEnabled = table.Column<bool>(nullable: false),
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    FullName = table.Column<string>(nullable: true),
+                    BirthDay = table.Column<DateTime>(nullable: true),
+                    Balance = table.Column<decimal>(nullable: false),
+                    Avatar = table.Column<string>(nullable: true),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -144,21 +143,21 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Content = table.Column<string>(nullable: true),
-                    DateCreated = table.Column<DateTime>(nullable: false),
-                    DateModified = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(maxLength: 256, nullable: false),
+                    Image = table.Column<string>(maxLength: 256, nullable: true),
                     Description = table.Column<string>(maxLength: 500, nullable: true),
+                    Content = table.Column<string>(nullable: true),
                     HomeFlag = table.Column<bool>(nullable: true),
                     HotFlag = table.Column<bool>(nullable: true),
-                    Image = table.Column<string>(maxLength: 256, nullable: true),
-                    Name = table.Column<string>(maxLength: 256, nullable: false),
-                    SeoAlias = table.Column<string>(maxLength: 256, nullable: true),
-                    SeoDescription = table.Column<string>(maxLength: 256, nullable: true),
-                    SeoKeywords = table.Column<string>(maxLength: 256, nullable: true),
-                    SeoPageTitle = table.Column<string>(maxLength: 256, nullable: true),
-                    Status = table.Column<int>(nullable: false),
+                    ViewCount = table.Column<int>(nullable: true),
                     Tags = table.Column<string>(nullable: true),
-                    ViewCount = table.Column<int>(nullable: true)
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    SeoPageTitle = table.Column<string>(maxLength: 256, nullable: true),
+                    SeoAlias = table.Column<string>(maxLength: 256, nullable: true),
+                    SeoKeywords = table.Column<string>(maxLength: 256, nullable: true),
+                    SeoDescription = table.Column<string>(maxLength: 256, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -171,8 +170,8 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Code = table.Column<string>(maxLength: 250, nullable: true),
-                    Name = table.Column<string>(maxLength: 250, nullable: true)
+                    Name = table.Column<string>(maxLength: 250, nullable: true),
+                    Code = table.Column<string>(maxLength: 250, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -184,15 +183,15 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(maxLength: 255, nullable: false),
-                    Address = table.Column<string>(maxLength: 250, nullable: true),
+                    Name = table.Column<string>(maxLength: 250, nullable: false),
+                    Phone = table.Column<string>(maxLength: 50, nullable: true),
                     Email = table.Column<string>(maxLength: 250, nullable: true),
+                    Website = table.Column<string>(maxLength: 250, nullable: true),
+                    Address = table.Column<string>(maxLength: 250, nullable: true),
+                    Other = table.Column<string>(nullable: true),
                     Lat = table.Column<double>(nullable: true),
                     Lng = table.Column<double>(nullable: true),
-                    Name = table.Column<string>(maxLength: 250, nullable: false),
-                    Other = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(maxLength: 50, nullable: true),
-                    Status = table.Column<int>(nullable: false),
-                    Website = table.Column<string>(maxLength: 250, nullable: true)
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -205,12 +204,12 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DateCreated = table.Column<DateTime>(nullable: false),
-                    DateModified = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(maxLength: 250, nullable: false),
                     Email = table.Column<string>(maxLength: 250, nullable: true),
                     Message = table.Column<string>(maxLength: 500, nullable: true),
-                    Name = table.Column<string>(maxLength: 250, nullable: false),
-                    Status = table.Column<int>(nullable: false)
+                    Status = table.Column<int>(nullable: false),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -221,7 +220,7 @@ namespace WebAppCore.Data.EF.Migrations
                 name: "Footers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    Id = table.Column<string>(unicode: false, maxLength: 255, nullable: false),
                     Content = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -233,13 +232,13 @@ namespace WebAppCore.Data.EF.Migrations
                 name: "Functions",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "varchar(128)", nullable: false),
-                    IconCss = table.Column<string>(nullable: true),
+                    Id = table.Column<string>(unicode: false, maxLength: 128, nullable: false),
                     Name = table.Column<string>(maxLength: 128, nullable: false),
+                    URL = table.Column<string>(maxLength: 250, nullable: false),
                     ParentId = table.Column<string>(maxLength: 128, nullable: true),
+                    IconCss = table.Column<string>(nullable: true),
                     SortOrder = table.Column<int>(nullable: false),
-                    Status = table.Column<int>(nullable: false),
-                    URL = table.Column<string>(maxLength: 250, nullable: false)
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -251,8 +250,8 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    IsDefault = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(maxLength: 128, nullable: false),
+                    IsDefault = table.Column<bool>(nullable: false),
                     Resources = table.Column<string>(nullable: true),
                     Status = table.Column<int>(nullable: false)
                 },
@@ -267,9 +266,9 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<int>(maxLength: 255, nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(maxLength: 256, nullable: false),
                     Alias = table.Column<string>(maxLength: 256, nullable: false),
                     Content = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(maxLength: 256, nullable: false),
                     Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -283,20 +282,20 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DateCreated = table.Column<DateTime>(nullable: false),
-                    DateModified = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    HomeFlag = table.Column<bool>(nullable: true),
+                    ParentId = table.Column<int>(nullable: true),
                     HomeOrder = table.Column<int>(nullable: true),
                     Image = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
-                    ParentId = table.Column<int>(nullable: true),
-                    SeoAlias = table.Column<string>(nullable: true),
-                    SeoDescription = table.Column<string>(nullable: true),
-                    SeoKeywords = table.Column<string>(nullable: true),
+                    HomeFlag = table.Column<bool>(nullable: true),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
                     SeoPageTitle = table.Column<string>(nullable: true),
-                    SortOrder = table.Column<int>(nullable: false),
-                    Status = table.Column<int>(nullable: false)
+                    SeoAlias = table.Column<string>(nullable: true),
+                    SeoKeywords = table.Column<string>(nullable: true),
+                    SeoDescription = table.Column<string>(nullable: true),
+                    SortOrder = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -322,14 +321,14 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Content = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(maxLength: 250, nullable: true),
-                    DisplayOrder = table.Column<int>(nullable: true),
-                    GroupAlias = table.Column<string>(maxLength: 25, nullable: false),
-                    Image = table.Column<string>(maxLength: 250, nullable: false),
                     Name = table.Column<string>(maxLength: 250, nullable: false),
-                    Status = table.Column<bool>(nullable: false),
-                    Url = table.Column<string>(maxLength: 250, nullable: true)
+                    Description = table.Column<string>(maxLength: 250, nullable: true),
+                    Image = table.Column<string>(maxLength: 250, nullable: false),
+                    Url = table.Column<string>(maxLength: 250, nullable: true),
+                    DisplayOrder = table.Column<int>(nullable: true),
+                    Status = table.Column<int>(nullable: false),
+                    Content = table.Column<string>(nullable: true),
+                    GroupAlias = table.Column<string>(maxLength: 25, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -342,12 +341,12 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<string>(maxLength: 255, nullable: false),
                     Name = table.Column<string>(maxLength: 128, nullable: false),
-                    Status = table.Column<int>(nullable: false),
                     Value1 = table.Column<string>(nullable: true),
                     Value2 = table.Column<int>(nullable: true),
                     Value3 = table.Column<bool>(nullable: true),
                     Value4 = table.Column<DateTime>(nullable: true),
-                    Value5 = table.Column<decimal>(nullable: true)
+                    Value5 = table.Column<decimal>(nullable: true),
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -358,7 +357,7 @@ namespace WebAppCore.Data.EF.Migrations
                 name: "Tags",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
+                    Id = table.Column<string>(unicode: false, maxLength: 50, nullable: false),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
                     Type = table.Column<string>(maxLength: 50, nullable: false)
                 },
@@ -372,8 +371,8 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(maxLength: 20, nullable: false),
-                    Name = table.Column<string>(maxLength: 250, nullable: true),
-                    PageId = table.Column<string>(maxLength: 20, nullable: true)
+                    PageId = table.Column<string>(maxLength: 20, nullable: true),
+                    Name = table.Column<string>(maxLength: 250, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -391,12 +390,12 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(maxLength: 128, nullable: false),
+                    Title = table.Column<string>(maxLength: 250, nullable: false),
                     Content = table.Column<string>(maxLength: 250, nullable: true),
+                    UserId = table.Column<Guid>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: false),
                     DateModified = table.Column<DateTime>(nullable: false),
-                    Status = table.Column<int>(nullable: false),
-                    Title = table.Column<string>(maxLength: 250, nullable: false),
-                    UserId = table.Column<Guid>(nullable: false)
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -415,16 +414,16 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    BillStatus = table.Column<int>(nullable: false),
-                    CustomerAddress = table.Column<string>(maxLength: 256, nullable: false),
-                    CustomerId = table.Column<Guid>(nullable: true),
-                    CustomerMessage = table.Column<string>(maxLength: 256, nullable: false),
-                    CustomerMobile = table.Column<string>(maxLength: 50, nullable: false),
                     CustomerName = table.Column<string>(maxLength: 256, nullable: false),
+                    CustomerAddress = table.Column<string>(maxLength: 256, nullable: false),
+                    CustomerMobile = table.Column<string>(maxLength: 50, nullable: false),
+                    CustomerMessage = table.Column<string>(maxLength: 256, nullable: false),
+                    PaymentMethod = table.Column<int>(nullable: false),
+                    BillStatus = table.Column<int>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: false),
                     DateModified = table.Column<DateTime>(nullable: false),
-                    PaymentMethod = table.Column<int>(nullable: false),
-                    Status = table.Column<int>(nullable: false)
+                    Status = table.Column<int>(nullable: false),
+                    CustomerId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -443,12 +442,12 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    RoleId = table.Column<Guid>(nullable: false),
+                    FunctionId = table.Column<string>(maxLength: 128, nullable: false),
                     CanCreate = table.Column<bool>(nullable: false),
-                    CanDelete = table.Column<bool>(nullable: false),
                     CanRead = table.Column<bool>(nullable: false),
                     CanUpdate = table.Column<bool>(nullable: false),
-                    FunctionId = table.Column<string>(maxLength: 128, nullable: false),
-                    RoleId = table.Column<Guid>(nullable: false)
+                    CanDelete = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -473,26 +472,26 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CategoryId = table.Column<int>(nullable: false),
-                    Content = table.Column<string>(nullable: true),
-                    DateCreated = table.Column<DateTime>(nullable: false),
-                    DateModified = table.Column<DateTime>(nullable: false),
-                    Description = table.Column<string>(maxLength: 255, nullable: true),
-                    HomeFlag = table.Column<bool>(nullable: true),
-                    HotFlag = table.Column<bool>(nullable: true),
-                    Image = table.Column<string>(maxLength: 255, nullable: true),
                     Name = table.Column<string>(maxLength: 255, nullable: false),
-                    OriginalPrice = table.Column<decimal>(nullable: false),
+                    CategoryId = table.Column<int>(nullable: false),
+                    Image = table.Column<string>(maxLength: 255, nullable: true),
                     Price = table.Column<decimal>(nullable: false),
                     PromotionPrice = table.Column<decimal>(nullable: true),
-                    SeoAlias = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true),
-                    SeoDescription = table.Column<string>(maxLength: 255, nullable: true),
-                    SeoKeywords = table.Column<string>(maxLength: 255, nullable: true),
-                    SeoPageTitle = table.Column<string>(nullable: true),
-                    Status = table.Column<int>(nullable: false),
+                    OriginalPrice = table.Column<decimal>(nullable: false),
+                    Description = table.Column<string>(maxLength: 255, nullable: true),
+                    Content = table.Column<string>(nullable: true),
+                    HomeFlag = table.Column<bool>(nullable: true),
+                    HotFlag = table.Column<bool>(nullable: true),
+                    ViewCount = table.Column<int>(nullable: true),
                     Tags = table.Column<string>(maxLength: 255, nullable: true),
                     Unit = table.Column<string>(maxLength: 255, nullable: true),
-                    ViewCount = table.Column<int>(nullable: true)
+                    SeoPageTitle = table.Column<string>(nullable: true),
+                    SeoAlias = table.Column<string>(maxLength: 255, nullable: true),
+                    SeoKeywords = table.Column<string>(maxLength: 255, nullable: true),
+                    SeoDescription = table.Column<string>(maxLength: 255, nullable: true),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -512,7 +511,7 @@ namespace WebAppCore.Data.EF.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     BlogId = table.Column<int>(nullable: false),
-                    TagId = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                    TagId = table.Column<string>(unicode: false, maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -537,15 +536,15 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DateCreated = table.Column<DateTime>(nullable: false),
-                    DateModified = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(maxLength: 250, nullable: true),
                     Description = table.Column<string>(maxLength: 250, nullable: true),
                     Image = table.Column<string>(maxLength: 250, nullable: true),
-                    Name = table.Column<string>(maxLength: 250, nullable: true),
+                    Url = table.Column<string>(maxLength: 250, nullable: true),
                     PositionId = table.Column<string>(maxLength: 20, nullable: true),
-                    SortOrder = table.Column<int>(nullable: false),
                     Status = table.Column<int>(nullable: false),
-                    Url = table.Column<string>(maxLength: 250, nullable: true)
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
+                    SortOrder = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -565,8 +564,8 @@ namespace WebAppCore.Data.EF.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     AnnouncementId = table.Column<string>(maxLength: 128, nullable: false),
-                    HasRead = table.Column<bool>(nullable: true),
-                    UserId = table.Column<Guid>(nullable: false)
+                    UserId = table.Column<Guid>(nullable: false),
+                    HasRead = table.Column<bool>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -586,10 +585,10 @@ namespace WebAppCore.Data.EF.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     BillId = table.Column<int>(nullable: false),
-                    ColorId = table.Column<int>(nullable: false),
-                    Price = table.Column<decimal>(nullable: false),
                     ProductId = table.Column<int>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
+                    Price = table.Column<decimal>(nullable: false),
+                    ColorId = table.Column<int>(nullable: false),
                     SizeId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -613,12 +612,6 @@ namespace WebAppCore.Data.EF.Migrations
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_BillDetails_Sizes_SizeId",
-                        column: x => x.SizeId,
-                        principalTable: "Sizes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -627,9 +620,9 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Caption = table.Column<string>(maxLength: 250, nullable: true),
+                    ProductId = table.Column<int>(nullable: false),
                     Path = table.Column<string>(maxLength: 250, nullable: true),
-                    ProductId = table.Column<int>(nullable: false)
+                    Caption = table.Column<string>(maxLength: 250, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -648,10 +641,10 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ColorId = table.Column<int>(nullable: false),
                     ProductId = table.Column<int>(nullable: false),
-                    Quantity = table.Column<int>(nullable: false),
-                    SizeId = table.Column<int>(nullable: false)
+                    SizeId = table.Column<int>(nullable: false),
+                    ColorId = table.Column<int>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -683,7 +676,7 @@ namespace WebAppCore.Data.EF.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     ProductId = table.Column<int>(nullable: false),
-                    TagId = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                    TagId = table.Column<string>(unicode: false, maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -708,10 +701,10 @@ namespace WebAppCore.Data.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    FromQuantity = table.Column<int>(nullable: false),
-                    Price = table.Column<decimal>(nullable: false),
                     ProductId = table.Column<int>(nullable: false),
-                    ToQuantity = table.Column<int>(nullable: false)
+                    FromQuantity = table.Column<int>(nullable: false),
+                    ToQuantity = table.Column<int>(nullable: false),
+                    Price = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -758,11 +751,6 @@ namespace WebAppCore.Data.EF.Migrations
                 name: "IX_BillDetails_ProductId",
                 table: "BillDetails",
                 column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BillDetails_SizeId",
-                table: "BillDetails",
-                column: "SizeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bills_CustomerId",

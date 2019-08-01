@@ -35,7 +35,7 @@ namespace WebAppCore.Application.AutoMapper
 
             CreateMap<BillDetailViewModel, BillDetail>()
               .ConstructUsing(c => new BillDetail(c.Id, c.BillId, c.ProductId,
-              c.Quantity, c.Price, c.ColorId, c.SizeId));
+              c.Quantity, c.Price, c.ColorId));
 
             CreateMap<ContactViewModel, Contact>()
               .ConstructUsing(c => new Contact(c.Id, c.Name, c.Phone, c.Email, c.Website, c.Address, c.Other, c.Lng, c.Lat, c.Status));
@@ -51,6 +51,9 @@ namespace WebAppCore.Application.AutoMapper
 
             CreateMap<AnnouncementUserViewModel, AnnouncementUser>()
                 .ConstructUsing(c => new AnnouncementUser(c.AnnouncementId, c.UserId, c.HasRead));
+
+            CreateMap<SlideShowViewModel, Slide>()
+               .ConstructUsing(c => new Slide(c.Id,c.Name,c.Description,c.Image,c.Url,c.DisplayOrder,c.Status,c.Content,c.GroupAlias));
         }
     }
 }

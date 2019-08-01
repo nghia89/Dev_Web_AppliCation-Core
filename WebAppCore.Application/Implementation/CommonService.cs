@@ -7,6 +7,7 @@ using System.Text;
 using WebAppCore.Application.Interfaces;
 using WebAppCore.Application.ViewModels.Common;
 using WebAppCore.Data.Entities;
+using WebAppCore.Data.Enums;
 using WebAppCore.Infrastructure.Interfaces;
 using WebAppCore.Utilities.Constants;
 
@@ -37,10 +38,10 @@ namespace WebAppCore.Application.Implementation
             CommonConstants.DefaultFooterId));
         }
 
-        public List<SlideViewModel> GetSlides(string groupAlias)
+        public List<SlideShowViewModel> GetSlides(string groupAlias)
         {
-            return _slideRepository.FindAll(x => x.Status && x.GroupAlias == groupAlias)
-                .ProjectTo<SlideViewModel>().ToList();
+            return _slideRepository.FindAll(x => x.Status== Status.Active && x.GroupAlias == groupAlias)
+                .ProjectTo<SlideShowViewModel>().ToList();
         }
 
         public SystemConfigViewModel GetSystemConfig(string code)

@@ -50,6 +50,7 @@ namespace WebAppCore.Controllers
             var session = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
             if (session.Any(x => x.Color == null))
             {
+                _logger.LogWarning("Bạn vui lòng chọn màu.");
                 return Redirect("/cart.html");
             }
 
@@ -75,7 +76,7 @@ namespace WebAppCore.Controllers
                             Product = item.Product,
                             Price = item.Price,
                             ColorId = item.Color.Id,
-                            SizeId = item.Size.Id,
+                            //SizeId = item.Size.Id,
                             Quantity = item.Quantity,
                             ProductId = item.Product.Id
                         });
@@ -103,6 +104,7 @@ namespace WebAppCore.Controllers
                         var content = await _viewRenderService.RenderToStringAsync("Cart/_BillMail", billViewModel);
                         //Send mail
                         await _emailSender.SendEmailAsync(_configuration["MailSettings:AdminMail"], "New bill from Panda Shop", content);
+
                         ViewData["Success"] = true;
                     }
                     catch (Exception ex)
