@@ -37,10 +37,10 @@ namespace WebAppCore.Application.Implementation
             CommonConstants.DefaultFooterId));
         }
 
-        public List<SlideViewModel> GetSlides(string groupAlias)
+        public List<SlideShowViewModel> GetSlides(string groupAlias)
         {
             return _slideRepository.FindAll(x => x.Status && x.GroupAlias == groupAlias)
-                .ProjectTo<SlideViewModel>().ToList();
+                .ProjectTo<SlideShowViewModel>().ToList();
         }
 
         public SystemConfigViewModel GetSystemConfig(string code)

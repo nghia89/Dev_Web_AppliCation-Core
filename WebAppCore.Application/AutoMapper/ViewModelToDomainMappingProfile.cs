@@ -51,6 +51,9 @@ namespace WebAppCore.Application.AutoMapper
 
             CreateMap<AnnouncementUserViewModel, AnnouncementUser>()
                 .ConstructUsing(c => new AnnouncementUser(c.AnnouncementId, c.UserId, c.HasRead));
+
+            CreateMap<SlideShowViewModel, Slide>()
+               .ConstructUsing(c => new Slide(c.Id,c.Name,c.Description,c.Image,c.Url,c.DisplayOrder,c.Status,c.Content,c.GroupAlias));
         }
     }
 }

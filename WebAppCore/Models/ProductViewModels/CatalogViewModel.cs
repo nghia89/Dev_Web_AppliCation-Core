@@ -20,9 +20,9 @@ namespace WebAppCore.Models.ProductViewModels
 
         public List<SelectListItem> SortTypes { get; } = new List<SelectListItem>
         {
-            new SelectListItem(){Value = "lastest",Text = "Lastest"},
-            new SelectListItem(){Value = "price",Text = "Price"},
-            new SelectListItem(){Value = "name",Text = "Name"},
+            new SelectListItem(){Value = "lastest",Text = "Mới nhất"},
+            new SelectListItem(){Value = "price",Text = "Giá"},
+            new SelectListItem(){Value = "name",Text = "Tên"},
         };
 
         public List<SelectListItem> PageSizes { get; } = new List<SelectListItem>
