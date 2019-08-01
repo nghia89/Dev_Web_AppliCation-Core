@@ -9,7 +9,7 @@ using WebAppCore.Application.ViewModels.Common;
 
 namespace WebAppCore.Areas.Admin.Controllers
 {
-    public class SlideShowController : Controller
+    public class SlideShowController : BaseController
     {
         private readonly ISlideShowService _slideShowService;
 
@@ -29,6 +29,12 @@ namespace WebAppCore.Areas.Admin.Controllers
 
         //    return new OkObjectResult(model);
         //}
+
+        public IActionResult GetAllPaging(int page, int pageSize)
+        {
+            var data = _slideShowService.GetAllPaging(page, pageSize);
+            return new OkObjectResult(data);
+        }
 
         public IActionResult SaveEntity(SlideShowViewModel slideShow)
         {

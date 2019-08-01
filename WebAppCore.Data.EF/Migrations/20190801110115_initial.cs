@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebAppCore.Data.EF.Migrations
 {
-    public partial class remove_Size : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -326,9 +326,9 @@ namespace WebAppCore.Data.EF.Migrations
                     Image = table.Column<string>(maxLength: 250, nullable: false),
                     Url = table.Column<string>(maxLength: 250, nullable: true),
                     DisplayOrder = table.Column<int>(nullable: true),
-                    Status = table.Column<bool>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
                     Content = table.Column<string>(nullable: true),
-                    GroupAlias = table.Column<string>(maxLength: 25, nullable: false)
+                    GroupAlias = table.Column<string>(maxLength: 25, nullable: true)
                 },
                 constraints: table =>
                 {
