@@ -25,7 +25,7 @@ namespace WebAppCore.Application.AutoMapper
             CreateMap<WholePrice, WholePriceViewModel>().MaxDepth(2);
             CreateMap<Blog, BlogViewModel>().MaxDepth(2);
             CreateMap<BlogTag, BlogTagViewModel>().MaxDepth(2);
-            CreateMap<Slide, SlideViewModel>().MaxDepth(2);
+            CreateMap<Slide, SlideShowViewModel>().MaxDepth(2);
             CreateMap<SystemConfig, SystemConfigViewModel>().MaxDepth(2);
             CreateMap<Footer, FooterViewModel>().MaxDepth(2);
             CreateMap<Contact, ContactViewModel>().MaxDepth(2);
