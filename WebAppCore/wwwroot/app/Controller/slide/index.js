@@ -58,7 +58,7 @@
             }
             $.ajax({
                 type: "POST",
-                url: "/Admin/Upload/UploadImage",
+                url: "/Admin/Upload/UploadImageSlide",
                 contentType: false,
                 processData: false,
                 data: data,
@@ -93,6 +93,7 @@
                         Name: item.Name,
                         Image: item.Image === null ? '<img src="/admin-side/images/user.png" width=25' : '<img src="' + item.Image + '" width=25 />',
                         Description: item.Description,
+                        GroupAlias: item.GroupAlias,
                         Status: structures.getStatus(item.Status)
                     });
                 });
@@ -116,10 +117,12 @@
             e.preventDefault();
             var id = $('#hidId').val();
             var name = $('#txtName').val();
-            var description = $('#txtDescM').val();
+            var description = $('#txtDesc').val();
             var image = $('#txtImage').val();
+            var url = $('#txtUrl').val();
+            var groupAlias = $('#txtGroupAlias').val();
             var content = CKEDITOR.instances.txtContent.getData();
-            var status = $('#ckStatusM').prop('checked') === true ? 1 : 0;       
+            var status = $('#ckStatus').prop('checked') === true ? 1 : 0;       
             $.ajax({
                 type: "POST",
                 url: "/Admin/SlideShow/SaveEntity",
@@ -129,7 +132,9 @@
                     Image: image,
                     Description: description,
                     Content: content,         
+                    GroupAlias: groupAlias,         
                     Status: status,
+                    Url: url,
                 },
                 dataType: "json",
                 beforeSend: function () {
@@ -156,6 +161,7 @@
         $('#hidId').val(0);
         $('#txtName').val('');
         $('#txtImage').val('');
+        $('#txtUrl').val('');
         $('#txtMetaDescription').val('');
         $('#ckStatusM').prop('checked', true);
     }

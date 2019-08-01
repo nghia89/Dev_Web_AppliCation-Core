@@ -26,7 +26,7 @@
             <h3>Slide Show</h3>
         </div>
 
-        <div class="title_right">
+        <div style="float:right">
             <div class="col-md-2 col-sm-2 col-xs-12 form-group">
                 <button class="btn btn-success" id="btn-create" type="button">Create</button>
             </div>
@@ -47,6 +47,7 @@
                                 <th>Description</th>
                                 <th>Image</th>
                                 <th>Status</th>
+                                <th>GroupAlias</th>
                             </tr>
                         </thead>
                         <tbody id="tbl-content"></tbody>
@@ -86,6 +87,7 @@
             <td>{{{Description}}}</td>
             <td>{{{Image}}}</td>
             <td>{{{Status}}}</td>
+            <td>{{{GroupAlias}}}</td>
             <td><a class="btn  btn-sm btn-delete" data-id="{{Id}}" title="Xoá"><i class="fa fa-trash"></i></a></td>
         </tr>
     </script>
