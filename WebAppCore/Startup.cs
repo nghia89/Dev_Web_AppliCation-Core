@@ -47,7 +47,6 @@ namespace WebAppCore
                 .AddDefaultTokenProviders();
 
             services.AddMemoryCache();
-            //services.AddMinResponse();
             // Configure Identity
             services.Configure<IdentityOptions>(options =>
             {
@@ -77,6 +76,7 @@ namespace WebAppCore
                 //
                 options.Cookie.HttpOnly = true;
             });
+            services.AddMinResponse();
             services.AddImageResizer();
             services.AddAutoMapper();
             services.AddAuthentication()
@@ -174,7 +174,7 @@ namespace WebAppCore
             app.UseImageResizer();
             //hạn chế tất cả các file nằm trong thư mục root đều không chạy qua Middleware tiếp theo
             app.UseStaticFiles();
-            //app.UseMinResponse();
+            app.UseMinResponse();
             app.UseAuthentication();
             app.UseSession();
             app.UseCors("CorsPolicy");
