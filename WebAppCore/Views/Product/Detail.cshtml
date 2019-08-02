@@ -46,7 +46,7 @@
                             <ul class="previews-list slides">
                                 @foreach (var item in Model.ProductImages)
                                 {
-                                    <li><a href='@item.Path' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '@item.Path' "><img src="@item.Path" alt="@item.Caption" /></a></li>
+                                    <li><a href='@item.Path' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '@item.Path' "><img src="@item.Path?w=98" alt="@item.Caption" /></a></li>
                                 }
                             </ul>
                         </div>
