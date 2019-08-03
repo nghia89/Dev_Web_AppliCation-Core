@@ -1,6 +1,6 @@
 ﻿var structures = {
     configs: {
-        pageSize: 10,
+        pageSize: 12,
         pageIndex: 1
     },
     notify: function (message, type) {

@@ -36,7 +36,15 @@ namespace WebAppCore.Areas.Admin.Controllers
             return new OkObjectResult(data);
         }
 
-        public IActionResult SaveEntity(SlideShowViewModel slideShow)
+		public IActionResult Delete(int id)
+		{
+			_slideShowService.DeleteDetail(id);
+			_slideShowService.Save();
+
+			return new OkObjectResult(id);
+		}
+
+		public IActionResult SaveEntity(SlideShowViewModel slideShow)
         {
             if (!ModelState.IsValid)
             {

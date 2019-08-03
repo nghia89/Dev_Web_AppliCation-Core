@@ -42,7 +42,7 @@
         $('body').on('click', '.btn-delete', function (e) {
             e.preventDefault();
             var that = $(this).data('id');
-            deleteProduct(that);
+            deleteSlide(that);
         });
 
         $('#btnSelectImg').on('click', function () {
@@ -72,6 +72,29 @@
             });
         });
 
+    }
+
+    function deleteSlide(id) {
+        structures.confirm('Are you sure to delete?', function () {
+            $.ajax({
+                type: "POST",
+                url: "/Admin/SlideShow/Delete",
+                data: { id: id },
+                dataType: "json",
+                beforeSend: function () {
+                    structures.startLoading();
+                },
+                success: function (response) {
+                    structures.notify('Delete successful', 'success');
+                    structures.stopLoading();
+                    loadData();
+                },
+                error: function (status) {
+                    structures.notify('Has an error in delete progress', 'error');
+                    structures.stopLoading();
+                }
+            });
+        });
     }
 
     function loadData(isPageChanged) {

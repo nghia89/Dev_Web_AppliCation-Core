@@ -47,7 +47,6 @@ namespace WebAppCore.Application.Implementation
         public ProductViewModel Add(ProductViewModel productVm)
         {
             List<ProductTag> productTags = new List<ProductTag>();
-			var product = new Product();
 
 			if (!string.IsNullOrEmpty(productVm.Tags))
             {
@@ -71,13 +70,13 @@ namespace WebAppCore.Application.Implementation
                         TagId = tagId
                     };
                     productTags.Add(productTag);
-                }
-                 product = Mapper.Map<ProductViewModel, Product>(productVm);
-                foreach (var productTag in productTags)
-                {
-                    product.ProductTags.Add(productTag);
-                }
+                }      
             }
+			var product = Mapper.Map<ProductViewModel,Product>(productVm);
+			foreach(var productTag in productTags)
+			{
+				product.ProductTags.Add(productTag);
+			}
 			_productRepository.Add(product);
 
 			return productVm;
