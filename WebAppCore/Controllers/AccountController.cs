@@ -230,16 +230,16 @@ namespace WebAppCore.Controllers
             {
                 return View(model);
             }
-            //MM/dd/yyy
-            var user = new AppUser
-            {
-                UserName = model.Email,
-                Email = model.Email,
-                FullName = model.FullName,
-                PhoneNumber = model.PhoneNumber,
-                BirthDay = model.BirthDay,
-                Status = Status.Active,
-                Avatar = string.Empty
+			//MM/dd/yyy
+			var user = new AppUser {
+				UserName = model.Email,
+				Email = model.Email,
+				FullName = model.FullName,
+				PhoneNumber = model.PhoneNumber,
+				BirthDay = model.BirthDay,
+				Status = Status.Active,
+				Avatar = string.Empty,
+				DateCreated = DateTime.UtcNow
             };
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)

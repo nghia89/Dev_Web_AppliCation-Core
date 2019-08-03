@@ -206,8 +206,8 @@ namespace WebAppCore
 			}
 			else
 			{
-				//app.UseExceptionHandler("/Home/Error");
-				app.UseExceptionHandler("/Home/Index");
+				app.UseExceptionHandler("/Home/Error");
+				//app.UseExceptionHandler("/Home/Index");
 			}
 			app.UseImageResizer();
 			//hạn chế tất cả các file nằm trong thư mục root đều không chạy qua Middleware tiếp theo
