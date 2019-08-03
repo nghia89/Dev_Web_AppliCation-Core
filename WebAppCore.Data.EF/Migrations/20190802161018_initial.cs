@@ -69,10 +69,10 @@ namespace WebAppCore.Data.EF.Migrations
                 name: "AppUserLogins",
                 columns: table => new
                 {
+                    UserId = table.Column<Guid>(nullable: false),
                     LoginProvider = table.Column<string>(nullable: true),
                     ProviderKey = table.Column<string>(nullable: true),
-                    ProviderDisplayName = table.Column<string>(nullable: true),
-                    UserId = table.Column<Guid>(nullable: false)
+                    ProviderDisplayName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
