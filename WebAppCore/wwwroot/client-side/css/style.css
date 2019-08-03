@@ -2284,8 +2284,10 @@ a.link:hover {
 12. product hover
 ******************************************/
 .product-item .pr-img-area {
+	min-height: 267px;
 	overflow: hidden;
 	position: relative;
+	/* height: 256px; */
 	border: 1px #e5e5e5 solid;
 }
 .product-item .pr-img-area a {
@@ -2315,8 +2317,9 @@ a.link:hover {
 	opacity: 1;
 }
 .pr-img-area {
-	overflow: hidden;
-	position: relative
+	/* overflow: hidden; */
+	min-height: 193px;
+	position: relative;
 }
 .add-to-cart-mt {
 	background: #e83f33;
