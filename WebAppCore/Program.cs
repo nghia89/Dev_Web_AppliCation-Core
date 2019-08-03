@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using WebAppCore.Data.EF;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 
 namespace WebAppCore
 {
@@ -43,6 +44,10 @@ namespace WebAppCore
 		public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
 			.ConfigureAppConfiguration(ConfigConfiguration)
+			 .UseSerilog((context,config) =>
+			 {
+				 config.ReadFrom.Configuration(context.Configuration);
+			 })
 				.UseStartup<Startup>();
 
 		static void ConfigConfiguration(WebHostBuilderContext ctx,IConfigurationBuilder config)

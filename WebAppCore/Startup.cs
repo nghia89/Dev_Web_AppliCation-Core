@@ -189,6 +189,11 @@ namespace WebAppCore
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app,IHostingEnvironment env,ILoggerFactory loggerFactory)
 		{
+			if(env.IsStaging())
+			{
+				loggerFactory.AddFile("Logs/structures-{Date}.txt");
+
+			}
 			if(env.IsProduction())
 			{
 				loggerFactory.AddFile("Logs/structures-{Date}.txt");
@@ -201,7 +206,8 @@ namespace WebAppCore
 			}
 			else
 			{
-				app.UseExceptionHandler("/Home/Error");
+				//app.UseExceptionHandler("/Home/Error");
+				app.UseExceptionHandler("/Home/Index");
 			}
 			app.UseImageResizer();
 			//hạn chế tất cả các file nằm trong thư mục root đều không chạy qua Middleware tiếp theo
