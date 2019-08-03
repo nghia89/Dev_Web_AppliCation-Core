@@ -30,7 +30,7 @@ namespace WebAppCore
                 catch (Exception ex)
                 {
                     var logger = services.GetService<ILogger<Program>>();
-                    logger.LogError(ex, "An error occurred while seeding the database");
+                    logger.LogError(ex,"Đã xảy ra lỗi trong khi tạo cơ sở dữ liệu");
                 }
             }
             host.Run();
@@ -38,9 +38,20 @@ namespace WebAppCore
 
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+	
+
+		public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
-                
-    }
+			.ConfigureAppConfiguration(ConfigConfiguration)
+				.UseStartup<Startup>();
+
+		static void ConfigConfiguration(WebHostBuilderContext ctx,IConfigurationBuilder config)
+		{
+			config.SetBasePath(Directory.GetCurrentDirectory())
+				.AddJsonFile("appsettings.json",optional: false,reloadOnChange: true)
+				.AddJsonFile($"appsettings.{ctx.HostingEnvironment.EnvironmentName}.json",optional: true,reloadOnChange: true);
+
+		}
+
+	}
 }
