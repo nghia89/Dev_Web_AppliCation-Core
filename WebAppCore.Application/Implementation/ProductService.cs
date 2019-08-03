@@ -47,7 +47,9 @@ namespace WebAppCore.Application.Implementation
         public ProductViewModel Add(ProductViewModel productVm)
         {
             List<ProductTag> productTags = new List<ProductTag>();
-            if (!string.IsNullOrEmpty(productVm.Tags))
+			var product = new Product();
+
+			if (!string.IsNullOrEmpty(productVm.Tags))
             {
                 string[] tags = productVm.Tags.Split(',');
                 foreach (string t in tags)
@@ -70,14 +72,15 @@ namespace WebAppCore.Application.Implementation
                     };
                     productTags.Add(productTag);
                 }
-                var product = Mapper.Map<ProductViewModel, Product>(productVm);
+                 product = Mapper.Map<ProductViewModel, Product>(productVm);
                 foreach (var productTag in productTags)
                 {
                     product.ProductTags.Add(productTag);
                 }
-                _productRepository.Add(product);
             }
-            return productVm;
+			_productRepository.Add(product);
+
+			return productVm;
         }
 
         public void AddQuantity(int productId, List<ProductQuantityViewModel> quantities)
