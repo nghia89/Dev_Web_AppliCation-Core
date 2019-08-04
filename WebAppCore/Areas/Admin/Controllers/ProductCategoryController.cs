@@ -3,122 +3,132 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
 using System.Linq;
 using WebAppCore.Application.Interfaces;
+using WebAppCore.Application.ViewModels;
 using WebAppCore.Application.ViewModels.Product;
 using WebAppCore.Utilities.Helpers;
 
 namespace WebAppCore.Areas.Admin.Controllers
 {
-    public class ProductCategoryController : BaseController
-    {
-        private IProductCategoryService _productCategoryService;
+	public class ProductCategoryController:BaseController
+	{
+		private IProductCategoryService _productCategoryService;
 
-        public ProductCategoryController(IProductCategoryService productCategoryService)
-        {
-            _productCategoryService = productCategoryService;
-        }
+		public ProductCategoryController(IProductCategoryService productCategoryService)
+		{
+			_productCategoryService = productCategoryService;
+		}
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+		public IActionResult Index()
+		{
+			return View();
+		}
 
-        //Ajax Api
-        [HttpGet]
-        public IActionResult GetAll()
-        {
-            var model = _productCategoryService.GetAll();
-            return new OkObjectResult(model);
-        }
+		//Ajax Api
+		[HttpGet]
+		public IActionResult GetAll()
+		{
+			var model = _productCategoryService.GetAll();
+			return new OkObjectResult(model);
+		}
 
-        [HttpGet]
-        public IActionResult GetById(int id)
-        {
-            var model = _productCategoryService.GetById(id);
+		[HttpGet]
+		public IActionResult GetById(int id)
+		{
+			var model = _productCategoryService.GetById(id);
 
-            return new ObjectResult(model);
-        }
+			return new ObjectResult(model);
+		}
 
-        [HttpPost]
-        public IActionResult UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items)
-        {
-            if (!ModelState.IsValid)
-            {
-                return new BadRequestObjectResult(ModelState);
-            }
-            else
-            {
-                if (sourceId == targetId)
-                {
-                    return new BadRequestResult();
-                }
-                else
-                {
-                    _productCategoryService.UpdateParentId(sourceId, targetId, items);
-                    _productCategoryService.Save();
-                    return new OkResult();
-                }
-            }
-        }
+		[HttpPost]
+		public IActionResult UpdateParentId(int sourceId,int targetId,Dictionary<int,int> items)
+		{
+			if(!ModelState.IsValid)
+			{
+				return new BadRequestObjectResult(ModelState);
+			}
+			else
+			{
+				if(sourceId == targetId)
+				{
+					return new BadRequestResult();
+				}
+				else
+				{
+					_productCategoryService.UpdateParentId(sourceId,targetId,items);
+					_productCategoryService.Save();
+					return new OkResult();
+				}
+			}
+		}
 
-        [HttpPost]
-        public IActionResult ReOrder(int sourceId, int targetId)
-        {
-            if (!ModelState.IsValid)
-            {
-                return new BadRequestObjectResult(ModelState);
-            }
-            else
-            {
-                if (sourceId == targetId)
-                {
-                    return new BadRequestResult();
-                }
-                else
-                {
-                    _productCategoryService.ReOrder(sourceId, targetId);
-                    _productCategoryService.Save();
-                    return new OkResult();
-                }
-            }
-        }
+		[HttpPost]
+		public IActionResult ReOrder(int sourceId,int targetId)
+		{
+			if(!ModelState.IsValid)
+			{
+				return new BadRequestObjectResult(ModelState);
+			}
+			else
+			{
+				if(sourceId == targetId)
+				{
+					return new BadRequestResult();
+				}
+				else
+				{
+					_productCategoryService.ReOrder(sourceId,targetId);
+					_productCategoryService.Save();
+					return new OkResult();
+				}
+			}
+		}
 
-        [HttpPost]
-        public IActionResult SaveEntity(ProductCategoryViewModel productVm)
-        {
-            if (!ModelState.IsValid)
-            {
-                IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
-                return new BadRequestObjectResult(allErrors);
-            }
-            else
-            {
-                productVm.SeoAlias = TextHelper.ToUnsignString(productVm.Name);
-                if (productVm.Id == 0)
-                {
-                    _productCategoryService.Add(productVm);
-                }
-                else
-                {
-                    _productCategoryService.Update(productVm);
-                }
-                _productCategoryService.Save();
-                return new OkObjectResult(productVm);
-            }
-        }
+		[HttpPost]
+		public IActionResult SaveEntity(ProductCategoryViewModel productVm)
+		{
+			if(!ModelState.IsValid)
+			{
 
-        [HttpPost]
-        public IActionResult Delete(int id)
-        {
-            if (id == 0)
-            {
-                return new BadRequestResult();
-            }
-            else
-            {
-                _productCategoryService.Delete(id);
-                _productCategoryService.Save();
-                return new OkObjectResult(id);
-            }
-        }
-    }
+				IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
+				ErrorMesage e = new ErrorMesage();
+				if(productVm.SortOrder == 0)
+				{
+					e.Message = "Vui lòng nhập SortOrder";
+					e.Error = true;
+					return new BadRequestObjectResult(e);
+				}
+
+				return new BadRequestObjectResult(allErrors);
+			}
+			else
+			{
+				productVm.SeoAlias = TextHelper.ToUnsignString(productVm.Name);
+				if(productVm.Id == 0)
+				{
+					_productCategoryService.Add(productVm);
+				}
+				else
+				{
+					_productCategoryService.Update(productVm);
+				}
+				_productCategoryService.Save();
+				return new OkObjectResult(productVm);
+			}
+		}
+
+		[HttpPost]
+		public IActionResult Delete(int id)
+		{
+			if(id == 0)
+			{
+				return new BadRequestResult();
+			}
+			else
+			{
+				_productCategoryService.Delete(id);
+				_productCategoryService.Save();
+				return new OkObjectResult(id);
+			}
+		}
+	}
 }

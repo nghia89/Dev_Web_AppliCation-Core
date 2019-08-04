@@ -649,7 +649,8 @@ namespace WebAppCore.Data.EF.Migrations
                         .IsRequired()
                         .HasMaxLength(255);
 
-                    b.Property<decimal>("OriginalPrice");
+                    b.Property<decimal?>("OriginalPrice")
+                        .IsRequired();
 
                     b.Property<decimal>("Price");
 

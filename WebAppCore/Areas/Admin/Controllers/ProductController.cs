@@ -12,6 +12,7 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using WebAppCore.Application.Interfaces;
+using WebAppCore.Application.ViewModels;
 using WebAppCore.Application.ViewModels.Product;
 using WebAppCore.Authorization;
 using WebAppCore.Utilities.Helpers;
@@ -76,7 +77,27 @@ namespace WebAppCore.Areas.Admin.Controllers
             if (!ModelState.IsValid)
             {
                 IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
-                return new BadRequestObjectResult(allErrors);
+				ErrorMesage e = new ErrorMesage();
+				if(String.IsNullOrEmpty(productVm.Name))
+				{
+					e.Message = "Vui lòng nhập tên sản phẫm";
+					e.Error = true;
+					return new BadRequestObjectResult(e);
+				}
+				if(productVm.CategoryId==0)
+				{
+					e.Message = "Vui lòng nhập loại sản phẫm";
+					e.Error = true;
+					return new BadRequestObjectResult(e);
+				}
+				if(productVm.Price == 0)
+				{
+					e.Message = "Vui lòng nhập giá sản phẫm";
+					e.Error = true;
+					return new BadRequestObjectResult(e);
+				}
+				
+				return new BadRequestObjectResult(allErrors);
             }
             else
             {

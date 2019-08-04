@@ -254,8 +254,10 @@
                     structures.stopLoading();
                     loadData(true);
                 },
-                error: function () {
-                    structures.notify('Has an error in save product progress', 'error');
+                error: function (error) {
+                    var messager = error.responseJSON.Message;
+                    structures.notify(messager, 'error');
+                    //structures.notify('Has an error in save product progress', 'error');
                     structures.stopLoading();
                 }
             });
