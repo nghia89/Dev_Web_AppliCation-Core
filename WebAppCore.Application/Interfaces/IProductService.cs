@@ -36,6 +36,8 @@ namespace WebAppCore.Application.Interfaces
 
         List<ProductViewModel> GetLastest(int top);
 
+        List<ProductViewModel> GetProductNew(int top);
+
         List<ProductViewModel> GetHotProduct(int top);
         List<ProductViewModel> GetRelatedProducts(int id, int top);
 

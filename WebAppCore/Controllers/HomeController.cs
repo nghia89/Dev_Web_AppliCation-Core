@@ -34,7 +34,8 @@ namespace WebAppCore.Controllers
             var homeVm = new HomeViewModel();
             homeVm.HomeCategories = _productCategoryService.GetHomeCategories(5);
             homeVm.HotProducts = _productService.GetHotProduct(5);
-            homeVm.TopSellProducts = _productService.GetLastest(5);
+            //homeVm.TopSellProducts = _productService.GetLastest(5);
+            homeVm.NewSellProducts = _productService.GetProductNew(8);
             homeVm.LastestBlogs = _blogService.GetLastest(5);
             homeVm.HomeSlides = _commonService.GetSlides("top");
             return View(homeVm);

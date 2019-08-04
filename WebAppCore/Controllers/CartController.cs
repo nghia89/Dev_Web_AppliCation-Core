@@ -81,14 +81,14 @@ namespace WebAppCore.Controllers
                             ProductId = item.Product.Id
                         });
                     }
-                    var billViewModel = new BillViewModel()
-                    {
-                        CustomerMobile = model.CustomerMobile,
-                        BillStatus = BillStatus.New,
-                        CustomerAddress = model.CustomerAddress,
-                        CustomerName = model.CustomerName,
-                        CustomerMessage = model.CustomerMessage,
-                        BillDetails = details,
+					var billViewModel = new BillViewModel() {
+						CustomerMobile = model.CustomerMobile,
+						BillStatus = BillStatus.New,
+						CustomerAddress = model.CustomerAddress,
+						CustomerName = model.CustomerName,
+						CustomerMessage = model.CustomerMessage,
+						BillDetails = details,
+						DateCreated = DateTime.UtcNow
                         //CustomerId = User.Identity.IsAuthenticated == true? ((ClaimsIdentity)User.Identity).GetSpecificClaim("UserId"):     
                     };
                     if (User.Identity.IsAuthenticated == true)
