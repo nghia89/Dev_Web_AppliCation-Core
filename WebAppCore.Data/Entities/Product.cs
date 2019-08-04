@@ -18,7 +18,7 @@ namespace WebAppCore.Data.Entities
         }
 
         public Product(string name, int categoryId, string thumbnailImage,
-            decimal price, decimal originalPrice, decimal? promotionPrice,
+            decimal price, decimal? originalPrice, decimal? promotionPrice,
             string description, string content, bool? homeFlag, bool? hotFlag,
             string tags, string unit, Status status, string seoPageTitle,
             string seoAlias, string seoMetaKeyword,
@@ -45,7 +45,7 @@ namespace WebAppCore.Data.Entities
         }
 
         public Product(int id, string name, int categoryId, string thumbnailImage,
-             decimal price, decimal originalPrice, decimal? promotionPrice,
+             decimal price, decimal? originalPrice, decimal? promotionPrice,
              string description, string content, bool? homeFlag, bool? hotFlag,
              string tags, string unit, Status status, string seoPageTitle,
              string seoAlias, string seoMetaKeyword,
@@ -89,7 +89,7 @@ namespace WebAppCore.Data.Entities
         public decimal? PromotionPrice { get; set; }
 
         [Required]
-        public decimal OriginalPrice { get; set; }
+        public decimal? OriginalPrice { get; set; }
 
         [StringLength(255)]
         public string Description { get; set; }

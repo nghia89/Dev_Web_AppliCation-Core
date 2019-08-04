@@ -1,5 +1,4 @@
-﻿
-<header>
+﻿<header>
     <div class="header-container">
         <div class="header-top">
             <div class="container">
@@ -38,16 +37,18 @@
                         <span class="phone  hidden-xs hidden-sm">Liên hệ: 034.898.3137</span>
                         <ul class="links">
                             @*<li class="hidden-xs"><a title="Help Center" href="#"><span>Help Center</span></a></li>
-                            <li><a title="Store Locator" href="#"><span>Store Locator</span></a></li>*@
+                                <li><a title="Store Locator" href="#"><span>Store Locator</span></a></li>*@
                             <li><a title="Checkout" href="checkout.html"><span>Checkout</span></a></li>
-                            @if (User.Identity.IsAuthenticated)
+                            @if(User.Identity.IsAuthenticated)
                             {
 
                                 <li>
                                     <div class="dropdown">
                                         <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>@User.GetSpecificClaim("FullName")</span> <i class="fa fa-angle-down"></i></a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/account.html">Account</a></li>
+                                            @if(User.GetSpecificClaim("Roles") == "Admin")
+                                            {
+                                                <li><a href="/Admin">Admin</a></li>}
                                             <li><a href="/wishlist.html">Wishlist</a></li>
                                             <li><a href="/orders-list.html">Order Tracking</a></li>
                                         </ul>

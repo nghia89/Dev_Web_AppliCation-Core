@@ -10,7 +10,7 @@ using WebAppCore.Data.EF;
 namespace WebAppCore.Data.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190803062857_initial")]
+    [Migration("20190804084254_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -651,7 +651,8 @@ namespace WebAppCore.Data.EF.Migrations
                         .IsRequired()
                         .HasMaxLength(255);
 
-                    b.Property<decimal>("OriginalPrice");
+                    b.Property<decimal?>("OriginalPrice")
+                        .IsRequired();
 
                     b.Property<decimal>("Price");
 

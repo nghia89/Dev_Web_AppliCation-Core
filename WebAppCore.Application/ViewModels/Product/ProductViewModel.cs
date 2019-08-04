@@ -28,7 +28,7 @@ namespace WebAppCore.Application.ViewModels.Product
         public decimal? PromotionPrice { get; set; }
 
         [Required]
-        public decimal OriginalPrice { get; set; }
+        public decimal? OriginalPrice { get; set; }
 
         [StringLength(255)]
         public string Description { get; set; }
