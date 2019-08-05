@@ -163,7 +163,7 @@
                                                     <div class="item-title"> <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">@item.Name </a> </div>
                                                     <div class="item-content">
                                                         <div class="item-price">
-                                                            @if(item.PromotionPrice.HasValue == false)
+                                                            @if(item.PromotionPrice.HasValue == false || item.PromotionPrice == 0)
                                                             {
                                                                 <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
                                                             }
@@ -257,7 +257,15 @@
                                                         <div class="item-title"> <a title="Product title here" href="/@item.SeoAlias-p.@(item.Id).html">@item.Name </a> </div>
                                                         <div class="item-content">
                                                             <div class="item-price">
-                                                                <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
+                                                                @if(item.PromotionPrice.HasValue == false || item.PromotionPrice == 0)
+                                                                {
+                                                                    <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <div class="price-box"> <span class="regular-price"> <span class="price"> @(item.PromotionPrice.HasValue ? item.PromotionPrice.Value.ToString("N0") : null) </span></span> </div>
+                                                                    <p class="old-price"> <span class="price">@item.Price.ToString("N0")</span> </p>
+                                                                }
                                                             </div>
                                                             <div class="pro-action">
                                                                 <button type="button" data-id="@item.Id" class="add-to-cart"><span> Purchase</span> </button>
@@ -315,9 +323,8 @@
                                                 <div class="info-inner">
                                                     <div class="item-title"> <a title="@item.Name" href="@url">@item.Name</a> </div>
                                                     <div class="item-content">
-                                                        <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
                                                         <div class="item-price">
-                                                            @if(item.PromotionPrice.HasValue == false)
+                                                            @if(item.PromotionPrice.HasValue == false || item.PromotionPrice == 0)
                                                             {
                                                                 <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
                                                             }

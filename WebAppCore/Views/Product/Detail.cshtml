@@ -60,7 +60,7 @@
                             <h1>@product.Name</h1>
                         </div>
                         <div class="price-box">
-                            @if (product.PromotionPrice.HasValue)
+                            @if (product.PromotionPrice.HasValue || product.PromotionPrice == 0)
                             {
                                 <p class="special-price">
                                     <span class="price-label">Special Price</span>
