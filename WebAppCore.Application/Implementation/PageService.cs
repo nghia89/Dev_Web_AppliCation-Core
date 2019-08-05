@@ -8,6 +8,7 @@ using WebAppCore.Application.Interfaces;
 using WebAppCore.Application.ViewModels.Blog;
 using WebAppCore.Data.EF;
 using WebAppCore.Data.Entities;
+using WebAppCore.Data.Enums;
 using WebAppCore.Infrastructure.Interfaces;
 using WebAppCore.Utilities.Dtos;
 
@@ -60,7 +61,7 @@ namespace WebAppCore.Application.Implementation
         }
         public PageViewModel GetByAlias(string alias)
         {
-            return Mapper.Map<Page, PageViewModel>(_pageRepository.FindSingle(x => x.Alias == alias));
+            return Mapper.Map<Page, PageViewModel>(_pageRepository.FindSingle(x => x.Status == Status.Active));
         }
         public PageViewModel GetById(int id)
         {
