@@ -360,6 +360,8 @@ namespace WebAppCore.Data.EF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Alias");
+
                     b.Property<string>("Content");
 
                     b.Property<DateTime>("DateCreated");
@@ -638,7 +640,7 @@ namespace WebAppCore.Data.EF.Migrations
                     b.Property<string>("Description")
                         .HasMaxLength(255);
 
-                    b.Property<bool>("HomeFlag");
+                    b.Property<bool?>("HomeFlag");
 
                     b.Property<bool?>("HotFlag");
 

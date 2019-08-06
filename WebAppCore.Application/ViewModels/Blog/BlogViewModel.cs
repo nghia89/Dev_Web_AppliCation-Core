@@ -13,7 +13,6 @@ namespace WebAppCore.Application.ViewModels.Blog
 		[MaxLength(256)]
 		public string Name { set; get; }
 
-
 		[MaxLength(256)]
 		public string Image { set; get; }
 
@@ -45,6 +44,8 @@ namespace WebAppCore.Application.ViewModels.Blog
 		[MaxLength(256)]
 		public string SeoDescription { set; get; }
 
+		public string Alias { set; get; }
+
 		public string TimeAgo { get; set; }
 
 		public static BlogViewModel form(BlogViewModel model)
@@ -67,6 +68,7 @@ namespace WebAppCore.Application.ViewModels.Blog
 				SeoPageTitle = model.SeoPageTitle,
 				Status = model.Status,
 				Tags = model.Tags,
+				Alias = model.Alias,
 				TimeAgo = RelativeDate.TimeAgo(model.DateCreated)
 			};
 			return result;

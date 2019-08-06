@@ -157,7 +157,8 @@ namespace WebAppCore.Data.EF.Migrations
                     SeoPageTitle = table.Column<string>(maxLength: 256, nullable: true),
                     SeoAlias = table.Column<string>(maxLength: 256, nullable: true),
                     SeoKeywords = table.Column<string>(maxLength: 256, nullable: true),
-                    SeoDescription = table.Column<string>(maxLength: 256, nullable: true)
+                    SeoDescription = table.Column<string>(maxLength: 256, nullable: true),
+                    Alias = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

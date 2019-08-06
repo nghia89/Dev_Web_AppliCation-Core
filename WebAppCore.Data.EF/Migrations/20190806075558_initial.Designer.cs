@@ -10,7 +10,7 @@ using WebAppCore.Data.EF;
 namespace WebAppCore.Data.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190804084254_initial")]
+    [Migration("20190806075558_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -361,6 +361,8 @@ namespace WebAppCore.Data.EF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Alias");
 
                     b.Property<string>("Content");
 
