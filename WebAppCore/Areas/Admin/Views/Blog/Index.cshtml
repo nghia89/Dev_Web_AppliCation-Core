@@ -2,11 +2,22 @@
     ViewData["Title"] = "Pages";
 }
 @section Scripts{
+   
+<environment names="Development">
     <script src="~/app/Controller/blog/index.js" asp-append-version="true"></script>
     <script>
         var BlogObj = new BlogController();
         BlogObj.initialize();
     </script>
+</environment>
+
+<environment names="Staging,Production">
+    <script src="~/app/Controller/blog/index.min.js" asp-append-version="true"></script>
+    <script>
+        var BlogObj = new BlogController();
+        BlogObj.initialize();
+    </script>
+</environment>
 }
 
 <input type="hidden" id="hid-category-id" value="0" />
@@ -84,4 +95,4 @@
         </tr>
     </script>
 </div>
-@await Html.PartialAsync("_AddEditModal.cshtml") 
+@await Html.PartialAsync("_AddEditModal.cshtml")

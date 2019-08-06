@@ -6,11 +6,23 @@
 }
 @section Scripts{
 
+ 
+<environment names="Development">
     <script src="~/app/Controller/user/index.js" asp-append-version="true"></script>
     <script>
         var userObj = new UserController();
         userObj.initialize();
     </script>
+</environment>
+
+<environment names="Staging,Production">
+    <script src="~/app/Controller/user/index.min.js" asp-append-version="true"></script>
+    <script>
+        var userObj = new UserController();
+        userObj.initialize();
+    </script>
+</environment>
+}
 }
 @section Style{
 
@@ -25,9 +37,9 @@
         <div class="title_right">
             <div class="col-md-2 col-sm-2 col-xs-12 form-group pull-right top_search">
                 @{
-                    var result = await AuthorizationService.AuthorizeAsync(User, "USER", Operations.Create);
+                    var result = await AuthorizationService.AuthorizeAsync(User,"USER",Operations.Create);
                 }
-                @if (result.Succeeded)
+                @if(result.Succeeded)
                 {
                     <button class="btn btn-success" id="btn-create" type="button">Create</button>
                 }
@@ -101,13 +113,13 @@
             <td>{{{DateCreated}}}</td>
             <td>{{{Status}}}</td>
             <td>
-                @if ((await AuthorizationService.AuthorizeAsync(User, "USER", Operations.Update)).Succeeded)
+                @if((await AuthorizationService.AuthorizeAsync(User,"USER",Operations.Update)).Succeeded)
                 {
                     <a href="#" data-id="{{Id}}" class="btn-edit"><i class="fa fa-pencil-square-o"></i></a>
                 }
             </td>
             <td>
-                @if ((await AuthorizationService.AuthorizeAsync(User, "USER", Operations.Delete)).Succeeded)
+                @if((await AuthorizationService.AuthorizeAsync(User,"USER",Operations.Delete)).Succeeded)
                 {
                     <a href="#" data-id="{{Id}}" class="btn-delete"><i class="fa fa-trash-o"></i></a>
 

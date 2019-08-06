@@ -8,12 +8,25 @@
     <link href="~/lib/jquery-treegrid/css/jquery.treegrid.css" rel="stylesheet" />
 }
 @section Scripts{
-    <script src="~/lib/jquery-treegrid/js/jquery.treegrid.min.js"></script>
-    <script src="~/app/Controller/role/index.js" asp-append-version="true"></script>
-    <script>
-        var roleObj = new RoleController();
-        roleObj.initialize();
-    </script>
+   
+    <environment names="Development">
+        <script src="~/lib/jquery-treegrid/js/jquery.treegrid.min.js"></script>
+        <script src="~/app/Controller/role/index.js" asp-append-version="true"></script>
+        <script>
+            var roleObj = new RoleController();
+            roleObj.initialize();
+        </script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/lib/jquery-treegrid/js/jquery.treegrid.min.js"></script>
+        <script src="~/app/Controller/role/index.min.js" asp-append-version="true"></script>
+        <script>
+            var roleObj = new RoleController();
+            roleObj.initialize();
+        </script>
+    </environment>
+}
 }
 <div class="">
     <div class="page-title">
@@ -24,14 +37,14 @@
         <div class="title_right">
             <div class="col-md-2 col-sm-2 col-xs-12 form-group pull-right top_search">
                 @{
-                    var result = await AuthorizationService.AuthorizeAsync(User, "USER", Operations.Create);
+                    var result = await AuthorizationService.AuthorizeAsync(User,"USER",Operations.Create);
                 }
-                @if (result.Succeeded)
+                @if(result.Succeeded)
                 {
                     <button class="btn btn-success" id="btn-create" type="button">Create</button>
                 }
-                
-                </div>
+
+            </div>
             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                 <div class="input-group">
                     <input type="text" id="txt-search-keyword" class="form-control" placeholder="Search...">
@@ -96,7 +109,7 @@
             <td>
 
                 <a href="#" data-id="{{Id}}" class="btn  btn-xs btn-primary btn-grant"><i class="fa fa-eye-slash"></i></a>
-                @if ((await AuthorizationService.AuthorizeAsync(User, "USER", Operations.Update)).Succeeded)
+                @if((await AuthorizationService.AuthorizeAsync(User,"USER",Operations.Update)).Succeeded)
                 {
                     <a href="#" data-id="{{Id}}" class="btn  btn-xs btn-info btn-edit"><i class="fa fa-pencil-square-o"></i></a>
 
