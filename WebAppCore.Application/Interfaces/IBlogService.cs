@@ -35,6 +35,8 @@ namespace WebAppCore.Application.Interfaces
 
         BlogViewModel GetById(int id);
 
+        List<BlogViewModel> RelatedBlog(int id,int top);
+
         void Save();
 
         List<TagViewModel> GetListTagById(int id);

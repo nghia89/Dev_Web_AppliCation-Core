@@ -266,5 +266,12 @@ namespace WebAppCore.Application.Implementation
             return _tagRepository.FindAll(x => x.Type == CommonConstants.ProductTag
             && searchText.Contains(x.Name)).ProjectTo<TagViewModel>().ToList();
         }
-    }
+
+		public List<BlogViewModel> RelatedBlog(int id,int top)
+		{
+			var getById = _blogRepository.FindById(id);
+			return _blogRepository.FindAll(x => x.Id != id && x.Status == Status.Active).OrderByDescending(x => x.DateCreated)
+				.Take(top).ProjectTo<BlogViewModel>().ToList();
+		}
+	}
 }

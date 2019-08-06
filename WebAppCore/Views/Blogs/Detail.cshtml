@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Detail";
     var blog = Model.Data;
+    var RelatedBlog = Model.RelatedBlogs;
 }
 
 <section class="blog_post">
@@ -33,76 +34,27 @@
                     <div class="slider-items-products">
                         <div id="related-posts" class="product-flexslider hidden-buttons">
                             <div class="slider-items slider-width-col4 fadeInUp">
-                                <div class="product-item">
-                                    <article class="entry">
-                                        <div class="entry-thumb image-hover2"> <a href="#"> <img src="images/blog-img1.jpg" alt="Blog"> </a> </div>
-                                        <div class="entry-info">
-                                            <h3 class="entry-title"><a href="#">Qui ut ceteros comprehensam</a></h3>
-                                            <div class="entry-meta-data"> <span class="comment-count"> <i class="pe-7s-comment">&nbsp;</i> 1 </span> <span class="date"> <i class="pe-7s-date">&nbsp;</i> 2017-12-05 </span> </div>
-                                            <div class="entry-more"> <a href="#">Read more</a> </div>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="product-item">
-                                    <article class="entry">
-                                        <div class="entry-thumb image-hover2"> <a href="#"> <img src="images/blog-img1.jpg" alt="Blog"> </a> </div>
-                                        <div class="entry-info">
-                                            <h3 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h3>
-                                            <div class="entry-meta-data"> <span class="comment-count"> <i class="pe-7s-comment">&nbsp;</i> 5 </span> <span class="date"> <i class="pe-7s-date">&nbsp;</i> 2017-12-15 </span> </div>
-                                            <div class="entry-more"> <a href="#">Read more</a> </div>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="product-item">
-                                    <article class="entry">
-                                        <div class="entry-thumb image-hover2"> <a href="#"> <img src="images/blog-img1.jpg" alt="Blog"> </a> </div>
-                                        <div class="entry-info">
-                                            <h3 class="entry-title"><a href="#">Lorem ipsum dolor</a></h3>
-                                            <div class="entry-meta-data"> <span class="comment-count"> <i class="pe-7s-comment">&nbsp;</i> 6 </span> <span class="date"> <i class="pe-7s-date">&nbsp;</i> 2017-12-11 </span> </div>
-                                            <div class="entry-more"> <a href="#">Read more</a> </div>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="product-item">
-                                    <article class="entry">
-                                        <div class="entry-thumb image-hover2"> <a href="#"> <img src="images/blog-img1.jpg" alt="Blog"> </a> </div>
-                                        <div class="entry-info">
-                                            <h3 class="entry-title"><a href="#">Sed ut perspiciatis</a></h3>
-                                            <div class="entry-meta-data"> <span class="comment-count"> <i class="pe-7s-comment">&nbsp;</i> 10 </span> <span class="date"> <i class="pe-7s-date">&nbsp;</i> 2016-01-05 </span> </div>
-                                            <div class="entry-more"> <a href="#">Read more</a> </div>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="product-item">
-                                    <article class="entry">
-                                        <div class="entry-thumb image-hover2"> <a href="#"> <img src="images/blog-img1.jpg" alt="Blog"> </a> </div>
-                                        <div class="entry-info">
-                                            <h3 class="entry-title"><a href="#">Iste natus error</a></h3>
-                                            <div class="entry-meta-data"> <span class="comment-count"> <i class="pe-7s-comment">&nbsp;</i> 0 </span> <span class="date"> <i class="pe-7s-date">&nbsp;</i> 2017-12-25 </span> </div>
-                                            <div class="entry-more"> <a href="#">Read more</a> </div>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="product-item">
-                                    <article class="entry">
-                                        <div class="entry-thumb image-hover2"> <a href="#"> <img src="images/blog-img1.jpg" alt="Blog"> </a> </div>
-                                        <div class="entry-info">
-                                            <h3 class="entry-title"><a href="#">omnis iste natus</a></h3>
-                                            <div class="entry-meta-data"> <span class="comment-count"> <i class="pe-7s-comment">&nbsp;</i> 8 </span> <span class="date"> <i class="pe-7s-date">&nbsp;</i> 2016-01-09 </span> </div>
-                                            <div class="entry-more"> <a href="#">Read more</a> </div>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="product-item">
-                                    <article class="entry">
-                                        <div class="entry-thumb image-hover2"> <a href="#"> <img src="images/blog-img1.jpg" alt="Blog"> </a> </div>
-                                        <div class="entry-info">
-                                            <h3 class="entry-title"><a href="#">unde omnis iste</a></h3>
-                                            <div class="entry-meta-data"> <span class="comment-count"> <i class="pe-7s-comment">&nbsp;</i> 2 </span> <span class="date"> <i class="pe-7s-date">&nbsp;</i> 2016-01-02 </span> </div>
-                                            <div class="entry-more"> <a href="#">Read more</a> </div>
-                                        </div>
-                                    </article>
-                                </div>
+                                @foreach(var item in @RelatedBlog)
+                                {
+                                    var url = "/" + item.SeoAlias + "." + item.Id + ".html";
+                                    <div class="product-item">
+                                        <article class="entry">
+                                            <div class="entry-thumb image-hover2"> <a href="@url"> <img src="@item.Image" alt="@item.Name"> </a> </div>
+                                            <div class="entry-info">
+                                                <h3 class="entry-title"><a href="@url">@item.Name</a></h3>
+                                                <div class="entry-meta-data">
+                                                    <span class="comment-count">
+                                                        <i class="pe-7s-comment">&nbsp;</i> 1
+                                                    </span>
+                                                    <span class="date">
+                                                        <i class="pe-7s-date">&nbsp;</i> @item.DateCreated.ToString("dd/mm/yyyy")
+                                                    </span>
+                                                </div>
+                                                <div class="entry-more"> <a href="@url">Read more</a> </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -110,53 +62,53 @@
                 <!-- ./Related Posts -->
                 <!-- Comment -->
                 @*<div class="single-box">
-                    <div class="best-title text-left">
-                        <h2>Comments</h2>
-                    </div>
-                    <div class="comment-list">
-                        <ul>
-                            <li>
-                                <div class="avartar"> <img src="images/avatar.png" alt="Avatar"> </div>
-                                <div class="comment-body">
-                                    <div class="comment-meta"> <span class="author"><a href="#">Admin</a></span> <span class="date">2017-04-01</span> </div>
-                                    <div class="comment"> Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. </div>
-                                </div>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>
-                                        <div class="avartar"> <img src="images/avatar.png" alt="Avatar"> </div>
-                                        <div class="comment-body">
-                                            <div class="comment-meta"> <span class="author"><a href="#">Admin</a></span> <span class="date">2017-04-01</span> </div>
-                                            <div class="comment"> Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="avartar"> <img src="images/avatar.png" alt="Avatar"> </div>
-                                        <div class="comment-body">
-                                            <div class="comment-meta"> <span class="author"><a href="#">Admin</a></span> <span class="date">2017-04-01</span> </div>
-                                            <div class="comment"> Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <div class="avartar"> <img src="images/avatar.png" alt="Avatar"> </div>
-                                <div class="comment-body">
-                                    <div class="comment-meta"> <span class="author"><a href="#">Admin</a></span> <span class="date">2017-04-01</span> </div>
-                                    <div class="comment"> Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="avartar"> <img src="images/avatar.png" alt="Avatar"> </div>
-                                <div class="comment-body">
-                                    <div class="comment-meta"> <span class="author"><a href="#">Admin</a></span> <span class="date">2017-04-01</span> </div>
-                                    <div class="comment"> Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>*@
+                        <div class="best-title text-left">
+                            <h2>Comments</h2>
+                        </div>
+                        <div class="comment-list">
+                            <ul>
+                                <li>
+                                    <div class="avartar"> <img src="images/avatar.png" alt="Avatar"> </div>
+                                    <div class="comment-body">
+                                        <div class="comment-meta"> <span class="author"><a href="#">Admin</a></span> <span class="date">2017-04-01</span> </div>
+                                        <div class="comment"> Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li>
+                                            <div class="avartar"> <img src="images/avatar.png" alt="Avatar"> </div>
+                                            <div class="comment-body">
+                                                <div class="comment-meta"> <span class="author"><a href="#">Admin</a></span> <span class="date">2017-04-01</span> </div>
+                                                <div class="comment"> Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="avartar"> <img src="images/avatar.png" alt="Avatar"> </div>
+                                            <div class="comment-body">
+                                                <div class="comment-meta"> <span class="author"><a href="#">Admin</a></span> <span class="date">2017-04-01</span> </div>
+                                                <div class="comment"> Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="avartar"> <img src="images/avatar.png" alt="Avatar"> </div>
+                                    <div class="comment-body">
+                                        <div class="comment-meta"> <span class="author"><a href="#">Admin</a></span> <span class="date">2017-04-01</span> </div>
+                                        <div class="comment"> Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="avartar"> <img src="images/avatar.png" alt="Avatar"> </div>
+                                    <div class="comment-body">
+                                        <div class="comment-meta"> <span class="author"><a href="#">Admin</a></span> <span class="date">2017-04-01</span> </div>
+                                        <div class="comment"> Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>*@
                 @*<div class="single-box comment-box">
                         <div class="best-title text-left">
                             <h2>Leave a Comment</h2>

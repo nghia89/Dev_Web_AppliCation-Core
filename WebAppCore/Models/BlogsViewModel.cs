@@ -18,6 +18,7 @@ namespace WebAppCore.Models
 	public class blogsVM
 	{
 		public BlogViewModel Data { get; set; }
+		public List<BlogViewModel> RelatedBlogs { get; set; }
 
 	}
 }
