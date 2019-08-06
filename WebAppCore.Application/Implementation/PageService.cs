@@ -8,6 +8,7 @@ using WebAppCore.Application.Interfaces;
 using WebAppCore.Application.ViewModels.Blog;
 using WebAppCore.Data.EF;
 using WebAppCore.Data.Entities;
+using WebAppCore.Data.Enums;
 using WebAppCore.Infrastructure.Interfaces;
 using WebAppCore.Utilities.Dtos;
 
@@ -17,11 +18,13 @@ namespace WebAppCore.Application.Implementation
     {
         private IRepository<Page,int> _pageRepository;
         private IUnitOfWork _unitOfWork;
+        private AppDbContext _appDbContext;
         public PageService(IRepository<Page, int> pageRepository,
-           IUnitOfWork unitOfWork)
+           IUnitOfWork unitOfWork,AppDbContext appDbContext)
         {
             this._pageRepository = pageRepository;
             this._unitOfWork = unitOfWork;
+            this._appDbContext = appDbContext;
         }
         public void Add(PageViewModel pageVm)
         {
@@ -60,7 +63,8 @@ namespace WebAppCore.Application.Implementation
         }
         public PageViewModel GetByAlias(string alias)
         {
-            return Mapper.Map<Page, PageViewModel>(_pageRepository.FindSingle(x => x.Alias == alias));
+			var data = _appDbContext.Set<Page>().Where(x => x.Status == Status.Active).FirstOrDefault();
+			return Mapper.Map<Page, PageViewModel>(data);
         }
         public PageViewModel GetById(int id)
         {

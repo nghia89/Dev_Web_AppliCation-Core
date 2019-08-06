@@ -13,11 +13,14 @@ namespace WebAppCore.Application.Implementation
     public class ProductCategoryService : IProductCategoryService
     {
         private IRepository<ProductCategory, int> _productCategoryRepository;
+        private IRepository<Product, int> _productRepository;
         private IUnitOfWork _unitOfWork;
 
-        public ProductCategoryService(IRepository<ProductCategory, int> productCategoryRepository, IUnitOfWork unitOfWork)
+        public ProductCategoryService(IRepository<ProductCategory, int> productCategoryRepository,
+			IRepository<Product,int> productRepository,IUnitOfWork unitOfWork)
         {
             this._productCategoryRepository = productCategoryRepository;
+            this._productRepository = productRepository;
             this._unitOfWork = unitOfWork;
         }
 
@@ -67,21 +70,21 @@ namespace WebAppCore.Application.Implementation
         public List<ProductCategoryViewModel> GetHomeCategories(int top)
         {
             var query = _productCategoryRepository
-                 .FindAll(x => x.HomeFlag == true, c => c.Products)
+                 .FindAll(x => x.HomeFlag == true)
                    .OrderBy(x => x.HomeOrder)
                    .Take(top).ProjectTo<ProductCategoryViewModel>();
 
             var categories = query.ToList();
-            //foreach (var category in categories)
-            //{
-            //    //category.Products = _productRepository
-            //    //    .FindAll(x => x.HotFlag == true && x.CategoryId == category.Id)
-            //    //    .OrderByDescending(x => x.DateCreated)
-            //    //    .Take(5)
-            //    //    .ProjectTo<ProductViewModel>().ToList();
-            //}
-            return categories;
-        }
+			foreach(var category in categories)
+			{
+				category.Products = _productRepository
+					.FindAll(x => x.HotFlag == true && x.CategoryId == category.Id)
+					.OrderByDescending(x => x.DateCreated)
+					.Take(top)
+					.ProjectTo<ProductViewModel>().ToList();
+			}
+			return categories;
+		}
 
         public void ReOrder(int sourceId, int targetId)
         {

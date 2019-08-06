@@ -60,7 +60,7 @@
                             <h1>@product.Name</h1>
                         </div>
                         <div class="price-box">
-                            @if (product.PromotionPrice.HasValue)
+                            @if (product.PromotionPrice.HasValue || product.PromotionPrice == 0)
                             {
                                 <p class="special-price">
                                     <span class="price-label">Special Price</span>
@@ -97,12 +97,12 @@
                                     <select asp-items="Model.Colors" id="ddlColorId"></select>
                                 </div>
                             </div>
-                            <div class="size-area">
+                            @*<div class="size-area">
                                 <h2 class="saider-bar-title">Size</h2>
                                 <div class="size">
                                     <select asp-items="Model.Sizes" id="ddlSizeId"></select>
                                 </div>
-                            </div>
+                            </div>*@
                         </div>
                         <div class="product-variation">
                             <form action="#" method="post">

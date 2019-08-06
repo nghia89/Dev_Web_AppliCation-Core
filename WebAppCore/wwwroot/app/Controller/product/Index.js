@@ -10,7 +10,7 @@
         quantityManagement.initialize();
         wholePriceManagement.initialize();
         imageManagement.initialize();
-    }
+    };
     function registerEvents() {
         //todo: binding events to controls
         $('#ddlShowPage').on('change', function () {

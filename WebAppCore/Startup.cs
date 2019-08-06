@@ -107,7 +107,8 @@ namespace WebAppCore
 				 "font/woff2",
 				 "application/javascript",
 				 "image/x-icon",
-				 "image/png"
+				 "image/png",
+				 "image/jpg"
 			 };
 				options.EnableForHttps = true;
 				options.MimeTypes = MimeTypes;
@@ -189,11 +190,11 @@ namespace WebAppCore
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app,IHostingEnvironment env,ILoggerFactory loggerFactory)
 		{
-			if(env.IsStaging())
-			{
-				loggerFactory.AddFile("Logs/structures-{Date}.txt");
+			//if(env.IsStaging())
+			//{
+			//	loggerFactory.AddFile("Logs/structures-{Date}.txt");
 
-			}
+			//}
 			if(env.IsProduction())
 			{
 				loggerFactory.AddFile("Logs/structures-{Date}.txt");

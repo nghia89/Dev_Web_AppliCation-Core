@@ -1,0 +1,52 @@
+﻿@model WebAppCore.Models.BlogsViewModel;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="blog_post">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- Center colunm-->
+            <div class="center_column col-xs-12 col-sm-12" id="center_column">
+                <div class="page-title">
+                    <h2>Blog</h2>
+                </div>
+                <ul class="blog-posts">
+                    @foreach(var item in Model.Data.Results)
+                    {
+                        var url = "/" + item.Name +"."+ item.Id + ".html";
+                        <li class="post-item">
+                            <article class="entry">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="entry-thumb image-hover2">
+                                            <a href="@url">
+                                                <figure><img src="@item.Image?w=358" alt="@item.Name"></figure>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h3 class="entry-title"><a href="@url">@item.Name</a></h3>
+                                        <div class="entry-meta-data">
+                                            <span class="author">
+                                                <i class="pe-7s-user">
+                                                </i>&nbsp; by: <a href="#">Admin</a>
+                                            </span>
+                                            @*<span class="comment-count"> <i class="pe-7s-comment"></i>&nbsp; 3 </span>*@
+                                            <span class="date"><i class="pe-7s-date"></i>&nbsp; @item.DateCreated.ToString("dd/MM/yyyy")</span>
+                                        </div>
+                                        <div class="entry-excerpt">Đã đăng: @item.TimeAgo</div>
+                                        <div class="entry-excerpt">@item.Description</div>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                    }
+
+                </ul>
+                @(await Component.InvokeAsync("Pager",Model.Data))
+            </div>
+        </div>
+    </div>
+</section>

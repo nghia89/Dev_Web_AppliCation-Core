@@ -74,7 +74,7 @@ namespace WebAppCore.Application.Implementation
                 .ProjectTo<BlogViewModel>().ToList();
         }
 
-        public PagedResult<BlogViewModel> GetAllPaging(string keyword, int pageSize, int page = 1)
+        public PagedResult<BlogViewModel> GetAllPaging(string keyword,int page, int pageSize)
         {
             var query = _blogRepository.FindAll();
             if (!string.IsNullOrEmpty(keyword))
