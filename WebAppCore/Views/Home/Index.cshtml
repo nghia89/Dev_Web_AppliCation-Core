@@ -365,20 +365,22 @@
                 <div class="slider-items slider-width-col6">
                     @foreach(var item in Model.LastestBlogs)
                     {
+                        var url = "/" + item.Name + "." + item.Id + ".html";
+
                         <div class="item">
                             <div class="blog-box">
-                                <a href="blog_single_post.html"> <img class="primary-img" src="@item.Image" alt="@item.Name"></a>
+                                <a href="@url"> <img class="primary-img" src="@item.Image" alt="@item.Name"></a>
                                 <div class="blog-btm-desc">
                                     <div class="blog-top-desc">
-                                        <div class="blog-date"> @item.DateCreated </div>
-                                        <h4><a href="blog_single_post.html">@item.Name</a></h4>
+                                        <div class="blog-date"> @item.DateCreated.ToString("dd/mm/yyyy") </div>
+                                        <h4><a href="@url">@item.Name</a></h4>
                                         <div class="jtv-entry-meta">
-                                            <i class="fa fa-user-o"></i> <strong>Admin</strong>
-                                            <a href="#"><i class="fa fa-commenting-o"></i> <strong>15 Comments</strong></a>
+                                            @*<i class="fa fa-user-o"></i> <strong>Admin</strong>*@
+                                            @*<a href="#"><i class="fa fa-commenting-o"></i> <strong>15 Comments</strong></a>*@
                                         </div>
                                     </div>
                                     <p>@item.Description</p>
-                                    <a class="read-more" href="blog_single_post.html"> Read more</a>
+                                    <a class="read-more" href="@url"> Read more</a>
                                 </div>
                             </div>
                         </div>
