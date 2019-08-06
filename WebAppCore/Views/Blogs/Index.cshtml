@@ -15,18 +15,19 @@
                 <ul class="blog-posts">
                     @foreach(var item in Model.Data.Results)
                     {
+                        var url = "/" + item.Name +"."+ item.Id + ".html";
                         <li class="post-item">
                             <article class="entry">
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="entry-thumb image-hover2">
-                                            <a href="blog_single_post.html">
-                                                <figure><img src="@item.Image" alt="@item.Name"></figure>
+                                            <a href="@url">
+                                                <figure><img src="@item.Image?w=358" alt="@item.Name"></figure>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-sm-8">
-                                        <h3 class="entry-title"><a href="blog_single_post.html">@item.Name</a></h3>
+                                        <h3 class="entry-title"><a href="@url">@item.Name</a></h3>
                                         <div class="entry-meta-data">
                                             <span class="author">
                                                 <i class="pe-7s-user">

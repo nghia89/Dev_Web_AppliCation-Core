@@ -37,11 +37,13 @@ namespace WebAppCore.Controllers
 			return View(blog);
 		}
 
-		[Route("{alias}-p.{id}.html",Name = "Blog")]
+		[Route("{name}.{id}.html",Name = "Blog")]
 		public IActionResult Detail(int id)
 		{
-			
-			return View(id);
+			var dataVM = new blogsVM();
+			var data = _blogService.GetById(id);
+			dataVM.Data = data;
+			return View(dataVM);
 		}
 	}
 }

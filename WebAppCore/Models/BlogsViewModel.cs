@@ -14,4 +14,10 @@ namespace WebAppCore.Models
 		public PagedResult<BlogViewModel> Data { get; set; }
 		public int? PageSize { set; get; }
 	}
+
+	public class blogsVM
+	{
+		public BlogViewModel Data { get; set; }
+
+	}
 }
