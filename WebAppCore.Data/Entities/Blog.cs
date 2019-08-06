@@ -12,14 +12,13 @@ namespace WebAppCore.Data.Entities
     public class Blog : DomainEntity<int>, ISwitchable, IDateTracking, IHasSeoMetaData
     {
         public Blog() { }
-        public Blog(string name,string alias,string thumbnailImage,
+        public Blog(string name,string thumbnailImage,
            string description, string content, bool? homeFlag, bool? hotFlag,
            string tags, Status status, string seoPageTitle,
            string seoAlias, string seoMetaKeyword,
            string seoMetaDescription)
         {
             Name = name;
-            Alias = alias;
             Image = thumbnailImage;
             Description = description;
             Content = content;
@@ -33,7 +32,7 @@ namespace WebAppCore.Data.Entities
             SeoDescription = seoMetaDescription;
         }
 
-        public Blog(int id, string name,string alias,string thumbnailImage,
+        public Blog(int id, string name,string thumbnailImage,
              string description, string content, bool? homeFlag, bool? hotFlag,
              string tags, Status status, string seoPageTitle,
              string seoAlias, string seoMetaKeyword,
@@ -41,7 +40,6 @@ namespace WebAppCore.Data.Entities
         {
             Id = id;
             Name = name;
-            Alias = alias;
             Image = thumbnailImage;
             Description = description;
             Content = content;
@@ -88,8 +86,5 @@ namespace WebAppCore.Data.Entities
 
         [MaxLength(256)]
         public string SeoDescription { set; get; }
-
-		public string Alias { set; get; }
-
 	}
 }
