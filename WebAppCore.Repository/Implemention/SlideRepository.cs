@@ -10,7 +10,7 @@ using WebAppCore.Repository.Interfaces;
 
 namespace WebAppCore.Repository.Implemention
 {
-	class SlideRepository:ISlideRepository
+	public class SlideRepository:ISlideRepository
 	{
 		private IRepository<Slide,int> _slideRepository;
 		public SlideRepository(IRepository<Slide,int> slideRepository)

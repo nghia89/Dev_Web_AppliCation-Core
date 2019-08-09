@@ -158,6 +158,8 @@ namespace WebAppCore
 			///   Repository
 			services.AddTransient<IProductRepository,ProductRepository>();
 			services.AddTransient<IProductCategoryRepository,ProductCategoryRepository>();
+			services.AddTransient<IBlogRepository,BlogRepository>();
+			services.AddTransient<ISlideRepository,SlideRepository>();
 
 			services.AddTransient<IAuthorizationHandler,BaseResourceAuthorizationHandler>();
 			services.AddSignalR();
