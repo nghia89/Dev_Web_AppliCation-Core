@@ -13,18 +13,6 @@ namespace WebAppCore.Data.Entities
     [Table("Announcements")]
     public class Announcement  : DomainEntity<string>,ISwitchable,IDateTracking
     {
-        public Announcement()
-        {
-            AnnouncementUsers = new List<AnnouncementUser>();
-        }
-        public Announcement(string title, string content, Guid userId, Status status)
-        {
-            Title = title;
-            Content = content;
-            UserId = userId;
-            Status = status;
-        }
-
         [Required]
         [StringLength(250)]
         public string Title { set; get; }

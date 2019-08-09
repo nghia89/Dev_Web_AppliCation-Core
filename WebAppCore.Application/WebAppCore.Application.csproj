@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\WebAppCore.Data.EF\WebAppCore.Data.EF.csproj" />
     <ProjectReference Include="..\WebAppCore.Data\WebAppCore.Data.csproj" />
+    <ProjectReference Include="..\WebAppCore.Repository\WebAppCore.Repository.csproj" />
     <ProjectReference Include="..\WebAppCore.Utilities\WebAppCore.Utilities.csproj" />
   </ItemGroup>
 

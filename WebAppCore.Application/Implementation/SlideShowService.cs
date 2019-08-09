@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WebAppCore.Application.Interfaces;
+using WebAppCore.Application.Mappers;
 using WebAppCore.Application.ViewModels.Common;
 using WebAppCore.Data.Entities;
 using WebAppCore.Infrastructure.Interfaces;
@@ -24,7 +25,7 @@ namespace WebAppCore.Application.Implementation
         }
         public void Create(SlideShowViewModel slideVM)
         {
-            var slide = Mapper.Map<SlideShowViewModel, Slide>(slideVM);
+            var slide = slideVM.AddModel();
             _SlideRepository.Add(slide);
         }
 
@@ -39,7 +40,7 @@ namespace WebAppCore.Application.Implementation
             int totalRow = query.Count();
             query = query.Skip((pageIndex - 1) * pageSize).Take(pageSize);
 
-            var data = query.ProjectTo<SlideShowViewModel>().ToList();
+            var data = query.Select(a => a.ToModel()).ToList();
 
             var paginationSet = new PagedResult<SlideShowViewModel>()
             {
@@ -59,7 +60,7 @@ namespace WebAppCore.Application.Implementation
 
         public void Update(SlideShowViewModel slideVM)
         {
-            var slide = Mapper.Map<SlideShowViewModel, Slide>(slideVM);
+            var slide = slideVM.AddModel();
             _SlideRepository.Update(slide);
         }
     }

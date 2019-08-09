@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAppCore.Application.Interfaces;
+using WebAppCore.Application.Mappers;
 using WebAppCore.Application.ViewModels.System;
 using WebAppCore.Data.Entities;
 using WebAppCore.Data.Enums;
@@ -35,7 +36,7 @@ namespace WebAppCore.Application.Implementation
 
         public void Add(FunctionViewModel functionVm)
         {
-            var function = _mapper.Map<Function>(functionVm);
+            var function = functionVm.AddModel();
             _functionRepository.Add(function);
         }
 
@@ -47,7 +48,7 @@ namespace WebAppCore.Application.Implementation
         public FunctionViewModel GetById(string id)
         {
             var function = _functionRepository.FindSingle(x => x.Id == id);
-            return Mapper.Map<Function, FunctionViewModel>(function);
+            return function.ToModel();
         }
 
         public Task<List<FunctionViewModel>> GetAll(string filter)
@@ -55,12 +56,12 @@ namespace WebAppCore.Application.Implementation
             var query = _functionRepository.FindAll(x => x.Status == Status.Active);
             if (!string.IsNullOrEmpty(filter))
                 query = query.Where(x => x.Name.Contains(filter));
-            return query.OrderBy(x => x.ParentId).ProjectTo<FunctionViewModel>().ToListAsync();
+            return query.OrderBy(x => x.ParentId).Select(x => x.ToModel()).ToListAsync();
         }
 
         public IEnumerable<FunctionViewModel> GetAllWithParentId(string parentId)
         {
-            return _functionRepository.FindAll(x => x.ParentId == parentId).ProjectTo<FunctionViewModel>();
+            return _functionRepository.FindAll(x => x.ParentId == parentId).Select(x => x.ToModel());
         }
 
         public void Save()
@@ -71,7 +72,7 @@ namespace WebAppCore.Application.Implementation
         public void Update(FunctionViewModel functionVm)
         {
             var functionDb = _functionRepository.FindById(functionVm.Id);
-            var function = _mapper.Map<Function>(functionVm);
+            var function = functionVm.AddModel();
         }
 
         public void ReOrder(string sourceId, string targetId)

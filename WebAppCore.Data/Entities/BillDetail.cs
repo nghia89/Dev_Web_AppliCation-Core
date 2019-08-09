@@ -9,28 +9,6 @@ namespace WebAppCore.Data.Entities
     [Table("BillDetails")]
     public class BillDetail : DomainEntity<int>
     {
-        public BillDetail() { }
-
-        public BillDetail(int id, int billId, int productId, int quantity, decimal price, int colorId)
-        {
-            Id = id;
-            BillId = billId;
-            ProductId = productId;
-            Quantity = quantity;
-            Price = price;
-            ColorId = colorId;
-            //SizeId = sizeId;
-        }
-
-        public BillDetail(int billId, int productId, int quantity, decimal price, int colorId)
-        {
-            BillId = billId;
-            ProductId = productId;
-            Quantity = quantity;
-            Price = price;
-            ColorId = colorId;
-            //SizeId = sizeId;
-        }
         public int BillId { set; get; }
 
         public int ProductId { set; get; }

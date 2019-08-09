@@ -11,6 +11,7 @@ using WebAppCore.Data.Entities;
 using WebAppCore.Data.Enums;
 using WebAppCore.Infrastructure.Interfaces;
 using WebAppCore.Utilities.Dtos;
+using WebAppCore.Application.Mappers;
 
 namespace WebAppCore.Application.Implementation
 {
@@ -41,8 +42,9 @@ namespace WebAppCore.Application.Implementation
 
         public void Create(BillViewModel billVm)
         {
-            var order = Mapper.Map<BillViewModel, Bill>(billVm);
-            var orderDetails = Mapper.Map<List<BillDetailViewModel>, List<BillDetail>>(billVm.BillDetails);
+            var order = billVm.AddModel();
+            //var orderDetails = Mapper.Map<List<BillDetailViewModel>, List<BillDetail>>(billVm.BillDetails);
+            var orderDetails = billVm.BillDetails.Select(a=>a.AddModel()).ToList();
             foreach (var detail in orderDetails)
             {
                 var product = _productRepository.FindById(detail.ProductId);
@@ -55,7 +57,7 @@ namespace WebAppCore.Application.Implementation
         public void Update(BillViewModel billVm)
         {
             //Mapping to order domain
-            var order = Mapper.Map<BillViewModel, Bill>(billVm);
+            var order = billVm.AddModel();
 
             //Get order Detail
             var newDetails = order.BillDetails;
@@ -100,7 +102,7 @@ namespace WebAppCore.Application.Implementation
 
         public List<SizeViewModel> GetSizes()
         {
-            return _sizeRepository.FindAll().ProjectTo<SizeViewModel>().ToList();
+            return _sizeRepository.FindAll().Select(x => x.ToModel()).ToList();
         }
 
         public void Save()
@@ -130,7 +132,7 @@ namespace WebAppCore.Application.Implementation
 
             query = query.OrderByDescending(x => x.DateCreated)
                 .Skip((pageIndex - 1) * pageSize).Take(pageSize);
-            var data = query.ProjectTo<BillViewModel>().ToList();
+            var data = query.Select(x => x.ToModel()).ToList();
 
             return new PagedResult<BillViewModel>()
             {
@@ -144,8 +146,8 @@ namespace WebAppCore.Application.Implementation
         public BillViewModel GetDetail(int billId)
         {
             var bill = _orderRepository.FindSingle(x => x.Id == billId);
-            var billVm = Mapper.Map<Bill, BillViewModel>(bill);
-            var billDetailVm = _orderDetailRepository.FindAll(x => x.BillId == billId).ProjectTo<BillDetailViewModel>().ToList();
+            var billVm = bill.ToModel();
+            var billDetailVm = _orderDetailRepository.FindAll(x => x.BillId == billId).Select(x => x.ToModel()).ToList();
             billVm.BillDetails = billDetailVm;
             return billVm;
         }
@@ -154,17 +156,17 @@ namespace WebAppCore.Application.Implementation
         {
             return _orderDetailRepository
                 .FindAll(x => x.BillId == billId, c => c.Bill, c => c.Color, c => c.Product)
-                .ProjectTo<BillDetailViewModel>().ToList();
+                .Select(x => x.ToModel()).ToList();
         }
 
         public List<ColorViewModel> GetColors()
         {
-            return _colorRepository.FindAll().ProjectTo<ColorViewModel>().ToList();
+            return _colorRepository.FindAll().Select(x => x.ToModel()).ToList();
         }
 
         public BillDetailViewModel CreateDetail(BillDetailViewModel billDetailVm)
         {
-            var billDetail = Mapper.Map<BillDetailViewModel, BillDetail>(billDetailVm);
+            var billDetail = billDetailVm.AddModel();
             _orderDetailRepository.Add(billDetail);
             return billDetailVm;
         }
@@ -178,12 +180,16 @@ namespace WebAppCore.Application.Implementation
 
         public ColorViewModel GetColor(int id)
         {
-            return Mapper.Map<Color, ColorViewModel>(_colorRepository.FindById(id));
+			var data = _colorRepository.FindById(id);
+
+			return data.ToModel();
         }
 
         public SizeViewModel GetSize(int id)
         {
-            return Mapper.Map<Size, SizeViewModel>(_sizeRepository.FindById(id));
+			var data = _sizeRepository.FindById(id);
+
+			return data.ToModel();
         }
     }
 }

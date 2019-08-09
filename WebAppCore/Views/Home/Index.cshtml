@@ -92,7 +92,7 @@
                                 @foreach(var slide in Model.HomeSlides)
                                 {
                                     <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''>
-                                        <img src='@slide.Image' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@slide.Name" />
+                                        <img src='@slide.Image?w=860' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@slide.Name" />
                                     </li>
                                 }
                             </ul>

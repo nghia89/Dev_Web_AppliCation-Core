@@ -9,6 +9,7 @@ using WebAppCore.Application.ViewModels.Common;
 using WebAppCore.Data.Entities;
 using WebAppCore.Infrastructure.Interfaces;
 using WebAppCore.Utilities.Dtos;
+using WebAppCore.Application.Mappers;
 
 namespace WebAppCore.Application.Implementation
 {
@@ -25,7 +26,7 @@ namespace WebAppCore.Application.Implementation
 
         public void Add(ContactViewModel pageVm)
         {
-            var page = Mapper.Map<ContactViewModel, Contact>(pageVm);
+            var page = pageVm.AddModel();
             _contactRepository.Add(page);
         }
 
@@ -41,7 +42,7 @@ namespace WebAppCore.Application.Implementation
 
         public List<ContactViewModel> GetAll()
         {
-            return _contactRepository.FindAll().ProjectTo<ContactViewModel>().ToList();
+            return _contactRepository.FindAll().Select(x => x.ToModel()).ToList();
         }
 
         public PagedResult<ContactViewModel> GetAllPaging(string keyword, int page, int pageSize)
@@ -57,7 +58,7 @@ namespace WebAppCore.Application.Implementation
 
             var paginationSet = new PagedResult<ContactViewModel>()
             {
-                Results = data.ProjectTo<ContactViewModel>().ToList(),
+                Results = data.Select(x => x.ToModel()).ToList(),
                 CurrentPage = page,
                 RowCount = totalRow,
                 PageSize = pageSize
@@ -68,7 +69,7 @@ namespace WebAppCore.Application.Implementation
 
         public ContactViewModel GetById(string id)
         {
-            return Mapper.Map<Contact, ContactViewModel>(_contactRepository.FindById(id));
+            return _contactRepository.FindById(id).ToModel();
         }
 
         public void SaveChanges()
@@ -78,7 +79,7 @@ namespace WebAppCore.Application.Implementation
 
         public void Update(ContactViewModel pageVm)
         {
-            var page = Mapper.Map<ContactViewModel, Contact>(pageVm);
+            var page = pageVm.AddModel();
             _contactRepository.Update(page);
         }
     }

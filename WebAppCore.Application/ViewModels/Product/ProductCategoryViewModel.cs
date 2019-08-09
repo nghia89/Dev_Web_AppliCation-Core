@@ -15,7 +15,9 @@ namespace WebAppCore.Application.ViewModels.Product
 
         public int? ParentId { get; set; }
 
-        public int? HomeOrder { get; set; }
+		public ICollection<ProductViewModel> Products { set; get; }
+
+		public int? HomeOrder { get; set; }
 
         public string Image { get; set; }
 
@@ -29,7 +31,5 @@ namespace WebAppCore.Application.ViewModels.Product
         public string SeoAlias { set; get; }
         public string SeoKeywords { set; get; }
         public string SeoDescription { set; get; }
-
-        public ICollection<ProductViewModel> Products { set; get; }
     }
 }

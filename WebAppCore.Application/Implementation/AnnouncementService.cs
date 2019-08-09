@@ -8,6 +8,7 @@ using WebAppCore.Infrastructure.Interfaces;
 using WebAppCore.Utilities.Dtos;
 using System.Linq;
 using AutoMapper.QueryableExtensions;
+using WebAppCore.Application.Mappers;
 
 namespace WebAppCore.Application.Implementation
 {
@@ -41,7 +42,7 @@ namespace WebAppCore.Application.Implementation
             int totalRow = query.Count();
 
             var model = query.OrderByDescending(x => x.DateCreated)
-                .Skip(pageSize * (pageIndex - 1)).Take(pageSize).ProjectTo<AnnouncementViewModel>().ToList();
+                .Skip(pageSize * (pageIndex - 1)).Take(pageSize).Select(x => x.ToModel()).ToList();
 
             var paginationSet = new PagedResult<AnnouncementViewModel>
             {

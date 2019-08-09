@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAppCore.Application.Interfaces;
+using WebAppCore.Application.Mappers;
 using WebAppCore.Application.ViewModels.System;
 using WebAppCore.Data.Entities;
 using WebAppCore.Infrastructure.Interfaces;
@@ -44,7 +45,7 @@ namespace WebAppCore.Application.Implementation
                 Description = roleVm.Description
             };
             var result = await _roleManager.CreateAsync(role);
-            var announcement = Mapper.Map<AnnouncementViewModel, Announcement>(announcementVm);
+            var announcement = announcementVm.AddModel();
             _announRepository.Add(announcement);
             foreach (var userVm in announcementUsers)
             {
@@ -80,7 +81,7 @@ namespace WebAppCore.Application.Implementation
 
         public async Task<List<AppRoleViewModel>> GetAllAsync()
         {
-            return await _roleManager.Roles.ProjectTo<AppRoleViewModel>().ToListAsync();
+            return await _roleManager.Roles.Select(a=>a.ToModel()).ToListAsync();
         }
 
         public PagedResult<AppRoleViewModel> GetAllPagingAsync(string keyword, int page, int pageSize)
@@ -94,7 +95,7 @@ namespace WebAppCore.Application.Implementation
             query = query.Skip((page - 1) * pageSize)
                .Take(pageSize);
 
-            var data = query.ProjectTo<AppRoleViewModel>().ToList();
+            var data = query.Select(a => a.ToModel()).ToList();
             var paginationSet = new PagedResult<AppRoleViewModel>()
             {
                 Results = data,
@@ -109,7 +110,7 @@ namespace WebAppCore.Application.Implementation
         public async Task<AppRoleViewModel> GetById(Guid id)
         {
             var role = await _roleManager.FindByIdAsync(id.ToString());
-            return Mapper.Map<AppRole, AppRoleViewModel>(role);
+            return role.ToModel();
         }
 
         public List<PermissionViewModel> GetListFunctionWithRole(Guid roleId)
@@ -135,7 +136,7 @@ namespace WebAppCore.Application.Implementation
 
         public void SavePermission(List<PermissionViewModel> permissionVms, Guid roleId)
         {
-            var permissions = Mapper.Map<List<PermissionViewModel>, List<Permission>>(permissionVms);
+            var permissions = permissionVms.Select(a=>a.AddModel()).ToList();
             var oldPermission = _permissionRepository.FindAll().Where(x => x.RoleId == roleId).ToList();
             if (oldPermission.Count > 0)
             {

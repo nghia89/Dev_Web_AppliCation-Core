@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WebAppCore.Application.Interfaces;
+using WebAppCore.Application.Mappers;
 using WebAppCore.Application.ViewModels.Common;
 using WebAppCore.Data.Entities;
 using WebAppCore.Infrastructure.Interfaces;
@@ -25,7 +26,7 @@ namespace WebAppCore.Application.Implementation
 
         public void Add(FeedbackViewModel feedbackVm)
         {
-            var page = Mapper.Map<FeedbackViewModel, Feedback>(feedbackVm);
+            var page = feedbackVm.AddModel();
             _feedbackRepository.Add(page);
         }
 
@@ -41,7 +42,7 @@ namespace WebAppCore.Application.Implementation
 
         public List<FeedbackViewModel> GetAll()
         {
-            return _feedbackRepository.FindAll().ProjectTo<FeedbackViewModel>().ToList();
+            return _feedbackRepository.FindAll().Select(x => x.ToModel()).ToList();
         }
 
         public PagedResult<FeedbackViewModel> GetAllPaging(string keyword, int page, int pageSize)
@@ -57,7 +58,7 @@ namespace WebAppCore.Application.Implementation
 
             var paginationSet = new PagedResult<FeedbackViewModel>()
             {
-                Results = data.ProjectTo<FeedbackViewModel>().ToList(),
+                Results = data.Select(x => x.ToModel()).ToList(),
                 CurrentPage = page,
                 RowCount = totalRow,
                 PageSize = pageSize
@@ -68,7 +69,7 @@ namespace WebAppCore.Application.Implementation
 
         public FeedbackViewModel GetById(int id)
         {
-            return Mapper.Map<Feedback, FeedbackViewModel>(_feedbackRepository.FindById(id));
+            return _feedbackRepository.FindById(id).ToModel();
         }
 
         public void SaveChanges()
@@ -78,7 +79,7 @@ namespace WebAppCore.Application.Implementation
 
         public void Update(FeedbackViewModel feedbackVm)
         {
-            var page = Mapper.Map<FeedbackViewModel, Feedback>(feedbackVm);
+            var page = feedbackVm.AddModel();
             _feedbackRepository.Update(page);
         }
     }

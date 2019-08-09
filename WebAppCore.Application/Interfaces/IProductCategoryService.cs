@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using WebAppCore.Application.ViewModels.Product;
 
 namespace WebAppCore.Application.Interfaces
@@ -23,7 +24,7 @@ namespace WebAppCore.Application.Interfaces
 
         void ReOrder(int sourceId, int targetId);
 
-        List<ProductCategoryViewModel> GetHomeCategories(int top);
+        Task<List<ProductCategoryViewModel>> GetHomeCategories(int top);
 
         void Save();
     }
