@@ -16,5 +16,8 @@ namespace WebAppCore.Repository.Interfaces
 
 		Task<List<Product>> GetProductNew(int top);
 
+		Task<List<Product>> FindAllAsync();
+
+
 	}
 }

@@ -27,7 +27,7 @@ namespace WebAppCore.Application.Implementation
 		private IRepository<ProductQuantity,int> _productQuantityRepository;
 		private IRepository<ProductImage,int> _productImageRepository;
 		private IRepository<WholePrice,int> _wholePriceRepository;
-		private IProductRepository _ProductRepository;
+		private IProductRepository _productServiceRepository;
 
 		private IUnitOfWork _unitOfWork;
 
@@ -36,7 +36,7 @@ namespace WebAppCore.Application.Implementation
 			IRepository<ProductQuantity,int> productQuantityRepository,
 			IRepository<ProductImage,int> productImageRepository,
 			IRepository<WholePrice,int> wholePriceRepository,
-		IUnitOfWork unitOfWork,IProductRepository ProductRepository,
+		IUnitOfWork unitOfWork,IProductRepository productServiceRepository,
 		IRepository<ProductTag,int> productTagRepository)
 		{
 			_productRepository = productRepository;
@@ -46,7 +46,7 @@ namespace WebAppCore.Application.Implementation
 			_wholePriceRepository = wholePriceRepository;
 			_productImageRepository = productImageRepository;
 			_unitOfWork = unitOfWork;
-			_ProductRepository = ProductRepository;
+			_productServiceRepository = productServiceRepository;
 		}
 
 		public ProductViewModel Add(ProductViewModel productVm)
@@ -292,7 +292,7 @@ namespace WebAppCore.Application.Implementation
 
 		public async Task<List<ProductViewModel>> GetHotProduct(int top)
 		{
-			var listData =await _ProductRepository.GetHotProduct(top);
+			var listData =await _productServiceRepository.GetHotProduct(top);
 			return listData.Select(x=>x.ToModel()).ToList();
 		}
 
@@ -368,8 +368,48 @@ namespace WebAppCore.Application.Implementation
 
 		public async Task<List<ProductViewModel>> GetProductNew(int top)
 		{
-			var data =await _ProductRepository.GetProductNew(top);
+			var data =await _productServiceRepository.GetProductNew(top);
 			return data.Select(x=>x.ToModel()).ToList();
+		}
+
+		public async Task<PagedResult<ProductViewModel>> PagingAsync(int? categoryId,string keyword,int page,int pageSize,string sortBy)
+		{
+			var query =await _productServiceRepository.FindAllAsync();
+			if(!string.IsNullOrEmpty(keyword))
+				query = query.Where(x => x.Name.Contains(keyword)).ToList();
+			if(categoryId.HasValue)
+				query = query.Where(x => x.CategoryId == categoryId.Value).ToList();
+
+			int totalRow = query.Count();
+			switch(sortBy)
+			{
+				case "price":
+					query = query.OrderByDescending(x => x.Price).ToList();
+					break;
+
+				case "name":
+					query = query.OrderBy(x => x.Name).ToList();
+					break;
+
+				case "lastest":
+					query = query.OrderByDescending(x => x.DateCreated).ToList();
+					break;
+
+				default:
+					query = query.OrderByDescending(x => x.DateCreated).ToList();
+					break;
+			}
+			query = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+			var data = query.Select(x => x.ToModel()).OrderByDescending(x => x.DateCreated).ToList();
+
+			var paginationSet = new PagedResult<ProductViewModel>() {
+				Results = data,
+				CurrentPage = page,
+				RowCount = totalRow,
+				PageSize = pageSize
+			};
+			return paginationSet;
 		}
 	}
 }

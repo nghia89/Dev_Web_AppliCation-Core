@@ -18,7 +18,7 @@ namespace WebAppCore.Application.Interfaces
 
         List<ProductCategoryViewModel> GetAllByParentId(int parentId);
 
-        ProductCategoryViewModel GetById(int id);
+        Task<ProductCategoryViewModel> GetById(int id);
 
         void UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items);
 

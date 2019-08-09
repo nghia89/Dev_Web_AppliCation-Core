@@ -17,16 +17,16 @@ namespace WebAppCore.Application.Implementation
 		private IRepository<ProductCategory,int> _productCategoryRepository;
 		private IRepository<Product,int> _productRepository;
 		private IUnitOfWork _unitOfWork;
-		private IProductCategoryRepository _ProductCategoryRepository;
+		private IProductCategoryRepository _productCategoryServiceRepository;
 
 		public ProductCategoryService(IRepository<ProductCategory,int> productCategoryRepository,
 			IRepository<Product,int> productRepository,IUnitOfWork unitOfWork,
-			IProductCategoryRepository ProductCategoryRepository)
+			IProductCategoryRepository productCategoryServiceRepository)
 		{
 			this._productCategoryRepository = productCategoryRepository;
 			this._productRepository = productRepository;
 			this._unitOfWork = unitOfWork;
-			this._ProductCategoryRepository = ProductCategoryRepository;
+			this._productCategoryServiceRepository = productCategoryServiceRepository;
 		}
 
 		public ProductCategoryViewModel Add(ProductCategoryViewModel productCategoryVm)
@@ -67,16 +67,16 @@ namespace WebAppCore.Application.Implementation
 			 .ToList();
 		}
 
-		public ProductCategoryViewModel GetById(int id)
+		public async Task<ProductCategoryViewModel> GetById(int id)
 		{
-			var data = _productCategoryRepository.FindById(id);
-			var dataMap = data.ToModel();
-			return dataMap;
+
+			var data =await _productCategoryServiceRepository.GetById(id);
+			return data.ToModel();
 		}
 
 		public async Task<List<ProductCategoryViewModel>> GetHomeCategories(int top)
 		{
-			var listData =await _ProductCategoryRepository.GetHomeCategories(top);
+			var listData =await _productCategoryServiceRepository.GetHomeCategories(top);
 			return listData.Select(a=>a.ToModel()).ToList(); ;
 		}
 

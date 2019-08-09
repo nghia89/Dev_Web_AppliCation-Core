@@ -23,6 +23,12 @@ namespace WebAppCore.Repository.Implemention
 			this._productRepository = productRepository;
 		}
 
+		public async Task<List<Product>> FindAllAsync()
+		{
+			var listData= await _productRepository.FindAllAsync(x => x.Status == Status.Active,a => a.ProductCategory);
+			return listData.ToList();
+		}
+
 		public async Task<Product> GetById(long id)
 		{
 			return await _productRepository.GetAByIdIncludeAsyn(x => x.Id == id);

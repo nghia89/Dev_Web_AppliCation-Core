@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 using System.Linq;
+using System.Threading.Tasks;
 using WebAppCore.Application.Interfaces;
 using WebAppCore.Models.ProductViewModels;
 
@@ -32,7 +33,7 @@ namespace WebAppCore.Controllers
         }
 
         [Route("{alias}-c.{id}.html")]
-        public IActionResult Catalog(int id, int? pageSize, string sortBy, int page = 1)
+        public async Task<IActionResult> Catalog(int id, int? pageSize, string sortBy, int page = 1)
         {
             var catalog = new CatalogViewModel();
             ViewData["BodyClass"] = "shop_grid_full_width_page";
@@ -41,8 +42,8 @@ namespace WebAppCore.Controllers
 
             catalog.PageSize = pageSize;
             catalog.SortType = sortBy;
-            catalog.Data = _productService.GetAllPaging(id, string.Empty, page, pageSize.Value, sortBy);
-            catalog.Category = _productCategoryService.GetById(id);
+            catalog.Data =await _productService.PagingAsync(id, string.Empty, page, pageSize.Value, sortBy);
+            catalog.Category =await _productCategoryService.GetById(id);
             return View(catalog);
         }
 
@@ -63,12 +64,12 @@ namespace WebAppCore.Controllers
         }
 
         [Route("{alias}-p.{id}.html", Name = "ProductDetail")]
-        public IActionResult Detail(int id)
+        public async Task<IActionResult> Detail(int id)
         {
             ViewData["BodyClass"] = "product-page";
             var model = new DetailViewModel();
             model.Product = _productService.GetById(id);
-            model.Category = _productCategoryService.GetById(model.Product.CategoryId);
+            model.Category =await _productCategoryService.GetById(model.Product.CategoryId);
             model.RelatedProducts = _productService.GetRelatedProducts(id, 9);
             model.UpsellProducts = _productService.GetUpsellProducts(6);
             model.ProductImages = _productService.GetImages(id);

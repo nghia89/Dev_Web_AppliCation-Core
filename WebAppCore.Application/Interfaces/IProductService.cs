@@ -11,6 +11,9 @@ namespace WebAppCore.Application.Interfaces
         List<ProductViewModel> GetAll();
 
         PagedResult<ProductViewModel> GetAllPaging(int? categoryId, string keyword, int page, int pageSize,string sortBy);
+
+        Task<PagedResult<ProductViewModel>> PagingAsync(int? categoryId, string keyword, int page, int pageSize,string sortBy);
+
         ProductViewModel Add(ProductViewModel productVm);
 
         void Update(ProductViewModel product);
