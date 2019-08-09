@@ -25,8 +25,8 @@ namespace WebAppCore.Repository.Implemention
 
 		public async Task<List<Product>> FindAllAsync()
 		{
-			var listData= await _productRepository.FindAllAsync(x => x.Status == Status.Active,a => a.ProductCategory);
-			return listData.ToList();
+			var listData =await _productRepository.FindAllAsync(x=>x.Status==Status.Active,a=>a.ProductCategory);
+			return  listData.ToList();
 		}
 
 		public async Task<Product> GetById(long id)

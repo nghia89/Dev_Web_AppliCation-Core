@@ -400,11 +400,12 @@ namespace WebAppCore.Application.Implementation
 					break;
 			}
 			query = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+			List<Product> products = query.ToList();
 
-			var data = query.Select(x => x.ToModel()).OrderByDescending(x => x.DateCreated).ToList();
+			var data = products.Select(x => x.ToModel()).OrderByDescending(x => x.DateCreated).ToList();
 
 			var paginationSet = new PagedResult<ProductViewModel>() {
-				Results = data,
+				Results = data.ToList(),
 				CurrentPage = page,
 				RowCount = totalRow,
 				PageSize = pageSize
