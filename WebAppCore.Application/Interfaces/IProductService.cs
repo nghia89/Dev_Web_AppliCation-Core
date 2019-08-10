@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using WebAppCore.Application.ViewModels.Product;
 using WebAppCore.Utilities.Dtos;
 
@@ -10,6 +11,9 @@ namespace WebAppCore.Application.Interfaces
         List<ProductViewModel> GetAll();
 
         PagedResult<ProductViewModel> GetAllPaging(int? categoryId, string keyword, int page, int pageSize,string sortBy);
+
+        Task<PagedResult<ProductViewModel>> PagingAsync(int? categoryId, string keyword, int page, int pageSize,string sortBy);
+
         ProductViewModel Add(ProductViewModel productVm);
 
         void Update(ProductViewModel product);
@@ -36,9 +40,10 @@ namespace WebAppCore.Application.Interfaces
 
         List<ProductViewModel> GetLastest(int top);
 
-        List<ProductViewModel> GetProductNew(int top);
+        Task<List<ProductViewModel>> GetProductNew(int top);
 
-        List<ProductViewModel> GetHotProduct(int top);
+        Task<List<ProductViewModel>> GetHotProduct(int top);
+
         List<ProductViewModel> GetRelatedProducts(int id, int top);
 
         List<ProductViewModel> GetUpsellProducts(int top);

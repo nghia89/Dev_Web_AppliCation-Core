@@ -2,11 +2,22 @@
     ViewData["Title"] = "Pages";
 }
 @section Scripts{
+    
+<environment names="Development">
     <script src="~/app/Controller/page/index.js" asp-append-version="true"></script>
     <script>
         var pageObj = new PageController();
         pageObj.initialize();
     </script>
+</environment>
+
+<environment names="Staging,Production">
+    <script src="~/app/Controller/page/index.min.js" asp-append-version="true"></script>
+    <script>
+        var pageObj = new PageController();
+        pageObj.initialize();
+    </script>
+</environment>
 }
 
 <input type="hidden" id="hid-category-id" value="0" />

@@ -5,14 +5,17 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using WebAppCore.Application.Interfaces;
 using WebAppCore.Application.ViewModels.Product;
 using WebAppCore.Data.Entities;
 using WebAppCore.Data.Enums;
 using WebAppCore.Infrastructure.Interfaces;
+using WebAppCore.Repository.Interfaces;
 using WebAppCore.Utilities.Constants;
 using WebAppCore.Utilities.Dtos;
 using WebAppCore.Utilities.Helpers;
+using WebAppCore.Application.Mappers;
 
 namespace WebAppCore.Application.Implementation
 {
@@ -24,6 +27,7 @@ namespace WebAppCore.Application.Implementation
 		private IRepository<ProductQuantity,int> _productQuantityRepository;
 		private IRepository<ProductImage,int> _productImageRepository;
 		private IRepository<WholePrice,int> _wholePriceRepository;
+		private IProductRepository _productServiceRepository;
 
 		private IUnitOfWork _unitOfWork;
 
@@ -32,7 +36,7 @@ namespace WebAppCore.Application.Implementation
 			IRepository<ProductQuantity,int> productQuantityRepository,
 			IRepository<ProductImage,int> productImageRepository,
 			IRepository<WholePrice,int> wholePriceRepository,
-		IUnitOfWork unitOfWork,
+		IUnitOfWork unitOfWork,IProductRepository productServiceRepository,
 		IRepository<ProductTag,int> productTagRepository)
 		{
 			_productRepository = productRepository;
@@ -42,6 +46,7 @@ namespace WebAppCore.Application.Implementation
 			_wholePriceRepository = wholePriceRepository;
 			_productImageRepository = productImageRepository;
 			_unitOfWork = unitOfWork;
+			_productServiceRepository = productServiceRepository;
 		}
 
 		public ProductViewModel Add(ProductViewModel productVm)
@@ -70,7 +75,7 @@ namespace WebAppCore.Application.Implementation
 					productTags.Add(productTag);
 				}
 			}
-			var product = Mapper.Map<ProductViewModel,Product>(productVm);
+			var product = productVm.AddModel();
 			foreach(var productTag in productTags)
 			{
 				product.ProductTags.Add(productTag);
@@ -106,12 +111,12 @@ namespace WebAppCore.Application.Implementation
 
 		public List<ProductViewModel> GetAll()
 		{
-			return _productRepository.FindAll(x => x.ProductCategory).ProjectTo<ProductViewModel>().ToList();
+			return _productRepository.FindAll(x => x.ProductCategory).Select(x => x.ToModel()).ToList();
 		}
 
 		public PagedResult<ProductViewModel> GetAllPaging(int? categoryId,string keyword,int page,int pageSize,string sortBy)
 		{
-			var query = _productRepository.FindAll(x => x.Status == Status.Active);
+			var query = _productRepository.FindAll(x => x.Status == Status.Active,a=>a.ProductCategory);
 			if(!string.IsNullOrEmpty(keyword))
 				query = query.Where(x => x.Name.Contains(keyword));
 			if(categoryId.HasValue)
@@ -138,7 +143,7 @@ namespace WebAppCore.Application.Implementation
 			}
 			query = query.Skip((page - 1) * pageSize).Take(pageSize);
 
-			var data = query.ProjectTo<ProductViewModel>().OrderByDescending(x => x.DateCreated).ToList();
+			var data = query.Select(x => x.ToModel()).OrderByDescending(x => x.DateCreated).ToList();
 
 			var paginationSet = new PagedResult<ProductViewModel>() {
 				Results = data,
@@ -151,12 +156,13 @@ namespace WebAppCore.Application.Implementation
 
 		public ProductViewModel GetById(int id)
 		{
-			return Mapper.Map<Product,ProductViewModel>(_productRepository.FindById(id));
+			var data = _productRepository.FindById(id);
+			return data.ToModel();
 		}
 
 		public List<ProductQuantityViewModel> GetQuantities(int productId)
 		{
-			return _productQuantityRepository.FindAll(x => x.ProductId == productId).ProjectTo<ProductQuantityViewModel>().ToList();
+			return _productQuantityRepository.FindAll(x => x.ProductId == productId).Select(x => x.ToModel()).ToList();
 		}
 
 		public void ImportExcel(string filePath,int categoryId)
@@ -232,7 +238,7 @@ namespace WebAppCore.Application.Implementation
 				}
 			}
 
-			var product = Mapper.Map<ProductViewModel,Product>(productVm);
+			var product = productVm.AddModel();
 			foreach(var productTag in productTags)
 			{
 				product.ProductTags.Add(productTag);
@@ -243,7 +249,7 @@ namespace WebAppCore.Application.Implementation
 		public List<ProductImageViewModel> GetImages(int productId)
 		{
 			return _productImageRepository.FindAll(x => x.ProductId == productId)
-				.ProjectTo<ProductImageViewModel>().ToList();
+				.Select(a=>a.ProductImage()).ToList();
 		}
 
 		public void AddImages(int productId,string[] images)
@@ -275,22 +281,19 @@ namespace WebAppCore.Application.Implementation
 
 		public List<WholePriceViewModel> GetWholePrices(int productId)
 		{
-			return _wholePriceRepository.FindAll(x => x.ProductId == productId).ProjectTo<WholePriceViewModel>().ToList();
+			return _wholePriceRepository.FindAll(x => x.ProductId == productId).Select(x => x.ToModel()).ToList();
 		}
 
 		public List<ProductViewModel> GetLastest(int top)
 		{
 			return _productRepository.FindAll(x => x.Status == Status.Active && x.HomeFlag == false).OrderByDescending(x => x.DateCreated)
-				.Take(top).ProjectTo<ProductViewModel>().ToList();
+				.Take(top).Select(x => x.ToModel()).ToList();
 		}
 
-		public List<ProductViewModel> GetHotProduct(int top)
+		public async Task<List<ProductViewModel>> GetHotProduct(int top)
 		{
-			return _productRepository.FindAll(x => x.Status == Status.Active && x.HomeFlag == true)
-				.OrderByDescending(x => x.DateCreated)
-				.Take(top)
-				.ProjectTo<ProductViewModel>()
-				.ToList();
+			var listData =await _productServiceRepository.GetHotProduct(top);
+			return listData.Select(x=>x.ToModel()).ToList();
 		}
 
 		public List<ProductViewModel> GetRelatedProducts(int id,int top)
@@ -300,7 +303,7 @@ namespace WebAppCore.Application.Implementation
 				&& x.Id != id && x.CategoryId == product.CategoryId)
 			.OrderByDescending(x => x.DateCreated)
 			.Take(top)
-			.ProjectTo<ProductViewModel>()
+			.Select(x => x.ToModel())
 			.ToList();
 		}
 
@@ -309,7 +312,7 @@ namespace WebAppCore.Application.Implementation
 			return _productRepository.FindAll(x => x.PromotionPrice != null)
 			   .OrderByDescending(x => x.DateModified)
 			   .Take(top)
-			   .ProjectTo<ProductViewModel>().ToList();
+			   .Select(x => x.ToModel()).ToList();
 		}
 
 		public List<TagViewModel> GetProductTags(int productId)
@@ -352,7 +355,7 @@ namespace WebAppCore.Application.Implementation
 			query = query.OrderByDescending(x => x.DateCreated)
 				.Skip((page - 1) * pageSize).Take(pageSize);
 
-			var data = query.ProjectTo<ProductViewModel>().ToList();
+			var data = query.Select(x => x.ToModel()).ToList();
 
 			var paginationSet = new PagedResult<ProductViewModel>() {
 				Results = data,
@@ -363,10 +366,51 @@ namespace WebAppCore.Application.Implementation
 			return paginationSet;
 		}
 
-		public List<ProductViewModel> GetProductNew(int top)
+		public async Task<List<ProductViewModel>> GetProductNew(int top)
 		{
-			return _productRepository.FindAll(x => x.Status == Status.Active&&x.HomeFlag!=true&&x.HotFlag!=true).OrderByDescending(x => x.DateCreated)
-			   .Take(top).ProjectTo<ProductViewModel>().ToList();
+			var data =await _productServiceRepository.GetProductNew(top);
+			return data.Select(x=>x.ToModel()).ToList();
+		}
+
+		public async Task<PagedResult<ProductViewModel>> PagingAsync(int? categoryId,string keyword,int page,int pageSize,string sortBy)
+		{
+			var query =await _productServiceRepository.FindAllAsync();
+			if(!string.IsNullOrEmpty(keyword))
+				query = query.Where(x => x.Name.Contains(keyword));
+			if(categoryId.HasValue)
+				query = query.Where(x => x.CategoryId == categoryId.Value);
+
+			int totalRow = query.Count();
+			switch(sortBy)
+			{
+				case "price":
+					query = query.OrderByDescending(x => x.Price);
+					break;
+
+				case "name":
+					query = query.OrderBy(x => x.Name);
+					break;
+
+				case "lastest":
+					query = query.OrderByDescending(x => x.DateCreated);
+					break;
+
+				default:
+					query = query.OrderByDescending(x => x.DateCreated);
+					break;
+			}
+			query = query.Skip((page - 1) * pageSize).Take(pageSize);
+			List<Product> products = query.ToList();
+
+			var data = products.Select(x => x.ToModel()).OrderByDescending(x => x.DateCreated).ToList();
+
+			var paginationSet = new PagedResult<ProductViewModel>() {
+				Results = data,
+				CurrentPage = page,
+				RowCount = totalRow,
+				PageSize = pageSize
+			};
+			return  paginationSet;
 		}
 	}
 }

@@ -24,6 +24,8 @@ using WebAppCore.Data.Entities;
 using WebAppCore.Extensions;
 using WebAppCore.Helpers;
 using WebAppCore.Infrastructure.Interfaces;
+using WebAppCore.Repository.Implemention;
+using WebAppCore.Repository.Interfaces;
 using WebAppCore.Services;
 using WebAppCore.SignalR;
 
@@ -78,46 +80,16 @@ namespace WebAppCore
 			});
 
 			//gzip
-			//services.Configure<GzipCompressionProviderOptions>(options =>
-			//{
-			//	options.Level = CompressionLevel.Optimal;
-			//});
-			//services.AddResponseCompression(options =>
-			//{
-			//	options.EnableForHttps = true;
-			//	options.Providers.Add<GzipCompressionProvider>();
-			//});
-
-			//Brotli
-
-			services.Configure<BrotliCompressionProviderOptions>(options => {
+			services.Configure<GzipCompressionProviderOptions>(options => {
 				options.Level = CompressionLevel.Optimal;
 			});
 			services.AddResponseCompression(options => {
-				options.EnableForHttps = true; options.Providers.Add<BrotliCompressionProvider>();
-			});
-
-			//
-			services.AddResponseCompression(options => {
-				IEnumerable<string> MimeTypes = new[]
-				{
-				 "text/plain",
-				 "text/html",
-				 "text/css",
-				 "font/woff2",
-				 "application/javascript",
-				 "image/x-icon",
-				 "image/png",
-				 "image/jpg"
-			 };
 				options.EnableForHttps = true;
-				options.MimeTypes = MimeTypes;
 				options.Providers.Add<GzipCompressionProvider>();
-				options.Providers.Add<BrotliCompressionProvider>();
 			});
-			//services.AddMinResponse();
+			
 			services.AddImageResizer();
-			services.AddAutoMapper();
+			services.AddAutoMapper(typeof(Startup));
 			services.AddAuthentication()
 				.AddFacebook(facebookOpts => {
 					facebookOpts.AppId = Configuration["Authentication:Facebook:AppId"];
@@ -132,8 +104,8 @@ namespace WebAppCore
 			services.AddScoped<UserManager<AppUser>,UserManager<AppUser>>();
 			services.AddScoped<RoleManager<AppRole>,RoleManager<AppRole>>();
 
-			services.AddSingleton(Mapper.Configuration);
-			services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(),sp.GetService));
+			//services.AddSingleton(Mapper.Configuration);
+			//services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(),sp.GetService));
 
 			services.AddTransient<IEmailSender,EmailSender>();
 			services.AddTransient<IViewRenderService,ViewRenderService>();
@@ -183,6 +155,12 @@ namespace WebAppCore
 			services.AddTransient<IAnnouncementService,AnnouncementService>();
 			services.AddTransient<ISlideShowService,SlideShowService>();
 
+			///   Repository
+			services.AddTransient<IProductRepository,ProductRepository>();
+			services.AddTransient<IProductCategoryRepository,ProductCategoryRepository>();
+			services.AddTransient<IBlogRepository,BlogRepository>();
+			services.AddTransient<ISlideRepository,SlideRepository>();
+
 			services.AddTransient<IAuthorizationHandler,BaseResourceAuthorizationHandler>();
 			services.AddSignalR();
 		}
@@ -190,11 +168,10 @@ namespace WebAppCore
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app,IHostingEnvironment env,ILoggerFactory loggerFactory)
 		{
-			//if(env.IsStaging())
-			//{
-			//	loggerFactory.AddFile("Logs/structures-{Date}.txt");
+	
+			//loggerFactory.AddFile("Logs/structures-{Date}.txt");
 
-			//}
+		
 			if(env.IsProduction())
 			{
 				loggerFactory.AddFile("Logs/structures-{Date}.txt");
@@ -213,14 +190,14 @@ namespace WebAppCore
 			app.UseImageResizer();
 			//hạn chế tất cả các file nằm trong thư mục root đều không chạy qua Middleware tiếp theo
 			app.UseStaticFiles();
-			// app.UseMinResponse();
+			//app.UseMinResponse();
 			app.UseAuthentication();
 			app.UseSession();
 			app.UseCors("CorsPolicy");
 			app.UseSignalR(routes => {
 				routes.MapHub<SignalRHub>("/signalRHub");
 			});
-			app.UseResponseCompression();
+			//app.UseResponseCompression();
 			app.UseMvc(routes => {
 				routes.MapRoute(
 					name: "default",

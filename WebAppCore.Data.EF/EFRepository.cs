@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using WebAppCore.Data.Interfaces;
 using WebAppCore.Infrastructure.Interfaces;
 using WebAppCore.Infrastructure.SharedKernel;
@@ -58,7 +59,20 @@ namespace WebAppCore.Data.EF
             return items.Where(predicate);
         }
 
-        public T FindById(K id, params Expression<Func<T, object>>[] includeProperties)
+		public async Task<ICollection<T>> FindAllAsync(Expression<Func<T,bool>> match,params Expression<Func<T,object>>[] includeProperties)
+		{
+			IQueryable<T> items = _context.Set<T>();
+				if(includeProperties != null)
+				{
+					foreach(Expression<Func<T,object>> includeProperty in includeProperties)
+					{
+						items = items.Include(includeProperty);
+					}
+				}
+				return await items.Where(match).AsNoTracking().ToListAsync();
+		}
+
+		public T FindById(K id, params Expression<Func<T, object>>[] includeProperties)
         {
             return FindAll(includeProperties).SingleOrDefault(x => x.Id.Equals(id));
         }
@@ -68,7 +82,53 @@ namespace WebAppCore.Data.EF
             return FindAll(includeProperties).SingleOrDefault(predicate);
         }
 
-        public void Remove(T entity)
+		public async Task<T> GetAByIdIncludeAsyn(Expression<Func<T,bool>> predicate,params Expression<Func<T,object>>[] includeProperties)
+		{
+			IQueryable<T> items = _context.Set<T>();
+			if(includeProperties != null)
+			{
+				foreach(var includeProperty in includeProperties)
+				{
+					items = items.Include(includeProperty);
+				}
+			}
+			return await items.Where(predicate).AsNoTracking().FirstOrDefaultAsync();
+		}
+
+		public async Task<ICollection<T>> GetAllAsyn(params Expression<Func<T,object>>[] includeProperties)
+		{
+			IQueryable<T> items = _context.Set<T>();
+			if(includeProperties != null)
+			{
+				foreach(var includeProperty in includeProperties)
+				{
+					items = items.Include(includeProperty);
+				}
+			}
+			return await items.AsNoTracking().ToListAsync();
+		}
+
+		public async Task<(ICollection<T>, long count)> Paging(int page,int pageSize,Expression<Func<T,bool>> predicate,params Expression<Func<T,object>>[] includeProperties)
+		{
+			IQueryable<T> items = _context.Set<T>();
+			//var totalRow = _context.Set<T>().Where(predicate);
+			if(includeProperties != null)
+			{
+				foreach(var includeProperty in includeProperties)
+				{
+					items = items.Include(includeProperty);
+				}
+			}
+			var data =  items.Where(predicate);
+			var skip = (page - 1) * pageSize;
+			var dataPaging = await data.Skip(skip)
+								  .Take(pageSize).AsNoTracking()
+								  .ToListAsync();
+
+			return (dataPaging, data.Count());
+		}
+
+		public void Remove(T entity)
         {
             _context.Set<T>().Remove(entity);
         }

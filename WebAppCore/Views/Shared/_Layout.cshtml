@@ -62,40 +62,76 @@
         <!-- End Footer -->
     </div>
 
-    <!-- JS -->
-    <!-- jquery js -->
-    <script type="text/javascript" src="~/client-side/js/jquery.min.js"></script>
+   
+    <environment names="Development">
+        <!-- JS -->
+        <!-- jquery js -->
+        <script type="text/javascript" src="~/client-side/js/jquery.min.js"></script>
 
-    <!-- bootstrap js -->
-    <script type="text/javascript" src="~/client-side/js/bootstrap.min.js"></script>
+        <!-- bootstrap js -->
+        <script type="text/javascript" src="~/client-side/js/bootstrap.min.js"></script>
 
-    <!-- owl.carousel.min js -->
-    <script type="text/javascript" src="~/client-side/js/owl.carousel.min.js"></script>
+        <!-- owl.carousel.min js -->
+        <script type="text/javascript" src="~/client-side/js/owl.carousel.min.js"></script>
 
-    <!-- jquery.mobile-menu js -->
-    <script type="text/javascript" src="~/client-side/js/mobile-menu.js"></script>
+        <!-- jquery.mobile-menu js -->
+        <script type="text/javascript" src="~/client-side/js/mobile-menu.js"></script>
 
-    <!--jquery-ui.min js -->
-    <script type="text/javascript" src="~/client-side/js/jquery-ui.js"></script>
+        <!--jquery-ui.min js -->
+        <script type="text/javascript" src="~/client-side/js/jquery-ui.js"></script>
 
-    <!-- main js -->
-    <script type="text/javascript" src="~/client-side/js/main.js"></script>
+        <!-- main js -->
+        <script type="text/javascript" src="~/client-side/js/main.js"></script>
 
-    <!-- countdown js -->
-    <script type="text/javascript" src="~/client-side/js/countdown.js"></script>
+        <!-- countdown js -->
+        <script type="text/javascript" src="~/client-side/js/countdown.js"></script>
 
-    <!-- Slider Js -->
-    <script type="text/javascript" src="~/client-side/js/revolution-slider.js"></script>
-    <script src="~/lib/notifyjs/dist/notify.js"></script>
-    <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
-    <script src="~/lib/mustache/mustache.js"></script>
-    <script src="~/client-app/shared/structures-client.js"></script>
-    <script src="~/client-app/base/index.js"></script>
+        <!-- Slider Js -->
+        <script type="text/javascript" src="~/client-side/js/revolution-slider.js"></script>
+        <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
+        <script src="~/client-app/shared/structures-client.js"></script>
+        <script src="~/client-app/base/index.js"></script>
+        <script src="~/lib/notifyjs/dist/notify.js"></script>
+        <script src="~/lib/mustache/mustache.js"></script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <!-- JS -->
+        <!-- jquery js -->
+        <script type="text/javascript" src="~/client-side/js/jquery.min.js"></script>
+
+        <!-- bootstrap js -->
+        <script type="text/javascript" src="~/client-side/js/bootstrap.min.js"></script>
+
+        <!-- owl.carousel.min js -->
+        <script type="text/javascript" src="~/client-side/js/owl.carousel.min.js"></script>
+
+        <!-- jquery.mobile-menu js -->
+        <script type="text/javascript" src="~/client-side/js/mobile-menu.min.js"></script>
+
+        <!--jquery-ui.min js -->
+        <script type="text/javascript" src="~/client-side/js/jquery-ui.min.js"></script>
+
+        <!-- main js -->
+        <script type="text/javascript" src="~/client-side/js/main.min.js"></script>
+
+        <!-- countdown js -->
+        <script type="text/javascript" src="~/client-side/js/countdown.min.js"></script>
+
+        <!-- Slider Js -->
+        <script type="text/javascript" src="~/client-side/js/revolution-slider.js"></script>
+        <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
+        <script src="~/client-app/shared/structures-client.js"></script>
+        <script src="~/client-app/base/index.js"></script>
+        <script src="~/lib/notifyjs/dist/notify.min.js"></script>
+        <script src="~/lib/mustache/mustache.min.js"></script>
+    </environment>
+    }
     <script>
         var Baseobj = new BaseController()
         Baseobj.initialize();
     </script>
-    @RenderSection("Scripts", required: false)
+    @RenderSection("Scripts",required: false)
 
 </body>
 </html>

@@ -4,12 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using WebAppCore.Application.Interfaces;
+using WebAppCore.Application.Mappers;
 using WebAppCore.Application.ViewModels.Blog;
 using WebAppCore.Application.ViewModels.Common;
 using WebAppCore.Data.Entities;
 using WebAppCore.Data.Enums;
 using WebAppCore.Infrastructure.Interfaces;
+using WebAppCore.Repository.Interfaces;
 using WebAppCore.Utilities.Constants;
 using WebAppCore.Utilities.Dtos;
 using WebAppCore.Utilities.Helpers;
@@ -22,21 +25,24 @@ namespace WebAppCore.Application.Implementation
         private readonly IRepository<Tag, string> _tagRepository;
         private readonly IRepository<BlogTag, int> _blogTagRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IBlogRepository _blogServiceRepository;
 
         public BlogService(IRepository<Blog, int> blogRepository,
             IRepository<BlogTag, int> blogTagRepository,
             IRepository<Tag, string> tagRepository,
-            IUnitOfWork unitOfWork)
+			IBlogRepository blogServiceRepository,
+			IUnitOfWork unitOfWork)
         {
             _blogRepository = blogRepository;
             _blogTagRepository = blogTagRepository;
             _tagRepository = tagRepository;
+            _blogServiceRepository = blogServiceRepository;
             _unitOfWork = unitOfWork;
         }
 
         public BlogViewModel Add(BlogViewModel blogVm)
         {
-            var blog = Mapper.Map<BlogViewModel, Blog>(blogVm);
+            var blog = blogVm.AddModel();
 
             if (!string.IsNullOrEmpty(blog.Tags))
             {
@@ -71,7 +77,7 @@ namespace WebAppCore.Application.Implementation
         public List<BlogViewModel> GetAll()
         {
             return _blogRepository.FindAll(c => c.BlogTags)
-                .ProjectTo<BlogViewModel>().ToList();
+                .Select(x => x.ToModel()).ToList();
         }
 
         public PagedResult<BlogViewModel> GetAllPaging(string keyword,int page, int pageSize)
@@ -87,7 +93,7 @@ namespace WebAppCore.Application.Implementation
 
             var paginationSet = new PagedResult<BlogViewModel>()
             {
-                Results = data.ProjectTo<BlogViewModel>().ToList(),
+                Results = data.Select(x => x.ToModel()).ToList(),
                 CurrentPage = page,
                 RowCount = totalRow,
                 PageSize = pageSize,
@@ -98,7 +104,9 @@ namespace WebAppCore.Application.Implementation
 
         public BlogViewModel GetById(int id)
         {
-            return Mapper.Map<Blog, BlogViewModel>(_blogRepository.FindById(id));
+			var data = _blogRepository.FindById(id);
+
+			return data.ToModel();
         }
 
         public void Save()
@@ -108,7 +116,7 @@ namespace WebAppCore.Application.Implementation
 
         public void Update(BlogViewModel blog)
         {
-            _blogRepository.Update(Mapper.Map<BlogViewModel, Blog>(blog));
+            _blogRepository.Update(blog.AddModel());
             if (!string.IsNullOrEmpty(blog.Tags))
             {
                 string[] tags = blog.Tags.Split(',');
@@ -136,10 +144,11 @@ namespace WebAppCore.Application.Implementation
             }
         }
 
-        public List<BlogViewModel> GetLastest(int top)
+        public async Task<List<BlogViewModel>> GetLastest(int top)
         {
-            return _blogRepository.FindAll(x => x.Status == Status.Active).OrderByDescending(x => x.DateCreated)
-                .Take(top).ProjectTo<BlogViewModel>().ToList();
+			var data =await _blogServiceRepository.GetLastest(top);
+
+			return data.Select(x => x.ToModel()).ToList();
         }
 
         public List<BlogViewModel> GetHotProduct(int top)
@@ -147,8 +156,8 @@ namespace WebAppCore.Application.Implementation
             return _blogRepository.FindAll(x => x.Status == Status.Active && x.HotFlag == true)
                 .OrderByDescending(x => x.DateCreated)
                 .Take(top)
-                .ProjectTo<BlogViewModel>()
-                .ToList();
+                .Select(x => x.ToModel())
+				.ToList();
         }
 
         public List<BlogViewModel> GetListPaging(int page, int pageSize, string sort, out int totalRow)
@@ -170,7 +179,7 @@ namespace WebAppCore.Application.Implementation
 
             return query.Skip((page - 1) * pageSize)
                 .Take(pageSize)
-                .ProjectTo<BlogViewModel>().ToList();
+                .Select(x => x.ToModel()).ToList();
         }
 
         public List<string> GetListByName(string name)
@@ -199,8 +208,8 @@ namespace WebAppCore.Application.Implementation
 
             return query.Skip((page - 1) * pageSize)
                 .Take(pageSize)
-                .ProjectTo<BlogViewModel>()
-                .ToList();
+                .Select(x => x.ToModel())
+				.ToList();
         }
 
         public List<BlogViewModel> GetReatedBlogs(int id, int top)
@@ -209,16 +218,16 @@ namespace WebAppCore.Application.Implementation
                 && x.Id != id)
             .OrderByDescending(x => x.DateCreated)
             .Take(top)
-            .ProjectTo<BlogViewModel>()
-            .ToList();
+            .Select(x => x.ToModel())
+			.ToList();
         }
 
         public List<TagViewModel> GetListTagById(int id)
         {
             return _blogTagRepository.FindAll(x => x.BlogId == id, c => c.Tag)
                 .Select(y => y.Tag)
-                .ProjectTo<TagViewModel>()
-                .ToList();
+                .Select(x => x.ToModel())
+				.ToList();
         }
 
         public void IncreaseView(int id)
@@ -244,27 +253,34 @@ namespace WebAppCore.Application.Implementation
             query = query.Skip((page - 1) * pageSize).Take(pageSize);
 
             var model = query
-                .ProjectTo<BlogViewModel>();
+                .Select(x => x.ToModel());
             return model.ToList();
         }
 
         public TagViewModel GetTag(string tagId)
         {
-            return Mapper.Map<Tag, TagViewModel>(_tagRepository.FindSingle(x => x.Id == tagId));
+            return _tagRepository.FindSingle(x => x.Id == tagId).ToModel();
         }
 
         public List<BlogViewModel> GetList(string keyword)
         {
             var query = !string.IsNullOrEmpty(keyword) ?
                 _blogRepository.FindAll(x => x.Name.Contains(keyword)).ProjectTo<BlogViewModel>()
-                : _blogRepository.FindAll().ProjectTo<BlogViewModel>();
+                : _blogRepository.FindAll().Select(x => x.ToModel());
             return query.ToList();
         }
 
         public List<TagViewModel> GetListTag(string searchText)
         {
             return _tagRepository.FindAll(x => x.Type == CommonConstants.ProductTag
-            && searchText.Contains(x.Name)).ProjectTo<TagViewModel>().ToList();
+            && searchText.Contains(x.Name)).Select(x => x.ToModel()).ToList();
         }
-    }
+
+		public List<BlogViewModel> RelatedBlog(int id,int top)
+		{
+			var getById = _blogRepository.FindById(id);
+			return _blogRepository.FindAll(x => x.Id != id && x.Status == Status.Active).OrderByDescending(x => x.DateCreated)
+				.Take(top).Select(x => x.ToModel()).ToList();
+		}
+	}
 }

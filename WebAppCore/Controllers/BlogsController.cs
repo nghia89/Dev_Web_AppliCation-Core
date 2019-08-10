@@ -42,7 +42,9 @@ namespace WebAppCore.Controllers
 		{
 			var dataVM = new blogsVM();
 			var data = _blogService.GetById(id);
+			var RelatedBlogs = _blogService.RelatedBlog(id,8);
 			dataVM.Data = data;
+			dataVM.RelatedBlogs = RelatedBlogs;
 			return View(dataVM);
 		}
 	}

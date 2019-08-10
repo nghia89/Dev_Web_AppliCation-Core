@@ -15,7 +15,7 @@
                 <ul class="blog-posts">
                     @foreach(var item in Model.Data.Results)
                     {
-                        var url = "/" + item.Name +"."+ item.Id + ".html";
+                        var url = "/" + item.SeoAlias +"."+ item.Id + ".html";
                         <li class="post-item">
                             <article class="entry">
                                 <div class="row">

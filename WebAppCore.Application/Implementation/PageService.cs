@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WebAppCore.Application.Interfaces;
+using WebAppCore.Application.Mappers;
 using WebAppCore.Application.ViewModels.Blog;
 using WebAppCore.Data.EF;
 using WebAppCore.Data.Entities;
@@ -28,7 +29,7 @@ namespace WebAppCore.Application.Implementation
         }
         public void Add(PageViewModel pageVm)
         {
-            var page = Mapper.Map<PageViewModel, Page>(pageVm);
+            var page = pageVm.AddModel();
             _pageRepository.Add(page);
         }
         public void Delete(int id)
@@ -41,7 +42,7 @@ namespace WebAppCore.Application.Implementation
         }
         public List<PageViewModel> GetAll()
         {
-            return _pageRepository.FindAll().ProjectTo<PageViewModel>().ToList();
+            return _pageRepository.FindAll().Select(x => x.ToModel()).ToList();
         }
         public PagedResult<PageViewModel> GetAllPaging(string keyword, int page, int pageSize)
         {
@@ -54,7 +55,7 @@ namespace WebAppCore.Application.Implementation
                 .Take(pageSize);
             var paginationSet = new PagedResult<PageViewModel>()
             {
-                Results = data.ProjectTo<PageViewModel>().ToList(),
+                Results = data.Select(x => x.ToModel()).ToList(),
                 CurrentPage = page,
                 RowCount = totalRow,
                 PageSize = pageSize
@@ -64,11 +65,11 @@ namespace WebAppCore.Application.Implementation
         public PageViewModel GetByAlias(string alias)
         {
 			var data = _appDbContext.Set<Page>().Where(x => x.Status == Status.Active).FirstOrDefault();
-			return Mapper.Map<Page, PageViewModel>(data);
+			return data.ToModel();
         }
         public PageViewModel GetById(int id)
         {
-            return Mapper.Map<Page, PageViewModel>(_pageRepository.FindById(id));
+            return _pageRepository.FindById(id).ToModel();
         }
         public void SaveChanges()
         {
@@ -76,7 +77,7 @@ namespace WebAppCore.Application.Implementation
         }
         public void Update(PageViewModel pageVm)
         {
-            var page = Mapper.Map<PageViewModel, Page>(pageVm);
+            var page = pageVm.AddModel();
             _pageRepository.Update(page);
         }
     }

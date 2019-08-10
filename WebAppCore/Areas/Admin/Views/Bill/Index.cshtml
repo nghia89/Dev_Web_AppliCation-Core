@@ -3,12 +3,23 @@
     ViewData["Title"] = "Bill management";
 }
 @section Scripts{
-    <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
-    <script src="~/app/Controller/bill/index.js" asp-append-version="true"></script>
-    <script>
-        var billObj = new BillController();
-        billObj.initialize();
-    </script>
+
+    <environment names="Development">
+        <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+        <script src="~/app/Controller/bill/index.js" asp-append-version="true"></script>
+        <script>
+            var billObj = new BillController();
+            billObj.initialize();
+        </script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+        <script src="~/app/Controller/bill/index.min.js" asp-append-version="true"></script>
+        <script>
+            var billObj = new BillController();
+            billObj.initialize();
+        </script>
+    </environment>
 }
 @section Style{
     <link href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet" />

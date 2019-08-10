@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebAppCore.Application.Interfaces;
 using WebAppCore.Application.ViewModels.Blog;
+using WebAppCore.Utilities.Helpers;
 
 namespace WebAppCore.Areas.Admin.Controllers
 {
@@ -49,6 +50,7 @@ namespace WebAppCore.Areas.Admin.Controllers
 			}
 			if(pageVm.Id == 0)
 			{
+				pageVm.SeoAlias = TextHelper.ToUnsignString(pageVm.Name);
 				_blogService.Add(pageVm);
 			}
 			else

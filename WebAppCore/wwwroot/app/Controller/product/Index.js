@@ -312,7 +312,7 @@
                         //CreatedDate: structures.dateTimeFormatJson(item.DateCreated),
                         CreatedDate: structures.dateTimeFormatJson(item.DateCreated),
                         Status: structures.getStatus(item.Status)
-                    });          
+                    });
                 });
                 $('#lblTotalRecords').text(response.RowCount);
                 if (render !== '') {
@@ -428,4 +428,4 @@
             }
         });
     }
-}
+};

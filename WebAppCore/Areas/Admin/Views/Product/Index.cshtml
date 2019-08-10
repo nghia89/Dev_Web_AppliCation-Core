@@ -24,9 +24,13 @@
     </environment>
 
     <environment names="Staging,Production">
+        <script src="~/app/Controller/product/image-management.min.js" asp-append-version="true"></script>
+        <script src="~/app/Controller/product/quantity-management.min.js" asp-append-version="true"></script>
+        <script src="~/app/Controller/product/whole-price-management.min.js" asp-append-version="true"></script>
+        <script src="~/app/Controller/product/index.min.js" asp-append-version="true"></script>
         <script>
             var product = new productController();
-        product.initialize();
+            product.initialize();
         </script>
     </environment>
 }

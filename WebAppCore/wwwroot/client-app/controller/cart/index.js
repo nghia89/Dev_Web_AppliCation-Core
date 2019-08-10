@@ -198,7 +198,7 @@
                             Image: item.Product.Image,
                             Price: structures.formatNumber(item.Price, 0),
                             Quantity: item.Quantity,
-                            Colors: getColorOptions(item.Color == null ? 0 : item.Color.Id),
+                            Colors: getColorOptions(item.Color === null ? 0 : item.Color.Id),
                             //Sizes: getSizeOptions(item.Size == null ? "" : item.Size.Id),
                             Amount: structures.formatNumber(item.Price * item.Quantity, 0),
                             Url: '/' + item.Product.SeoAlias + "-p." + item.Product.Id + ".html"

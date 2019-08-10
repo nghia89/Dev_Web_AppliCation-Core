@@ -8,16 +8,31 @@
 }
 <!-- Breadcrumbs -->
 @section Scripts{
+    <environment names="Development">
+        @*<script src="~/client-side/js/jquery.min.js"></script>*@
+        <script src="~/client-side/js/cloud-zoom.js"></script>
+        <script src="~/client-side/js/jquery.flexslider.js"></script>
+        <script src="~/client-app/controller/product/details.js"></script>
 
-    @*<script src="~/client-side/js/jquery.min.js"></script>*@
-    <script src="~/client-side/js/cloud-zoom.js"></script>
-    <script src="~/client-side/js/jquery.flexslider.js"></script>
-    <script src="~/client-app/controller/product/details.js"></script>
+        <script>
+            var productObj = new ProductDetailController();
+            productObj.initialize();
+        </script>
+    </environment>
 
-    <script>
-        var productObj = new ProductDetailController();
-        productObj.initialize();
-    </script>
+    <environment names="Staging,Production">
+        @*<script src="~/client-side/js/jquery.min.js"></script>*@
+        <script src="~/client-side/js/cloud-zoom.min.js"></script>
+        <script src="~/client-side/js/jquery.flexslider.min.js"></script>
+        <script src="~/client-app/controller/product/details.js"></script>
+
+        <script>
+            var productObj = new ProductDetailController();
+            productObj.initialize();
+        </script>
+    </environment>
+}
+
 }
 <div class="breadcrumbs">
     <div class="container">
@@ -44,7 +59,7 @@
                         <div class="large-image"> <a href="@product.Image" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img class="zoom-img" src="@product.Image" alt="@product.Name"> </a> </div>
                         <div class="flexslider flexslider-thumb">
                             <ul class="previews-list slides">
-                                @foreach (var item in Model.ProductImages)
+                                @foreach(var item in Model.ProductImages)
                                 {
                                     <li><a href='@item.Path' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '@item.Path' "><img src="@item.Path?w=98" alt="@item.Caption" /></a></li>
                                 }
@@ -60,7 +75,7 @@
                             <h1>@product.Name</h1>
                         </div>
                         <div class="price-box">
-                            @if (product.PromotionPrice.HasValue || product.PromotionPrice == 0)
+                            @if(product.PromotionPrice.HasValue || product.PromotionPrice == 0)
                             {
                                 <p class="special-price">
                                     <span class="price-label">Special Price</span>
@@ -98,11 +113,11 @@
                                 </div>
                             </div>
                             @*<div class="size-area">
-                                <h2 class="saider-bar-title">Size</h2>
-                                <div class="size">
-                                    <select asp-items="Model.Sizes" id="ddlSizeId"></select>
-                                </div>
-                            </div>*@
+                                    <h2 class="saider-bar-title">Size</h2>
+                                    <div class="size">
+                                        <select asp-items="Model.Sizes" id="ddlSizeId"></select>
+                                    </div>
+                                </div>*@
                         </div>
                         <div class="product-variation">
                             <form action="#" method="post">
@@ -124,11 +139,11 @@
                                 <li><a href="#"><i class="fa fa-envelope"></i><span>Email to a Friend</span></a></li>
                             </ul>
                         </div>
-                        @if (Model.Tags.Count > 0)
+                        @if(Model.Tags.Count > 0)
                         {
                             <div class="pro-tags">
                                 <div class="pro-tags-title">Tags:</div>
-                                @foreach (var tag in Model.Tags)
+                                @foreach(var tag in Model.Tags)
                                 {
                                     <a href="/tag.@(tag.Id).html">@tag.Name</a>
                                 }
@@ -182,7 +197,7 @@
                     <div class="slider-items-products">
                         <div id="related-product-slider" class="product-flexslider hidden-buttons">
                             <div class="slider-items slider-width-col4 fadeInUp">
-                                @foreach (var item in Model.RelatedProducts)
+                                @foreach(var item in Model.RelatedProducts)
                                 {
                                     var url = item.SeoAlias + "-" + "p." + item.Id + ".html";
                                     <div class="product-item">
@@ -234,7 +249,7 @@
 </div>
 <!-- Related Product Slider End -->
 <!-- Upsell Product Slider -->
-@if (Model.UpsellProducts.Count > 0)
+@if(Model.UpsellProducts.Count > 0)
 {
     <section class="upsell-product-area">
         <div class="container">
@@ -246,7 +261,7 @@
                     <div class="slider-items-products">
                         <div id="upsell-product-slider" class="product-flexslider hidden-buttons">
                             <div class="slider-items slider-width-col4">
-                                @foreach (var item in Model.UpsellProducts)
+                                @foreach(var item in Model.UpsellProducts)
                                 {
                                     var url = item.SeoAlias + "-" + "p." + item.Id + ".html";
                                     <div class="product-item">

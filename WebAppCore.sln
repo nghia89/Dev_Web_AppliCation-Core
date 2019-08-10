@@ -25,7 +25,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Infrastructure", "4-Infra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppCore.Application.Dapper", "Dapper\WebAppCore.Application.Dapper.csproj", "{E4DDDF8E-4866-4B1F-96BC-3A96D6C21B74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppCore.WebApi", "WebAppCore.WebApi\WebAppCore.WebApi.csproj", "{72B43EAA-AFFF-43F3-ACE0-5CC7113A0E65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppCore.WebApi", "WebAppCore.WebApi\WebAppCore.WebApi.csproj", "{72B43EAA-AFFF-43F3-ACE0-5CC7113A0E65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppCore.Repository", "WebAppCore.Repository\WebAppCore.Repository.csproj", "{ED1B3317-C812-4A4B-A0C9-339C89F7BC3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{72B43EAA-AFFF-43F3-ACE0-5CC7113A0E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72B43EAA-AFFF-43F3-ACE0-5CC7113A0E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72B43EAA-AFFF-43F3-ACE0-5CC7113A0E65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED1B3317-C812-4A4B-A0C9-339C89F7BC3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED1B3317-C812-4A4B-A0C9-339C89F7BC3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED1B3317-C812-4A4B-A0C9-339C89F7BC3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED1B3317-C812-4A4B-A0C9-339C89F7BC3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{B8AD51B8-24F7-4C57-9573-7A73D3109AF3} = {66CF3F0B-F6A7-42E3-8A25-67989E13097C}
 		{E4DDDF8E-4866-4B1F-96BC-3A96D6C21B74} = {D37C7C81-BEA8-4167-8ECB-792A00FBB059}
 		{72B43EAA-AFFF-43F3-ACE0-5CC7113A0E65} = {CFFF71B3-5CC0-4C1B-A478-1C245C41AE91}
+		{ED1B3317-C812-4A4B-A0C9-339C89F7BC3A} = {D37C7C81-BEA8-4167-8ECB-792A00FBB059}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E731F71-E196-4FF9-94A4-1DBB9C627421}

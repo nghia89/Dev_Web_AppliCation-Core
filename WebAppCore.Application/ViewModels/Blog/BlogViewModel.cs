@@ -13,7 +13,6 @@ namespace WebAppCore.Application.ViewModels.Blog
 		[MaxLength(256)]
 		public string Name { set; get; }
 
-
 		[MaxLength(256)]
 		public string Image { set; get; }
 

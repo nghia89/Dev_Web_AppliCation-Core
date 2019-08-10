@@ -638,7 +638,7 @@ namespace WebAppCore.Data.EF.Migrations
                     b.Property<string>("Description")
                         .HasMaxLength(255);
 
-                    b.Property<bool>("HomeFlag");
+                    b.Property<bool?>("HomeFlag");
 
                     b.Property<bool?>("HotFlag");
 
