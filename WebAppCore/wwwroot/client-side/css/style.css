@@ -3498,7 +3498,7 @@ nav a:hover {
 }
 .mtmegamenu>ul>li:last-child {
 	margin-right: 0px;
-	float: right;
+	/* float: right; */
 	padding-top: 12px;
 }
 .mtmegamenu>ul>li:last-child a {
@@ -3534,7 +3534,7 @@ nav a:hover {
 	overflow: hidden;
 	white-space: nowrap;
 	letter-spacing: 1px;
-	padding: 13px 0 15px
+	/* padding: 13px 0 15px */
 }
 .mtmegamenu a .title.title_font span {
 	color: #fff;

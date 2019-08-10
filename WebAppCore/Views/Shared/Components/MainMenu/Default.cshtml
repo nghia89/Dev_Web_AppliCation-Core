@@ -20,17 +20,17 @@
         </li>
         <li class="mt-root">
             <div class="mt-root-item">
-                <a >
+                <a>
                     <div class="title title_font"><span class="title-text">Sản Phẩm</span></div>
                 </a>
             </div>
             <ul class="menu-items col-xs-12">
-                @foreach (var item in Model.Where(c => c.ParentId == null))
+                @foreach(var item in Model.Where(c => c.ParentId == null))
                 {
                     <li class="menu-item depth-1 menucol-1-3 ">
                         <div class="title title_font"> <a href="/@item.SeoAlias-c.@(item.Id).html">@item.Name</a></div>
                         <ul class="submenu">
-                            @foreach (var subItem in Model.Where(x => x.ParentId == item.Id))
+                            @foreach(var subItem in Model.Where(x => x.ParentId == item.Id))
                             {
                                 <li class="menu-item">
                                     <div class="title"> <a href="/@subItem.SeoAlias-c.@(subItem.Id).html">@subItem.Name</a></div>
@@ -51,7 +51,13 @@
                 </a>
             </div>
         </li>
-     
-        <li><a href="/contact.html">Liên Hê</a></li>
+        <li class="mt-root demo_custom_link_cms">
+            <div class="mt-root-item">
+                <a href="/contact.html">
+                    <div class="title title_font"><span class="title-text">Liên Hê</span></div>
+                </a>
+            </div>
+        </li>
+        @*<li><a href="/contact.html">Liên Hê</a></li>*@
     </ul>
 </div>
