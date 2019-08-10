@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using WebAppCore.Application.Interfaces;
 using WebAppCore.Application.ViewModels;
 using WebAppCore.Application.ViewModels.Product;
@@ -32,9 +33,9 @@ namespace WebAppCore.Areas.Admin.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult GetById(int id)
+		public async Task<IActionResult> GetById(int id)
 		{
-			var model = _productCategoryService.GetById(id);
+			var model =await _productCategoryService.GetById(id);
 
 			return new ObjectResult(model);
 		}

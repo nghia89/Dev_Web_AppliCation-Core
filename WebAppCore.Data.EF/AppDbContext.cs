@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 using System.Linq;
+using WebAppCore.Data.EF.BuilderExtensions;
 using WebAppCore.Data.EF.Configurations;
 using WebAppCore.Data.EF.Extensions;
 using WebAppCore.Data.Entities;
@@ -58,38 +59,9 @@ namespace WebAppCore.Data.EF
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            #region Identity Config
-
-            builder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims").HasKey(x => x.Id);
-
-            builder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims")
-                .HasKey(x => x.Id);
-
-            builder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x => x.UserId);
-
-            builder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles")
-                .HasKey(x => new { x.RoleId, x.UserId });
-
-            builder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens")
-               .HasKey(x => new { x.UserId });
-
-            #endregion Identity Config
-
-            builder.AddConfiguration(new AdvertistmentPositionConfiguration());
-            builder.AddConfiguration(new BlogTagConfiguration());
-            builder.AddConfiguration(new ContactDetailConfiguration());
-            builder.AddConfiguration(new FooterConfiguration());
-            builder.AddConfiguration(new FunctionConfiguration());
-            builder.AddConfiguration(new PageConfiguration());
-            builder.AddConfiguration(new ProductTagConfiguration());
-            builder.AddConfiguration(new SystemConfigConfiguration());
-            builder.AddConfiguration(new TagConfiguration());
-            builder.AddConfiguration(new AnnouncementConfiguration());
-            builder.AddConfiguration(new AdvertistmentPageConfiguration());
-
-
-            //base.OnModelCreating(builder);
-        }
+			builder.ConfigModelBuilder();
+			base.OnModelCreating(builder);
+		}
 
         public override int SaveChanges()
         {
