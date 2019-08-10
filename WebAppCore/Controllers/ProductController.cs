@@ -42,7 +42,7 @@ namespace WebAppCore.Controllers
 
             catalog.PageSize = pageSize;
             catalog.SortType = sortBy;
-            catalog.Data =await _productService.PagingAsync(id, string.Empty, page, pageSize.Value, sortBy);
+            catalog.Data = _productService.GetAllPaging(id, string.Empty, page, pageSize.Value, sortBy);
             catalog.Category =await _productCategoryService.GetById(id);
             return View(catalog);
         }
