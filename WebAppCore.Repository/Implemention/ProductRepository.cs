@@ -23,10 +23,11 @@ namespace WebAppCore.Repository.Implemention
 			this._productRepository = productRepository;
 		}
 
-		public async Task<List<Product>> FindAllAsync()
+		public async Task<IQueryable<Product>> FindAllAsync()
 		{
-			var listData =await _productRepository.FindAllAsync(x=>x.Status==Status.Active,a=>a.ProductCategory);
-			return  listData.ToList();
+			var productDB = _appDbContext.Set<Product>();
+			var listData = await productDB.Where(x=>x.Status==Status.Active).Include(a => a.ProductCategory).AsNoTracking().ToListAsync();
+			return listData.AsQueryable();
 		}
 
 		public async Task<Product> GetById(long id)
@@ -39,7 +40,7 @@ namespace WebAppCore.Repository.Implemention
 			var productDB = _appDbContext.Set<Product>();
 			var data = productDB.Where(x => x.Status == Status.Active && x.HomeFlag == true);
 			return await data.OrderByDescending(x => x.DateCreated)
-				.Take(top)
+				.Take(top).AsNoTracking()
 				.ToListAsync();
 		}
 
@@ -47,7 +48,7 @@ namespace WebAppCore.Repository.Implemention
 		{
 			var productDB = _appDbContext.Set<Product>();
 			return await productDB.Where(x => x.Status == Status.Active && x.HomeFlag != true && x.HotFlag != true).OrderByDescending(x => x.DateCreated)
-			   .Take(top).ToListAsync();
+			   .Take(top).AsNoTracking().ToListAsync();
 		}
 
 		public async Task<(List<Product> data, long totalCount)> Paging(int page,int page_size)

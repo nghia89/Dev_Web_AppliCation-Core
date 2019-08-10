@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebAppCore.Data.Entities;
@@ -16,7 +17,7 @@ namespace WebAppCore.Repository.Interfaces
 
 		Task<List<Product>> GetProductNew(int top);
 
-		Task<List<Product>> FindAllAsync();
+		Task<IQueryable<Product>> FindAllAsync();
 
 
 	}

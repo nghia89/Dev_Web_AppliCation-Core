@@ -376,41 +376,41 @@ namespace WebAppCore.Application.Implementation
 		{
 			var query =await _productServiceRepository.FindAllAsync();
 			if(!string.IsNullOrEmpty(keyword))
-				query = query.Where(x => x.Name.Contains(keyword)).ToList();
+				query = query.Where(x => x.Name.Contains(keyword));
 			if(categoryId.HasValue)
-				query = query.Where(x => x.CategoryId == categoryId.Value).ToList();
+				query = query.Where(x => x.CategoryId == categoryId.Value);
 
 			int totalRow = query.Count();
 			switch(sortBy)
 			{
 				case "price":
-					query = query.OrderByDescending(x => x.Price).ToList();
+					query = query.OrderByDescending(x => x.Price);
 					break;
 
 				case "name":
-					query = query.OrderBy(x => x.Name).ToList();
+					query = query.OrderBy(x => x.Name);
 					break;
 
 				case "lastest":
-					query = query.OrderByDescending(x => x.DateCreated).ToList();
+					query = query.OrderByDescending(x => x.DateCreated);
 					break;
 
 				default:
-					query = query.OrderByDescending(x => x.DateCreated).ToList();
+					query = query.OrderByDescending(x => x.DateCreated);
 					break;
 			}
-			query = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+			query = query.Skip((page - 1) * pageSize).Take(pageSize);
 			List<Product> products = query.ToList();
 
 			var data = products.Select(x => x.ToModel()).OrderByDescending(x => x.DateCreated).ToList();
 
 			var paginationSet = new PagedResult<ProductViewModel>() {
-				Results = data.ToList(),
+				Results = data,
 				CurrentPage = page,
 				RowCount = totalRow,
 				PageSize = pageSize
 			};
-			return paginationSet;
+			return  paginationSet;
 		}
 	}
 }

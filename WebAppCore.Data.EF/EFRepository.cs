@@ -69,7 +69,7 @@ namespace WebAppCore.Data.EF
 						items = items.Include(includeProperty);
 					}
 				}
-				return await items.Where(match).ToListAsync();
+				return await items.Where(match).AsNoTracking().ToListAsync();
 		}
 
 		public T FindById(K id, params Expression<Func<T, object>>[] includeProperties)
@@ -92,7 +92,7 @@ namespace WebAppCore.Data.EF
 					items = items.Include(includeProperty);
 				}
 			}
-			return await items.Where(predicate).FirstOrDefaultAsync();
+			return await items.Where(predicate).AsNoTracking().FirstOrDefaultAsync();
 		}
 
 		public async Task<ICollection<T>> GetAllAsyn(params Expression<Func<T,object>>[] includeProperties)
@@ -105,7 +105,7 @@ namespace WebAppCore.Data.EF
 					items = items.Include(includeProperty);
 				}
 			}
-			return await items.ToListAsync();
+			return await items.AsNoTracking().ToListAsync();
 		}
 
 		public async Task<(ICollection<T>, long count)> Paging(int page,int pageSize,Expression<Func<T,bool>> predicate,params Expression<Func<T,object>>[] includeProperties)
@@ -122,7 +122,7 @@ namespace WebAppCore.Data.EF
 			var data =  items.Where(predicate);
 			var skip = (page - 1) * pageSize;
 			var dataPaging = await data.Skip(skip)
-								  .Take(pageSize)
+								  .Take(pageSize).AsNoTracking()
 								  .ToListAsync();
 
 			return (dataPaging, data.Count());
