@@ -70,10 +70,11 @@
 ################################################################# */ 
 
 /*Google Fonts*/
-@import 'https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i';
+/*@import 'https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i';
 @import 'https://fonts.googleapis.com/css?family=Zilla+Slab:300,300i,400,400i,500,500i,600,600i,700,700i';
 @import 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700';
-@import 'https://fonts.googleapis.com/css?family=Satisfy';
+@import 'https://fonts.googleapis.com/css?family=Satisfy';*/
+@import 'https://fonts.gstatic.com/s/arvo/v9/rC7kKhY-eUDY-ucISTIf5PesZW2xOQ-xsNqO47m55DA.woff2';
 /******************************************
 1. Common styles
 ******************************************/
@@ -3498,7 +3499,7 @@ nav a:hover {
 }
 .mtmegamenu>ul>li:last-child {
 	margin-right: 0px;
-	float: right;
+	/* float: right; */
 	padding-top: 12px;
 }
 .mtmegamenu>ul>li:last-child a {
@@ -3534,7 +3535,7 @@ nav a:hover {
 	overflow: hidden;
 	white-space: nowrap;
 	letter-spacing: 1px;
-	padding: 13px 0 15px
+	/* padding: 13px 0 15px */
 }
 .mtmegamenu a .title.title_font span {
 	color: #fff;

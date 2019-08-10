@@ -20,5 +20,12 @@ namespace WebAppCore.Controllers
             var page = _pageService.GetByAlias(alias);
             return View(page);
         }
-    }
+
+		[Route("page/{alias}.{id}.html",Name = "PageDetail")]
+		public IActionResult Detail(string alias)
+		{
+			var page = _pageService.GetByAlias(alias);
+			return View(page);
+		}
+	}
 }
