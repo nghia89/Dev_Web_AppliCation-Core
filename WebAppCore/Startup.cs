@@ -147,7 +147,7 @@ namespace WebAppCore
 				builder => {
 					builder.AllowAnyMethod()
 						.AllowAnyHeader()
-						.WithOrigins("http://localhost:5000")
+						.WithOrigins("http://shophouseware.azurewebsites.net")
 						.AllowCredentials();
 				}));
 			services.AddTransient(typeof(IUnitOfWork),typeof(EFUnitOfWork));
