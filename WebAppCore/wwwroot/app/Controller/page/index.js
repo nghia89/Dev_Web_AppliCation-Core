@@ -65,7 +65,7 @@
                 e.preventDefault();
                 var id = $('#hidIdM').val();
                 var name = $('#txtNameM').val();
-                var seoAlias = $('#txtAliasM').val();
+                var alias = $('#Alias').val();
                 var content = CKEDITOR.instances.txtContentM.getData();
                 var status = $('#ckStatusM').prop('checked') === true ? 1 : 0;
                 $.ajax({
@@ -76,7 +76,7 @@
                         Name: name,
                         Content: content,
                         Status: status,
-                        Alias: seoAlias
+                        Alias: alias
                     },
                     dataType: "json",
                     beforeSend: function () {
