@@ -147,8 +147,9 @@ namespace WebAppCore.Application.Implementation
         {
             var bill = _orderRepository.FindSingle(x => x.Id == billId);
             var billVm = bill.ToModel();
-            var billDetailVm = _orderDetailRepository.FindAll(x => x.BillId == billId).Select(x => x.ToModel()).ToList();
-            billVm.BillDetails = billDetailVm;
+			var billDetailVm = _orderDetailRepository.FindAll(x => x.BillId == billId,x => x.Product);
+			var listbillDeatil= billDetailVm.Select(x => x.ToModel()).ToList();
+			billVm.BillDetails = listbillDeatil;
             return billVm;
         }
 
