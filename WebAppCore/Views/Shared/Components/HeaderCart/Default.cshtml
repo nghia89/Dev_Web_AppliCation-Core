@@ -1,7 +1,7 @@
 ﻿@model List<ShoppingCartViewModel>
 <div class="mini-cart" id="headerCart">
     <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle">
-        <a href="#">
+        <a >
             <div class="cart-icon">
                 <i class="icon-basket-loaded icons"></i>
                 @if (Model.Count > 0)
@@ -27,7 +27,7 @@
                                 <img src="@item.Product.Image" alt="@item.Product.Name" width="65">
                             </a>
                             <div class="product-details">
-                                <a href="#" title="@item.Product.Name" data-id="@item.Product.Id" class="remove-cart"><i class="pe-7s-trash"></i></a>
+                                <a  title="@item.Product.Name" data-id="@item.Product.Id" class="remove-cart"><i class="pe-7s-trash"></i></a>
                                 <p class="product-name">
                                     <a href="@url">@item.Product.Name</a>
                                 </p>
