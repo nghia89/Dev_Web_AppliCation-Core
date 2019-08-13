@@ -14,6 +14,7 @@ using PaulMiami.AspNetCore.Mvc.Recaptcha;
 using System;
 using System.Collections.Generic;
 using System.IO.Compression;
+using System.Linq;
 using WebAppCore.Application.Dapper.Implementation;
 using WebAppCore.Application.Dapper.Interfaces;
 using WebAppCore.Application.Implementation;
@@ -81,13 +82,26 @@ namespace WebAppCore
 
 			//gzip
 			services.Configure<GzipCompressionProviderOptions>(options => {
-				options.Level = CompressionLevel.Optimal;
+				options.Level = CompressionLevel.Fastest;
 			});
 			services.AddResponseCompression(options => {
+				IEnumerable<string> MimeTypes = new[]
+						{
+							 // General
+							 "text/plain",
+							 "text/html",
+							 "text/css",
+							 "font/woff2",
+							 "application/javascript",
+							 "image/x-icon",
+							 "image/png"
+						 };
 				options.EnableForHttps = true;
+				options.MimeTypes = MimeTypes;
 				options.Providers.Add<GzipCompressionProvider>();
+				options.Providers.Add<BrotliCompressionProvider>();
 			});
-			
+
 			services.AddImageResizer();
 			services.AddAutoMapper(typeof(Startup));
 			services.AddAuthentication()
@@ -168,10 +182,10 @@ namespace WebAppCore
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app,IHostingEnvironment env,ILoggerFactory loggerFactory)
 		{
-	
+
 			//loggerFactory.AddFile("Logs/structures-{Date}.txt");
 
-		
+
 			if(env.IsProduction())
 			{
 				loggerFactory.AddFile("Logs/structures-{Date}.txt");
@@ -188,6 +202,7 @@ namespace WebAppCore
 				//app.UseExceptionHandler("/Home/Index");
 			}
 			app.UseImageResizer();
+			app.UseResponseCompression();
 			//hạn chế tất cả các file nằm trong thư mục root đều không chạy qua Middleware tiếp theo
 			app.UseStaticFiles();
 			//app.UseMinResponse();
@@ -197,7 +212,7 @@ namespace WebAppCore
 			app.UseSignalR(routes => {
 				routes.MapHub<SignalRHub>("/signalRHub");
 			});
-			//app.UseResponseCompression();
+			
 			app.UseMvc(routes => {
 				routes.MapRoute(
 					name: "default",
