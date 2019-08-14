@@ -11,7 +11,7 @@ namespace WebAppCore.Application.Mappers
 	{
 		public BillDetailMapperProfile()
 		{
-			CreateMap<BillDetail,BillDetailViewModel>().ReverseMap();
+			CreateMap<BillDetail,BillDetailViewModel>().MaxDepth(2).ReverseMap();
 		}
 	}
 	public static class BillDetailMapper

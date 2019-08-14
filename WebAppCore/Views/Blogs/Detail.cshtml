@@ -4,7 +4,14 @@
     var blog = Model.Data;
     var RelatedBlog = Model.RelatedBlogs;
 }
-
+@section Style{
+    <environment names="Development">
+        <link href="~/client-side/css/blog.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Production">
+        <link href="~/client-side/css/blog.min.css" rel="stylesheet" />
+    </environment>
+}
 <section class="blog_post">
     <div class="container">
         <div class="row">
@@ -24,7 +31,7 @@
                     <div class="content-text clearfix">
                         @(Html.Raw(blog.Content))
                     </div>
-                    <div class="entry-tags"> <span>Tags:</span> <a href="#">beauty,</a> <a href="#">medicine,</a> <a href="#">health</a> </div>
+                    <div class="entry-tags"> <span>Tags:</span> <a >beauty,</a> <a href="#">medicine,</a> <a href="#">health</a> </div>
                 </div>
                 <!-- Related Posts -->
                 <div class="single-box">

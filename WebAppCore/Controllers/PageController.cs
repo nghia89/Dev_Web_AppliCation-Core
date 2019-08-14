@@ -14,15 +14,8 @@ namespace WebAppCore.Controllers
         {
             _pageService = pageService;
         }
-        [Route("page/{alias}.html", Name = "Page")]
-        public IActionResult Index(string alias)
-        {
-            var page = _pageService.GetByAlias(alias);
-            return View(page);
-        }
-
-		[Route("page/{alias}.{id}.html",Name = "PageDetail")]
-		public IActionResult Detail(string alias)
+		[Route("page/{alias}.html",Name = "Page")]
+		public IActionResult Index(string alias)
 		{
 			var page = _pageService.GetByAlias(alias);
 			return View(page);

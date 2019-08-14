@@ -98,8 +98,8 @@
                         </div>
                         <div class="ratings">
                             <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                            <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
-                            @*<p class="availability @(product.Status==WebAppCore.Data.Enums.Status.Active?"in-stock":"out-of-stock") pull-right">Availability: <span>@product.Status</span></p>*@
+                            <p class="rating-links"> <a >1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
+                            <p class="availability @(product.Status==WebAppCore.Data.Enums.Status.Active?"in-stock":"out-of-stock") pull-right">Availability: <span>@product.Status</span></p>
                         </div>
                         <div class="short-description">
                             <h2>Quick Overview</h2>
@@ -137,18 +137,16 @@
                                         <div onClick="var result = document.getElementById('txtQuantity'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="dec qtybutton"><i class="fa fa-minus">&nbsp;</i></div>
                                         <input type="text" class="qty" title="Qty" value="1" maxlength="12" id="txtQuantity" name="qty">
                                         <div onClick="var result = document.getElementById('txtQuantity'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="inc qtybutton"><i class="fa fa-plus">&nbsp;</i></div>
-                                        <p class="availability @(product.Status==WebAppCore.Data.Enums.Status.Active?"in-stock":"out-of-stock") pull-right">Availability: <span>@product.Status</span></p>
-
                                     </div>
-                                </div>*@
-                                <button class="button pro-add-to-cart" id="btnAddToCart" data-id="@Model.Product.Id" title="Add to Cart" type="button"><span><i class="fa fa-shopping-basket"></i> Mua Ngay Kẻo Lỡ</span></button>
+                                </div>
+                                <button class="button pro-add-to-cart" id="btnAddToCart" data-id="@Model.Product.Id" title="Add to Cart" type="button"><span><i class="fa fa-shopping-basket"></i> Thêm vào giỏ</span></button>
                             </form>
                         </div>
                         <div class="product-cart-option">
                             <ul>
-                                <li><a href="#"><i class="fa fa-heart-o"></i><span>Thêm vào Yêu Thích</span></a></li>
-                                <li><a href="#"><i class="fa fa-link"></i><span>So sánh với</span></a></li>
-                                @*<li><a href="#"><i class="fa fa-envelope"></i><span>Gửi đến bạn</span></a></li>*@
+                                <li><a ><i class="fa fa-heart-o"></i><span>Add to Wishlist</span></a></li>
+                                <li><a ><i class="fa fa-link"></i><span>Add to Compare</span></a></li>
+                                <li><a ><i class="fa fa-envelope"></i><span>Email to a Friend</span></a></li>
                             </ul>
                         </div>
                         @if(Model.Tags.Count > 0)
@@ -165,8 +163,8 @@
                         }
 
                         <div class="share-box">
-                            <div class="title">Chia sẻ:</div>
-                            <div class="socials-box"> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-google-plus"></i></a> <a href="#"><i class="fa fa-youtube"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-instagram"></i></a> </div>
+                            <div class="title">Share in social media</div>
+                            <div class="socials-box"> <a ><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-google-plus"></i></a> <a href="#"><i class="fa fa-youtube"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-instagram"></i></a> </div>
                         </div>
                     </div>
                 </div>
@@ -222,8 +220,8 @@
                                                 </div>
                                                 <div class="pr-info-area">
                                                     <div class="pr-button">
-                                                        <div class="mt-button add_to_wishlist"> <a href="#"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                        <div class="mt-button quick-view"> <a href="#"> <i class="fa fa-search"></i> </a> </div>
+                                                        <div class="mt-button add_to_wishlist"> <a > <i class="fa fa-heart-o"></i> </a> </div>
+                                                        <div class="mt-button quick-view"> <a > <i class="fa fa-search"></i> </a> </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -286,8 +284,8 @@
                                                 </div>
                                                 <div class="pr-info-area">
                                                     <div class="pr-button">
-                                                        <div class="mt-button add_to_wishlist"> <a href="#"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                        <div class="mt-button quick-view"> <a href="#"> <i class="fa fa-search"></i> </a> </div>
+                                                        <div class="mt-button add_to_wishlist"> <a > <i class="fa fa-heart-o"></i> </a> </div>
+                                                        <div class="mt-button quick-view"> <a > <i class="fa fa-search"></i> </a> </div>
                                                     </div>
                                                 </div>
                                             </div>

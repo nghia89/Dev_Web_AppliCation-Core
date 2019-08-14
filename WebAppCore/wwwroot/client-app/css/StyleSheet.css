@@ -1,0 +1,13 @@
+.fa_loading {
+    margin-left: -12px;
+    margin-right: 8px;
+}
+
+.dv-loading {
+    position: absolute;
+    top: 46px;
+    left: 463px;
+    font-size: 17px;
+    color: #1c578b;
+    margin: auto 0px;
+}

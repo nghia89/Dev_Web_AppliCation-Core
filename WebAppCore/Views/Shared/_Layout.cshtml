@@ -18,6 +18,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
     <!-- CSS Style -->
+    @RenderSection("Style",required: false)
     <link rel="stylesheet" href="~/client-side/style.css">
 
     @*<link href="~/lib/notifyjs/dist/styles/metro/notify-metro.css" rel="stylesheet" />*@
@@ -99,35 +100,34 @@
     <environment names="Staging,Production">
         <!-- JS -->
         <!-- jquery js -->
-        <script type="text/javascript" src="~/client-side/js/jquery.min.js"></script>
+        <script type="text/javascript" src="~/client-side/jquery.min.js"></script>
 
         <!-- bootstrap js -->
-        <script type="text/javascript" src="~/client-side/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/client-side/bootstrap.min.js"></script>
 
         <!-- owl.carousel.min js -->
-        <script type="text/javascript" src="~/client-side/js/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="~/client-side/owl.carousel.min.js"></script>
 
         <!-- jquery.mobile-menu js -->
-        <script type="text/javascript" src="~/client-side/js/mobile-menu.min.js"></script>
+        <script type="text/javascript" src="~/client-side/mobile-menu.min.js"></script>
 
         <!--jquery-ui.min js -->
-        <script type="text/javascript" src="~/client-side/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="~/client-side/jquery-ui.min.js"></script>
 
         <!-- main js -->
-        <script type="text/javascript" src="~/client-side/js/main.min.js"></script>
+        <script type="text/javascript" src="~/client-side/main.min.js"></script>
 
         <!-- countdown js -->
-        <script type="text/javascript" src="~/client-side/js/countdown.min.js"></script>
+        <script type="text/javascript" src="~/client-side/countdown.min.js"></script>
 
         <!-- Slider Js -->
-        <script type="text/javascript" src="~/client-side/js/revolution-slider.js"></script>
+        <script type="text/javascript" src="~/client-side/revolution-slider.js"></script>
         <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
-        <script src="~/client-app/shared/structures-client.js"></script>
-        <script src="~/client-app/base/index.js"></script>
-        <script src="~/lib/notifyjs/dist/notify.min.js"></script>
-        <script src="~/lib/mustache/mustache.min.js"></script>
+        <script src="~/client-app/structures-client.js"></script>
+        <script src="~/client-app/index.js"></script>
+        <script src="~/lib/notify.min.js"></script>
+        <script src="~/lib/mustache.min.js"></script>
     </environment>
-    }
     <script>
         var Baseobj = new BaseController()
         Baseobj.initialize();

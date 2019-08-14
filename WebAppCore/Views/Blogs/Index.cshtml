@@ -3,6 +3,14 @@
     ViewData["Title"] = "Index";
 }
 
+@section Style{
+    <environment names="Development">
+        <link href="~/client-side/css/blog.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Production">
+        <link href="~/client-side/css/blog.min.css" rel="stylesheet" />
+    </environment>
+}
 <section class="blog_post">
     <div class="container">
         <!-- row -->
@@ -15,7 +23,7 @@
                 <ul class="blog-posts">
                     @foreach(var item in Model.Data.Results)
                     {
-                        var url = "/" + item.SeoAlias +"."+ item.Id + ".html";
+                        var url = "/" + item.SeoAlias + "." + item.Id + ".html";
                         <li class="post-item">
                             <article class="entry">
                                 <div class="row">
@@ -31,7 +39,7 @@
                                         <div class="entry-meta-data">
                                             <span class="author">
                                                 <i class="pe-7s-user">
-                                                </i>&nbsp; by: <a href="#">Admin</a>
+                                                </i>&nbsp; by: <a >Admin</a>
                                             </span>
                                             @*<span class="comment-count"> <i class="pe-7s-comment"></i>&nbsp; 3 </span>*@
                                             <span class="date"><i class="pe-7s-date"></i>&nbsp; @item.DateCreated.ToString("dd/MM/yyyy")</span>

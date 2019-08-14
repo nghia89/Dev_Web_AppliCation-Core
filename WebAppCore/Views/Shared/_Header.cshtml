@@ -44,7 +44,7 @@
 
                                 <li>
                                     <div class="dropdown">
-                                        <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>@User.GetSpecificClaim("FullName")</span> <i class="fa fa-angle-down"></i></a>
+                                        <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span>@User.GetSpecificClaim("FullName")</span> <i class="fa fa-angle-down"></i></a>
                                         <ul class="dropdown-menu" role="menu">
                                             @if(User.GetSpecificClaim("Roles") == "Admin")
                                             {
@@ -56,7 +56,7 @@
                                 </li>
                                 <li>
                                     <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
-                                        <a href="#" onclick="document.getElementById('logoutForm').submit()"><span>Thoát</span></a>
+                                        <a  onclick="document.getElementById('logoutForm').submit()"><span>Thoát</span></a>
                                     </form>
                                 </li>
                             }
@@ -97,7 +97,7 @@
 
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-3 top-cart">
-                        <div class="link-wishlist"> <a href="#"> <i class="icon-heart icons"></i><span>Yêu Thích</span></a> </div>
+                        <div class="link-wishlist"> <a> <i class="icon-heart icons"></i><span>Yêu Thích</span></a> </div>
                         <!-- top cart -->
                         <div class="top-cart-contain">
                             <vc:header-cart></vc:header-cart>
