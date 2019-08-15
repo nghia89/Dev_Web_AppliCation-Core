@@ -20,10 +20,10 @@
 </div>
 <!-- Breadcrumbs End -->
 <!-- Main Container -->
-<div class="main-container col1-layout">
+<div class="main-container col2-left-layout">
     <div class="container">
         <div class="row">
-            <div class="col-main col-sm-12 col-xs-12">
+            <div class="col-main col-sm-9 col-xs-12 col-sm-push-3">
                 <div class="shop-inner">
                     <div class="page-title">
                         <h2>@Model.Category.Name</h2>
@@ -48,10 +48,10 @@
                     </div>
                     <div class="product-grid-area">
                         <ul class="products-grid">
-                            @foreach (var item in Model.Data.Results)
+                            @foreach(var item in Model.Data.Results)
                             {
                                 var url = "/" + item.SeoAlias + "-p." + item.Id + ".html";
-                                <li class="item col-lg-3 col-md-4 col-sm-6 col-xs-6 ">
+                                <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
                                     <div class="product-item">
                                         <div class="item-inner">
                                             <div class="product-thumbnail">
@@ -99,9 +99,34 @@
 
                         </ul>
                     </div>
-                    @(await Component.InvokeAsync("Pager", Model.Data))
+                    @(await Component.InvokeAsync("Pager",Model.Data))
                 </div>
             </div>
+            <aside class="sidebar col-sm-3 col-xs-12 col-sm-pull-9">
+                <div class="block shop-by-side">
+                    <div class="block-content">
+                        <div class="layered-Category">
+                            <h2 class="saider-bar-title">Lọc giá</h2>
+                            <div class="layered-content">
+                                <form action="/@Model.Category.SeoAlias-c.@(Model.Category.Id).html" method="get">
+                                    <ul class="check-box-list">
+                                        @foreach(var item in Model.SortPrice)
+                                        {
+                                        <li>
+                                            <input type="checkbox" id="@item.Id" name="SortPrice" checked=@item.Selected value="@item.Value" onchange="this.form.submit()">
+                                            @*<input type="checkbox" asp-for="SortPrice" id="@item.Id" name="@item.Name" value="@item.Selected" onchange="this.form.submit()">*@
+                                            <label for="@item.Id"> <span class="button"></span> @item.Name </label>
+                                        </li>
+                                        }
+
+                                    </ul>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
         </div>
     </div>
 </div>

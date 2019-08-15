@@ -1,21 +1,20 @@
-﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using OfficeOpenXml;
+﻿using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAppCore.Application.Interfaces;
+using WebAppCore.Application.Mappers;
 using WebAppCore.Application.ViewModels.Product;
 using WebAppCore.Data.Entities;
 using WebAppCore.Data.Enums;
+using WebAppCore.Infrastructure.Enums;
 using WebAppCore.Infrastructure.Interfaces;
 using WebAppCore.Repository.Interfaces;
 using WebAppCore.Utilities.Constants;
 using WebAppCore.Utilities.Dtos;
 using WebAppCore.Utilities.Helpers;
-using WebAppCore.Application.Mappers;
 
 namespace WebAppCore.Application.Implementation
 {
@@ -114,33 +113,64 @@ namespace WebAppCore.Application.Implementation
 			return _productRepository.FindAll(x => x.ProductCategory).Select(x => x.ToModel()).ToList();
 		}
 
-		public PagedResult<ProductViewModel> GetAllPaging(int? categoryId,string keyword,int page,int pageSize,string sortBy)
+		public PagedResult<ProductViewModel> GetAllPaging(int? categoryId,string keyword,int page,int pageSize,string sortBy,int? sortPrice)
 		{
-			var query = _productRepository.FindAll(x => x.Status == Status.Active,a=>a.ProductCategory);
+			var query = _productRepository.FindAll(x => x.Status == Status.Active,a => a.ProductCategory);
 			if(!string.IsNullOrEmpty(keyword))
 				query = query.Where(x => x.Name.Contains(keyword));
 			if(categoryId.HasValue)
 				query = query.Where(x => x.CategoryId == categoryId.Value);
 
 			int totalRow = query.Count();
-			switch(sortBy)
+			if(sortPrice.HasValue)
 			{
-				case "price":
-					query = query.OrderByDescending(x => x.Price);
-					break;
-
-				case "name":
-					query = query.OrderBy(x => x.Name);
-					break;
-
-				case "lastest":
-					query = query.OrderByDescending(x => x.DateCreated);
-					break;
-
-				default:
-					query = query.OrderByDescending(x => x.DateCreated);
-					break;
+				switch(sortPrice)
+				{
+					case (int)PriceEnum.DUOI_500:
+						query = query.Where(x => x.Price <= 500000);
+						break;
+					case (int)PriceEnum.TU_1TR_DEN_2TR:
+						query = query.Where(x => x.Price >= 1000000 && x.Price <= 2000000);
+						break;
+					case (int)PriceEnum.TU_2TR_DEN_4TR:
+						query = query.Where(x => x.Price >= 2000000 && x.Price <= 4000000);
+						break;
+					case (int)PriceEnum.TU_4TR_DEN_6TR:
+						query = query.Where(x => x.Price >= 4000000 && x.Price <= 6000000);
+						break;
+					case (int)PriceEnum.TU_6TR_DEN_10TR:
+						query = query.Where(x => x.Price >= 6000000 && x.Price <= 10000000);
+						break;
+					case (int)PriceEnum.TREN_10TR:
+						query = query.Where(x => x.Price >= 10000000);
+						break;
+					default:
+						break;
+				}
 			}
+
+			if(!string.IsNullOrEmpty(sortBy))
+			{
+				switch(sortBy)
+				{
+					case "price":
+						query = query.OrderByDescending(x => x.Price);
+						break;
+
+					case "name":
+						query = query.OrderBy(x => x.Name);
+						break;
+
+					case "lastest":
+						query = query.OrderByDescending(x => x.DateCreated);
+						break;
+
+					default:
+						query = query.OrderByDescending(x => x.DateCreated);
+						break;
+				}
+			}
+			
 			query = query.Skip((page - 1) * pageSize).Take(pageSize);
 
 			var data = query.Select(x => x.ToModel()).OrderByDescending(x => x.DateCreated).ToList();
@@ -249,7 +279,7 @@ namespace WebAppCore.Application.Implementation
 		public List<ProductImageViewModel> GetImages(int productId)
 		{
 			return _productImageRepository.FindAll(x => x.ProductId == productId)
-				.Select(a=>a.ProductImage()).ToList();
+				.Select(a => a.ProductImage()).ToList();
 		}
 
 		public void AddImages(int productId,string[] images)
@@ -292,8 +322,8 @@ namespace WebAppCore.Application.Implementation
 
 		public async Task<List<ProductViewModel>> GetHotProduct(int top)
 		{
-			var listData =await _productServiceRepository.GetHotProduct(top);
-			return listData.Select(x=>x.ToModel()).ToList();
+			var listData = await _productServiceRepository.GetHotProduct(top);
+			return listData.Select(x => x.ToModel()).ToList();
 		}
 
 		public List<ProductViewModel> GetRelatedProducts(int id,int top)
@@ -368,13 +398,13 @@ namespace WebAppCore.Application.Implementation
 
 		public async Task<List<ProductViewModel>> GetProductNew(int top)
 		{
-			var data =await _productServiceRepository.GetProductNew(top);
-			return data.Select(x=>x.ToModel()).ToList();
+			var data = await _productServiceRepository.GetProductNew(top);
+			return data.Select(x => x.ToModel()).ToList();
 		}
 
 		public async Task<PagedResult<ProductViewModel>> PagingAsync(int? categoryId,string keyword,int page,int pageSize,string sortBy)
 		{
-			var query =await _productServiceRepository.FindAllAsync();
+			var query = await _productServiceRepository.FindAllAsync();
 			if(!string.IsNullOrEmpty(keyword))
 				query = query.Where(x => x.Name.Contains(keyword));
 			if(categoryId.HasValue)
@@ -410,7 +440,7 @@ namespace WebAppCore.Application.Implementation
 				RowCount = totalRow,
 				PageSize = pageSize
 			};
-			return  paginationSet;
+			return paginationSet;
 		}
 	}
 }
