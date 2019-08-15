@@ -33,7 +33,7 @@ namespace WebAppCore.Controllers
         }
 
         [Route("{alias}-c.{id}.html")]
-        public async Task<IActionResult> Catalog(int id, int? pageSize, string sortBy, int page = 1)
+        public async Task<IActionResult> Catalog(int id,[FromQuery]int? pageSize,[FromQuery]string sortBy,[FromQuery] int? sortprice,[FromQuery]int page = 1 )
         {
             var catalog = new CatalogViewModel();
             ViewData["BodyClass"] = "shop_grid_full_width_page";
@@ -42,7 +42,16 @@ namespace WebAppCore.Controllers
 
             catalog.PageSize = pageSize;
             catalog.SortType = sortBy;
-            catalog.Data = _productService.GetAllPaging(id, string.Empty, page, pageSize.Value, sortBy);
+            catalog.SortType = sortBy;
+			foreach(var item in catalog.SortPrice)
+			{
+				if(item.Value== sortprice)
+				{
+					item.Selected = true;
+					break;
+				}
+			}
+            catalog.Data = _productService.GetAllPaging(id, string.Empty, page, pageSize.Value, sortBy,sortprice);
             catalog.Category =await _productCategoryService.GetById(id);
             return View(catalog);
         }
@@ -57,7 +66,7 @@ namespace WebAppCore.Controllers
 
             catalog.PageSize = pageSize;
             catalog.SortType = sortBy;
-            catalog.Data = _productService.GetAllPaging(null, keyword, page, pageSize.Value, string.Empty);
+            catalog.Data = _productService.GetAllPaging(null, keyword, page, pageSize.Value, string.Empty,null);
             catalog.Keyword = keyword;
 
             return View(catalog);

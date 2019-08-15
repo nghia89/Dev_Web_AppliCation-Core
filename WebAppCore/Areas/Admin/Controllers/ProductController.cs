@@ -59,7 +59,7 @@ namespace WebAppCore.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetAllPaging(int? categoryId, string keyword, int page, int pageSize)
         {
-            var model = _productService.GetAllPaging(categoryId, keyword, page, pageSize,string.Empty);
+            var model = _productService.GetAllPaging(categoryId, keyword, page, pageSize,string.Empty,null);
             return new OkObjectResult(model);
         }
 

@@ -10,7 +10,7 @@ namespace WebAppCore.Application.Interfaces
     {
         List<ProductViewModel> GetAll();
 
-        PagedResult<ProductViewModel> GetAllPaging(int? categoryId, string keyword, int page, int pageSize,string sortBy);
+        PagedResult<ProductViewModel> GetAllPaging(int? categoryId, string keyword, int page, int pageSize,string sortBy,int? sortPrice);
 
         Task<PagedResult<ProductViewModel>> PagingAsync(int? categoryId, string keyword, int page, int pageSize,string sortBy);
 
