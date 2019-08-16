@@ -20,7 +20,7 @@
                     size: sizeId
                 },
                 success: function () {
-                    structures.notify('Product was added successful', 'success');
+                    structures.notify('Sản phẩm đã được thêm vào giỏ hàng', 'success');
                     loadHeaderCart();
                 }
             });
