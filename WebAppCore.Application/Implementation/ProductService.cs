@@ -442,5 +442,11 @@ namespace WebAppCore.Application.Implementation
 			};
 			return paginationSet;
 		}
+
+		public async Task<List<ProductViewModel>> BuyALotProducts(int top)
+		{
+			var listData = await _productServiceRepository.BuyALotProducts(top);
+			return listData.Select(x => x.ToModel()).ToList();
+		}
 	}
 }

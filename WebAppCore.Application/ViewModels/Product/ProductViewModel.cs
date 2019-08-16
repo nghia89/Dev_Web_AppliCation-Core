@@ -67,6 +67,7 @@ namespace WebAppCore.Application.ViewModels.Product
         public DateTime DateModified { set; get; }
 
         public Status Status { set; get; }
-    
-    }
+
+		public bool? BuyALot { get; set; }
+	}
 }
