@@ -34,7 +34,8 @@ namespace WebAppCore.Controllers
 			ViewData["BodyClass"] = "cms-index-index cms-home-page";
 			var homeVm = new HomeViewModel();
 			homeVm.HomeCategories = await _productCategoryService.GetHomeCategories(5);
-			homeVm.HotProducts = await _productService.GetHotProduct(5);
+			homeVm.BuyALotProducts = await _productService.GetHotProduct(5);
+			//homeVm.HotProducts = await _productService.GetHotProduct(5);
 			//homeVm.TopSellProducts = _productService.GetLastest(5);
 			homeVm.NewSellProducts = await _productService.GetProductNew(8);
 			homeVm.LastestBlogs = await _blogService.GetLastest(5);

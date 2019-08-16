@@ -23,6 +23,13 @@ namespace WebAppCore.Repository.Implemention
 			this._productRepository = productRepository;
 		}
 
+		public async Task<List<Product>> BuyALotProducts(int top)
+		{
+			var productDB = _appDbContext.Set<Product>();
+			var data = productDB.Where(x => x.Status == Status.Active && x.BuyALot == true);
+			return await data.Take(top).AsNoTracking().ToListAsync();
+		}
+
 		public async Task<IQueryable<Product>> FindAllAsync()
 		{
 			var productDB = _appDbContext.Set<Product>();

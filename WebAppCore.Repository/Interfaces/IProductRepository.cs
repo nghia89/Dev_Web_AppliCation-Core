@@ -15,6 +15,8 @@ namespace WebAppCore.Repository.Interfaces
 
 		Task<List<Product>> GetHotProduct(int top);
 
+		Task<List<Product>> BuyALotProducts(int top);
+
 		Task<List<Product>> GetProductNew(int top);
 
 		Task<IQueryable<Product>> FindAllAsync();
