@@ -56,7 +56,7 @@ namespace WebAppCore.Data.EF
                     items = items.Include(includeProperty);
                 }
             }
-            return items.Where(predicate);
+            return items.Where(predicate).AsNoTracking();
         }
 
 		public async Task<ICollection<T>> FindAllAsync(Expression<Func<T,bool>> match,params Expression<Func<T,object>>[] includeProperties)
