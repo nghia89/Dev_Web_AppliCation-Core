@@ -23,13 +23,14 @@
 <div class="main-container col2-left-layout">
     <div class="container">
         <div class="row">
-            <div class="col-main col-sm-9 col-xs-12 col-sm-push-3">
-                <div class="shop-inner">
-                    <div class="page-title">
-                        <h2>@Model.Category.Name</h2>
-                    </div>
-                    <div class="toolbar column">
-                        <form action="/@Model.Category.SeoAlias-c.@(Model.Category.Id).html" method="get">
+            <form action="/@Model.Category.SeoAlias-c.@(Model.Category.Id).html" method="get">
+                <div class="col-main col-sm-9 col-xs-12 col-sm-push-3">
+                    <div class="shop-inner">
+                        <div class="page-title">
+                            <h2>@Model.Category.Name</h2>
+                        </div>
+                        <div class="toolbar column">
+                            @*<form action="/@Model.Category.SeoAlias-c.@(Model.Category.Id).html" method="get">*@
                             <div class="sorter">
                                 <div class="short-by">
                                     <label>Sort By:</label>
@@ -44,89 +45,88 @@
                                             asp-items="Model.PageSizes"></select>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                    <div class="product-grid-area">
-                        <ul class="products-grid">
-                            @foreach(var item in Model.Data.Results)
-                            {
-                                var url = "/" + item.SeoAlias + "-p." + item.Id + ".html";
-                                <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
-                                    <div class="product-item">
-                                        <div class="item-inner">
-                                            <div class="product-thumbnail">
-                                                <div class="icon-sale-label sale-left">Sale</div>
-                                                <div class="icon-new-label new-right">New</div>
-                                                <div class="pr-img-area">
-                                                    <a title="Ipsums Dolors Untra" href="@url">
-                                                        <figure> <img class="first-img" src="@item.Image?w=261" alt="@item.Name"> <img class="hover-img" src="@item.Image" alt="@item.Name"></figure>
-                                                    </a>
-                                                </div>
-                                                <div class="pr-info-area">
-                                                    <div class="pr-button">
-                                                        <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart"></i> </a> </div>
-                                                        <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-signal"></i> </a> </div>
-                                                        <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
+
+                        </div>
+                        <div class="product-grid-area">
+                            <ul class="products-grid">
+                                @foreach(var item in Model.Data.Results)
+                                {
+                                    var url = "/" + item.SeoAlias + "-p." + item.Id + ".html";
+                                    <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+                                        <div class="product-item">
+                                            <div class="item-inner">
+                                                <div class="product-thumbnail">
+                                                    <div class="icon-sale-label sale-left">Sale</div>
+                                                    <div class="icon-new-label new-right">New</div>
+                                                    <div class="pr-img-area">
+                                                        <a title="Ipsums Dolors Untra" href="@url">
+                                                            <figure> <img class="first-img" src="@item.Image?w=261" alt="@item.Name"> <img class="hover-img" src="@item.Image" alt="@item.Name"></figure>
+                                                        </a>
+                                                    </div>
+                                                    <div class="pr-info-area">
+                                                        <div class="pr-button">
+                                                            <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart"></i> </a> </div>
+                                                            <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-signal"></i> </a> </div>
+                                                            <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="item-info">
-                                                <div class="info-inner">
-                                                    <div class="item-title"> <a title="@item.Name" href="@url">@item.Name</a> </div>
-                                                    <div class="item-content">
-                                                        <div class="item-price">
-                                                            @if(item.PromotionPrice.HasValue == false || item.PromotionPrice == 0)
-                                                            {
-                                                                <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
-                                                            }
-                                                            else
-                                                            {
-                                                                <div class="price-box"> <span class="regular-price"> <span class="price"> @(item.PromotionPrice.HasValue ? item.PromotionPrice.Value.ToString("N0") : null) </span></span> </div>
-                                                                <p class="old-price"> <span class="price">@item.Price.ToString("N0")</span> </p>
-                                                            }
-                                                        </div>
-                                                        <div class="pro-action">
-                                                            <button type="button" class="add-to-cart" data-id="@item.Id"><span> Thêm vào giỏ</span> </button>
+                                                <div class="item-info">
+                                                    <div class="info-inner">
+                                                        <div class="item-title"> <a title="@item.Name" href="@url">@item.Name</a> </div>
+                                                        <div class="item-content">
+                                                            <div class="item-price">
+                                                                @if(item.PromotionPrice.HasValue == false || item.PromotionPrice == 0)
+                                                                {
+                                                                    <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <div class="price-box"> <span class="regular-price"> <span class="price"> @(item.PromotionPrice.HasValue ? item.PromotionPrice.Value.ToString("N0") : null) </span></span> </div>
+                                                                    <p class="old-price"> <span class="price">@item.Price.ToString("N0")</span> </p>
+                                                                }
+                                                            </div>
+                                                            <div class="pro-action">
+                                                                <button type="button" class="add-to-cart" data-id="@item.Id"><span> Thêm vào giỏ</span> </button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
 
-                            }
+                                }
 
-                        </ul>
+                            </ul>
+                        </div>
+                        @(await Component.InvokeAsync("Pager",Model.Data))
                     </div>
-                    @(await Component.InvokeAsync("Pager",Model.Data))
                 </div>
-            </div>
-            <aside class="sidebar col-sm-3 col-xs-12 col-sm-pull-9">
-                <div class="block shop-by-side">
-                    <div class="block-content">
-                        <div class="layered-Category">
-                            <h2 class="saider-bar-title">Lọc giá</h2>
-                            <div class="layered-content">
-                                <form action="/@Model.Category.SeoAlias-c.@(Model.Category.Id).html" method="get">
+                <aside class="sidebar col-sm-3 col-xs-12 col-sm-pull-9">
+                    <div class="block shop-by-side">
+                        <div class="block-content">
+                            <div class="layered-Category">
+                                <h2 class="saider-bar-title">Lọc giá</h2>
+                                <div class="layered-content">
                                     <ul class="check-box-list">
                                         @foreach(var item in Model.SortPrice)
                                         {
-                                        <li>
-                                            <input type="checkbox" id="@item.Id" name="SortPrice" checked=@item.Selected value="@item.Value" onchange="this.form.submit()">
-                                            @*<input type="checkbox" asp-for="SortPrice" id="@item.Id" name="@item.Name" value="@item.Selected" onchange="this.form.submit()">*@
-                                            <label for="@item.Id"> <span class="button"></span> @item.Name </label>
-                                        </li>
+                                            <li>
+                                                <input type="radio"hidden id="@item.Id" name="SortPrice" value="@item.Value" onchange="this.form.submit()" >
+                                                <input type="checkbox" checked="@item.Selected" id="@item.Id">
+                                                <label for="@item.Id"> <span class="button"></span> @item.Name </label>
+                                            </li>
                                         }
 
                                     </ul>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-            </aside>
+                </aside>
+            </form>
         </div>
     </div>
 </div>

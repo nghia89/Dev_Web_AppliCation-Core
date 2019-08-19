@@ -48,7 +48,10 @@ namespace WebAppCore.Controllers
 				if(item.Value== sortprice)
 				{
 					item.Selected = true;
-					break;
+				}
+				else
+				{
+					item.Selected = false;
 				}
 			}
             catalog.Data = _productService.GetAllPaging(id, string.Empty, page, pageSize.Value, sortBy,sortprice);

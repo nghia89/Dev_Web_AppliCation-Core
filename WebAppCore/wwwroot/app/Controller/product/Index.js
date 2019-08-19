@@ -218,6 +218,7 @@
             var status = $('#ckStatusM').prop('checked') === true ? 1 : 0;
             var hot = $('#ckHotM').prop('checked');
             var showHome = $('#ckShowHomeM').prop('checked');
+            var buyALot = $('#ckBuyALotM').prop('checked');
 
             $.ajax({
                 type: "POST",
@@ -234,6 +235,7 @@
                     Content: content,
                     HomeFlag: showHome,
                     HotFlag: hot,
+                    BuyALot: buyALot,
                     Tags: tags,
                     Unit: unit,
                     Status: status,

@@ -44,6 +44,8 @@ namespace WebAppCore.Application.Interfaces
 
         Task<List<ProductViewModel>> GetHotProduct(int top);
 
+        Task<List<ProductViewModel>> GetBuyALotProduct(int top);
+
         List<ProductViewModel> GetRelatedProducts(int id, int top);
 
         List<ProductViewModel> GetUpsellProducts(int top);

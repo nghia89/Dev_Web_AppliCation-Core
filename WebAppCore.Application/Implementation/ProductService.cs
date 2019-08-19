@@ -325,6 +325,12 @@ namespace WebAppCore.Application.Implementation
 			var listData = await _productServiceRepository.GetHotProduct(top);
 			return listData.Select(x => x.ToModel()).ToList();
 		}
+		public async Task<List<ProductViewModel>> GetBuyALotProduct(int top)
+		{
+			var listData = await _productServiceRepository.BuyALotProducts(top);
+			return listData.Select(x => x.ToModel()).ToList();
+		}
+		
 
 		public List<ProductViewModel> GetRelatedProducts(int id,int top)
 		{

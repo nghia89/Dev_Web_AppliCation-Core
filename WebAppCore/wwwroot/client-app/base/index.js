@@ -17,7 +17,7 @@
                     size: 0
                 },
                 success: function (response) {
-                    structures.notify('The product was added to cart', 'success');
+                    structures.notify('Sản phẩm đã được thêm vào giỏ hàng', 'success');
                     loadHeaderCart();
                     
                 }
@@ -34,7 +34,7 @@
                     productId: id
                 },
                 success: function (response) {
-                    structures.notify('The product was removed', 'success');
+                    structures.notify('Sản phẩm đã được xóa', 'success');
                     loadHeaderCart();
                     
                 }
