@@ -141,7 +141,7 @@
                                     <div class="product-item">
                                         <div class="item-inner">
                                             <div class="product-thumbnail">
-                                                <div class="icon-new-label new-left">Sale</div>
+                                                @*<div class="icon-new-label new-left">Sale</div>*@
                                                 <div class="pr-img-area">
                                                     <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">
                                                         <figure>
@@ -235,7 +235,10 @@
                                         <div class="product-item">
                                             <div class="item-inner">
                                                 <div class="product-thumbnail">
-                                                    <div class="icon-sale-label sale-left">Flash Sale</div>
+                                                    @if(item.IsProductPlashSale)
+                                                    {
+                                                        <div class="icon-sale-label sale-left">Flash Sale</div>
+                                                    }
                                                     <div class="pr-img-area">
                                                         <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">
                                                             <figure>

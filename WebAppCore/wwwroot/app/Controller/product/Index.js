@@ -165,6 +165,7 @@
                 $('#ckHotM').prop('checked', data.HotFlag);
                 $('#ckShowHomeM').prop('checked', data.HomeFlag);
                 $('#ckOldProduct').prop('checked', data.OldProduct);
+                $('#isProductPlashSale').prop('checked', data.IsProductPlashSale);
 
                 $('#modal-add-edit').modal('show');
                 structures.stopLoading();
@@ -223,6 +224,7 @@
             var showHome = $('#ckShowHomeM').prop('checked');
             var buyALot = $('#ckBuyALotM').prop('checked');
             var oldProduct = $('#ckOldProduct').prop('checked');
+            var isProductPlashSale = $('#isProductPlashSale').prop('checked');
 
             $.ajax({
                 type: "POST",
@@ -248,7 +250,9 @@
                     SeoAlias: seoAlias,
                     SeoKeywords: seoKeyword,
                     SeoDescription: seoMetaDescription,
-                    ProductStatus: productStatus
+                    ProductStatus: productStatus,
+                    IsProductPlashSale: isProductPlashSale,
+
                 },
                 dataType: "json",
                 beforeSend: function () {
@@ -414,6 +418,7 @@
         $('#ckHotM').prop('checked', false);
         $('#ckShowHomeM').prop('checked', false);
         $('#ckOldProduct').prop('checked', false);
+        $('#isProductPlashSale').prop('checked', false);
     }
 
     function wrapPaging(recordCount, callBack, changePageSize) {
