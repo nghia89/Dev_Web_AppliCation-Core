@@ -54,5 +54,7 @@ namespace WebAppCore.Application.Interfaces
 
         bool CheckAvailability(int productId, int size, int color);
 
-    }
+		Task<PagedResult<ProductViewModel>> OldProductPage(int page,int page_size,string sortBy,int? sortPrice);
+
+	}
 }

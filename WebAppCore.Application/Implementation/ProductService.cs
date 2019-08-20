@@ -170,7 +170,7 @@ namespace WebAppCore.Application.Implementation
 						break;
 				}
 			}
-			
+
 			query = query.Skip((page - 1) * pageSize).Take(pageSize);
 
 			var data = query.Select(x => x.ToModel()).OrderByDescending(x => x.DateCreated).ToList();
@@ -330,7 +330,7 @@ namespace WebAppCore.Application.Implementation
 			var listData = await _productServiceRepository.BuyALotProducts(top);
 			return listData.Select(x => x.ToModel()).ToList();
 		}
-		
+
 
 		public List<ProductViewModel> GetRelatedProducts(int id,int top)
 		{
@@ -445,6 +445,39 @@ namespace WebAppCore.Application.Implementation
 				CurrentPage = page,
 				RowCount = totalRow,
 				PageSize = pageSize
+			};
+			return paginationSet;
+		}
+
+		public async Task<PagedResult<ProductViewModel>> OldProductPage(int page,int page_size,string sortBy,int? sortPrice)
+		{
+			var data = await _productServiceRepository.oldProduct();
+			int totalRow = data.Count();
+			switch(sortBy)
+			{
+				case "price":
+					data = data.OrderByDescending(x => x.Price);
+					break;
+
+				case "name":
+					data = data.OrderBy(x => x.Name);
+					break;
+
+				case "lastest":
+					data = data.OrderByDescending(x => x.DateCreated);
+					break;
+
+				default:
+					data = data.OrderByDescending(x => x.DateCreated);
+					break;
+			}
+
+			var query = data.Skip((page - 1) * page_size).Take(page_size);
+			var paginationSet = new PagedResult<ProductViewModel>() {
+				Results = data.Select(a=>a.ToModel()).ToList(),
+				CurrentPage = page,
+				RowCount = totalRow,
+				PageSize = page_size
 			};
 			return paginationSet;
 		}

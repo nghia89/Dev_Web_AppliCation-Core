@@ -42,7 +42,6 @@ namespace WebAppCore.Controllers
 
             catalog.PageSize = pageSize;
             catalog.SortType = sortBy;
-            catalog.SortType = sortBy;
 			foreach(var item in catalog.SortPrice)
 			{
 				if(item.Value== sortprice)
