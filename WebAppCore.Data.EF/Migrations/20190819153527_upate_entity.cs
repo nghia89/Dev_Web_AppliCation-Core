@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebAppCore.Data.EF.Migrations
 {
-    public partial class initial : Migration
+    public partial class upate_entity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -530,7 +530,9 @@ namespace WebAppCore.Data.EF.Migrations
                     SeoDescription = table.Column<string>(maxLength: 255, nullable: true),
                     DateCreated = table.Column<DateTime>(nullable: false),
                     DateModified = table.Column<DateTime>(nullable: false),
-                    Status = table.Column<int>(nullable: false)
+                    Status = table.Column<int>(nullable: false),
+                    BuyALot = table.Column<bool>(nullable: true),
+                    OldProduct = table.Column<bool>(nullable: true)
                 },
                 constraints: table =>
                 {

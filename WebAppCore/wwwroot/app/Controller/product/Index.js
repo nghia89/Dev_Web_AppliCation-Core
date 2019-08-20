@@ -158,11 +158,13 @@
                 $('#txtMetaDescriptionM').val(data.SeoDescription);
                 $('#txtSeoPageTitleM').val(data.SeoPageTitle);
                 $('#txtSeoAliasM').val(data.SeoAlias);
+                $('#txtProductStatus').val(data.ProductStatus);
 
                 CKEDITOR.instances.txtContent.setData(data.Content);
                 $('#ckStatusM').prop('checked', data.Status === 1);
                 $('#ckHotM').prop('checked', data.HotFlag);
                 $('#ckShowHomeM').prop('checked', data.HomeFlag);
+                $('#ckOldProduct').prop('checked', data.OldProduct);
 
                 $('#modal-add-edit').modal('show');
                 structures.stopLoading();
@@ -187,7 +189,7 @@
                 $('#ddlCategorySearch').html(render);
             }, error: function (status) {
                 console.log(status);
-                structures.notify('Không thể tải dữ liệu', 'error')
+                structures.notify('Không thể tải dữ liệu', 'error');
             }
         });
     }
@@ -213,12 +215,14 @@
             var seoMetaDescription = $('#txtMetaDescriptionM').val();
             var seoPageTitle = $('#txtSeoPageTitleM').val();
             var seoAlias = $('#txtSeoAliasM').val();
+            var productStatus = $('#txtProductStatus').val();
 
             var content = CKEDITOR.instances.txtContent.getData();
             var status = $('#ckStatusM').prop('checked') === true ? 1 : 0;
             var hot = $('#ckHotM').prop('checked');
             var showHome = $('#ckShowHomeM').prop('checked');
             var buyALot = $('#ckBuyALotM').prop('checked');
+            var oldProduct = $('#ckOldProduct').prop('checked');
 
             $.ajax({
                 type: "POST",
@@ -236,13 +240,15 @@
                     HomeFlag: showHome,
                     HotFlag: hot,
                     BuyALot: buyALot,
+                    OldProduct: oldProduct,
                     Tags: tags,
                     Unit: unit,
                     Status: status,
                     SeoPageTitle: seoPageTitle,
                     SeoAlias: seoAlias,
                     SeoKeywords: seoKeyword,
-                    SeoDescription: seoMetaDescription
+                    SeoDescription: seoMetaDescription,
+                    ProductStatus: productStatus
                 },
                 dataType: "json",
                 beforeSend: function () {
@@ -401,11 +407,13 @@
         $('#txtMetaDescriptionM').val('');
         $('#txtSeoPageTitleM').val('');
         $('#txtSeoAliasM').val('');
+        $('#productStatus').val('');
 
         CKEDITOR.instances.txtContent.setData('');
         $('#ckStatusM').prop('checked', true);
         $('#ckHotM').prop('checked', false);
         $('#ckShowHomeM').prop('checked', false);
+        $('#ckOldProduct').prop('checked', false);
     }
 
     function wrapPaging(recordCount, callBack, changePageSize) {

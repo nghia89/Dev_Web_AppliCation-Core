@@ -21,6 +21,8 @@ namespace WebAppCore.Repository.Interfaces
 
 		Task<IQueryable<Product>> FindAllAsync();
 
+		Task<IQueryable<Product>> oldProduct();
+
 
 	}
 }

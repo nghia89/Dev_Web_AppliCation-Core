@@ -42,7 +42,6 @@ namespace WebAppCore.Controllers
 
             catalog.PageSize = pageSize;
             catalog.SortType = sortBy;
-            catalog.SortType = sortBy;
 			foreach(var item in catalog.SortPrice)
 			{
 				if(item.Value== sortprice)
@@ -83,7 +82,7 @@ namespace WebAppCore.Controllers
             model.Product = _productService.GetById(id);
             model.Category =await _productCategoryService.GetById(model.Product.CategoryId);
             model.RelatedProducts = _productService.GetRelatedProducts(id, 9);
-            model.UpsellProducts = _productService.GetUpsellProducts(6);
+            //model.UpsellProducts = _productService.GetUpsellProducts(6);
             model.ProductImages = _productService.GetImages(id);
             model.Tags = _productService.GetProductTags(id);
             model.Colors = _billService.GetColors().Select(x => new SelectListItem()

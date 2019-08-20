@@ -336,12 +336,13 @@ a.read-more:hover {
 	margin-bottom: 12px;
 }
 #related-posts .entry-title a {
-	font-size: 14px;
-	display: inherit;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	padding: 8px 15px 8px;
+    font-size: 14px;
+    display: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
+    padding: 8px 15px 8px;
+    text-align: initial;
 }
 #related-posts .product-item .entry-thumb img {
 	width: 100%;

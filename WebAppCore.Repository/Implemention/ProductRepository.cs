@@ -58,6 +58,14 @@ namespace WebAppCore.Repository.Implemention
 			   .Take(top).AsNoTracking().ToListAsync();
 		}
 
+		public async Task<IQueryable<Product>> oldProduct()
+		{
+			var productDB = _appDbContext.Set<Product>();
+			var listData = await productDB.Where(x => x.Status == Status.Active && x.OldProduct == true).AsNoTracking().AsQueryable().ToListAsync();
+			//var data= await _productRepository.FindAllAsync(x => x.Status == Status.Active && x.OldProduct == true);
+			return listData.AsQueryable();
+		}
+
 		public async Task<(List<Product> data, long totalCount)> Paging(int page,int page_size)
 		{
 			var (data, totalRow) = await _productRepository.Paging(page,page_size,x => x.Status == Status.Active,

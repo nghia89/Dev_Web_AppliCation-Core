@@ -69,5 +69,10 @@ namespace WebAppCore.Application.ViewModels.Product
         public Status Status { set; get; }
 
 		public bool? BuyALot { get; set; }
+
+		public bool? OldProduct { get; set; }
+
+		public string ProductStatus { get; set; }
+
 	}
 }

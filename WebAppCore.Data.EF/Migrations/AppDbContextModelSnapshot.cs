@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebAppCore.Data.EF;
 
 namespace WebAppCore.Data.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190814063025_initial")]
-    partial class initial
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -658,6 +656,8 @@ namespace WebAppCore.Data.EF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool?>("BuyALot");
+
                     b.Property<int>("CategoryId");
 
                     b.Property<string>("Content");
@@ -680,10 +680,14 @@ namespace WebAppCore.Data.EF.Migrations
                         .IsRequired()
                         .HasMaxLength(255);
 
+                    b.Property<bool?>("OldProduct");
+
                     b.Property<decimal?>("OriginalPrice")
                         .IsRequired();
 
                     b.Property<decimal>("Price");
+
+                    b.Property<string>("ProductStatus");
 
                     b.Property<decimal?>("PromotionPrice");
 
