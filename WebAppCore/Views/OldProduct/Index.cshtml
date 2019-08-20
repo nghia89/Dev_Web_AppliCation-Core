@@ -1,8 +1,8 @@
 ﻿@model WebAppCore.Models.ProductViewModels.OldProductViewModels
 @{
-//ViewData["Title"] = Model..Name;
-//ViewData["MetaKeyword"] = Model.Category.SeoKeywords;
-//ViewData["MetaDescription"] = Model.Category.SeoDescription;
+    ViewData["Title"] = "sản phẫm cũ";
+    ViewData["MetaKeyword"] = "tủ lạnh, máy giặt ,tivi,đồ gia dụng";
+    ViewData["MetaDescription"] = "chuyên cung cấp sản phẫm qua sữ dụng tốt nhất";
 }
 <!-- Breadcrumbs -->
 
@@ -12,6 +12,7 @@
             <div class="col-xs-12">
                 <ul>
                     <li class="home"> <a title="Trở về trang chủ" href="/">Home</a><span>&raquo;</span></li>
+                    <li><strong>Sản phẫm cũ</strong></li>
                 </ul>
             </div>
         </div>
@@ -29,17 +30,14 @@
                             <h2>@Model.Category.Name</h2>6
                         </div>*@
                         <div class="toolbar column">
-                            @*<form action="/@Model.Category.SeoAlias-c.@(Model.Category.Id).html" method="get">*@
                             <div class="sorter">
                                 <div class="short-by">
                                     <label>Sort By:</label>
-                                    @*SortType trùng với tên trong CatalogViewModel SortType*@
                                     <select name="sortBy" asp-for="SortType"
                                             onchange="this.form.submit()" asp-items="Model.SortTypes"></select>
                                 </div>
                                 <div class="short-by page">
                                     <label>Show:</label>
-                                    @*PageSize trùng với tên trong CatalogViewModel PageSize*@
                                     <select name="pageSize" asp-for="PageSize" onchange="this.form.submit()"
                                             asp-items="Model.PageSizes"></select>
                                 </div>
@@ -50,16 +48,16 @@
                             <ul class="products-grid">
                                 @foreach(var item in Model.Data.Results)
                                 {
-                                    var url = "/san-pham-cu" + item.SeoAlias + "-p." + item.Id + ".html";
+                                    var url = "/san-pham-cu-" + item.SeoAlias + "-spc." + item.Id + ".html";
                                     <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
                                         <div class="product-item">
                                             <div class="item-inner">
                                                 <div class="product-thumbnail">
-                                                    <div class="icon-sale-label sale-left">Sale</div>
-                                                    <div class="icon-new-label new-right">New</div>
+                                                    @*<div class="icon-sale-label sale-left">Sale</div>
+                                                    <div class="icon-new-label new-right">New</div>*@
                                                     <div class="pr-img-area">
                                                         <a title="Ipsums Dolors Untra" href="@url">
-                                                            <figure> <img class="first-img" src="@item.Image?w=261" alt="@item.Name"> <img class="hover-img" src="@item.Image" alt="@item.Name"></figure>
+                                                            <figure> <img class="first-img" src="@item.Image?w=261" alt="@item.Name"> @*<img class="hover-img" src="@item.Image" alt="@item.Name">*@</figure>
                                                         </a>
                                                     </div>
                                                     <div class="pr-info-area">

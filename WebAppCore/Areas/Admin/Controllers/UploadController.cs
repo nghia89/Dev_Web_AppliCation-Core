@@ -81,7 +81,11 @@ namespace WebAppCore.Areas.Admin.Controllers
                 {
                     Directory.CreateDirectory(folder);
                 }
-                string filePath = Path.Combine(folder, filename);
+
+				if(System.IO.File.Exists(folder)) {
+
+				}
+					string filePath = Path.Combine(folder, filename);
                 using (FileStream fs = System.IO.File.Create(filePath))
                 {
                     file.CopyTo(fs);
