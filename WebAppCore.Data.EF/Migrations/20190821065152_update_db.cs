@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebAppCore.Data.EF.Migrations
 {
-    public partial class upate_entity : Migration
+    public partial class update_db : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -532,7 +532,10 @@ namespace WebAppCore.Data.EF.Migrations
                     DateModified = table.Column<DateTime>(nullable: false),
                     Status = table.Column<int>(nullable: false),
                     BuyALot = table.Column<bool>(nullable: true),
-                    OldProduct = table.Column<bool>(nullable: true)
+                    OldProduct = table.Column<bool>(nullable: true),
+                    ProductStatus = table.Column<string>(nullable: true),
+                    IsProductPlashSale = table.Column<bool>(nullable: false),
+                    Total = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
