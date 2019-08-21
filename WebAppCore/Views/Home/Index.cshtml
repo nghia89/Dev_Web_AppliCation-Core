@@ -141,11 +141,11 @@
                                     <div class="product-item">
                                         <div class="item-inner">
                                             <div class="product-thumbnail">
-                                                <div class="icon-new-label new-left">Sale</div>
+                                                @*<div class="icon-new-label new-left">Sale</div>*@
                                                 <div class="pr-img-area">
                                                     <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">
                                                         <figure>
-                                                            <img class="first-img" src="@item.Image?w=190" alt="@item.Name">
+                                                            <img class="first-img" src="@item.Image?w=200" alt="@item.Name">
                                                             @*<img class="hover-img" src="@item.Image?w=190" alt="@item.Name">*@
                                                         </figure>
                                                     </a>
@@ -235,11 +235,14 @@
                                         <div class="product-item">
                                             <div class="item-inner">
                                                 <div class="product-thumbnail">
-                                                    <div class="icon-sale-label sale-left">Flash Sale</div>
+                                                    @if(item.IsProductPlashSale)
+                                                    {
+                                                        <div class="icon-sale-label sale-left">Flash Sale</div>
+                                                    }
                                                     <div class="pr-img-area">
                                                         <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">
                                                             <figure>
-                                                                <img class="first-img" src="@item.Image?w=190" alt="@item.Name">
+                                                                <img class="first-img" src="@item.Image?w=200" alt="@item.Name">
                                                                 @*<img class="hover-img" src="@item.Image?w=190" alt="@item.Name">*@
                                                             </figure>
                                                         </a>
@@ -307,7 +310,7 @@
                                                 <div class="icon-new-label new-right">Mới</div>
                                                 <div class="pr-img-area">
                                                     <a title="Ipsums Dolors Untra" href="@url">
-                                                        <figure> <img class="first-img" src="@item.Image?w=261" alt="@item.Name"> <img class="hover-img" src="@item.Image" alt="@item.Name"></figure>
+                                                        <figure> <img class="first-img" src="@item.Image?w=261" alt="@item.Name"> @*<img class="hover-img" src="@item.Image" alt="@item.Name">*@</figure>
                                                     </a>
                                                 </div>
                                                 <div class="pr-info-area">

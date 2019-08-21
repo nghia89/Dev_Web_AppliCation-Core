@@ -6,53 +6,59 @@ using WebAppCore.Utilities.Dtos;
 
 namespace WebAppCore.Application.Interfaces
 {
-    public interface IProductService : IDisposable
-    {
-        List<ProductViewModel> GetAll();
+	public interface IProductService:IDisposable
+	{
+		List<ProductViewModel> GetAll();
 
-        PagedResult<ProductViewModel> GetAllPaging(int? categoryId, string keyword, int page, int pageSize,string sortBy,int? sortPrice);
+		PagedResult<ProductViewModel> GetAllPaging(int? categoryId,string keyword,int page,int pageSize,string sortBy,int? sortPrice);
 
-        Task<PagedResult<ProductViewModel>> PagingAsync(int? categoryId, string keyword, int page, int pageSize,string sortBy);
+		Task<PagedResult<ProductViewModel>> PagingAsync(int? categoryId,string keyword,int page,int pageSize,string sortBy);
 
-        ProductViewModel Add(ProductViewModel productVm);
+		ProductViewModel Add(ProductViewModel productVm);
 
-        void Update(ProductViewModel product);
+		void Update(ProductViewModel product);
 
-        void Delete(int id);
+		void Delete(int id);
 
-        ProductViewModel GetById(int id);
+		ProductViewModel GetById(int id);
 
-        void ImportExcel(string filePath, int categoryId);
+		Task<ProductViewModel> GetByIdAsync(int id);
 
-        void Save();
+		void ImportExcel(string filePath,int categoryId);
 
-        void AddQuantity(int productId, List<ProductQuantityViewModel> quantities);
+		void Save();
 
-        List<ProductQuantityViewModel> GetQuantities(int productId);
+		void AddQuantity(int productId,List<ProductQuantityViewModel> quantities);
 
-        void AddImages(int productId, string[] images);
+		List<ProductQuantityViewModel> GetQuantities(int productId);
 
-        List<ProductImageViewModel> GetImages(int productId);
+		void AddImages(int productId,string[] images);
 
-        void AddWholePrice(int productId, List<WholePriceViewModel> wholePrices);
+		List<ProductImageViewModel> GetImages(int productId);
 
-        List<WholePriceViewModel> GetWholePrices(int productId);
+		Task<List<ProductImageViewModel>> GetImageAsync(int productId);
 
-        List<ProductViewModel> GetLastest(int top);
+		void AddWholePrice(int productId,List<WholePriceViewModel> wholePrices);
 
-        Task<List<ProductViewModel>> GetProductNew(int top);
+		List<WholePriceViewModel> GetWholePrices(int productId);
 
-        Task<List<ProductViewModel>> GetHotProduct(int top);
+		List<ProductViewModel> GetLastest(int top);
 
-        Task<List<ProductViewModel>> GetBuyALotProduct(int top);
+		Task<List<ProductViewModel>> GetProductNew(int top);
 
-        List<ProductViewModel> GetRelatedProducts(int id, int top);
+		Task<List<ProductViewModel>> GetHotProduct(int top);
 
-        List<ProductViewModel> GetUpsellProducts(int top);
+		Task<List<ProductViewModel>> GetBuyALotProduct(int top);
 
-        List<TagViewModel> GetProductTags(int productId);   
+		Task<List<ProductViewModel>> GetRelatedProducts(int id,int top);
 
-        bool CheckAvailability(int productId, int size, int color);
+		Task<List<ProductViewModel>> GetRelatedOldProducts(int id,int top);
+
+		List<ProductViewModel> GetUpsellProducts(int top);
+
+		List<TagViewModel> GetProductTags(int productId);
+
+		bool CheckAvailability(int productId,int size,int color);
 
 		Task<PagedResult<ProductViewModel>> OldProductPage(int page,int page_size,string sortBy,int? sortPrice);
 

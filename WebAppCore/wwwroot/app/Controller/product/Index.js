@@ -159,12 +159,14 @@
                 $('#txtSeoPageTitleM').val(data.SeoPageTitle);
                 $('#txtSeoAliasM').val(data.SeoAlias);
                 $('#txtProductStatus').val(data.ProductStatus);
+                $('#txtTotal').val(data.Total);
 
                 CKEDITOR.instances.txtContent.setData(data.Content);
                 $('#ckStatusM').prop('checked', data.Status === 1);
                 $('#ckHotM').prop('checked', data.HotFlag);
                 $('#ckShowHomeM').prop('checked', data.HomeFlag);
                 $('#ckOldProduct').prop('checked', data.OldProduct);
+                $('#isProductPlashSale').prop('checked', data.IsProductPlashSale);
 
                 $('#modal-add-edit').modal('show');
                 structures.stopLoading();
@@ -216,6 +218,7 @@
             var seoPageTitle = $('#txtSeoPageTitleM').val();
             var seoAlias = $('#txtSeoAliasM').val();
             var productStatus = $('#txtProductStatus').val();
+            var total = $('#txtTotal').val();
 
             var content = CKEDITOR.instances.txtContent.getData();
             var status = $('#ckStatusM').prop('checked') === true ? 1 : 0;
@@ -223,6 +226,7 @@
             var showHome = $('#ckShowHomeM').prop('checked');
             var buyALot = $('#ckBuyALotM').prop('checked');
             var oldProduct = $('#ckOldProduct').prop('checked');
+            var isProductPlashSale = $('#isProductPlashSale').prop('checked');
 
             $.ajax({
                 type: "POST",
@@ -248,7 +252,10 @@
                     SeoAlias: seoAlias,
                     SeoKeywords: seoKeyword,
                     SeoDescription: seoMetaDescription,
-                    ProductStatus: productStatus
+                    ProductStatus: productStatus,
+                    IsProductPlashSale: isProductPlashSale,
+                    Total: total
+
                 },
                 dataType: "json",
                 beforeSend: function () {
@@ -408,12 +415,14 @@
         $('#txtSeoPageTitleM').val('');
         $('#txtSeoAliasM').val('');
         $('#productStatus').val('');
+        $('#txtTotal').val('');
 
         CKEDITOR.instances.txtContent.setData('');
         $('#ckStatusM').prop('checked', true);
         $('#ckHotM').prop('checked', false);
         $('#ckShowHomeM').prop('checked', false);
         $('#ckOldProduct').prop('checked', false);
+        $('#isProductPlashSale').prop('checked', false);
     }
 
     function wrapPaging(recordCount, callBack, changePageSize) {

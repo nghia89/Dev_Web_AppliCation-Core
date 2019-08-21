@@ -5,6 +5,7 @@
     ViewData["MetaDescription"] = Model.Product.SeoDescription;
     var category = Model.Category;
     var product = Model.Product;
+    var status = WebAppCore.Data.Enums.Status.Active;
 }
 <!-- Breadcrumbs -->
 @section Scripts{
@@ -96,14 +97,19 @@
 
                         </div>
                         <div class="ratings">
-                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                            <p class="rating-links"> <a>1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
-                            <p class="availability @(product.Status==WebAppCore.Data.Enums.Status.Active?"in-stock":"out-of-stock") pull-right">Availability: <span>@product.Status</span></p>
+                            <p class="availability @(product.Total!=0?"in-stock":"out-of-stock")">Availability: <span>@(product.Total != 0 ? "Còn hàng":"Hết hàng")</span></p>
                         </div>
                         <div class="short-description">
-                            <h2>Quick Overview</h2>
+                            <h2>Mô tả</h2>
                             @product.Description
                         </div>
+                        @if(!string.IsNullOrEmpty(product.ProductStatus))
+                        {
+                            <div class="short-description">
+                                <h2>Tình trạng</h2>
+                                @product.ProductStatus
+                            </div>
+                        }
                         <div class="product-color-size-area">
                             <div class="color-area">
                                 <h2 class="saider-bar-title">Color</h2>
@@ -112,11 +118,11 @@
                                 </div>
                             </div>
                             @*<div class="size-area">
-                                    <h2 class="saider-bar-title">Size</h2>
-                                    <div class="size">
-                                        <select asp-items="Model.Sizes" id="ddlSizeId"></select>
-                                    </div>
-                                </div>*@
+                <h2 class="saider-bar-title">Size</h2>
+                <div class="size">
+                    <select asp-items="Model.Sizes" id="ddlSizeId"></select>
+                </div>
+            </div>*@
                         </div>
                         <div class="product-variation">
                             <form action="#" method="post">
@@ -128,7 +134,7 @@
                                         <div onClick="var result = document.getElementById('txtQuantity'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="inc qtybutton"><i class="fa fa-plus">&nbsp;</i></div>
                                     </div>
                                 </div>
-                                <button class="button pro-add-to-cart" id="btnAddToCart" data-id="@Model.Product.Id" title="Add to Cart" type="button"><span><i class="fa fa-shopping-basket"></i> Thêm vào giỏ</span></button>
+                                <button class="button pro-add-to-cart" disabled=@(Model.Product.Total==0?true:false) id="btnAddToCart" data-id="@Model.Product.Id" title="Add to Cart" type="button"><span><i class="fa fa-shopping-basket"></i> Thêm vào giỏ</span></button>
                             </form>
                         </div>
                         <div class="product-cart-option">

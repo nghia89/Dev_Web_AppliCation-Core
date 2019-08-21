@@ -2285,7 +2285,7 @@ a.link:hover {
 12. product hover
 ******************************************/
 .product-item .pr-img-area {
-	min-height: 267px;
+	min-height: 223px;
 	overflow: hidden;
 	position: relative;
 	/* height: 256px; */
@@ -2387,7 +2387,10 @@ a.link:hover {
 	color: #fff
 }
 .pr-img-area img {
-	width: 100%
+    width: 200px;
+    height: 200px;
+    margin: 15px auto;
+    display: block;
 }
 .product-item .pr-button {
 	border: 0 none;
@@ -8135,3 +8138,6 @@ a.jtv-m-logo-img {
 	margin-top: 12px;
 }
 .manufacturers-box{ margin-top:15px;}
+.pr-img-area img {
+    max-width: none !important
+}

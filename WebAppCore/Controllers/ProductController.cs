@@ -79,22 +79,22 @@ namespace WebAppCore.Controllers
         {
             ViewData["BodyClass"] = "product-page";
             var model = new DetailViewModel();
-            model.Product = _productService.GetById(id);
+            model.Product =await _productService.GetByIdAsync(id);
             model.Category =await _productCategoryService.GetById(model.Product.CategoryId);
-            model.RelatedProducts = _productService.GetRelatedProducts(id, 9);
+            model.RelatedProducts =await _productService.GetRelatedProducts(id, 9);
             //model.UpsellProducts = _productService.GetUpsellProducts(6);
-            model.ProductImages = _productService.GetImages(id);
+            model.ProductImages =await _productService.GetImageAsync(id);
             model.Tags = _productService.GetProductTags(id);
             model.Colors = _billService.GetColors().Select(x => new SelectListItem()
             {
                 Text = x.Name,
                 Value = x.Id.ToString()
             }).ToList();
-            model.Sizes = _billService.GetSizes().Select(x => new SelectListItem()
-            {
-                Text = x.Name,
-                Value = x.Id.ToString()
-            }).ToList();
+            //model.Sizes = _billService.GetSizes().Select(x => new SelectListItem()
+            //{
+            //    Text = x.Name,
+            //    Value = x.Id.ToString()
+            //}).ToList();
             return View(model);
         }
     }

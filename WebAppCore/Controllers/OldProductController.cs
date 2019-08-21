@@ -1,8 +1,8 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
 using WebAppCore.Application.Interfaces;
-using WebAppCore.Application.ViewModels.Product;
 using WebAppCore.Models.ProductViewModels;
 
 namespace WebAppCore.Controllers
@@ -21,7 +21,7 @@ namespace WebAppCore.Controllers
 			_configuration = configuration;
 		}
 		[Route("san-pham-cu.html")]
-		public IActionResult Index([FromQuery]int? pageSize,[FromQuery]string sortBy,[FromQuery] int? sortPrice,[FromQuery]int page = 1)
+		public async Task<IActionResult> Index([FromQuery]int? pageSize,[FromQuery]string sortBy,[FromQuery] int? sortPrice,[FromQuery]int page = 1)
 		{
 			var product = new OldProductViewModels();
 			if(pageSize == null)
@@ -40,9 +40,23 @@ namespace WebAppCore.Controllers
 					item.Selected = false;
 				}
 			}
-			var data = _productService.OldProductPage(page,pageSize.Value,sortBy,sortPrice);
-			product.Data = data.Result;
+			var data =await _productService.OldProductPage(page,pageSize.Value,sortBy,sortPrice);
+			product.Data = data;
 			return View(product);
+		}
+
+		[Route("san-pham-cu/{alias}-spc.{id}.html",Name = "OldProductDetail")]
+		public async Task<IActionResult> Detail(int id)
+		{
+			ViewData["BodyClass"] = "product-page";
+			var model = new DetailViewModel();
+			model.Product =await _productService.GetByIdAsync(id);
+			model.Category = await _productCategoryService.GetById(model.Product.CategoryId);
+			model.RelatedProducts =await _productService.GetRelatedOldProducts(id,9);
+			//model.UpsellProducts = _productService.GetUpsellProducts(6);
+			model.ProductImages =await _productService.GetImageAsync(id);
+			model.Tags = _productService.GetProductTags(id);
+			return View(model);
 		}
 	}
 }
