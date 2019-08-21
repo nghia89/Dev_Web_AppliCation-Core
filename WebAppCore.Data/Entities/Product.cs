@@ -78,5 +78,7 @@ namespace WebAppCore.Data.Entities
 		public string ProductStatus { get; set; }
 
 		public bool IsProductPlashSale { get; set; }
+
+		public int? Total { get; set; }
 	}
 }

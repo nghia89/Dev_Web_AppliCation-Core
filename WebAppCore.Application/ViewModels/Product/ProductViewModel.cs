@@ -76,5 +76,6 @@ namespace WebAppCore.Application.ViewModels.Product
 
 		public bool IsProductPlashSale { get; set; }
 
+		public int? Total { get; set; }
 	}
 }

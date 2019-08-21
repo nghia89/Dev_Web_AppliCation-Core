@@ -159,6 +159,7 @@
                 $('#txtSeoPageTitleM').val(data.SeoPageTitle);
                 $('#txtSeoAliasM').val(data.SeoAlias);
                 $('#txtProductStatus').val(data.ProductStatus);
+                $('#txtTotal').val(data.Total);
 
                 CKEDITOR.instances.txtContent.setData(data.Content);
                 $('#ckStatusM').prop('checked', data.Status === 1);
@@ -217,6 +218,7 @@
             var seoPageTitle = $('#txtSeoPageTitleM').val();
             var seoAlias = $('#txtSeoAliasM').val();
             var productStatus = $('#txtProductStatus').val();
+            var total = $('#txtTotal').val();
 
             var content = CKEDITOR.instances.txtContent.getData();
             var status = $('#ckStatusM').prop('checked') === true ? 1 : 0;
@@ -252,6 +254,7 @@
                     SeoDescription: seoMetaDescription,
                     ProductStatus: productStatus,
                     IsProductPlashSale: isProductPlashSale,
+                    Total: total
 
                 },
                 dataType: "json",
@@ -412,6 +415,7 @@
         $('#txtSeoPageTitleM').val('');
         $('#txtSeoAliasM').val('');
         $('#productStatus').val('');
+        $('#txtTotal').val('');
 
         CKEDITOR.instances.txtContent.setData('');
         $('#ckStatusM').prop('checked', true);

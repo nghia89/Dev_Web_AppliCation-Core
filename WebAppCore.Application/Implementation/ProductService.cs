@@ -332,12 +332,12 @@ namespace WebAppCore.Application.Implementation
 		}
 
 
-		public List<ProductViewModel> GetRelatedProducts(int id,int top)
+		public async Task<List<ProductViewModel>> GetRelatedProducts(int id,int top)
 		{
 			var product = _productRepository.FindById(id);
-			return _productRepository.FindAll(x => x.Status == Status.Active
-				&& x.Id != id && x.CategoryId == product.CategoryId)
-			.OrderByDescending(x => x.DateCreated)
+			var data = await _productRepository.FindAllAsync(x => x.Status == Status.Active
+				  && x.Id != id && x.CategoryId == product.CategoryId);
+			return data.OrderByDescending(x => x.DateCreated)
 			.Take(top)
 			.Select(x => x.ToModel())
 			.ToList();
@@ -474,12 +474,37 @@ namespace WebAppCore.Application.Implementation
 
 			var query = data.Skip((page - 1) * page_size).Take(page_size);
 			var paginationSet = new PagedResult<ProductViewModel>() {
-				Results = data.Select(a=>a.ToModel()).ToList(),
+				Results = data.Select(a => a.ToModel()).ToList(),
 				CurrentPage = page,
 				RowCount = totalRow,
 				PageSize = page_size
 			};
 			return paginationSet;
+		}
+
+		public async Task<ProductViewModel> GetByIdAsync(int id)
+		{
+			var data = await _productRepository.GetAByIdIncludeAsyn(x => x.Id == id);
+			return data.ToModel();
+		}
+
+		public async Task<List<ProductViewModel>> GetRelatedOldProducts(int id,int top)
+		{
+			var product = await _productRepository.GetAByIdIncludeAsyn(x => x.Id == id && x.OldProduct == true);
+			var data = await _productRepository.FindAllAsync(x => x.Status == Status.Active
+				  && x.Id != id && x.CategoryId == product.CategoryId);
+
+			var listData = data.OrderByDescending(x => x.DateCreated)
+				.Take(top)
+				.Select(x => x.ToModel())
+				.ToList();
+			return listData;
+		}
+
+		public async Task<List<ProductImageViewModel>> GetImageAsync(int productId)
+		{
+			var data = await _productImageRepository.FindAllAsync(x => x.ProductId == productId);
+			return data.Select(a => a.ProductImage()).ToList();
 		}
 	}
 }
