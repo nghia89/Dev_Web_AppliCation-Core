@@ -53,7 +53,12 @@
                 contentType: false,
                 processData: false,
                 data: data,
-                success: function (path) {
+                success: function (path) {debugger
+                    if (path.Status === true) {
+                        structures.notify('File đã tồn tại trong hệ thống', 'warning');
+                        $('#txtImage').val(path.FileName);
+                        return
+                    }
                     $('#txtImage').val(path);
                     structures.notify('Upload image succesful!', 'success');
                 },

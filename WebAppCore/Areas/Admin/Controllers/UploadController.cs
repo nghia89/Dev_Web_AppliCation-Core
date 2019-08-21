@@ -81,9 +81,11 @@ namespace WebAppCore.Areas.Admin.Controllers
                 {
                     Directory.CreateDirectory(folder);
                 }
-
-				if(System.IO.File.Exists(folder)) {
-
+				var linkFullFile= folder+ @"\" + filename;
+				if(System.IO.File.Exists(linkFullFile)) {
+					var status = true;
+					var fileName=Path.Combine(imageFolder,filename).Replace(@"\",@"/");
+					return new OkObjectResult(new { Status=status,FileName= fileName });
 				}
 					string filePath = Path.Combine(folder, filename);
                 using (FileStream fs = System.IO.File.Create(filePath))

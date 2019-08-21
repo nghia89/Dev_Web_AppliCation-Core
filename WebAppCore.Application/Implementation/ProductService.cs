@@ -471,6 +471,32 @@ namespace WebAppCore.Application.Implementation
 					data = data.OrderByDescending(x => x.DateCreated);
 					break;
 			}
+			if(sortPrice.HasValue)
+			{
+				switch(sortPrice)
+				{
+					case (int)PriceEnum.DUOI_500:
+						data = data.Where(x => x.Price <= 500000);
+						break;
+					case (int)PriceEnum.TU_1TR_DEN_2TR:
+						data = data.Where(x => x.Price >= 1000000 && x.Price <= 2000000);
+						break;
+					case (int)PriceEnum.TU_2TR_DEN_4TR:
+						data = data.Where(x => x.Price >= 2000000 && x.Price <= 4000000);
+						break;
+					case (int)PriceEnum.TU_4TR_DEN_6TR:
+						data = data.Where(x => x.Price >= 4000000 && x.Price <= 6000000);
+						break;
+					case (int)PriceEnum.TU_6TR_DEN_10TR:
+						data = data.Where(x => x.Price >= 6000000 && x.Price <= 10000000);
+						break;
+					case (int)PriceEnum.TREN_10TR:
+						data = data.Where(x => x.Price >= 10000000);
+						break;
+					default:
+						break;
+				}
+			}
 
 			var query = data.Skip((page - 1) * page_size).Take(page_size);
 			var paginationSet = new PagedResult<ProductViewModel>() {
