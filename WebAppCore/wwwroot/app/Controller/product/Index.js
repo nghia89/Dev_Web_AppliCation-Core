@@ -53,7 +53,7 @@
                 contentType: false,
                 processData: false,
                 data: data,
-                success: function (path) {debugger
+                success: function (path) {
                     if (path.Status === true) {
                         structures.notify('File đã tồn tại trong hệ thống', 'warning');
                         $('#txtImage').val(path.FileName);
