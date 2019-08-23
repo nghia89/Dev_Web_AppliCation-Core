@@ -516,8 +516,9 @@ namespace WebAppCore.Application.Implementation
 
 		public async Task<List<ProductViewModel>> GetRelatedOldProducts(int id,int top)
 		{
-			var product = await _productRepository.GetAByIdIncludeAsyn(x => x.Id == id && x.OldProduct == true);
-			var data = await _productRepository.FindAllAsync(x => x.Status == Status.Active
+			var product = await _productRepository.GetAByIdIncludeAsyn(x => x.Id == id);
+			if(product == null) return null;
+			var data = await _productRepository.FindAllAsync(x => x.Status == Status.Active && x.OldProduct == true
 				  && x.Id != id && x.CategoryId == product.CategoryId);
 
 			var listData = data.OrderByDescending(x => x.DateCreated)
