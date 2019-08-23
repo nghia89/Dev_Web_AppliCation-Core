@@ -835,14 +835,19 @@ select.cate-dropdown {
 
 .logo {
 	vertical-align: middle;
-	margin-top: 30px;
+	margin-top: 20px;
 	text-align: left;
+    height:45px;
 	margin-bottom: 35px;
 }
+.logo_img {
+    width: 215px;
+    height: 65px;
+}
 .link-wishlist {
-	position: relative;
-	margin-left: 15px;
-	display: inline-block;
+    position: relative;
+    margin-left: 15px;
+    display: inline-block;
 }
 .link-wishlist span {
 	font-size: 15px;
