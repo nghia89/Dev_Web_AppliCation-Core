@@ -2,7 +2,7 @@
     this.initialize = function () {
         loadData();
         registerEvents();
-    }
+    };
     function registerEvents() {
         $('#frmMaintainance').validate({
             errorClass: 'red',
@@ -45,6 +45,10 @@
                 }
             });
         });
+        $("#modal-add-edit").on("hidden.bs.modal", function () {
+            resetFormMaintainance();
+        });
+
         $('body').on('click', '#btnEdit', function (e) {
             e.preventDefault();
             var that = $('#hidIdM').val();
