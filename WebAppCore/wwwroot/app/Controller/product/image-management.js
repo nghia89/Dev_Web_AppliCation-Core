@@ -91,7 +91,7 @@
     function clearFileInput(ctrl) {
         try {
            ctrl.value = null;
-        } catch (ex) { }
+        } catch (ex) { throw ex;}
         if (ctrl.value) {
             ctrl.parentNode.replaceChild(ctrl.cloneNode(true), ctrl);
         }

@@ -49,7 +49,8 @@ namespace WebAppCore.Application.Implementation
             _announRepository.Add(announcement);
             foreach (var userVm in announcementUsers)
             {
-                var user = Mapper.Map<AnnouncementUserViewModel, AnnouncementUser>(userVm);
+                //var user = Mapper.Map<AnnouncementUserViewModel, AnnouncementUser>(userVm);
+                var user = userVm.AddModel();
                 _announUserRepository.Add(user);
             }
             _unitOfWork.Commit();

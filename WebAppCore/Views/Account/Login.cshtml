@@ -6,7 +6,6 @@
     ViewData["Title"] = "Log in";
 }
 
-<h2>@ViewData["Title"]</h2>
 <!-- Breadcrumbs -->
 
 <div class="breadcrumbs">
@@ -29,7 +28,7 @@
             <div class="account-login">
                 <div class="box-authentication">
                     <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
-                        <h4>Login</h4>
+                        <h2>@ViewData["Title"]</h2>
                         <div asp-validation-summary="All" class="text-danger"></div>
                         <p class="before-login-text">Welcome back! Sign in to your account</p>
                         <label for="emmail_login">Email address<span class="required">*</span></label>

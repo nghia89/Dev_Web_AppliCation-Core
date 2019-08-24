@@ -57,9 +57,11 @@
                     if (path.Status === true) {
                         structures.notify('File đã tồn tại trong hệ thống', 'warning');
                         $('#txtImage').val(path.FileName);
-                        return
+                        $('#linkImg').append('<img width="200"  data-path="' + path.FileName + '" src="' + path.FileName + '">');
+                        return;
                     }
                     $('#txtImage').val(path);
+                    $('#linkImg').append('<div class="col-md-6"><img width="200"  data-path="' + path + '" src="' + path + '"></div>');
                     structures.notify('Upload image succesful!', 'success');
                 },
                 error: function () {
@@ -191,7 +193,7 @@
             success: function (res) {
                 var render = "<option value=''>--Select category--</option>";
                 $.each(res, function (i, item) {
-                    render += "<option value='" + item.Id + "'>" + item.Name + "</option>"
+                    render += "<option value='" + item.Id + "'>" + item.Name + "</option>";
                 });
                 $('#ddlCategorySearch').html(render);
             }, error: function (status) {
@@ -344,7 +346,7 @@
             },
             error: function (status) {
                 console.log(status);
-                structures.notify('Không thể tải dữ liệu', 'error')
+                structures.notify('Không thể tải dữ liệu', 'error');
             }
         });
     }
