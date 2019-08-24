@@ -64,12 +64,12 @@
                     });
                     render += $('#announcement-tag-template').html();
                     $("#totalAnnouncement").text(response.RowCount);
-                    if (render != undefined) {
+                    if (render !== undefined) {
                         $('#annoncementList').html(render);
                     }
                 }
                 else {
-                    $('#announcementArea').hide();
+                    $('#badge_number_notifi').hide();
                     $('#annoncementList').html('');
                 }
                 structures.stopLoading();
