@@ -14,8 +14,9 @@ connection.on("ReceiveMessage", (message) => {
         Avatar: message.avatar
     });
     $('#annoncementList').prepend(html);
-
-    var totalAnnounce = parseInt($('#totalAnnouncement').text()) + 1;
+    $('#badge_number_notifi').show();
+    var total = $('#totalAnnouncement').text() + 1;
+    var totalAnnounce = parseInt(total);
 
     $('#totalAnnouncement').text(totalAnnounce);
 });
