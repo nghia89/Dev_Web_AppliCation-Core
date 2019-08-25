@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebAppCore.Data.EF;
 
 namespace WebAppCore.Data.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190825105016_updateDb")]
+    partial class updateDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -178,8 +180,6 @@ namespace WebAppCore.Data.EF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(128);
 
-                    b.Property<string>("Avartar");
-
                     b.Property<string>("Content")
                         .HasMaxLength(250);
 
@@ -240,12 +240,16 @@ namespace WebAppCore.Data.EF.Migrations
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(256);
 
+                    b.Property<Guid?>("UserId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
                         .HasName("RoleNameIndex")
                         .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("AspNetRoles");
                 });
@@ -1026,6 +1030,13 @@ namespace WebAppCore.Data.EF.Migrations
                         .WithMany("AnnouncementUsers")
                         .HasForeignKey("AnnouncementId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("WebAppCore.Data.Entities.AppRole", b =>
+                {
+                    b.HasOne("WebAppCore.Data.Entities.AppUser", "User")
+                        .WithMany("Roles")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("WebAppCore.Data.Entities.Bill", b =>

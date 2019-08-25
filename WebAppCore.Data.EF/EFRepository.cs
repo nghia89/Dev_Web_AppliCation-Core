@@ -25,7 +25,14 @@ namespace WebAppCore.Data.EF
             _context.Add(entity);
         }
 
-        public void Dispose()
+		public async Task<T> AddAsyn(T t)
+		{
+			_context.Set<T>().Add(t);
+			await _context.SaveChangesAsync();
+			return t;
+		}
+
+		public void Dispose()
         {
             if (_context != null)
             {

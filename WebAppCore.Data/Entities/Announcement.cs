@@ -26,8 +26,13 @@ namespace WebAppCore.Data.Entities
         public virtual AppUser AppUser { get; set; }
 
         public virtual ICollection<AnnouncementUser> AnnouncementUsers { get; set; }
+
         public DateTime DateCreated { set; get; }
+
         public DateTime DateModified { set; get; }
+
         public Status Status { set; get; }
-    }
+
+		public string Avartar { get; set; }
+	}
 }

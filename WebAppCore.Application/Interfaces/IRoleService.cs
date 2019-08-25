@@ -9,8 +9,7 @@ namespace WebAppCore.Application.Interfaces
 {
    public interface IRoleService
     {
-        Task<bool> AddAsync(AnnouncementViewModel announcementVm,
-            List<AnnouncementUserViewModel> announcementUsers, AppRoleViewModel roleVm);
+        Task<bool> AddAsync(AppRoleViewModel roleVm);
 
         Task DeleteAsync(Guid id);
 

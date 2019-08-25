@@ -3,7 +3,7 @@
     this.initialize = function () {
         loadAnnouncement();
         registerEvents();
-    }
+    };
 
     function registerEvents() {
         $('body').on('click', '.btn-edit', function (e) {
@@ -32,9 +32,7 @@
                 }
             });
         });
-
-
-    };
+    }
 
     function loadAnnouncement() {
         $.ajax({
@@ -78,7 +76,7 @@
                 console.log(status);
             }
         });
-    };
+    }
 
 
-}
+};

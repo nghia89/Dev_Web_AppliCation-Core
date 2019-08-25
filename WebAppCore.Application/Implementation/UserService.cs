@@ -169,5 +169,23 @@ namespace WebAppCore.Application.Implementation
 			await _context.SaveChangesAsync();
 
 		}
+		
+		public async Task<List<AppUserViewModel>> GetUserWithRole(string roleName)
+		{
+			var role = await _context.AppRoles.Where(n => n.Name.Equals(roleName)).SingleOrDefaultAsync();
+			var userRoles = _context.UserRoles.Where(n => n.RoleId == role.Id);
+
+			var lst = new List<AppUser>();
+
+			foreach(var item in userRoles)
+			{
+				var user= await _userManager.FindByIdAsync(item.UserId.ToString());
+				lst.Add(user);
+			}
+
+			var lstViewModel = lst.Select(a => a.ToModel()).ToList();
+
+			return lstViewModel;
+		}
 	}
 }
