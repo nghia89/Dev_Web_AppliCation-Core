@@ -14,8 +14,8 @@
         <div class="row">
             <div class="col-xs-12">
                 <ul>
-                    <li class="home"> <a title="Go to Home Page" href="/">Home</a><span>&raquo;</span></li>
-                    <li><strong>Checkout</strong></li>
+                    <li class="home"> <a title="Trở về trang chủ" href="/">Home</a><span>&raquo;</span></li>
+                    <li><strong>Đơn Hàng</strong></li>
                 </ul>
             </div>
         </div>
@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-main col-sm-12 col-xs-12">
                 <div class="page-title">
-                    <h2>Checkout</h2>
+                    <h2>Đơn Hàng</h2>
                 </div>
                 <div class="page-content checkout-page">
                     @if (ViewData["Success"] != null)
@@ -55,7 +55,7 @@
                         <form action="/checkout.html" method="post">
                             @*----giãm dã danh hack----*@
                             @Html.AntiForgeryToken()
-                            <h4 class="checkout-sep">1. Checkout Method</h4>
+                            <h4 class="checkout-sep">1. Thông tin tài khoản</h4>
                             <div class="box-border">
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -64,29 +64,29 @@
                                         <br>
                                         <h4>Register and save time!</h4>
                                         <p>Register with us for future convenience:</p>
-                                        <p><i class="fa fa-check-circle text-primary"></i> Fast and easy check out</p>
-                                        <p><i class="fa fa-check-circle text-primary"></i> Easy access to your order history and status</p>
-                                        <button class="button" onclick="window.location.href='/register.html'"><i class="fa fa-angle-double-right"></i>&nbsp; <span>Continue</span></button>
+                                        <p><i class="fa fa-check-circle text-primary"></i> Nhanh chóng và tiện lợi hơn</p>
+                                        <p><i class="fa fa-check-circle text-primary"></i> Dễ dàng truy cập theo dõi đơn hàng</p>
+                                        <button class="button" onclick="window.location.href='/register.html'"><i class="fa fa-angle-double-right"></i>&nbsp; <span>Tiếp tục</span></button>
                                     </div>
                                     <div class="col-sm-6">
-                                        <h5>Login</h5>
-                                        <p>Already registered? Please log in below:</p>
-                                        <button class="button" onclick="window.location.href='/login.html'"><i class="icon-login"></i>&nbsp; <span>Login</span></button>
+                                        <h5>Đăng nhập</h5>
+                                        <p>Đã đăng ký? Vui lòng đăng nhập bên dưới:</p>
+                                        <button class="button" onclick="window.location.href='/login.html'"><i class="icon-login"></i>&nbsp; <span>Đăng nhập</span></button>
                                     </div>
                                 </div>
                             </div>
 
-                            <h4 class="checkout-sep">2. Shipping Information</h4>
+                            <h4 class="checkout-sep">2. Thông tin vận chuyển</h4>
                             <div class="box-border">
                                 <ul>
                                     <li class="row">
                                         <div class="col-sm-6">
-                                            <label class="required">Full name</label>
+                                            <label class="required">Họ và Tên</label>
                                             <input class="input form-control" type="text" asp-for="CustomerName">
                                         </div>
                                         <!--/ [col] -->
                                         <div class="col-sm-6">
-                                            <label class="required">Phone</label>
+                                            <label class="required">Số điện thoại</label>
                                             <input class="input form-control" type="text" asp-for="CustomerMobile">
                                         </div>
                                     </li>
@@ -95,7 +95,7 @@
 
                                     <li class="row">
                                         <div class="col-xs-12">
-                                            <label class="required">Address</label>
+                                            <label class="required">Địa chỉ</label>
                                             <input class="input form-control" type="text" asp-for="CustomerAddress">
                                         </div>
                                         <!--/ [col] -->
@@ -104,7 +104,7 @@
 
                                     <li class="row">
                                         <div class="col-sm-12">
-                                            <label class="required">Message</label>
+                                            <label class="required">Ghi chú</label>
                                             <input class="input form-control" type="text" asp-for="CustomerMessage">
                                         </div>
                                         <!--/ [col] -->
@@ -112,7 +112,7 @@
                                     <!--/ .row -->
                                 </ul>
                             </div>
-                            <h4 class="checkout-sep">3. Payment Information</h4>
+                            <h4 class="checkout-sep">3. Phương thức thanh toán</h4>
                             <div class="box-border">
                                 <ul>
                                     @for (int i = 0; i < Model.PaymentMethods.Count; i++)
@@ -127,17 +127,17 @@
                                 </ul>
                                 @*<button class="button"><i class="fa fa-angle-double-right"></i>&nbsp; <span>Continue</span></button>*@
                             </div>
-                            <h4 class="checkout-sep last">4. Order Review</h4>
+                            <h4 class="checkout-sep last">4. Đơn hàng</h4>
                             <div class="box-border">
                                 <div class="table-responsive">
                                     <table class="table table-bordered cart_summary">
                                         <thead>
                                             <tr>
-                                                <th class="cart_product">Product</th>
-                                                <th>Description</th>
-                                                <th>Unit price</th>
-                                                <th>Qty</th>
-                                                <th>Total</th>
+                                                <th class="cart_product">Sản phẩm</th>
+                                                <th>Mô tả</th>
+                                                <th>Đơn giá</th>
+                                                <th>Số lượng</th>
+                                                <th>Tổng</th>
                                             </tr>
                                         </thead>
                                         <tbody>
