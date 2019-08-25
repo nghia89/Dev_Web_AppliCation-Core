@@ -36,23 +36,14 @@ namespace WebAppCore.Application.Implementation
             _announUserRepository = announUserRepository;
         }
 
-        public async Task<bool> AddAsync(AnnouncementViewModel announcementVm,
-            List<AnnouncementUserViewModel> announcementUsers, AppRoleViewModel roleVm)
+        public async Task<bool> AddAsync(AppRoleViewModel roleVm)
         {
             var role = new AppRole()
             {
                 Name = roleVm.Name,
                 Description = roleVm.Description
             };
-            var result = await _roleManager.CreateAsync(role);
-            var announcement = announcementVm.AddModel();
-            _announRepository.Add(announcement);
-            foreach (var userVm in announcementUsers)
-            {
-                //var user = Mapper.Map<AnnouncementUserViewModel, AnnouncementUser>(userVm);
-                var user = userVm.AddModel();
-                _announUserRepository.Add(user);
-            }
+            var result = await _roleManager.CreateAsync(role); 
             _unitOfWork.Commit();
             return result.Succeeded;
         }

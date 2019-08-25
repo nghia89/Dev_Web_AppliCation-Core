@@ -21,5 +21,6 @@ namespace WebAppCore.Application.ViewModels.System
         public DateTime DateCreated { set; get; }
         public DateTime DateModified { set; get; }
         public Status Status { set; get; }
-    }
+		public string Avartar { get; set; }
+	}
 }

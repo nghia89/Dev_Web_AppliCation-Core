@@ -168,12 +168,15 @@ namespace WebAppCore
 			services.AddTransient<IReportService,ReportService>();
 			services.AddTransient<IAnnouncementService,AnnouncementService>();
 			services.AddTransient<ISlideShowService,SlideShowService>();
+			services.AddTransient<IAnnouncementUserService,AnnouncementUserService>();
 
 			///   Repository
 			services.AddTransient<IProductRepository,ProductRepository>();
 			services.AddTransient<IProductCategoryRepository,ProductCategoryRepository>();
 			services.AddTransient<IBlogRepository,BlogRepository>();
 			services.AddTransient<ISlideRepository,SlideRepository>();
+			services.AddTransient<IAnnouncementRepository,AnnouncementRepository>();
+			services.AddTransient<IAnnouncementUserRepository,AnnouncementUserRepository>();
 
 			services.AddTransient<IAuthorizationHandler,BaseResourceAuthorizationHandler>();
 			services.AddSignalR();

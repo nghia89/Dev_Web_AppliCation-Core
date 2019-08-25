@@ -1,25 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebAppCore.Application.ViewModels.System;
 using WebAppCore.Utilities.Dtos;
 
 namespace WebAppCore.Application.Interfaces
 {
-  public  interface IUserService
-    {
-        Task<bool> AddAsync(AppUserViewModel userVm);
+	public interface IUserService
+	{
+		Task<bool> AddAsync(AppUserViewModel userVm);
 
-        Task DeleteAsync(string id);
+		Task DeleteAsync(string id);
 
-        Task<List<AppUserViewModel>> GetAllAsync();
-        Task<bool> GetAll(string Email);
-        PagedResult<AppUserViewModel> GetAllPagingAsync(string keyword, int page, int pageSize);
+		Task<List<AppUserViewModel>> GetAllAsync();
 
-        Task<AppUserViewModel> GetById(string id);
+		Task<bool> GetAll(string Email);
 
+		PagedResult<AppUserViewModel> GetAllPagingAsync(string keyword,int page,int pageSize);
 
-        Task UpdateAsync(AppUserViewModel userVm);
-    }
+		Task<AppUserViewModel> GetById(string id);
+
+		Task UpdateAsync(AppUserViewModel userVm);
+
+		Task<List<AppUserViewModel>> GetUserWithRole(string roleName);
+	}
 }

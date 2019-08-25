@@ -4,7 +4,7 @@
     .build();
 connection.start().catch(err => console.error(err.toString()));
 
-connection.on("ReceiveMessage", (message) => {
+connection.on("ReceiveMessage", (message) => {debugger
     var template = $('#announcement-template').html();
     var html = Mustache.render(template, {
         Content: message.content,
@@ -15,8 +15,10 @@ connection.on("ReceiveMessage", (message) => {
     });
     $('#annoncementList').prepend(html);
     $('#badge_number_notifi').show();
-    var total = $('#totalAnnouncement').text() + 1;
-    var totalAnnounce = parseInt(total);
+    var total = $('#totalAnnouncement').text();
+    if (total === null || total === "")
+        total = 0;
+    var totalAnnounce = parseInt(total) + 1;
 
     $('#totalAnnouncement').text(totalAnnounce);
 });

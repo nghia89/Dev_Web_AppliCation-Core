@@ -10,8 +10,8 @@ using WebAppCore.Data.EF;
 namespace WebAppCore.Data.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190821065152_update_db")]
-    partial class update_db
+    [Migration("20190825161636_update_entity")]
+    partial class update_entity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -179,6 +179,8 @@ namespace WebAppCore.Data.EF.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(128);
+
+                    b.Property<string>("Avartar");
 
                     b.Property<string>("Content")
                         .HasMaxLength(250);
