@@ -343,6 +343,7 @@
                 wrapPaging(response.RowCount, function () {
                     loadData();
                 }, isPageChanged);
+                structures.stopLoading();
             },
             error: function (status) {
                 console.log(status);
