@@ -38,7 +38,7 @@
                         <ul class="links">
                             @*<li class="hidden-xs"><a title="Help Center" href="#"><span>Help Center</span></a></li>
                                 <li><a title="Store Locator" href="#"><span>Store Locator</span></a></li>*@
-                            <li><a title="Checkout" href="checkout.html"><span>Checkout</span></a></li>
+                            <li><a title="Checkout" href="checkout.html"><span>Đơn hàng</span></a></li>
                             @if(User.Identity.IsAuthenticated)
                             {
 
@@ -48,22 +48,22 @@
                                         <ul class="dropdown-menu" role="menu">
                                             @if(User.GetSpecificClaim("Roles") == "Admin")
                                             {
-                                                <li><a href="/Admin/Home/Index"  target="_blank">Admin</a></li>}
-                                            <li><a href="/wishlist.html">Wishlist</a></li>
-                                            <li><a href="/orders-list.html">Order Tracking</a></li>
+                                                <li><a href="/Admin/Home/Index"  target="_blank">Quản Trị</a></li>}
+                                            <li><a href="/wishlist.html">Yêu Thích</a></li>
+                                            <li><a href="/orders-list.html">Kiểm tra đơn hàng</a></li>
                                         </ul>
                                     </div>
                                 </li>
                                 <li>
-                                    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+                                    <form asp-area="" asp-controller="Account" asp-action="Đăng xuất" method="post" id="logoutForm" class="navbar-right">
                                         <a  onclick="document.getElementById('logoutForm').submit()"><span>Thoát</span></a>
                                     </form>
                                 </li>
                             }
                             else
                             {
-                                <li><a title="login" href="/login.html"><span>Login</span></a></li>
-                                <li><a title="register" href="/register.html"><span>Register</span></a></li>
+                                <li><a title="login" href="/login.html"><span>Đăng Nhập</span></a></li>
+                                <li><a title="register" href="/register.html"><span>Đăng Kí</span></a></li>
                             }
                         </ul>
                     </div>
