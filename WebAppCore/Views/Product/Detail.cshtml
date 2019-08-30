@@ -97,7 +97,7 @@
                         </div>
                         <div class="ratings">
                             <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                            <p class="rating-links"> <a >1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
+                            <p class="rating-links"> <a>1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
                             <p class="availability @(product.Status==WebAppCore.Data.Enums.Status.Active?"in-stock":"out-of-stock") pull-right">Availability: <span>@product.Status</span></p>
                         </div>
                         <div class="short-description">
@@ -133,9 +133,9 @@
                         </div>
                         <div class="product-cart-option">
                             <ul>
-                                <li><a ><i class="fa fa-heart-o"></i><span>Add to Wishlist</span></a></li>
-                                <li><a ><i class="fa fa-link"></i><span>Add to Compare</span></a></li>
-                                <li><a ><i class="fa fa-envelope"></i><span>Email to a Friend</span></a></li>
+                                <li><a><i class="fa fa-heart-o"></i><span>Add to Wishlist</span></a></li>
+                                <li><a><i class="fa fa-link"></i><span>Add to Compare</span></a></li>
+                                <li><a><i class="fa fa-envelope"></i><span>Email to a Friend</span></a></li>
                             </ul>
                         </div>
                         @if(Model.Tags.Count > 0)
@@ -153,7 +153,7 @@
 
                         <div class="share-box">
                             <div class="title">Share in social media</div>
-                            <div class="socials-box"> <a ><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-google-plus"></i></a> <a href="#"><i class="fa fa-youtube"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-instagram"></i></a> </div>
+                            <div class="socials-box"> <a><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-google-plus"></i></a> <a href="#"><i class="fa fa-youtube"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-instagram"></i></a> </div>
                         </div>
                     </div>
                 </div>
@@ -209,8 +209,8 @@
                                                 </div>
                                                 <div class="pr-info-area">
                                                     <div class="pr-button">
-                                                        <div class="mt-button add_to_wishlist"> <a > <i class="fa fa-heart-o"></i> </a> </div>
-                                                        <div class="mt-button quick-view"> <a > <i class="fa fa-search"></i> </a> </div>
+                                                        <div class="mt-button add_to_wishlist"> <a> <i class="fa fa-heart-o"></i> </a> </div>
+                                                        <div class="mt-button quick-view"> <a> <i class="fa fa-search"></i> </a> </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -249,65 +249,65 @@
 <!-- Related Product Slider End -->
 <!-- Upsell Product Slider -->
 @*@if(Model.UpsellProducts.Count > 0)
-{
-    <section class="upsell-product-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="page-header">
-                        <h2>UpSell Products</h2>
-                    </div>
-                    <div class="slider-items-products">
-                        <div id="upsell-product-slider" class="product-flexslider hidden-buttons">
-                            <div class="slider-items slider-width-col4">
-                                @foreach(var item in Model.UpsellProducts)
-                                {
-                                    var url = item.SeoAlias + "-" + "p." + item.Id + ".html";
-                                    <div class="product-item">
-                                        <div class="item-inner">
-                                            <div class="product-thumbnail">
-                                                <div class="pr-img-area">
-                                                    <a title="@item.Name" href="@url">
-                                                        <figure> <img class="first-img" src="@item.Image" alt="@item.Name"> <img class="hover-img" src="@item.Image" alt="@item.Name"></figure>
-                                                    </a>
-                                                </div>
-                                                <div class="pr-info-area">
-                                                    <div class="pr-button">
-                                                        <div class="mt-button add_to_wishlist"> <a > <i class="fa fa-heart-o"></i> </a> </div>
-                                                        <div class="mt-button quick-view"> <a > <i class="fa fa-search"></i> </a> </div>
+    {
+        <section class="upsell-product-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="page-header">
+                            <h2>UpSell Products</h2>
+                        </div>
+                        <div class="slider-items-products">
+                            <div id="upsell-product-slider" class="product-flexslider hidden-buttons">
+                                <div class="slider-items slider-width-col4">
+                                    @foreach(var item in Model.UpsellProducts)
+                                    {
+                                        var url = item.SeoAlias + "-" + "p." + item.Id + ".html";
+                                        <div class="product-item">
+                                            <div class="item-inner">
+                                                <div class="product-thumbnail">
+                                                    <div class="pr-img-area">
+                                                        <a title="@item.Name" href="@url">
+                                                            <figure> <img class="first-img" src="@item.Image" alt="@item.Name"> <img class="hover-img" src="@item.Image" alt="@item.Name"></figure>
+                                                        </a>
+                                                    </div>
+                                                    <div class="pr-info-area">
+                                                        <div class="pr-button">
+                                                            <div class="mt-button add_to_wishlist"> <a > <i class="fa fa-heart-o"></i> </a> </div>
+                                                            <div class="mt-button quick-view"> <a > <i class="fa fa-search"></i> </a> </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="item-info">
-                                                <div class="info-inner">
-                                                    <div class="item-title"> <a title="@item.Name" href="@url">@item.Name</a> </div>
-                                                    <div class="item-content">
-                                                        <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                        <div class="item-price">
-                                                            <div class="price-box">
-                                                                <span class="regular-price">
-                                                                    <span class="price">@item.Price.ToString("N0")</span>
-                                                                </span>
+                                                <div class="item-info">
+                                                    <div class="info-inner">
+                                                        <div class="item-title"> <a title="@item.Name" href="@url">@item.Name</a> </div>
+                                                        <div class="item-content">
+                                                            <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                                                            <div class="item-price">
+                                                                <div class="price-box">
+                                                                    <span class="regular-price">
+                                                                        <span class="price">@item.Price.ToString("N0")</span>
+                                                                    </span>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="pro-action">
-                                                            <button type="button" class="add-to-cart" data-id="@item.Id"><span> Thêm vào giỏ</span> </button>
+                                                            <div class="pro-action">
+                                                                <button type="button" class="add-to-cart" data-id="@item.Id"><span> Thêm vào giỏ</span> </button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                }
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-}*@
+    }*@
 
 <!-- Upsell Product Slider End -->
