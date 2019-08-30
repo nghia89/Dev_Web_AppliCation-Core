@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <![endif]-->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@ViewData["Title"] </title>
-    <meta name="description" content="ViewData[" MetaDescription"]>
-    <meta name="keywords" content="ViewData[" MetaKeyword"] />
-
+    <title>@ViewData["Title"] @ViewData[" MetaDescription"]</title>
+    <meta name="MetaDescription" content="@ViewData["MetaDescription"]">
+    <meta name="MetaKeyword" content="@ViewData["MetaKeyword"]" />
+    <meta name="google-site-verification" content="DBq7FNdHagj229U2WUeaHyWgjhqJN83hCAz2I4ppsbY" />
     <!-- Mobile specific metas  -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -64,7 +64,7 @@
         <!-- End Footer -->
     </div>
 
-   
+
     <environment names="Development">
         <!-- JS -->
         <!-- jquery js -->
@@ -133,6 +133,14 @@
         Baseobj.initialize();
     </script>
     @RenderSection("Scripts",required: false)
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145081139-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
+        gtag('config', 'UA-145081139-2');
+    </script>
 </body>
 </html>
