@@ -68,15 +68,15 @@ namespace WebAppCore.Areas.Admin.Controllers
 		public async Task<IActionResult> SaveEntity(AppUserViewModel userVm)
 		{
 			var data = await _userService.GetUserWithRole("Admin");
-			if(!ModelState.IsValid)
-			{
-				IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
-				return new BadRequestObjectResult(allErrors);
-			}
+			//if(!ModelState.IsValid)
+			//{
+			//	IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
+			//	return new BadRequestObjectResult(allErrors);
+			//}
 			var userId = User.GetUserId();
 			var notificationId = Guid.NewGuid().ToString();
 			var avatar = User.GetSpecificClaim("Avatar");
-			if(userVm.Id == null)
+			if(userVm.Id == Guid.Empty|| userVm.Id == null)
 			{
 				var announcement = new AnnouncementViewModel() {
 					Content = $"User {userVm.UserName} has been created",

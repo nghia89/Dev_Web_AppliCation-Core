@@ -12,7 +12,7 @@ namespace WebAppCore.Application.ViewModels.System
         {
             Roles = new List<string>();
         }
-        public Guid Id { set; get; }
+        public Guid? Id { set; get; }
         public string FullName { set; get; }
         public string BirthDay { set; get; }
         public string Email { set; get; }

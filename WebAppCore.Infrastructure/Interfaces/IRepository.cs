@@ -37,5 +37,7 @@ namespace WebAppCore.Infrastructure.Interfaces
 
 		Task<(ICollection<T>, long count)> Paging(int page,int pageSize,Expression<Func<T,bool>> predicate,params Expression<Func<T,object>>[] includeProperties);
 
+		Task RemoveRange(T entity,Expression<Func<T,bool>> predicate);
+
 	}
 }

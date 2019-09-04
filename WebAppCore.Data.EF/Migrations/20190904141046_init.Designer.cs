@@ -10,8 +10,8 @@ using WebAppCore.Data.EF;
 namespace WebAppCore.Data.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190830041749_initial")]
-    partial class initial
+    [Migration("20190904141046_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

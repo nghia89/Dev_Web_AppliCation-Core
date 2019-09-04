@@ -38,7 +38,7 @@ namespace WebAppCore.Application.Implementation
 				if(item.Id != userId)
 				{
 					var announcementUser = null as AnnouncementUserViewModel;
-					announcementUser = new AnnouncementUserViewModel() { AnnouncementId = content.Id,HasRead = false,UserId = item.Id };
+					announcementUser = new AnnouncementUserViewModel() { AnnouncementId = content.Id,HasRead = false,UserId = item.Id.Value };
 					var user = announcementUser.AddModel();
 					await _announcementUserRepository.AddAsyn(user);
 				}

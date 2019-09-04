@@ -1,5 +1,4 @@
-﻿using AutoMapper.QueryableExtensions;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -165,11 +164,12 @@ namespace WebAppCore.Application.Implementation
 			{
 				userRoles.Add(new IdentityUserRole<Guid> { RoleId = roleId,UserId = user.Id });
 			}
-			_context.UserRoles.RemoveRange(userRoles);
+			await _userManager.RemoveFromRolesAsync(user,roles);
+			//await _userManager.RemoveFromRolesAsync(user,roles);
 			await _context.SaveChangesAsync();
 
 		}
-		
+
 		public async Task<List<AppUserViewModel>> GetUserWithRole(string roleName)
 		{
 			var role = await _context.AppRoles.Where(n => n.Name.Equals(roleName)).SingleOrDefaultAsync();
@@ -179,7 +179,7 @@ namespace WebAppCore.Application.Implementation
 
 			foreach(var item in userRoles)
 			{
-				var user= await _userManager.FindByIdAsync(item.UserId.ToString());
+				var user = await _userManager.FindByIdAsync(item.UserId.ToString());
 				lst.Add(user);
 			}
 
