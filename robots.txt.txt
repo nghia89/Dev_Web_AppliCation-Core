@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /Admin/
-Disallow: /bin/
-Disallow: /Scripts/
-Disallow: /packages.config
-Disallow: /Web.config
-
-Sitemap: https://shophouseware.azurewebsites.netsitemap.xml

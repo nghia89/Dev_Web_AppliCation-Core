@@ -2,7 +2,7 @@
     this.initialize = function () {
         loadData();
         registerEvents();
-    };
+    }
 
     function registerEvents() {
         //Init validation
@@ -125,7 +125,7 @@
                         structures.startLoading();
                     },
                     success: function (res) {
-                        if (res !== false) {
+                        if (res != false) {
                             structures.notify('Save user succesful', 'success');
                             $('#modal-add-edit').modal('hide');
                             resetFormMaintainance();
@@ -134,11 +134,11 @@
                             loadData(true);
                         }
                         else {
-                            structures.notify('Email hoặc tài khoản đã tồn tại', 'error');
-                            structures.stopLoading();
+                                structures.notify('Email hoặc tài khoản đã tồn tại', 'error');
+                                structures.stopLoading();
                         }
                     }
-
+                   
                 });
             }
             return false;
@@ -168,7 +168,7 @@
             });
         });
 
-    }
+    };
 
 
     function disableFieldEdit(disabled) {
@@ -290,4 +290,4 @@
             }
         });
     }
-};
+}

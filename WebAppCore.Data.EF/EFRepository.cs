@@ -151,20 +151,12 @@ namespace WebAppCore.Data.EF
             _context.Set<T>().RemoveRange(entities);
         }
 
-		public async Task RemoveRange(T entity,Expression<Func<T,bool>> predicate)
-		{
-			var db = _context.Set<T>();
-			var records =await db.Where(predicate).AsNoTracking().ToListAsync();
-			if(records.Count > 0)
-				db.RemoveRange(records);
-		}
+        //public void Update(T entity)
+        //{
+        //    _context.Set<T>().Update(entity);
+        //}
 
-		//public void Update(T entity)
-		//{
-		//    _context.Set<T>().Update(entity);
-		//}
-
-		public T Update(T entity)
+        public T Update(T entity)
         {
             var dbEntity = _context.Set<T>().AsNoTracking().Single(p => p.Id.Equals(entity.Id));
             var databaseEntry = _context.Entry(dbEntity);
@@ -182,12 +174,8 @@ namespace WebAppCore.Data.EF
                 var proposedValue = inputEntry.Property(property.Name).CurrentValue;
 
                 var originalValue = databaseEntry.Property(property.Name).OriginalValue;
-				if(proposedValue == null)
-				{
-					databaseEntry.Property(property.Name).IsModified = true;
-					databaseEntry.Property(property.Name).CurrentValue = proposedValue;
-				}
-				if (proposedValue != null && !proposedValue.Equals(originalValue))
+
+                if (proposedValue != null && !proposedValue.Equals(originalValue))
                 {
                     databaseEntry.Property(property.Name).IsModified = true;
                     databaseEntry.Property(property.Name).CurrentValue = proposedValue;
