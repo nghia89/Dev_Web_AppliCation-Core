@@ -33,9 +33,6 @@ namespace WebAppCore.Controllers
 			//var culture = HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture.Culture.Name;
 			ViewData["BodyClass"] = "cms-index-index cms-home-page";
 			var homeVm = new HomeViewModel();
-			homeVm.Title = "Ngò Gai - Siêu thị điện máy, nội thất chính hãng giá rẻ";
-			homeVm.MetaDescription = "Hệ thống bán lẻ điện máy, đồ dùng gia dụng,  chính hãng mới nhất, giá tốt, dịch vụ khách hàng được yêu thích nhất VN";
-			homeVm.MetaKeyword = "Ngò gai, ngogai, điện thoại di động, dtdd, smartphone, tablet, máy tính bảng, Laptop, máy tính xách tay, phụ kiện điện thoại, tin công nghệ";
 			homeVm.HomeCategories = await _productCategoryService.GetHomeCategories(5);
 			homeVm.BuyALotProducts = await _productService.GetBuyALotProduct(5);
 			//homeVm.HotProducts = await _productService.GetHotProduct(5);
