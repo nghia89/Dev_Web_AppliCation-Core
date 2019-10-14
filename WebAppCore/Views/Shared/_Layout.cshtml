@@ -19,7 +19,15 @@
 
     <!-- CSS Style -->
     @RenderSection("Style",required: false)
-    <link rel="stylesheet" href="~/client-side/style.css">
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/client-side/style.css">
+        <link rel="stylesheet" href="~/client-side/css/style.css">
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/client-side/style.css">
+        <link rel="stylesheet" href="~/client-side/css/style.min.css">
+    </environment>
 
     @*<link href="~/lib/notifyjs/dist/styles/metro/notify-metro.css" rel="stylesheet" />*@
 </head>
@@ -64,7 +72,7 @@
         <!-- End Footer -->
     </div>
 
-   
+
     <environment names="Development">
         <!-- JS -->
         <!-- jquery js -->
