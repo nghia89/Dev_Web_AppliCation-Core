@@ -28,8 +28,18 @@ namespace WebAppCore.Areas.Admin.Components
             }
             else
             {
-                functions = new List<FunctionViewModel>();
-            }
+				var listRole = roles.Split(";");
+				var listfunctions = await _functionService.GetAllFunctionByRole(listRole);
+				functions = listfunctions.Select(x => new FunctionViewModel() {
+					Id=x.Id,
+					Name=x.Name,
+					IconCss=x.IconCss,
+					ParentId=x.ParentId,
+					SortOrder=x.SortOrder,
+					Status=x.Status,
+					URL=x.URL
+				}).ToList();
+			}
             return View(functions);
         }
     }
