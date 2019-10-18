@@ -2300,7 +2300,7 @@ a.link:hover {
 	display: block;
 }
 .product-item .pr-img-area > a::before {
-	background: #444 none repeat scroll 0 0;
+	/*background: #444 none repeat scroll 0 0;*/
 	content: "";
 	height: 100%;
 	opacity: 0;
