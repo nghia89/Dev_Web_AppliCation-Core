@@ -1,23 +1,29 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Authorization
+@using WebAppCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
     ViewData["Title"] = "Pages";
+    var create = await AuthorizationService.AuthorizeAsync(User,"BLOG",Operations.Create);
+    var update = await AuthorizationService.AuthorizeAsync(User,"BLOG",Operations.Update);
+    var delete = await AuthorizationService.AuthorizeAsync(User,"BLOG",Operations.Delete);
 }
 @section Scripts{
-   
-<environment names="Development">
-    <script src="~/app/Controller/blog/index.js" asp-append-version="true"></script>
-    <script>
-        var BlogObj = new BlogController();
-        BlogObj.initialize();
-    </script>
-</environment>
 
-<environment names="Staging,Production">
-    <script src="~/app/Controller/blog/index.min.js" asp-append-version="true"></script>
-    <script>
-        var BlogObj = new BlogController();
-        BlogObj.initialize();
-    </script>
-</environment>
+    <environment names="Development">
+        <script src="~/app/Controller/blog/index.js" asp-append-version="true"></script>
+        <script>
+            var BlogObj = new BlogController();
+            BlogObj.initialize();
+        </script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/app/Controller/blog/index.min.js" asp-append-version="true"></script>
+        <script>
+            var BlogObj = new BlogController();
+            BlogObj.initialize();
+        </script>
+    </environment>
 }
 
 <input type="hidden" id="hid-category-id" value="0" />
@@ -27,9 +33,13 @@
             <h3>Pages</h3>
         </div>
         <div class="title_right">
-            <div class="col-md-2 col-sm-2 col-xs-12 form-group pull-right top_search">
-                <button class="btn btn-success" id="btn-create" type="button">Create</button>
-            </div>
+            @if(create.Succeeded)
+            {
+                <div class="col-md-2 col-sm-2 col-xs-12 form-group pull-right top_search">
+                    <button class="btn btn-success" id="btn-create" type="button">Create</button>
+                </div>
+            }
+
             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                 <div class="input-group">
                     <input type="text" id="txt-search-keyword" class="form-control" placeholder="Keyword...">
@@ -90,8 +100,14 @@
             <td>{{Description}}</td>
             <td>{{{Status}}}</td>
             <td>
-                <a href="#" data-id="{{Id}}" class="btn-edit"><i class="fa fa-pencil-square-o"></i></a>
-                <a href="#" data-id="{{Id}}" class="btn-delete"><i class="fa fa-trash-o"></i></a>
+                @if(update.Succeeded)
+                {
+                    <a href="#" data-id="{{Id}}" class="btn-edit"><i class="fa fa-pencil-square-o"></i></a>
+                }
+                @if(delete.Succeeded)
+                {
+                    <a href="#" data-id="{{Id}}" class="btn-delete"><i class="fa fa-trash-o"></i></a>
+                }
             </td>
         </tr>
     </script>

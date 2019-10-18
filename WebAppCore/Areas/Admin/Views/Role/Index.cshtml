@@ -37,7 +37,7 @@
         <div class="title_right">
             <div class="col-md-2 col-sm-2 col-xs-12 form-group pull-right top_search">
                 @{
-                    var result = await AuthorizationService.AuthorizeAsync(User,"USER",Operations.Create);
+                    var result = await AuthorizationService.AuthorizeAsync(User,"ROLE",Operations.Create);
                 }
                 @if(result.Succeeded)
                 {
@@ -109,12 +109,15 @@
             <td>
 
                 <a href="#" data-id="{{Id}}" class="btn  btn-xs btn-primary btn-grant"><i class="fa fa-eye-slash"></i></a>
-                @if((await AuthorizationService.AuthorizeAsync(User,"USER",Operations.Update)).Succeeded)
+                @if((await AuthorizationService.AuthorizeAsync(User,"ROLE",Operations.Update)).Succeeded)
                 {
                     <a href="#" data-id="{{Id}}" class="btn  btn-xs btn-info btn-edit"><i class="fa fa-pencil-square-o"></i></a>
 
                 }
-                <a href="#" data-id="{{Id}}" class="btn btn-xs  btn-danger btn-delete"><i class="fa fa-trash-o"></i></a>
+                @if((await AuthorizationService.AuthorizeAsync(User,"ROLE",Operations.Delete)).Succeeded)
+                {
+                    <a href="#" data-id="{{Id}}" class="btn btn-xs  btn-danger btn-delete"><i class="fa fa-trash-o"></i></a>
+                }
             </td>
         </tr>
     </script>

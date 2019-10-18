@@ -37,7 +37,9 @@
 
 <div class="clearfix"></div>
 @{
-    var result = await AuthorizationService.AuthorizeAsync(User, "USER", Operations.Create);
+    var Create = await AuthorizationService.AuthorizeAsync(User,"PRODUCT", Operations.Create);
+    var update = await AuthorizationService.AuthorizeAsync(User,"PRODUCT", Operations.Update);
+    var delete = await AuthorizationService.AuthorizeAsync(User,"PRODUCT", Operations.Delete);
 }
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -64,7 +66,14 @@
                     <select class="form-control" id="ddlCategorySearch"></select>
                 </div>
                 <div class="col-md-6 col-sm-12  form-group pull-right">
-                    <button id="btnCreate" class="btn btn-success">Create</button>
+                    @{
+                        if(Create.Succeeded)
+                        {
+                            <button id="btnCreate" class="btn btn-success">Create</button>
+                        }
+
+                    }
+
                     <a class="btn btn-danger" href="~/templates/ProductImportTemplate.xlsx">Template</a>
                     <button class="btn btn-primary" id="btn-import" type="button"><i class="fa fa-file-excel-o"></i></button>
                     <button class="btn btn-default" id="btn-export" type="button"><i class="fa fa-forward"></i></button>
@@ -132,8 +141,16 @@
         <td width="150">{{CreatedDate}}</td>
         <td width="20">{{{Status}}}</td>
         <th scope="row">
-            <a class="btn  btn-sm btn-edit" data-id="{{Id}}" title="Sửa"><i class="fa fa-pencil"></i></a>
-            <a class="btn  btn-sm btn-delete" data-id="{{Id}}" title="Xoá"><i class="fa fa-trash"></i></a>
+            @{
+                if(update.Succeeded)
+                {
+                    <a class="btn  btn-sm btn-edit" data-id="{{Id}}" title="Sửa"><i class="fa fa-pencil"></i></a>
+                }
+                if(delete.Succeeded)
+                {
+                    <a class="btn  btn-sm btn-delete" data-id="{{Id}}" title="Xoá"><i class="fa fa-trash"></i></a>
+                }
+            }
             <a href="#" data-id="{{Id}}" class="btn btn-xs btn-images" title="Quản lý ảnh"><i class="fa fa-image"></i></a>
             <a href="#" data-id="{{Id}}" class="btn btn-xs btn-quantity" title="Quản lý số lượng"><i class="fa fa-hourglass-start"></i></a>
             <a href="#" data-id="{{Id}}" class="btn btn-xs btn-whole-price" title="quản lý giá"><i class="fa fa-money"></i></a>

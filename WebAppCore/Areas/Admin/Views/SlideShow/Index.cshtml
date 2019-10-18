@@ -1,6 +1,10 @@
-﻿
+﻿@using Microsoft.AspNetCore.Authorization
+@using WebAppCore.Authorization
+@inject IAuthorizationService AuthorizationService
 @{
     ViewData["Title"] = "Index";
+    var create = await AuthorizationService.AuthorizeAsync(User,"SLIDE",Operations.Create);
+    var delete = await AuthorizationService.AuthorizeAsync(User,"SLIDE",Operations.Delete);
 }
 @section Scripts{
     <environment names="Development">
@@ -20,6 +24,7 @@
     </environment>
 }
 
+
 <input type="hidden" id="hid-category-id" value="0" />
 <div class="">
     <div class="page-title">
@@ -29,7 +34,10 @@
 
         <div style="float:right">
             <div class="col-md-2 col-sm-2 col-xs-12 form-group">
-                <button class="btn btn-success" id="btn-create" type="button">Create</button>
+                @if(create.Succeeded)
+                {
+                    <button class="btn btn-success" id="btn-create" type="button">Create</button>
+                }
             </div>
         </div>
     </div>
@@ -89,7 +97,10 @@
             <td>{{{Image}}}</td>
             <td>{{{Status}}}</td>
             <td>{{{GroupAlias}}}</td>
-            <td><a class="btn  btn-sm btn-delete" data-id="{{Id}}" title="Xoá"><i class="fa fa-trash"></i></a></td>
+            @if(delete.Succeeded)
+            {
+                <td><a class="btn  btn-sm btn-delete" data-id="{{Id}}" title="Xoá"><i class="fa fa-trash"></i></a></td>
+            }
         </tr>
     </script>
 </div>
