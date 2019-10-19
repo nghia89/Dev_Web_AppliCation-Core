@@ -12,6 +12,8 @@ namespace WebAppCore.Application.Interfaces
 
         void Update(ContactViewModel contactVm);
 
+        void Create(ContactViewModel contactVm);
+
         void Delete(string id);
 
         List<ContactViewModel> GetAll();
@@ -21,5 +23,5 @@ namespace WebAppCore.Application.Interfaces
         ContactViewModel GetById(string id);
 
         void SaveChanges();
-    }
+	}
 }

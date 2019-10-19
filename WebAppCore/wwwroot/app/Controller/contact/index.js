@@ -1,9 +1,9 @@
-﻿var slideShowController = function () {
+﻿var conactController = function () {
     this.initialize = function () {
         loadData();
         registerEvents();
         registerControls();
-    }
+    };
 
     function registerEvents() {
         //todo: binding events to controls
@@ -42,7 +42,7 @@
         $('body').on('click', '.btn-delete', function (e) {
             e.preventDefault();
             var that = $(this).data('id');
-            deleteSlide(that);
+            deleteConact(that);
         });
 
         $('#btnSelectImg').on('click', function () {
@@ -77,7 +77,7 @@
     function loadDetails(id) {
         $.ajax({
             type: "GET",
-            url: "/Admin/SlideShow/GetById",
+            url: "/Admin/Contact/GetById",
             data: { id: id },
             dataType: "json",
             beforeSend: function () {
@@ -87,12 +87,13 @@
                 var data = response;
                 $('#hidId').val(data.Id);
                 $('#txtName').val(data.Name);
-                $('#txtDesc').val(data.Description);
-                $('#txtImage').val(data.Image);
-                $('#txtUrl').val(data.Ủl);
-                $('#txtGroupAlias').val(data.GroupAlias);
-                CKEDITOR.instances.txtContent.getData(data.Content);
-                $('#ckStatus').prop('checked', data.Status === 1);
+                $('#txtPhone').val(data.Phone);
+                $('#txtEmail').val(data.Email);
+                $('#txtLat').val(data.Lat);
+                $('#txtLng').val(data.Lng);
+                $('#txtWebsite').val(data.Website);
+                $('#txtAddress').val(data.Address);
+                $('#ckStatusM').prop('checked', data.Status === 1);
 
 
                 $('#modal-add-edit').modal('show');
@@ -105,11 +106,11 @@
         });
     }
 
-    function deleteSlide(id) {
+    function deleteConact(id) {
         structures.confirm('Are you sure to delete?', function () {
             $.ajax({
                 type: "POST",
-                url: "/Admin/SlideShow/Delete",
+                url: "/Admin/Contact/Delete",
                 data: { id: id },
                 dataType: "json",
                 beforeSend: function () {
@@ -138,17 +139,17 @@
                 page: structures.configs.pageIndex,
                 pageSize: structures.configs.pageSize
             },
-            url: '/admin/SlideShow/GetAllPaging',
+            url: '/admin/Contact/GetAllPaging',
             dataType: 'JSON',
             success: function (response) {
                 $.each(response.Results, function (i, item) {
                     render += Mustache.render(template, {
                         Id: item.Id,
                         Name: item.Name,
-                        Image: item.Image === null ? '<img src="/admin-side/images/user.png" width=25' : '<img src="' + item.Image + '" width=25 />',
-                        Description: item.Description,
-                        GroupAlias: item.GroupAlias,
-                        Status: structures.getStatus(item.Status)
+                        Phone: item.Phone,
+                        Email: item.Email,
+                        Lat: item.Lat,
+                        Lng: item.Lng
                     });
                 });
                 $('#lblTotalRecords').text(response.RowCount);
@@ -161,7 +162,7 @@
             },
             error: function (status) {
                 console.log(status);
-                structures.notify('Không thể tải dữ liệu', 'error')
+                structures.notify('Không thể tải dữ liệu', 'error');
             }
         });
     }
@@ -171,24 +172,26 @@
             e.preventDefault();
             var id = $('#hidId').val();
             var name = $('#txtName').val();
-            var description = $('#txtDesc').val();
-            var image = $('#txtImage').val();
-            var url = $('#txtUrl').val();
-            var groupAlias = $('#txtGroupAlias').val();
-            var content = CKEDITOR.instances.txtContent.getData();
+            var phone = $('#txtPhone').val();
+            var email = $('#txtEmail').val();
+            var lat = $('#txtLat').val();
+            var lng = $('#txtLng').val();
+            var website = $('#txtWebsite').val();
+            var address = $('#txtAddress').val();
             var status = $('#ckStatus').prop('checked') === true ? 1 : 0;
             $.ajax({
                 type: "POST",
-                url: "/Admin/SlideShow/SaveEntity",
+                url: "/Admin/Contact/SaveEntity",
                 data: {
                     Id: id,
                     Name: name,
-                    Image: image,
-                    Description: description,
-                    Content: content,
-                    GroupAlias: groupAlias,
-                    Status: status,
-                    Url: url,
+                    Phone: phone,
+                    Email: email,
+                    Lat: lat,
+                    Lng: lng,
+                    Website: website,
+                    Address: address,
+                    Status: status
                 },
                 dataType: "json",
                 beforeSend: function () {
@@ -212,11 +215,17 @@
     }
 
     function resetFormMaintainance() {
-        $('#hidId').val(0);
+        $('#hidId').val('');
         $('#txtName').val('');
         $('#txtImage').val('');
         $('#txtUrl').val('');
         $('#txtMetaDescription').val('');
+        $('#txtPhone').val('');
+        $('#txtEmail').val('');
+        $('#txtLat').val('');
+        $('#txtLng').val('');
+        $('#txtWebsite').val('');
+        $('#txtAddress').val('');
         $('#ckStatusM').prop('checked', true);
     }
 
@@ -263,4 +272,4 @@
             }
         });
     }
-}
+};

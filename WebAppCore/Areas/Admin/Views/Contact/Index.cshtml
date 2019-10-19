@@ -3,24 +3,24 @@
 @inject IAuthorizationService AuthorizationService
 @{
     ViewData["Title"] = "Index";
-    var create = await AuthorizationService.AuthorizeAsync(User,"SLIDE",Operations.Create);
-    var delete = await AuthorizationService.AuthorizeAsync(User,"SLIDE",Operations.Delete);
-    var update = await AuthorizationService.AuthorizeAsync(User,"SLIDE",Operations.Update);
+    var create = await AuthorizationService.AuthorizeAsync(User,"CONTACT",Operations.Create);
+    var delete = await AuthorizationService.AuthorizeAsync(User,"CONTACT",Operations.Delete);
+    var update = await AuthorizationService.AuthorizeAsync(User,"CONTACT",Operations.Update);
 }
 @section Scripts{
     <environment names="Development">
-        <script src="~/app/Controller/slide/index.js"></script>
+        <script src="~/app/Controller/contact/index.js"></script>
         <script>
-            var slide = new slideShowController();
-            slide.initialize();
+            var contact = new conactController();
+            contact.initialize();
         </script>
     </environment>
 
     <environment names="Staging,Production">
-        <script src="~/app/Controller/slide/index.min.js"></script>
+        <script src="~/app/Controller/contact/index.min.js"></script>
         <script>
-            var slide = new slideShowController();
-            slide.initialize();
+            var contact = new conactController();
+            contact.initialize();
         </script>
     </environment>
 }
@@ -30,7 +30,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Slide Show</h3>
+            <h3>Conatct</h3>
         </div>
 
         <div style="float:right">
@@ -54,10 +54,10 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Name</th>
-                                <th>Description</th>
-                                <th>Image</th>
-                                <th>Status</th>
-                                <th>GroupAlias</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>latitude</th>
+                                <th>Longitude</th>
                             </tr>
                         </thead>
                         <tbody id="tbl-content"></tbody>
@@ -94,19 +94,19 @@
         <tr>
             <td>{{Id}}</td>
             <td>{{Name}}</td>
-            <td>{{{Description}}}</td>
-            <td>{{{Image}}}</td>
-            <td>{{{Status}}}</td>
-            <td>{{{GroupAlias}}}</td>
+            <td>{{{Phone}}}</td>
+            <td>{{{Email}}}</td>
+            <td>{{{Lat}}}</td>
+            <td>{{{Lng}}}</td>
             <td>
                 @if(update.Succeeded)
                 {
                     <a class="btn  btn-sm btn-edit" data-id="{{Id}}" title="Sửa"><i class="fa fa-pencil"></i></a>
                 }
+
                 @if(delete.Succeeded)
                 {
                     <a class="btn  btn-sm btn-delete" data-id="{{Id}}" title="Xoá"><i class="fa fa-trash"></i></a>
-
                 }
             </td>
         </tr>

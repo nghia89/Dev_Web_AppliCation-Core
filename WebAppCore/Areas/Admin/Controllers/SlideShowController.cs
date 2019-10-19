@@ -22,15 +22,15 @@ namespace WebAppCore.Areas.Admin.Controllers
             return View();
         }
 
-        //[HttpGet]
-        //public IActionResult GetById(int id)
-        //{
-        //    var model = _slideShowService.GetDetail(id);
+		[HttpGet]
+		public IActionResult GetById(int id)
+		{
+			var model = _slideShowService.GetById(id);
 
-        //    return new OkObjectResult(model);
-        //}
+			return new OkObjectResult(model);
+		}
 
-        public IActionResult GetAllPaging(int page, int pageSize)
+		public IActionResult GetAllPaging(int page, int pageSize)
         {
             var data = _slideShowService.GetAllPaging(page, pageSize);
             return new OkObjectResult(data);
