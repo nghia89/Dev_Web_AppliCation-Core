@@ -10,7 +10,7 @@ using WebAppCore.Data.EF;
 namespace WebAppCore.Data.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191009161257_init")]
+    [Migration("20191020054638_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -379,8 +379,6 @@ namespace WebAppCore.Data.EF.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BillId");
-
-                    b.HasIndex("ColorId");
 
                     b.HasIndex("ProductId");
 
@@ -1044,11 +1042,6 @@ namespace WebAppCore.Data.EF.Migrations
                         .HasForeignKey("BillId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("WebAppCore.Data.Entities.Color", "Color")
-                        .WithMany()
-                        .HasForeignKey("ColorId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("WebAppCore.Data.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
@@ -1071,7 +1064,7 @@ namespace WebAppCore.Data.EF.Migrations
             modelBuilder.Entity("WebAppCore.Data.Entities.Permission", b =>
                 {
                     b.HasOne("WebAppCore.Data.Entities.Function", "Function")
-                        .WithMany()
+                        .WithMany("Permission")
                         .HasForeignKey("FunctionId")
                         .OnDelete(DeleteBehavior.Cascade);
 

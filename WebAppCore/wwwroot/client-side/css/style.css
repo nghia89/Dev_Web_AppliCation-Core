@@ -2431,7 +2431,7 @@ a.link:hover {
 }
 .product-item .item-inner .item-info {
 	text-align: center;
-	padding-top: 12px;
+	/*padding-top: 12px;*/
 }
 .product-item .item-inner .item-info .item-title {
 	font-size: 14px;
@@ -7775,7 +7775,7 @@ label[for="rememberme"] {
 	background-color: #e83f33;
 }
 .jtv-best-sale .item-price {
-	margin-bottom: 8px;
+	margin-bottom: -4px;
 }
 .jtv-best-sale .owl-theme .owl-controls .owl-page span {
 	display: block;
@@ -8098,7 +8098,7 @@ label[for="rememberme"] {
 }
 .item-inner .item-info {
 	text-align: center;
-	padding-top: 12px;
+	/*padding-top: 12px;*/
 }
 .item-inner .item-info .item-title {
 	font-size: 14px;

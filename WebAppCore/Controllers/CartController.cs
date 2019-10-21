@@ -63,11 +63,11 @@ namespace WebAppCore.Controllers
 		{
 			var model = new CheckoutViewModel();
 			var session = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
-			if(session.Any(x => x.Color == null))
-			{
-				_logger.LogWarning("Bạn vui lòng chọn màu.");
-				return Redirect("/cart.html");
-			}
+			//if(session.Any(x => x.Color == null))
+			//{
+			//	_logger.LogWarning("Bạn vui lòng chọn màu.");
+			//	return Redirect("/cart.html");
+			//}
 
 			model.Carts = session;
 			return View(model);
@@ -89,7 +89,7 @@ namespace WebAppCore.Controllers
 						details.Add(new BillDetailViewModel() {
 							Product = item.Product,
 							Price = item.Price,
-							ColorId = item.Color.Id,
+							//ColorId = item.Color.Id,
 							//SizeId = item.Size.Id,
 							Quantity = item.Quantity,
 							ProductId = item.Product.Id

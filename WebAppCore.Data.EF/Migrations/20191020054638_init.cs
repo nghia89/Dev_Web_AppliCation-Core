@@ -646,12 +646,6 @@ namespace WebAppCore.Data.EF.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BillDetails_Colors_ColorId",
-                        column: x => x.ColorId,
-                        principalTable: "Colors",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_BillDetails_Product_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Product",
@@ -815,11 +809,6 @@ namespace WebAppCore.Data.EF.Migrations
                 name: "IX_BillDetails_BillId",
                 table: "BillDetails",
                 column: "BillId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BillDetails_ColorId",
-                table: "BillDetails",
-                column: "ColorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_BillDetails_ProductId",
