@@ -208,7 +208,7 @@ namespace WebAppCore.Application.Implementation
 					product.CategoryId = categoryId;
 
 					product.Name = workSheet.Cells[i,1].Value.ToString();
-
+					product.SeoAlias = TextHelper.ToUnsignString(product.Name);
 					if(workSheet.Cells[i,2].Value != null)
 					{
 						product.Description = workSheet.Cells[i,2].Value.ToString();
