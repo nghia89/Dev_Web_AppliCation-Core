@@ -126,8 +126,8 @@ namespace WebAppCore.Application.Implementation
 			{
 				switch(sortPrice)
 				{
-					case (int)PriceEnum.DUOI_500:
-						query = query.Where(x => x.Price <= 500000);
+					case (int)PriceEnum.DUOI_1TR:
+						query = query.Where(x => x.Price <= 1000000);
 						break;
 					case (int)PriceEnum.TU_1TR_DEN_2TR:
 						query = query.Where(x => x.Price >= 1000000 && x.Price <= 2000000);
@@ -135,11 +135,11 @@ namespace WebAppCore.Application.Implementation
 					case (int)PriceEnum.TU_2TR_DEN_4TR:
 						query = query.Where(x => x.Price >= 2000000 && x.Price <= 4000000);
 						break;
-					case (int)PriceEnum.TU_4TR_DEN_6TR:
-						query = query.Where(x => x.Price >= 4000000 && x.Price <= 6000000);
+					case (int)PriceEnum.TU_4TR_DEN_7TR:
+						query = query.Where(x => x.Price >= 4000000 && x.Price <= 7000000);
 						break;
-					case (int)PriceEnum.TU_6TR_DEN_10TR:
-						query = query.Where(x => x.Price >= 6000000 && x.Price <= 10000000);
+					case (int)PriceEnum.TU_7TR_DEN_10TR:
+						query = query.Where(x => x.Price >= 7000000 && x.Price <= 10000000);
 						break;
 					case (int)PriceEnum.TREN_10TR:
 						query = query.Where(x => x.Price >= 10000000);
@@ -558,7 +558,7 @@ namespace WebAppCore.Application.Implementation
 			{
 				switch(sortPrice)
 				{
-					case (int)PriceEnum.DUOI_500:
+					case (int)PriceEnum.DUOI_1TR:
 						data = data.Where(x => x.Price <= 500000);
 						break;
 					case (int)PriceEnum.TU_1TR_DEN_2TR:
@@ -567,11 +567,11 @@ namespace WebAppCore.Application.Implementation
 					case (int)PriceEnum.TU_2TR_DEN_4TR:
 						data = data.Where(x => x.Price >= 2000000 && x.Price <= 4000000);
 						break;
-					case (int)PriceEnum.TU_4TR_DEN_6TR:
-						data = data.Where(x => x.Price >= 4000000 && x.Price <= 6000000);
+					case (int)PriceEnum.TU_4TR_DEN_7TR:
+						data = data.Where(x => x.Price >= 4000000 && x.Price <= 7000000);
 						break;
-					case (int)PriceEnum.TU_6TR_DEN_10TR:
-						data = data.Where(x => x.Price >= 6000000 && x.Price <= 10000000);
+					case (int)PriceEnum.TU_7TR_DEN_10TR:
+						data = data.Where(x => x.Price >= 7000000 && x.Price <= 10000000);
 						break;
 					case (int)PriceEnum.TREN_10TR:
 						data = data.Where(x => x.Price >= 10000000);

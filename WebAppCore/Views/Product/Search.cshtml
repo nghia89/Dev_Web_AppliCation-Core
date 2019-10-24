@@ -80,7 +80,7 @@
                                                             else
                                                             {
                                                                 <div class="price-box"> <span class="regular-price"> <span class="price"> @(item.PromotionPrice.HasValue ? item.PromotionPrice.Value.ToString("N0") : null) </span></span> </div>
-                                                                <p class="old-price"> <span class="price">@item.Price.ToString("N0")</span> </p>
+                                                                <p class="old-price"> <span class="price">@item.Price.ToString("N0")</span> -@((int)(100 - (item.PromotionPrice.Value / item.Price) * 100))%</p>
                                                             }
                                                         </div>
                                                         <div class="pro-action">

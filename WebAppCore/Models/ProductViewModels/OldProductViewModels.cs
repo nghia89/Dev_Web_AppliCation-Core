@@ -34,11 +34,11 @@ namespace WebAppCore.Models.ProductViewModels
 		};
 
 		public List<PriceCheckBox> SortPrice { get; } = new List<PriceCheckBox> {
-			new PriceCheckBox(){Id=1,Selected=false,Name="Dưới 500",Value=(int)PriceEnum.DUOI_500},
+			new PriceCheckBox(){Id=1,Selected=false,Name="Dưới 500",Value=(int)PriceEnum.DUOI_1TR},
 			new PriceCheckBox(){Id=2,Selected=false,Name="Từ 1 - 2 triệu",Value=(int)PriceEnum.TU_1TR_DEN_2TR},
 			new PriceCheckBox(){Id=3,Selected=false,Name="Từ 2 - 4 triệu",Value=(int)PriceEnum.TU_2TR_DEN_4TR},
-			new PriceCheckBox(){Id=4,Selected=false,Name="Từ 4 - 6 triệu",Value=(int)PriceEnum.TU_4TR_DEN_6TR},
-			new PriceCheckBox(){Id=5,Selected=false,Name="Từ 6 - 10 triệu",Value=(int)PriceEnum.TU_6TR_DEN_10TR},
+			new PriceCheckBox(){Id=4,Selected=false,Name="Từ 4 - 6 triệu",Value=(int)PriceEnum.TU_4TR_DEN_7TR},
+			new PriceCheckBox(){Id=5,Selected=false,Name="Từ 6 - 10 triệu",Value=(int)PriceEnum.TU_7TR_DEN_10TR},
 			new PriceCheckBox(){Id=6,Selected=false,Name="Trên 10 triệu",Value=(int)PriceEnum.TREN_10TR}
 		};
 	}
