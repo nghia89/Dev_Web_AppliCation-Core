@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using WebAppCore.Application.Interfaces;
@@ -24,6 +25,21 @@ namespace WebAppCore.Controllers
 			_productService = productService;
 			_productCategoryService = productCategoryService;
 			//_localizer = localizer;
+		}
+
+		[Route("error/{code:int}")]
+		public IActionResult Error(int statusCode)
+		{
+			if(statusCode == 404)
+			{
+				var statusFeature = HttpContext.Features.Get<IStatusCodeReExecuteFeature>();
+				if(statusFeature != null)
+				{
+
+				}
+
+			}
+			return View(statusCode);
 		}
 
 		//[ResponseCache(CacheProfileName = "Default")]

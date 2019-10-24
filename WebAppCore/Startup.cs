@@ -187,8 +187,7 @@ namespace WebAppCore
 		{
 
 			//loggerFactory.AddFile("Logs/structures-{Date}.txt");
-
-
+			
 			if(env.IsProduction())
 			{
 				loggerFactory.AddFile("Logs/structures-{Date}.txt");
@@ -201,9 +200,10 @@ namespace WebAppCore
 			}
 			else
 			{
-				app.UseExceptionHandler("/Home/Error");
+				app.UseStatusCodePagesWithReExecute("/Home/Error/{0}");
 				//app.UseExceptionHandler("/Home/Index");
 			}
+			app.UseStatusCodePagesWithReExecute("/Home/Error/{0}");
 			app.UseImageResizer();
 			app.UseResponseCompression();
 			//hạn chế tất cả các file nằm trong thư mục root đều không chạy qua Middleware tiếp theo
