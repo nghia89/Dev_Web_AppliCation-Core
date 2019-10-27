@@ -187,5 +187,22 @@ namespace WebAppCore.Application.Implementation
 
 			return lstViewModel;
 		}
+
+		public async Task<bool> ChangePassWord(AppUserViewModel userVm,string passWordConfirm)
+		{
+			var user = await _userManager.FindByIdAsync(userVm.Id.ToString());
+			if(user == null) { /**/ }
+
+			// compute the new hash string
+			var newPassword = _userManager.PasswordHasher.HashPassword(user,userVm.Password);
+			user.PasswordHash = newPassword;
+			var res = await _userManager.UpdateAsync(user);
+
+			if(res.Succeeded)
+			{
+				return true;
+			}
+			return false;
+		}
 	}
 }

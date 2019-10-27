@@ -34,6 +34,29 @@
             }
         });
 
+        //Init validation
+        $('#frmMaintainanceChangePass').validate({
+            errorClass: 'red',
+            ignore: [],
+            lang: 'en',
+            rules: {
+                txtPasswordChange: {
+                    required: true,
+                    minlength: 6
+                },
+                txtConfirmPasswordChange: {
+                    equalTo: "#txtConfirmPasswordChange"
+                }
+            },
+            messages: {
+                txtConfirmPassword: {
+                    required: "Bạn phải điền mật khẩu.",
+                    equalTo: "Mật khẩu không khớp với nhau vui lòng điền lại."
+
+                }
+            }
+        });
+
         $('#txt-search-keyword').keypress(function (e) {
             if (e.which === 13) {
                 e.preventDefault();
@@ -53,6 +76,81 @@
             resetFormMaintainance();
             initRoleList();
             $('#modal-add-edit').modal('show');
+
+        });
+
+        $('body').on('click', '.btn-edit-pass', function (e) {       
+            e.preventDefault();
+            disableFieldEdit(false);
+            var that = $(this).data('id');
+            $.ajax({
+                type: "GET",
+                url: "/Admin/User/GetById",
+                data: { id: that },
+                dataType: "json",
+                beforeSend: function () {
+                    structures.startLoading();
+                },
+                success: function (response) {
+                    var data = response;
+                    $('#hidId').val(data.Id);
+                    $('#FullName').val(data.FullName);
+                    disableFieldEdit(true);
+                    $('#modal-edit-pass').modal('show');
+                    structures.stopLoading();
+
+                },
+                error: function () {
+                    structures.notify('Có lỗi xảy ra', 'error');
+                    structures.stopLoading();
+                }
+            });
+        });
+
+        $('#btnSave-pass').on('click', function (e) {
+            if ($("#frmMaintainanceChangePass").valid()) {
+                e.preventDefault();
+
+                var id = $('#hidId').val();
+                var password = $('#txtPasswordChange').val();
+                var passwordConfirm = $('#txtConfirmPasswordChange').val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/User/changepassword",
+                    data: {
+                        Id: id,
+                        Password: password,
+                        passWordConfirm: passwordConfirm
+                    },
+                    dataType: "json",
+                    beforeSend: function () {
+                        structures.startLoading();
+                    },
+                    success: function (res) {
+                        if (res !== false) {
+                            structures.notify('Save user succesful', 'success');
+                            $('#modal-edit-pass').modal('hide');
+                            resetFormMaintainance();
+
+                            structures.stopLoading();
+                            loadData(true);
+                        }
+                        else {
+                            structures.notify('Có lổi khi thay dổi mật khẩu', 'error');
+                            structures.stopLoading();
+                        }
+                    },
+                    error: function (error) {
+                        var messager = error.responseJSON.Message;
+                        structures.notify(messager, 'error');
+                        //structures.notify('Has an error in save product progress', 'error');
+                        structures.stopLoading();
+                    }
+                });
+            }
+            resetFormMaintainance();
+            return false;
 
         });
 
@@ -125,7 +223,7 @@
                         structures.startLoading();
                     },
                     success: function (res) {
-                        if (res != false) {
+                        if (res !== false) {
                             structures.notify('Save user succesful', 'success');
                             $('#modal-add-edit').modal('hide');
                             resetFormMaintainance();
@@ -134,11 +232,11 @@
                             loadData(true);
                         }
                         else {
-                                structures.notify('Email hoặc tài khoản đã tồn tại', 'error');
-                                structures.stopLoading();
+                            structures.notify('Email hoặc tài khoản đã tồn tại', 'error');
+                            structures.stopLoading();
                         }
                     }
-                   
+
                 });
             }
             return false;
@@ -189,6 +287,8 @@
         $('#txtEmail').val('');
         $('#txtPhoneNumber').val('');
         $('#ckStatus').prop('checked', true);
+        $('#txtConfirmPasswordChange').val('');
+        $('#txtPasswordChange').val('');
 
     }
 

@@ -59,11 +59,11 @@ namespace WebAppCore.Controllers
 			homeVm.LastestBlogs = await _blogService.GetLastest(5);
 
 			var metaHeader = await _systemConfigService.GetByIdOrDefault();
-			homeVm.Title = metaHeader.Title;
-			homeVm.MetaDescription = metaHeader.Description;
-			homeVm.MetaKeyword = metaHeader.Keywords;
-			homeVm.Author = metaHeader.Author;
-			homeVm.Copyright = metaHeader.Copyright;
+			homeVm.Title = metaHeader?.Title;
+			homeVm.MetaDescription = metaHeader?.Description;
+			homeVm.MetaKeyword = metaHeader?.Keywords;
+			homeVm.Author = metaHeader?.Author;
+			homeVm.Copyright = metaHeader?.Copyright;
 
 			return View(homeVm);
 		}

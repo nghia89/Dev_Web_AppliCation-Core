@@ -55,6 +55,7 @@ namespace WebAppCore.Areas.Admin.Controllers
 			}
 			else
 			{
+				pageVm.SeoAlias = TextHelper.ToUnsignString(pageVm.Name);
 				_blogService.Update(pageVm);
 			}
 			_blogService.Save();
