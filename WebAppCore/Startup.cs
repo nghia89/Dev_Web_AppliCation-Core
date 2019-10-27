@@ -169,6 +169,7 @@ namespace WebAppCore
 			services.AddTransient<IAnnouncementService,AnnouncementService>();
 			services.AddTransient<ISlideShowService,SlideShowService>();
 			services.AddTransient<IAnnouncementUserService,AnnouncementUserService>();
+			services.AddTransient<ISystemConfigService,SystemConfigService>();
 
 			///   Repository
 			services.AddTransient<IProductRepository,ProductRepository>();

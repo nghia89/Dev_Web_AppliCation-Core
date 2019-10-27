@@ -131,5 +131,40 @@ namespace WebAppCore.Areas.Admin.Controllers
 				return new OkObjectResult(Path.Combine(imageFolder,filename).Replace(@"\",@"/"));
 			}
 		}
+
+		[HttpPost]
+		public IActionResult UploadLogo()
+		{
+			DateTime now = DateTime.Now;
+			var files = Request.Form.Files;
+			if(files.Count == 0)
+			{
+				return new BadRequestObjectResult(files);
+			}
+			else
+			{
+				var file = files[0];
+				var filename = ContentDispositionHeaderValue
+									.Parse(file.ContentDisposition)
+									.FileName
+									.Trim('"');
+
+				var imageFolder = $@"\client-side\logo\{now.ToString("yyyyMMdd")}";
+
+				string folder = _hostingEnvironment.WebRootPath + imageFolder;
+
+				if(!Directory.Exists(folder))
+				{
+					Directory.CreateDirectory(folder);
+				}
+				string filePath = Path.Combine(folder,filename);
+				using(FileStream fs = System.IO.File.Create(filePath))
+				{
+					file.CopyTo(fs);
+					fs.Flush();
+				}
+				return new OkObjectResult(Path.Combine(imageFolder,filename).Replace(@"\",@"/"));
+			}
+		}
 	}
 }

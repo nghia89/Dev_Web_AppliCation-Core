@@ -22,5 +22,7 @@ namespace WebAppCore.Models
         public string Title { set; get; }
         public string MetaKeyword { set; get; }
         public string MetaDescription { set; get; }
+        public string Copyright { set; get; }
+        public string Author { set; get; }
     }
 }

@@ -1,0 +1,79 @@
+﻿@section Scripts{
+    <environment names="Development">
+        <script src="~/app/Controller/setting/index.js"></script>
+        <script>
+            var setting = new settingController();
+            setting.initialize();
+        </script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/app/Controller/setting/index.min.js"></script>
+        <script>
+            var setting = new settingController();
+            setting.initialize();
+        </script>
+    </environment>
+}
+
+<div class="modal-content" style="top:70px">
+    <div class="modal-header">
+        <h4 class="modal-title">System Config </h4>
+    </div>
+    <div class="modal-body" >
+        <div id="horizontal-form">
+            <form class="form-horizontal" role="form" id="frmMaintainance">
+                <div class="form-group">
+                    <input type="hidden" id="hidId" value="0" />
+                    <label for="txtNameM" class="col-sm-2 control-label no-padding-right">Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="txtName" class="form-control" id="txtTitle">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txtDescM" class="col-sm-2 control-label no-padding-right">Description</label>
+                    <div class="col-sm-10">
+                        <textarea rows="4" name="txtDesc" class="form-control" id="txtDesc"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txtUrl" class="col-sm-2 control-label no-padding-right">Keywords</label>
+                    <div class="col-sm-10">
+                        <textarea rows="4" name="txtKeywords" class="form-control" id="txtKeywords"></textarea>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="txtUrl" class="col-sm-2 control-label no-padding-right">Copyright</label>
+                    <div class="col-sm-10">
+                        <input rows="4" name="txtUrl" class="form-control" id="txtCopyright" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txtUrl" class="col-sm-2 control-label no-padding-right">Author</label>
+                    <div class="col-sm-10">
+                        <input rows="4" name="txtUrl" class="form-control" id="txtAuthor" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txtImage" class="col-sm-2 control-label no-padding-right">Logo</label>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <input type="text" name="txtImage" class="form-control" id="txtImage" />
+                            <input type="file" id="fileInputImage" style="display:none" />
+                            <span class="input-group-btn">
+                                <input type="button" id="btnSelectImg" class="btn btn-default" value="Browser" />
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" id="btnSave" class="btn btn-success">Save changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

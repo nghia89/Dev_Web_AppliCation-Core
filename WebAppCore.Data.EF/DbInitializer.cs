@@ -235,36 +235,36 @@ namespace WebAppCore.Data.EF
                 _context.ProductCategories.AddRange(listProductCategory);
             }
 
-            if (!_context.SystemConfigs.Any(x => x.Id == "HomeTitle"))
-            {
-                _context.SystemConfigs.Add(new SystemConfig()
-                {
-                    Id = "HomeTitle",
-                    Name = "Home's title",
-                    Value1 = "structures Shop home",
-                    Status = Status.Active
-                });
-            }
-            if (!_context.SystemConfigs.Any(x => x.Id == "HomeMetaKeyword"))
-            {
-                _context.SystemConfigs.Add(new SystemConfig()
-                {
-                    Id = "HomeMetaKeyword",
-                    Name = "Home Keyword",
-                    Value1 = "shopping, sales",
-                    Status = Status.Active
-                });
-            }
-            if (!_context.SystemConfigs.Any(x => x.Id == "HomeMetaDescription"))
-            {
-                _context.SystemConfigs.Add(new SystemConfig()
-                {
-                    Id = "HomeMetaDescription",
-                    Name = "Home Description",
-                    Value1 = "Home structures",
-                    Status = Status.Active
-                });
-            }
+            //if (!_context.SystemConfigs.Any(x => x.Id == "HomeTitle"))
+            //{
+            //    _context.SystemConfigs.Add(new SystemConfig()
+            //    {
+            //        Id = "HomeTitle",
+            //        Name = "Home's title",
+            //        Value1 = "structures Shop home",
+            //        Status = Status.Active
+            //    });
+            //}
+            //if (!_context.SystemConfigs.Any(x => x.Id == "HomeMetaKeyword"))
+            //{
+            //    _context.SystemConfigs.Add(new SystemConfig()
+            //    {
+            //        Id = "HomeMetaKeyword",
+            //        Name = "Home Keyword",
+            //        Value1 = "shopping, sales",
+            //        Status = Status.Active
+            //    });
+            //}
+            //if (!_context.SystemConfigs.Any(x => x.Id == "HomeMetaDescription"))
+            //{
+            //    _context.SystemConfigs.Add(new SystemConfig()
+            //    {
+            //        Id = "HomeMetaDescription",
+            //        Name = "Home Description",
+            //        Value1 = "Home structures",
+            //        Status = Status.Active
+            //    });
+            //}
             await _context.SaveChangesAsync();
 
         }
