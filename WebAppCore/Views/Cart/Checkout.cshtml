@@ -59,11 +59,8 @@
                             <div class="box-border">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <h5>Checkout as a Guest or Register</h5>
-                                        <p>Register with us for future convenience:</p>
-                                        <br>
-                                        <h4>Register and save time!</h4>
-                                        <p>Register with us for future convenience:</p>
+                                      
+                                        <p>Đăng ký với chúng tôi để thuận tiện trong tương lai:</p>
                                         <p><i class="fa fa-check-circle text-primary"></i> Nhanh chóng và tiện lợi hơn</p>
                                         <p><i class="fa fa-check-circle text-primary"></i> Dễ dàng truy cập theo dõi đơn hàng</p>
                                         <button class="button" onclick="window.location.href='/register.html'"><i class="fa fa-angle-double-right"></i>&nbsp; <span>Tiếp tục</span></button>
@@ -147,7 +144,7 @@
                                                     <td class="cart_product"><a href="/@item.Product.SeoAlias-p.@(item.Product.Id).html"><img src="@item.Product.Image" alt="@item.Product.Name"></a></td>
                                                     <td class="cart_description">
                                                         <p class="product-name"><a href="/@item.Product.SeoAlias-p.@(item.Product.Id).html">@item.Product.Name </a></p>
-                                                        <small><a >Color : @item.Color.Name</a></small><br>
+                                                        @*<small><a >Color : @item.Color.Name</a></small><br>*@
                                                         @*<small><a href="#">Size : @item.Size.Name</a></small>*@
                                                     </td>
                                                     <td class="price"><span>@item.Price.ToString("N0") </span></td>
@@ -166,9 +163,9 @@
                                     </table>
                                 </div>
                                 <recaptcha /><span class="text-danger" id="recaptchaErrorMessage"></span>
-                                <button type="button" class="button" onclick="window.location.href='/cart.html'"><span>Back to cart</span></button>
+                                <button type="button" class="button" onclick="window.location.href='/cart.html'"><span>Trở về giỏ hàng</span></button>
 
-                                <button type="submit" class="button pull-right"><span>Place Order</span></button>
+                                <button type="submit" class="button pull-right"><span>Đặt hàng</span></button>
                             </div>
                         </form>
                     }

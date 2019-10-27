@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using WebAppCore.Application.Interfaces;
@@ -10,28 +11,45 @@ namespace WebAppCore.Controllers
 	{
 		private IProductService _productService;
 		private IProductCategoryService _productCategoryService;
-
+		private ISystemConfigService _systemConfigService;
 		private IBlogService _blogService;
 		private ICommonService _commonService;
 		//  private readonly IStringLocalizer<HomeController> _localizer;
 
 		public HomeController(IProductService productService,
 	   IBlogService blogService,ICommonService commonService,
+	   ISystemConfigService systemConfigService,
 	  IProductCategoryService productCategoryService)
 		{
 			_blogService = blogService;
 			_commonService = commonService;
 			_productService = productService;
+			_systemConfigService = systemConfigService;
 			_productCategoryService = productCategoryService;
 			//_localizer = localizer;
+		}
+
+		[Route("error/{code:int}")]
+		public IActionResult Error(int statusCode)
+		{
+			if(statusCode == 404)
+			{
+				var statusFeature = HttpContext.Features.Get<IStatusCodeReExecuteFeature>();
+				if(statusFeature != null)
+				{
+
+				}
+
+			}
+			return View(statusCode);
 		}
 
 		//[ResponseCache(CacheProfileName = "Default")]
 		public async Task<IActionResult> Index()
 		{
-			//var title = _localizer["Title"];
-			//var culture = HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture.Culture.Name;
+
 			ViewData["BodyClass"] = "cms-index-index cms-home-page";
+
 			var homeVm = new HomeViewModel();
 			homeVm.HomeCategories = await _productCategoryService.GetHomeCategories(5);
 			homeVm.BuyALotProducts = await _productService.GetBuyALotProduct(5);
@@ -39,7 +57,14 @@ namespace WebAppCore.Controllers
 			//homeVm.TopSellProducts = _productService.GetLastest(5);
 			homeVm.NewSellProducts = await _productService.GetProductNew(8);
 			homeVm.LastestBlogs = await _blogService.GetLastest(5);
-			homeVm.HomeSlides =await _commonService.GetSlides("top");
+
+			var metaHeader = await _systemConfigService.GetByIdOrDefault();
+			homeVm.Title = metaHeader?.Title;
+			homeVm.MetaDescription = metaHeader?.Description;
+			homeVm.MetaKeyword = metaHeader?.Keywords;
+			homeVm.Author = metaHeader?.Author;
+			homeVm.Copyright = metaHeader?.Copyright;
+
 			return View(homeVm);
 		}
 

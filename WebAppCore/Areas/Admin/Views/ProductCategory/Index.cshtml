@@ -1,12 +1,18 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Authorization
+@using WebAppCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
     ViewData["Title"] = "Index";
+    var create = await AuthorizationService.AuthorizeAsync(User,"PRODUCT_CATEGORY",Operations.Create);
+    var update = await AuthorizationService.AuthorizeAsync(User,"PRODUCT_CATEGORY",Operations.Update);
+    var delete = await AuthorizationService.AuthorizeAsync(User,"PRODUCT_CATEGORY",Operations.Delete);
 }
 @section Style{
     <link href="~/lib/jQuery-EasyUI/themes/bootstrap/easyui.css" rel="stylesheet" />
     <link href="~/lib/jQuery-EasyUI/themes/icon.css" rel="stylesheet" />
 }
 @section Scripts{
-   
+
     <environment names="Development">
         <script src="~/lib/jQuery-EasyUI/jquery.easyui.min.js"></script>
         <script src="~/app/Controller/product-category/index.js" asp-append-version="true"></script>
@@ -31,12 +37,16 @@
         <div class="title_left">
             <h3>Product Categories <small>List product categories</small></h3>
         </div>
-        <div class="title_right">
-            <div class="col-md-2 col-sm-2 col-xs-12 form-group pull-right">
-                <button class="btn btn-success" id="btnCreate" type="button">Create</button>
-            </div>
+        @if(create.Succeeded)
+        {
+            <div class="title_right">
+                <div class="col-md-2 col-sm-2 col-xs-12 form-group pull-right">
+                    <button class="btn btn-success" id="btnCreate" type="button">Create</button>
+                </div>
 
-        </div>
+            </div>
+        }
+
     </div>
 
 </div>
@@ -48,8 +58,17 @@
             <div class="x_content">
                 <ul id="treeProductCategory"></ul>
                 <div id="contextMenu" class="easyui-menu" style="width:120px;">
-                    <div id="btnEdit" data-options="iconCls:'icon-edit'">Sửa</div>
-                    <div id="btnDelete" data-options="iconCls:'icon-remove'">Xoá</div>
+                    @{
+                        if(update.Succeeded)
+                        {
+                            <div id="btnEdit" data-options="iconCls:'icon-edit'">Sửa</div>
+
+                        }
+                        if(delete.Succeeded)
+                        {
+                            <div id="btnDelete" data-options="iconCls:'icon-remove'">Xoá</div>
+                        }
+                    }
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-sm-4 col-md-4 col-xs-12">
                         <!-- Default Welcome Message -->
-                        <div class="welcome-msg hidden-xs hidden-sm">WelLCome Ngò Gai! </div>
+                        <div class="welcome-msg hidden-xs hidden-sm">WelLCome Điện Máy Tuấn Bùi </div>
                         <!-- Language &amp; Currency wrapper -->
                         <div class="language-currency-wrapper">
                             <div class="inner-cl">
@@ -34,7 +34,7 @@
 
                     <!-- top links -->
                     <div class="headerlinkmenu col-md-8 col-sm-8 col-xs-12">
-                        <span class="phone  hidden-xs hidden-sm">Liên hệ: 034.898.3137</span>
+                        <span class="phone  hidden-xs hidden-sm">Liên hệ: 0979 715 616</span>
                         <ul class="links">
                             @*<li class="hidden-xs"><a title="Help Center" href="#"><span>Help Center</span></a></li>
                                 <li><a title="Store Locator" href="#"><span>Store Locator</span></a></li>*@
@@ -55,7 +55,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <form asp-area="" asp-controller="Account" asp-action="Đăng xuất" method="post" id="logoutForm" class="navbar-right">
+                                    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
                                         <a  onclick="document.getElementById('logoutForm').submit()"><span>Thoát</span></a>
                                     </form>
                                 </li>
@@ -75,9 +75,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3 col-xs-12 jtv-logo-block">
-
                         <!-- Header Logo -->
-                        <div class="logo"><a title="e-commerce" href="/"><img class="logo_img" alt="ShopMart" title="ShopMart" src="~/client-side/logo/logo.jpg"></a> </div>
+                        @await Component.InvokeAsync("SystemConfig")
                     </div>
                     <div class="col-xs-12 col-sm-5 col-md-6 jtv-top-search">
 

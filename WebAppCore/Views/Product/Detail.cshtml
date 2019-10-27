@@ -55,7 +55,9 @@
                 <div class="product-view-area">
                     <div class="product-big-image col-xs-12 col-sm-5 col-lg-5 col-md-5">
                         @*<div class="icon-sale-label sale-left">Sale</div>*@
-                        <div class="large-image"> <a href="@product.Image" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img class="zoom-img" src="@product.Image" alt="@product.Name"> </a> </div>
+                        <div class="large-image"> <a href="@product.Image" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> 
+                            <img class="zoom-img" src="@product.Image?w=800" alt="@product.Name"> </a>
+                        </div>
                         <div class="flexslider flexslider-thumb">
                             <ul class="previews-list slides">
                                 @foreach(var item in Model.ProductImages)
@@ -98,30 +100,30 @@
                         <div class="ratings">
                             <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
                             <p class="rating-links"> <a>1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
-                            <p class="availability @(product.Status==WebAppCore.Data.Enums.Status.Active?"in-stock":"out-of-stock") pull-right">Availability: <span>@product.Status</span></p>
+                            <p class="availability @(product.Status==WebAppCore.Data.Enums.Status.Active?"in-stock":"out-of-stock") pull-right">Tình trạng: <span>@(product.Status==WebAppCore.Data.Enums.Status.Active?"Còn hàng":"Hết hàng")</span></p>
                         </div>
                         <div class="short-description">
-                            <h2>Quick Overview</h2>
+                            <h2>Mô tả ngắn</h2>
                             @product.Description
                         </div>
-                        <div class="product-color-size-area">
+                        @*<div class="product-color-size-area">
                             <div class="color-area">
                                 <h2 class="saider-bar-title">Color</h2>
                                 <div class="color">
                                     <select asp-items="Model.Colors" id="ddlColorId"></select>
                                 </div>
                             </div>
-                            @*<div class="size-area">
+                            <div class="size-area">
                                     <h2 class="saider-bar-title">Size</h2>
                                     <div class="size">
                                         <select asp-items="Model.Sizes" id="ddlSizeId"></select>
                                     </div>
-                                </div>*@
-                        </div>
+                                </div>
+                        </div>*@
                         <div class="product-variation">
                             <form action="#" method="post">
                                 <div class="cart-plus-minus">
-                                    <label for="qty">Quantity:</label>
+                                    <label for="qty">Số lượng:</label>
                                     <div class="numbers-row">
                                         <div onClick="var result = document.getElementById('txtQuantity'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="dec qtybutton"><i class="fa fa-minus">&nbsp;</i></div>
                                         <input type="text" class="qty" title="Qty" value="1" maxlength="12" id="txtQuantity" name="qty">
@@ -164,7 +166,7 @@
                         <div class="col-xs-12">
                             <div class="product-tab-inner">
                                 <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
-                                    <li class="active"> <a href="#description" data-toggle="tab"> Description </a> </li>
+                                    <li class="active"> <a href="#description" data-toggle="tab"> Mô tả </a> </li>
                                 </ul>
                                 <div id="productTabContent" class="tab-content">
                                     <div class="tab-pane fade in active" id="description">
@@ -190,7 +192,7 @@
         <div class="col-xs-12">
             <div class="related-product-area">
                 <div class="page-header">
-                    <h2>Related Products</h2>
+                    <h2>Sản phẫm liêng quang</h2>
                 </div>
                 <div class="related-products-pro">
                     <div class="slider-items-products">
@@ -204,7 +206,7 @@
                                             <div class="product-thumbnail">
                                                 <div class="pr-img-area">
                                                     <a title="@item.Name" href="@url">
-                                                        <figure> <img class="first-img" src="@item.Image" alt="@item.Name"> @*<img class="hover-img" src="@item.Image" alt="@item.Name">*@</figure>
+                                                        <figure> <img class="first-img" src="@item.Image?w=400" alt="@item.Name"> @*<img class="hover-img" src="@item.Image" alt="@item.Name">*@</figure>
                                                     </a>
                                                 </div>
                                                 <div class="pr-info-area">

@@ -1,6 +1,12 @@
-﻿
+﻿@using Microsoft.AspNetCore.Authorization
+@using WebAppCore.Authorization
+@inject IAuthorizationService AuthorizationService
 @{
     ViewData["Title"] = "Bill management";
+    var create = await AuthorizationService.AuthorizeAsync(User,"BILL",Operations.Create);
+    var update = await AuthorizationService.AuthorizeAsync(User,"BILL",Operations.Update);
+    var delete = await AuthorizationService.AuthorizeAsync(User,"BILL",Operations.Delete);
+}
 }
 @section Scripts{
 
@@ -46,9 +52,13 @@
             <div class="col-md-2 col-sm-2 col-xs-12 form-group">
                 <button class="btn btn-default" id="btn-search" type="button">Search!</button>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-12 form-group">
-                <button class="btn btn-success" id="btn-create" type="button">Create</button>
-            </div>
+            @if(create.Succeeded)
+            {
+                <div class="col-md-2 col-sm-2 col-xs-12 form-group">
+                    <button class="btn btn-success" id="btn-create" type="button">Create</button>
+                </div>
+            }
+
         </div>
     </div>
 

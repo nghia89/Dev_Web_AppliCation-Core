@@ -99,7 +99,7 @@ body {
 }
 img {
 	border: 0;
-	max-width: 100%
+	max-width: 100%;
 }
 a {
 	color: #333333;
@@ -834,15 +834,15 @@ select.cate-dropdown {
 /*4.5 Logo */
 
 .logo {
-	vertical-align: middle;
-	margin-top: 20px;
-	text-align: left;
-    height:45px;
-	margin-bottom: 35px;
+    vertical-align: middle;
+    margin-top: -16px;
+    text-align: left;
+    margin-bottom: -13px;
 }
 .logo_img {
-    width: 215px;
-    height: 65px;
+    /* width: 215px; */
+    /* height: 65px; */
+    margin: auto;
 }
 .link-wishlist {
     position: relative;
@@ -2290,17 +2290,17 @@ a.link:hover {
 12. product hover
 ******************************************/
 .product-item .pr-img-area {
-	min-height: 223px;
+	/* min-height: 223px; */
 	overflow: hidden;
 	position: relative;
-	/* height: 256px; */
+	height: 214px;
 	border: 1px #e5e5e5 solid;
 }
 .product-item .pr-img-area a {
-	display: block
+	display: block;
 }
 .product-item .pr-img-area > a::before {
-	background: #444 none repeat scroll 0 0;
+	/*background: #444 none repeat scroll 0 0;*/
 	content: "";
 	height: 100%;
 	opacity: 0;
@@ -2392,10 +2392,12 @@ a.link:hover {
 	color: #fff
 }
 .pr-img-area img {
-    width: 200px;
-    height: 200px;
+    /*width: 200px;
+    height: 200px;*/
     margin: 15px auto;
-    display: block;
+    /* display: block; */
+    width: 100%;
+    height: auto;
 }
 .product-item .pr-button {
 	border: 0 none;
@@ -2429,7 +2431,7 @@ a.link:hover {
 }
 .product-item .item-inner .item-info {
 	text-align: center;
-	padding-top: 12px;
+	/*padding-top: 12px;*/
 }
 .product-item .item-inner .item-info .item-title {
 	font-size: 14px;
@@ -2457,7 +2459,8 @@ a.link:hover {
 	margin: 0 12px
 }
 .products-grid .item .product-item {
-	margin: 0px
+	margin: 0px;
+	height: 317px;
 }
 .owl-carousel .owl-wrapper-outer {
 	padding: 5px 0px;
@@ -5624,7 +5627,7 @@ ul.products-list .cart-button i {
 }
 .regular-price .price {
 	font-weight: 600;
-	font-size: 14px;
+	font-size: 22px;
 	color: #e83f33;
 }
 .block .regular-price, .block .regular-price .price {
@@ -5652,7 +5655,8 @@ ul.products-list .cart-button i {
 }
 .old-price {
 	display: inline;
-	margin-right: 15px
+	margin-right: 15px;
+	height: 75px;
 }
 .old-price .price-label {
 	color: #ccc;
@@ -5705,9 +5709,9 @@ ul.products-list .cart-button i {
 
 .large-image img {
 	max-width: 100%;
-	height: auto
+	height: auto;
 }
-.large-image{ border:1px #e5e5e5 solid;}
+.large-image{border:1px #e5e5e5 solid;height: 271px;}
 .product-view-area .product-img-box .product-image {
 	margin: 0 0 13px;
 	position: relative;
@@ -5726,6 +5730,7 @@ ul.products-list .cart-button i {
 	position: relative;
 	overflow: hidden;
 	padding: 0px;
+	/* width: 221px; */
 }
 .product-view-area {
 	margin: auto;
@@ -7611,6 +7616,7 @@ label[for="rememberme"] {
 }
 .jtv-best-sale .item-inner {
 	padding-bottom: 0px;
+	/* height: 285px; */
 }
 .jtv-best-sale .item-inner:hover {
 	box-shadow: 0 0 2px #dedede;
@@ -7695,7 +7701,6 @@ label[for="rememberme"] {
 }
 .jtv-best-sale .item-inner:hover {
 	box-shadow: 0 0 0px #dedede;
-
 }
 .jtv-best-sale .add-to-cart:hover {
 	color: #fff;
@@ -7724,9 +7729,21 @@ label[for="rememberme"] {
 	padding: 12px 5px 10px 10px;
 	/* border-bottom: 1px #e5e5e5 solid; */
 }
+.item-inner .product-thumbnail {
+    /* height: 269px; */
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    height: 246px;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 20px;
+}
 .jtv-best-sale ul.products-grid {
-	padding: 0px 12px 0px 0px;
-	margin: 0;
+    padding: 0px 12px 0px 0px;
+    margin: 0;
 }
 .jtv-best-sale .product-flexslider {
 	margin: 19px -12px -6px;
@@ -7759,8 +7776,18 @@ label[for="rememberme"] {
 	background-color: #e83f33;
 }
 .jtv-best-sale .item-price {
-	margin-bottom: 8px;
+	/*margin-bottom: -4px;*/
 }
+
+.item-price .sale-off {
+    background-color: #e53935;
+    color: white;
+    border-radius: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 1px;
+}
+
 .jtv-best-sale .owl-theme .owl-controls .owl-page span {
 	display: block;
 	width: 12px;
@@ -8082,7 +8109,7 @@ label[for="rememberme"] {
 }
 .item-inner .item-info {
 	text-align: center;
-	padding-top: 12px;
+	/*padding-top: 12px;*/
 }
 .item-inner .item-info .item-title {
 	font-size: 14px;
@@ -8144,5 +8171,7 @@ a.jtv-m-logo-img {
 }
 .manufacturers-box{ margin-top:15px;}
 .pr-img-area img {
-    max-width: none !important
+    /* max-width: none !important; */
+    width: 100%;
+    height: auto;
 }

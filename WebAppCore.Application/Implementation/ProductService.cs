@@ -126,8 +126,8 @@ namespace WebAppCore.Application.Implementation
 			{
 				switch(sortPrice)
 				{
-					case (int)PriceEnum.DUOI_500:
-						query = query.Where(x => x.Price <= 500000);
+					case (int)PriceEnum.DUOI_1TR:
+						query = query.Where(x => x.Price <= 1000000);
 						break;
 					case (int)PriceEnum.TU_1TR_DEN_2TR:
 						query = query.Where(x => x.Price >= 1000000 && x.Price <= 2000000);
@@ -135,11 +135,11 @@ namespace WebAppCore.Application.Implementation
 					case (int)PriceEnum.TU_2TR_DEN_4TR:
 						query = query.Where(x => x.Price >= 2000000 && x.Price <= 4000000);
 						break;
-					case (int)PriceEnum.TU_4TR_DEN_6TR:
-						query = query.Where(x => x.Price >= 4000000 && x.Price <= 6000000);
+					case (int)PriceEnum.TU_4TR_DEN_7TR:
+						query = query.Where(x => x.Price >= 4000000 && x.Price <= 7000000);
 						break;
-					case (int)PriceEnum.TU_6TR_DEN_10TR:
-						query = query.Where(x => x.Price >= 6000000 && x.Price <= 10000000);
+					case (int)PriceEnum.TU_7TR_DEN_10TR:
+						query = query.Where(x => x.Price >= 7000000 && x.Price <= 10000000);
 						break;
 					case (int)PriceEnum.TREN_10TR:
 						query = query.Where(x => x.Price >= 10000000);
@@ -208,29 +208,112 @@ namespace WebAppCore.Application.Implementation
 					product.CategoryId = categoryId;
 
 					product.Name = workSheet.Cells[i,1].Value.ToString();
-
-					product.Description = workSheet.Cells[i,2].Value.ToString();
+					product.SeoAlias = TextHelper.ToUnsignString(product.Name);
+					if(workSheet.Cells[i,2].Value != null)
+					{
+						product.Description = workSheet.Cells[i,2].Value.ToString();
+					}
+					else
+					{
+						product.Description = "";
+					}
 
 					//nêu TryParse thành công thì ra giá trị nếu không thành công thi lấy default =0
-					decimal.TryParse(workSheet.Cells[i,3].Value.ToString(),out var originalPrice);
-					product.OriginalPrice = originalPrice;
+					if(workSheet.Cells[i,3].Value != null)
+					{
+						decimal.TryParse(workSheet.Cells[i,3].Value.ToString(),out var originalPrice);
+					}
+					else
+					{
+						product.OriginalPrice = 0;
+					}
 
-					decimal.TryParse(workSheet.Cells[i,4].Value.ToString(),out var price);
-					product.Price = price;
-					decimal.TryParse(workSheet.Cells[i,5].Value.ToString(),out var promotionPrice);
+					if(workSheet.Cells[i,4].Value != null)
+					{
+						decimal.TryParse(workSheet.Cells[i,4].Value.ToString(),out var price);
+						product.Price = price;
+					}
+					else
+					{
+						product.Price = 0;
+					}
 
-					product.PromotionPrice = promotionPrice;
-					product.Content = workSheet.Cells[i,6].Value.ToString();
-					product.SeoKeywords = workSheet.Cells[i,7].Value.ToString();
+					if(workSheet.Cells[i,5].Value != null)
+					{
+						decimal.TryParse(workSheet.Cells[i,5].Value.ToString(),out var promotionPrice);
+						product.PromotionPrice = promotionPrice;
+					}
+					else
+					{
+						product.PromotionPrice = 0;
+					}
 
-					product.SeoDescription = workSheet.Cells[i,8].Value.ToString();
-					bool.TryParse(workSheet.Cells[i,9].Value.ToString(),out var hotFlag);
 
-					product.HotFlag = hotFlag;
-					bool.TryParse(workSheet.Cells[i,10].Value.ToString(),out var homeFlag);
-					product.HomeFlag = homeFlag;
+					if(workSheet.Cells[i,6].Value != null)
+					{
+						product.Image = workSheet.Cells[i,6].Value.ToString();
+					}
+					else
+					{
+						product.Image = "";
+					}
 
-					product.Status = Status.Active;
+					if(workSheet.Cells[i,7].Value != null)
+					{
+						product.Content = workSheet.Cells[i,6].Value.ToString();
+					}
+					else
+					{
+						product.Content = "";
+					}
+
+					if(workSheet.Cells[i,8].Value != null)
+					{
+						product.SeoKeywords = workSheet.Cells[i,8].Value.ToString();
+					}
+					else
+					{
+						product.SeoKeywords = "";
+					}
+
+					if(workSheet.Cells[i,9].Value != null)
+					{
+						product.SeoDescription = workSheet.Cells[i,9].Value.ToString();
+					}
+					else
+					{
+						product.SeoDescription = "";
+					}
+
+					if(workSheet.Cells[i,10].Value != null)
+					{
+						int.TryParse(workSheet.Cells[i,10].Value.ToString(),out var status);
+						product.Status = status == 1 ? Status.Active : Status.InActive;
+					}
+					else
+					{
+						product.Status = Status.InActive;
+					}
+
+					if(workSheet.Cells[i,11].Value != null)
+					{
+						int.TryParse(workSheet.Cells[i,11].Value.ToString(),out var homeFlag);
+						product.HomeFlag = homeFlag==1?true:false;
+					}
+					else
+					{
+						product.HomeFlag =false;
+					}
+
+					if(workSheet.Cells[i,12].Value != null)
+					{
+						int.TryParse(workSheet.Cells[i,12].Value.ToString(),out var hotFlag);
+						product.HotFlag = hotFlag == 1 ? true : false;
+					}
+					else
+					{
+						product.HomeFlag = false;
+					}
 
 					_productRepository.Add(product);
 				}
@@ -475,7 +558,7 @@ namespace WebAppCore.Application.Implementation
 			{
 				switch(sortPrice)
 				{
-					case (int)PriceEnum.DUOI_500:
+					case (int)PriceEnum.DUOI_1TR:
 						data = data.Where(x => x.Price <= 500000);
 						break;
 					case (int)PriceEnum.TU_1TR_DEN_2TR:
@@ -484,11 +567,11 @@ namespace WebAppCore.Application.Implementation
 					case (int)PriceEnum.TU_2TR_DEN_4TR:
 						data = data.Where(x => x.Price >= 2000000 && x.Price <= 4000000);
 						break;
-					case (int)PriceEnum.TU_4TR_DEN_6TR:
-						data = data.Where(x => x.Price >= 4000000 && x.Price <= 6000000);
+					case (int)PriceEnum.TU_4TR_DEN_7TR:
+						data = data.Where(x => x.Price >= 4000000 && x.Price <= 7000000);
 						break;
-					case (int)PriceEnum.TU_6TR_DEN_10TR:
-						data = data.Where(x => x.Price >= 6000000 && x.Price <= 10000000);
+					case (int)PriceEnum.TU_7TR_DEN_10TR:
+						data = data.Where(x => x.Price >= 7000000 && x.Price <= 10000000);
 						break;
 					case (int)PriceEnum.TREN_10TR:
 						data = data.Where(x => x.Price >= 10000000);

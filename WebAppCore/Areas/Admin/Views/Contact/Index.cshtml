@@ -1,0 +1,115 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@using WebAppCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    ViewData["Title"] = "Index";
+    var create = await AuthorizationService.AuthorizeAsync(User,"CONTACT",Operations.Create);
+    var delete = await AuthorizationService.AuthorizeAsync(User,"CONTACT",Operations.Delete);
+    var update = await AuthorizationService.AuthorizeAsync(User,"CONTACT",Operations.Update);
+}
+@section Scripts{
+    <environment names="Development">
+        <script src="~/app/Controller/contact/index.js"></script>
+        <script>
+            var contact = new conactController();
+            contact.initialize();
+        </script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/app/Controller/contact/index.min.js"></script>
+        <script>
+            var contact = new conactController();
+            contact.initialize();
+        </script>
+    </environment>
+}
+
+
+<input type="hidden" id="hid-category-id" value="0" />
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Conatct</h3>
+        </div>
+
+        <div style="float:right">
+            <div class="col-md-2 col-sm-2 col-xs-12 form-group">
+                @if(create.Succeeded)
+                {
+                    <button class="btn btn-success" id="btn-create" type="button">Create</button>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <table id="tbl-product" class="table table-striped table-bordered nowrap">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>latitude</th>
+                                <th>Longitude</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbl-content"></tbody>
+                    </table>
+                    <div class="dv-loading"><i class=" fa_loading fa fa-spinner fa-spin"></i>Loading</div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="dataTables_info" id="datatable-checkbox_info" role="status" aria-live="polite">
+                                <select id="ddl-show-page">
+                                    <option value="10" selected="selected">10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                </select>
+                                <span class="item-per-page">
+                                    recors/page.
+                                </span>
+                                Total records: <strong id="lblTotalRecords"></strong>
+                            </div>
+                        </div><div class="col-sm-7">
+                            <div class="dataTables_paginate" id="datatable-checkbox_paginate">
+                                <ul id="paginationUL"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script id="table-template" type="x-tmpl-mustache">
+        <tr>
+            <td>{{Id}}</td>
+            <td>{{Name}}</td>
+            <td>{{{Phone}}}</td>
+            <td>{{{Email}}}</td>
+            <td>{{{Lat}}}</td>
+            <td>{{{Lng}}}</td>
+            <td>
+                @if(update.Succeeded)
+                {
+                    <a class="btn  btn-sm btn-edit" data-id="{{Id}}" title="Sửa"><i class="fa fa-pencil"></i></a>
+                }
+
+                @if(delete.Succeeded)
+                {
+                    <a class="btn  btn-sm btn-delete" data-id="{{Id}}" title="Xoá"><i class="fa fa-trash"></i></a>
+                }
+            </td>
+        </tr>
+    </script>
+</div>
+@await Html.PartialAsync("_AddEditModal.cshtml")

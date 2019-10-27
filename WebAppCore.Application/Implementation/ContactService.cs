@@ -30,7 +30,13 @@ namespace WebAppCore.Application.Implementation
             _contactRepository.Add(page);
         }
 
-        public void Delete(string id)
+		public void Create(ContactViewModel contactVm)
+		{
+			var page = contactVm.AddModel();
+			_contactRepository.Add(page);
+		}
+
+		public void Delete(string id)
         {
             _contactRepository.Remove(id);
         }

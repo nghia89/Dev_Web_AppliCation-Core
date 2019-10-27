@@ -8,8 +8,16 @@
     <![endif]-->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@ViewData["Title"] </title>
-    <meta name="description" content="ViewData[" MetaDescription"]>
-    <meta name="keywords" content="ViewData[" MetaKeyword"] />
+    @{
+        var metaDescription = ViewData["MetaDescription"];
+        var metaKeyword = ViewData["MetaKeyword"];
+        var copyright = ViewData["Copyright"];
+        var author = ViewData["Author"];
+    }
+    <meta name="description" content="@metaDescription">
+    <meta name="keywords" content="@metaKeyword"/>
+    <meta name="copyright" content="@copyright"/>
+    <meta name="author" content="@author" />
 
     <!-- Mobile specific metas  -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,8 +27,27 @@
 
     <!-- CSS Style -->
     @RenderSection("Style",required: false)
-    <link rel="stylesheet" href="~/client-side/style.css">
 
+    <environment names="Development">
+        <link rel="stylesheet" href="~/client-side/style.css">
+        <link rel="stylesheet" href="~/client-side/css/style.css">
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/client-side/style.css">
+        <link rel="stylesheet" href="~/client-side/css/style.min.css">
+    </environment>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TL8WVRH');</script>
+    <!-- End Google Tag Manager -->
     @*<link href="~/lib/notifyjs/dist/styles/metro/notify-metro.css" rel="stylesheet" />*@
 </head>
 
@@ -64,7 +91,7 @@
         <!-- End Footer -->
     </div>
 
-   
+
     <environment names="Development">
         <!-- JS -->
         <!-- jquery js -->
@@ -133,6 +160,12 @@
         Baseobj.initialize();
     </script>
     @RenderSection("Scripts",required: false)
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL8WVRH"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
 </body>
 </html>

@@ -174,8 +174,12 @@ namespace WebAppCore.Data.EF
                 var proposedValue = inputEntry.Property(property.Name).CurrentValue;
 
                 var originalValue = databaseEntry.Property(property.Name).OriginalValue;
-
-                if (proposedValue != null && !proposedValue.Equals(originalValue))
+				if(proposedValue == null )
+				{
+					databaseEntry.Property(property.Name).IsModified = true;
+					databaseEntry.Property(property.Name).CurrentValue = proposedValue;
+				}
+				if (proposedValue != null && !proposedValue.Equals(originalValue))
                 {
                     databaseEntry.Property(property.Name).IsModified = true;
                     databaseEntry.Property(property.Name).CurrentValue = proposedValue;

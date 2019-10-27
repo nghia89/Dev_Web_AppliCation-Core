@@ -9,6 +9,8 @@ namespace WebAppCore.Application.Interfaces
 	{
 		Task<bool> AddAsync(AppUserViewModel userVm);
 
+		Task<bool> ChangePassWord(AppUserViewModel userVm,string passWordConfirm);
+
 		Task DeleteAsync(string id);
 
 		Task<List<AppUserViewModel>> GetAllAsync();

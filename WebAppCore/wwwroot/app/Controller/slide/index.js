@@ -74,6 +74,37 @@
 
     }
 
+    function loadDetails(id) {
+        $.ajax({
+            type: "GET",
+            url: "/Admin/SlideShow/GetById",
+            data: { id: id },
+            dataType: "json",
+            beforeSend: function () {
+                structures.startLoading();
+            },
+            success: function (response) {
+                var data = response;
+                $('#hidId').val(data.Id);
+                $('#txtName').val(data.Name);
+                $('#txtDesc').val(data.Description);
+                $('#txtImage').val(data.Image);
+                $('#txtUrl').val(data.Url);
+                $('#txtGroupAlias').val(data.GroupAlias);
+                CKEDITOR.instances.txtContent.getData(data.Content);
+                $('#ckStatus').prop('checked', data.Status === 1);
+
+
+                $('#modal-add-edit').modal('show');
+                structures.stopLoading();
+            },
+            error: function (status) {
+                structures.notify('Có lỗi xảy ra', 'error');
+                structures.stopLoading();
+            }
+        });
+    }
+
     function deleteSlide(id) {
         structures.confirm('Are you sure to delete?', function () {
             $.ajax({
@@ -145,7 +176,7 @@
             var url = $('#txtUrl').val();
             var groupAlias = $('#txtGroupAlias').val();
             var content = CKEDITOR.instances.txtContent.getData();
-            var status = $('#ckStatus').prop('checked') === true ? 1 : 0;       
+            var status = $('#ckStatus').prop('checked') === true ? 1 : 0;
             $.ajax({
                 type: "POST",
                 url: "/Admin/SlideShow/SaveEntity",
@@ -154,8 +185,8 @@
                     Name: name,
                     Image: image,
                     Description: description,
-                    Content: content,         
-                    GroupAlias: groupAlias,         
+                    Content: content,
+                    GroupAlias: groupAlias,
                     Status: status,
                     Url: url,
                 },

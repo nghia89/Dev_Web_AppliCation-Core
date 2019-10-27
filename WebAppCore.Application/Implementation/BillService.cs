@@ -156,7 +156,7 @@ namespace WebAppCore.Application.Implementation
         public List<BillDetailViewModel> GetBillDetails(int billId)
         {
             return _orderDetailRepository
-                .FindAll(x => x.BillId == billId, c => c.Bill, c => c.Color, c => c.Product)
+                .FindAll(x => x.BillId == billId, c => c.Bill, c => c.Product)
                 .Select(x => x.ToModel()).ToList();
         }
 

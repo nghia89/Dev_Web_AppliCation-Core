@@ -1,31 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using WebAppCore.Application.ViewModels.System;
+using WebAppCore.Data.Entities;
 
 namespace WebAppCore.Application.Interfaces
 {
-   public interface IFunctionService:IDisposable  
-    {
-        void Add(FunctionViewModel function);
+	public interface IFunctionService:IDisposable
+	{
+		void Add(FunctionViewModel function);
 
-        Task<List<FunctionViewModel>> GetAll(string filter);
+		Task<List<FunctionViewModel>> GetAll(string filter);
 
-        IEnumerable<FunctionViewModel> GetAllWithParentId(string parentId);
+		Task<List<Function>> GetAllFunctionByRole(string[] roles);
 
-        FunctionViewModel GetById(string id);
+		IEnumerable<FunctionViewModel> GetAllWithParentId(string parentId);
 
-        void Update(FunctionViewModel function);
+		FunctionViewModel GetById(string id);
 
-        void Delete(string id);
+		void Update(FunctionViewModel function);
 
-        void Save();
+		void Delete(string id);
 
-        bool CheckExistedId(string id);
+		void Save();
 
-        void UpdateParentId(string sourceId, string targetId, Dictionary<string, int> items);
+		bool CheckExistedId(string id);
 
-        void ReOrder(string sourceId, string targetId);
-    }
+		void UpdateParentId(string sourceId,string targetId,Dictionary<string,int> items);
+
+		void ReOrder(string sourceId,string targetId);
+	}
 }

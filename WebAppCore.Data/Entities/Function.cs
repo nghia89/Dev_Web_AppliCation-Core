@@ -27,5 +27,7 @@ namespace WebAppCore.Data.Entities
         public string IconCss { get; set; }
         public int SortOrder { set; get; }
         public Status Status { set; get; }
+
+		public List<Permission> Permission { get; set; }
     }
 }

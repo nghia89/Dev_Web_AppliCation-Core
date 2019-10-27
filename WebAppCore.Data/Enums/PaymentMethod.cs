@@ -4,25 +4,25 @@ namespace WebAppCore.Data.Enums
 {
     public enum PaymentMethod
     {
-        [Description("Cash on delivery")]
+        [Description("Thanh Toán Khi Nhận Hàng")]
         CashOnDelivery,
 
-        [Description("Onlin Banking")]
+        [Description("Chuyển khoản")]
         OnlinBanking,
 
-        [Description("Payment Gateway")]
-        PaymentGateway,
+        //[Description("Payment Gateway")]
+        //PaymentGateway,
 
-        [Description("Visa")]
-        Visa,
+        //[Description("Visa")]
+        //Visa,
 
-        [Description("Master Card")]
-        MasterCard,
+        //[Description("Master Card")]
+        //MasterCard,
 
-        [Description("PayPal")]
-        PayPal,
+        //[Description("PayPal")]
+        //PayPal,
 
-        [Description("Atm")]
-        Atm
+        //[Description("Atm")]
+        //Atm
     }
 }

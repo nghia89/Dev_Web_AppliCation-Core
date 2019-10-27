@@ -64,11 +64,11 @@
                                                         </a>
                                                     </div>
                                                     <div class="pr-info-area">
-                                                        <div class="pr-button">
+                                                        @*<div class="pr-button">
                                                             <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart"></i> </a> </div>
                                                             <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-signal"></i> </a> </div>
                                                             <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                        </div>
+                                                        </div>*@
                                                     </div>
                                                 </div>
                                                 <div class="item-info">
@@ -83,7 +83,7 @@
                                                                 else
                                                                 {
                                                                     <div class="price-box"> <span class="regular-price"> <span class="price"> @(item.PromotionPrice.HasValue ? item.PromotionPrice.Value.ToString("N0") : null) </span></span> </div>
-                                                                    <p class="old-price"> <span class="price">@item.Price.ToString("N0")</span> </p>
+                                                                    <p class="old-price"> <span class="price">@item.Price.ToString("N0")</span><span class="sale-off"> -@((int)(100 - (item.PromotionPrice.Value / item.Price) * 100))%</span></p>
                                                                 }
                                                             </div>
                                                             <div class="pro-action">

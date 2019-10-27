@@ -18,13 +18,13 @@ namespace WebAppCore.Application.Implementation
 	public class CommonService:ICommonService
 	{
 		IRepository<Footer,string> _footerRepository;
-		IRepository<SystemConfig,string> _systemConfigRepository;
+		IRepository<SystemConfig,int> _systemConfigRepository;
 		IUnitOfWork _unitOfWork;
 		IRepository<Slide,int> _slideRepository;
 		ISlideRepository _slideServiceRepository;
 
 		public CommonService(IRepository<Footer,string> footerRepository,
-		   IRepository<SystemConfig,string> systemConfigRepository,
+		   IRepository<SystemConfig,int> systemConfigRepository,
 		   IUnitOfWork unitOfWork,ISlideRepository slideServiceRepository,
 		   IRepository<Slide,int> slideRepository)
 		{
@@ -48,7 +48,8 @@ namespace WebAppCore.Application.Implementation
 
 		public SystemConfigViewModel GetSystemConfig(string code)
 		{
-			return _systemConfigRepository.FindSingle(x => x.Id == code).ToModel();
+			return null;
+			//return _systemConfigRepository.FindSingle(x => x.Id == code).ToModel();
 		}
 	}
 }

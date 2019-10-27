@@ -10,8 +10,8 @@ namespace WebAppCore.Application.Interfaces
     {
         void Create(SlideShowViewModel slideVM);
         void Update(SlideShowViewModel slideVM);
-
-        PagedResult<SlideShowViewModel> GetAllPaging(int pageIndex, int pageSize);
+		SlideShowViewModel GetById(int id);
+		PagedResult<SlideShowViewModel> GetAllPaging(int pageIndex, int pageSize);
 
         void DeleteDetail(int id);
 

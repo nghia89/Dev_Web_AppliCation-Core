@@ -1,0 +1,30 @@
+﻿@model List<SlideShowViewModel>
+
+
+
+    <div class="main-slider" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-12 banner-left hidden-xs"><div style="background: #e9e8e8;width: 257.5px;height: 442px;"></div></div>
+                <div class="col-sm-9 col-md-9 col-lg-9 col-xs-12 jtv-slideshow">
+                    <div id="jtv-slideshow">
+                        <div id='rev_slider_4_wrapper' class='rev_slider_wrapper fullwidthbanner-container'>
+                            <div id='rev_slider_4' class='rev_slider fullwidthabanner'>
+                                <ul>
+                                    @foreach(var slide in Model)
+                                    {
+                                        <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''>
+                                            <a href="@slide.Url" target="_blank">
+                                                <img src='@slide.Image?w=860' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@slide.Name" />
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="tp-bannertimer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

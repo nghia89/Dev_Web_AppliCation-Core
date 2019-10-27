@@ -53,7 +53,13 @@ namespace WebAppCore.Application.Implementation
 
         }
 
-        public void Save()
+		public SlideShowViewModel GetById(int id)
+		{
+			var data = _SlideRepository.FindById(id);
+			return data.ToModel();
+		}
+
+		public void Save()
         {
             _unitOfWork.Commit();
         }

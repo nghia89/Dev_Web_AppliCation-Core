@@ -424,6 +424,7 @@
         $('#txtSeoAliasM').val('');
         $('#productStatus').val('');
         $('#txtTotal').val('');
+        $('#linkImg').val('');
 
         CKEDITOR.instances.txtContent.setData('');
         $('#ckStatusM').prop('checked', true);
