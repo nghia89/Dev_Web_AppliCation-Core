@@ -36,7 +36,6 @@ namespace WebAppCore.Data.EF.BuilderExtensions
 			modelBuilder.AddConfiguration(new FunctionConfiguration());
 			modelBuilder.AddConfiguration(new PageConfiguration());
 			modelBuilder.AddConfiguration(new ProductTagConfiguration());
-			modelBuilder.AddConfiguration(new SystemConfigConfiguration());
 			modelBuilder.AddConfiguration(new TagConfiguration());
 			modelBuilder.AddConfiguration(new AnnouncementConfiguration());
 			modelBuilder.AddConfiguration(new AdvertistmentPageConfiguration());

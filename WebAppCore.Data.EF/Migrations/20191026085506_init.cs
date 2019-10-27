@@ -269,14 +269,14 @@ namespace WebAppCore.Data.EF.Migrations
                 name: "SystemConfigs",
                 columns: table => new
                 {
-                    Id = table.Column<string>(maxLength: 255, nullable: false),
-                    Name = table.Column<string>(maxLength: 128, nullable: false),
-                    Value1 = table.Column<string>(nullable: true),
-                    Value2 = table.Column<int>(nullable: true),
-                    Value3 = table.Column<bool>(nullable: true),
-                    Value4 = table.Column<DateTime>(nullable: true),
-                    Value5 = table.Column<decimal>(nullable: true),
-                    Status = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Title = table.Column<string>(nullable: true),
+                    Keywords = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    Copyright = table.Column<string>(nullable: true),
+                    Author = table.Column<string>(nullable: true),
+                    Logo = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

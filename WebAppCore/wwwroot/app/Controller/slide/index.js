@@ -89,7 +89,7 @@
                 $('#txtName').val(data.Name);
                 $('#txtDesc').val(data.Description);
                 $('#txtImage').val(data.Image);
-                $('#txtUrl').val(data.Ủl);
+                $('#txtUrl').val(data.Url);
                 $('#txtGroupAlias').val(data.GroupAlias);
                 CKEDITOR.instances.txtContent.getData(data.Content);
                 $('#ckStatus').prop('checked', data.Status === 1);

@@ -885,25 +885,21 @@ namespace WebAppCore.Data.EF.Migrations
 
             modelBuilder.Entity("WebAppCore.Data.Entities.SystemConfig", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(255);
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(128);
+                    b.Property<string>("Author");
 
-                    b.Property<int>("Status");
+                    b.Property<string>("Copyright");
 
-                    b.Property<string>("Value1");
+                    b.Property<string>("Description");
 
-                    b.Property<int?>("Value2");
+                    b.Property<string>("Keywords");
 
-                    b.Property<bool?>("Value3");
+                    b.Property<string>("Logo");
 
-                    b.Property<DateTime?>("Value4");
-
-                    b.Property<decimal?>("Value5");
+                    b.Property<string>("Title");
 
                     b.HasKey("Id");
 
