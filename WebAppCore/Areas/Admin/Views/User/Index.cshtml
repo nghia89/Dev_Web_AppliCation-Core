@@ -115,13 +115,14 @@
             <td>
                 @if((await AuthorizationService.AuthorizeAsync(User,"USER",Operations.Update)).Succeeded)
                 {
-                    <a href="#" data-id="{{Id}}" class="btn-edit"><i class="fa fa-pencil-square-o"></i></a>
+                    <a title="Sửa" href="#" data-id="{{Id}}" class="btn-edit"><i class="fa fa-pencil-square-o"></i></a>
+                    <a class="btn  btn-sm btn-edit-pass" data-id="{{Id}}" title="Đổi mật khẩu"><i class="fa fa-pencil"></i></a>
                 }
             </td>
             <td>
                 @if((await AuthorizationService.AuthorizeAsync(User,"USER",Operations.Delete)).Succeeded)
                 {
-                    <a href="#" data-id="{{Id}}" class="btn-delete"><i class="fa fa-trash-o"></i></a>
+                    <a href="#" data-id="{{Id}}" title="Xóa" class="btn-delete"><i class="fa fa-trash-o"></i></a>
 
                 }
 
@@ -139,3 +140,4 @@
     </div>
 </script>
 @await Html.PartialAsync("_AddEditModal.cshtml")
+@await Html.PartialAsync("_changePassWord.cshtml")

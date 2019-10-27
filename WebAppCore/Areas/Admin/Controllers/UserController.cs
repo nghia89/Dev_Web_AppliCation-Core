@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.SignalR;
@@ -7,8 +8,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAppCore.Application.Interfaces;
+using WebAppCore.Application.ViewModels;
 using WebAppCore.Application.ViewModels.System;
 using WebAppCore.Authorization;
+using WebAppCore.Data.Entities;
 using WebAppCore.Data.Enums;
 using WebAppCore.Extensions;
 using WebAppCore.SignalR;
@@ -62,6 +65,30 @@ namespace WebAppCore.Areas.Admin.Controllers
 		{
 			var model = _userService.GetAllPagingAsync(Keyword,page,pageSize);
 			return new OkObjectResult(model);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> ChangePassWord(AppUserViewModel userVm,string passWordConfirm)
+		{
+			if(userVm.Password != passWordConfirm)
+			{
+				ErrorMesage e = new ErrorMesage();
+				e.Message = "Mật khẩu không khớp với nhau.";
+				e.Error = true;
+				return new BadRequestObjectResult(e);
+			}
+			var res = await _userService.ChangePassWord(userVm,null);
+			if(res)
+			{
+				return new OkObjectResult(res);
+			}
+			else
+			{
+				ErrorMesage e = new ErrorMesage();
+				e.Message = "thay đổi mật khẩu không thành công.";
+				e.Error = true;
+				return new BadRequestObjectResult(e);
+			}
 		}
 
 		[HttpPost]

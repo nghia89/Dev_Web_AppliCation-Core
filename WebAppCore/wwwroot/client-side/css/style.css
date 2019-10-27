@@ -834,15 +834,15 @@ select.cate-dropdown {
 /*4.5 Logo */
 
 .logo {
-	vertical-align: middle;
-	margin-top: 20px;
-	text-align: left;
-    height:45px;
-	margin-bottom: 35px;
+    vertical-align: middle;
+    margin-top: -16px;
+    text-align: left;
+    margin-bottom: -13px;
 }
 .logo_img {
-    width: 215px;
-    height: 65px;
+    /* width: 215px; */
+    /* height: 65px; */
+    margin: auto;
 }
 .link-wishlist {
     position: relative;
