@@ -26,7 +26,7 @@ namespace WebAppCore
 				} catch(Exception ex)
 				{
 					var logger = services.GetService<ILogger<Program>>();
-					logger.LogError(ex,"Đã xảy ra lỗi trong khi tạo cơ sở dữ liệu");
+					logger.LogError(ex,"co loi xay ra.!");
 				}
 			}
 			host.Run();
