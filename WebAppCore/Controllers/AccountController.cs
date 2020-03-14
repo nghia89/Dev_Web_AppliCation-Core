@@ -15,7 +15,6 @@ using WebAppCore.Models.AccountViewModels;
 using WebAppCore.Services;
 using WebAppCore.Data.Entities;
 using WebAppCore.Data.Enums;
-using PaulMiami.AspNetCore.Mvc.Recaptcha;
 
 namespace WebAppCore.Controllers
 {
@@ -219,7 +218,6 @@ namespace WebAppCore.Controllers
         }
 
         [HttpPost]
-        [ValidateRecaptcha]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         [Route("register.html")]
