@@ -1,4 +1,5 @@
-﻿using OfficeOpenXml;
+﻿using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -173,7 +174,7 @@ namespace WebAppCore.Application.Implementation
 
 			query = query.Skip((page - 1) * pageSize).Take(pageSize);
 
-			var data = query.Select(x => x.ToModel()).OrderByDescending(x => x.DateCreated).ToList();
+			var data = query.OrderByDescending(x => x.DateCreated).Select(x => x.ToModel()).AsNoTracking().ToList();
 
 			var paginationSet = new PagedResult<ProductViewModel>() {
 				Results = data,

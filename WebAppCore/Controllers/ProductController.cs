@@ -32,7 +32,7 @@ namespace WebAppCore.Controllers
             return View(categories);
         }
 
-        [Route("{alias}-c.{id}.html")]
+        [Route("{alias}-c.{id}.html", Name = "Catalog")]
         public async Task<IActionResult> Catalog(int id,[FromQuery]int? pageSize,[FromQuery]string sortBy,[FromQuery] int? sortprice,[FromQuery]int page = 1 )
         {
             var catalog = new CatalogViewModel();
@@ -74,7 +74,7 @@ namespace WebAppCore.Controllers
             return View(catalog);
         }
 
-        [Route("{alias}-p.{id}.html", Name = "ProductDetail")]
+        //[Route("{alias}-p.{id}.html", Name = "ProductDetail")]
         public async Task<IActionResult> Detail(int id)
         {
             ViewData["BodyClass"] = "product-page";
