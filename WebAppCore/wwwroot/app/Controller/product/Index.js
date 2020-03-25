@@ -31,6 +31,7 @@
         });
 
         $("#btnCreate").on('click', function () {
+            $('#linkImg').closest('div').remove();
             resetFormMaintainance();
             initTreeDropDownCategory();
             $('#modal-add-edit').modal('show');
@@ -56,8 +57,9 @@
                 success: function (path) {
                     if (path.Status === true) {
                         structures.notify('File đã tồn tại trong hệ thống', 'warning');
+                        $('.imgR').closest('img').remove();
                         $('#txtImage').val(path.FileName);
-                        $('#linkImg').append('<img width="200"  data-path="' + path.FileName + '" src="' + path.FileName + '">');
+                        $('#linkImg').append('<img class="imgR" width="200"  data-path="' + path.FileName + '" src="' + path.FileName + '">');
                         return;
                     }
                     $('#txtImage').val(path);
@@ -72,6 +74,7 @@
 
         $('body').on('click', '.btn-edit', function (e) {
             e.preventDefault();
+            resetFormMaintainance();
             var that = $(this).data('id');
             loadDetails(that);
         });
@@ -424,7 +427,7 @@
         $('#txtSeoAliasM').val('');
         $('#productStatus').val('');
         $('#txtTotal').val('');
-        $('#linkImg').val('');
+
 
         CKEDITOR.instances.txtContent.setData('');
         $('#ckStatusM').prop('checked', true);
