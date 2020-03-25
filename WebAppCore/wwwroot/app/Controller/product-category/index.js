@@ -64,7 +64,7 @@
                     var data = response;
                     $('#hidIdM').val(data.Id);
                     $('#txtNameM').val(data.Name);
-                    initTreeDropDownCategory(data.CategoryId);
+                    initTreeDropDownCategory(data.ParentId);
 
                     $('#txtDescM').val(data.Description);
 

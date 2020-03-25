@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebAppCore.Data.EF.Migrations
@@ -72,7 +71,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 256, nullable: false),
                     Image = table.Column<string>(maxLength: 256, nullable: true),
                     Description = table.Column<string>(maxLength: 500, nullable: true),
@@ -99,7 +98,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 250, nullable: true),
                     Code = table.Column<string>(maxLength: 250, nullable: true)
                 },
@@ -133,7 +132,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 250, nullable: false),
                     Email = table.Column<string>(maxLength: 250, nullable: true),
                     Message = table.Column<string>(maxLength: 500, nullable: true),
@@ -195,7 +194,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(maxLength: 255, nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 256, nullable: false),
                     Alias = table.Column<string>(maxLength: 256, nullable: false),
                     Content = table.Column<string>(nullable: true),
@@ -211,7 +210,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     ParentId = table.Column<int>(nullable: true),
@@ -237,7 +236,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 250, nullable: true)
                 },
                 constraints: table =>
@@ -250,7 +249,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 250, nullable: false),
                     Description = table.Column<string>(maxLength: 250, nullable: true),
                     Image = table.Column<string>(maxLength: 250, nullable: false),
@@ -270,7 +269,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(nullable: true),
                     Keywords = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
@@ -320,7 +319,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     RoleId = table.Column<Guid>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -365,7 +364,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<Guid>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -453,7 +452,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerName = table.Column<string>(maxLength: 256, nullable: false),
                     CustomerAddress = table.Column<string>(maxLength: 256, nullable: false),
                     CustomerMobile = table.Column<string>(maxLength: 50, nullable: false),
@@ -481,7 +480,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     RoleId = table.Column<Guid>(nullable: false),
                     FunctionId = table.Column<string>(maxLength: 128, nullable: false),
                     CanCreate = table.Column<bool>(nullable: false),
@@ -511,7 +510,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 255, nullable: false),
                     CategoryId = table.Column<int>(nullable: false),
                     Image = table.Column<string>(maxLength: 255, nullable: true),
@@ -554,7 +553,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     BlogId = table.Column<int>(nullable: false),
                     TagId = table.Column<string>(unicode: false, maxLength: 50, nullable: false)
                 },
@@ -580,7 +579,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 250, nullable: true),
                     Description = table.Column<string>(maxLength: 250, nullable: true),
                     Image = table.Column<string>(maxLength: 250, nullable: true),
@@ -607,7 +606,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     AnnouncementId = table.Column<string>(maxLength: 128, nullable: false),
                     UserId = table.Column<Guid>(nullable: false),
                     HasRead = table.Column<bool>(nullable: true)
@@ -628,7 +627,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     BillId = table.Column<int>(nullable: false),
                     ProductId = table.Column<int>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
@@ -658,7 +657,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(nullable: false),
                     Path = table.Column<string>(maxLength: 250, nullable: true),
                     Caption = table.Column<string>(maxLength: 250, nullable: true)
@@ -679,7 +678,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(nullable: false),
                     SizeId = table.Column<int>(nullable: false),
                     ColorId = table.Column<int>(nullable: false),
@@ -713,7 +712,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(nullable: false),
                     TagId = table.Column<string>(unicode: false, maxLength: 50, nullable: false)
                 },
@@ -739,7 +738,7 @@ namespace WebAppCore.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(nullable: false),
                     FromQuantity = table.Column<int>(nullable: false),
                     ToQuantity = table.Column<int>(nullable: false),

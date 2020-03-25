@@ -37,7 +37,7 @@
                 success: function (path) {
                     clearFileInput($("#fileImage"));
                     images.push(path);
-                    $('#image-list').append('<div class="col-md-3"><img width="100"  data-path="' + path + '" src="' + path + '"></div>');
+                    $('#image-list').append('<div class="col-md-3"><img width="100"  data-path="' + path.FileName + '" src="' + path.FileName + '"></div>');
                     structures.notify('Đã tải ảnh lên thành công!', 'success');
 
                 },
