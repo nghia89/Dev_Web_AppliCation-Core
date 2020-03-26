@@ -42,6 +42,7 @@
         });
 
         $("#fileInputImage").on('change', function () {
+            $('#linkImg').html('');
             var fileUpload = $(this).get(0);
             var files = fileUpload.files;
             var data = new FormData();
@@ -57,13 +58,12 @@
                 success: function (path) {
                     if (path.Status === true) {
                         structures.notify('File đã tồn tại trong hệ thống', 'warning');
-                        $('.imgR').closest('img').remove();
                         $('#txtImage').val(path.FileName);
                         $('#linkImg').append('<img class="imgR" width="200"  data-path="' + path.FileName + '" src="' + path.FileName + '">');
                         return;
                     }
                     $('#txtImage').val(path);
-                    $('#linkImg').append('<div class="col-md-6"><img width="200"  data-path="' + path + '" src="' + path + '"></div>');
+                    $('#linkImg').append('<div class="imgR col-md-6"><img width="200"  data-path="' + path + '" src="' + path + '"></div>');
                     structures.notify('Upload image succesful!', 'success');
                 },
                 error: function () {
@@ -427,6 +427,7 @@
         $('#txtSeoAliasM').val('');
         $('#productStatus').val('');
         $('#txtTotal').val('');
+        $('#linkImg').html('');
 
 
         CKEDITOR.instances.txtContent.setData('');
