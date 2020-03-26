@@ -31,7 +31,6 @@
         });
 
         $("#btnCreate").on('click', function () {
-            $('#linkImg').closest('div').remove();
             resetFormMaintainance();
             initTreeDropDownCategory();
             $('#modal-add-edit').modal('show');
