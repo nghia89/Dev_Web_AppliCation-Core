@@ -1,4 +1,4 @@
-﻿<div id="modal-image-manage"  data-backdrop="static" data-keyboard="false" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+﻿<div id="modal-image-manage" data-backdrop="static" data-keyboard="false" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 <div id="horizontal-form">
-                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                    <form class="form-horizontal" role="form" id="frmMaintainance" enctype="multipart/form-data">
                         <div class="form-group">
                             <label class="col-sm-2 control-label no-padding-right">Ảnh đã chọn</label>
                             <div class="col-sm-10">
@@ -21,7 +21,7 @@
                             <label for="txtName" class="col-sm-2 control-label no-padding-right">Chọn ảnh</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
-                                    <input type="file" id="fileImage" />
+                                    <input style="width:96px" type="file" id="fileImage" multiple />
                                 </div><!-- /input-group -->
                             </div>
                         </div>
