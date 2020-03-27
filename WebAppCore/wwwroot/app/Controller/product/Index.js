@@ -54,16 +54,18 @@
                 contentType: false,
                 processData: false,
                 data: data,
-                success: function (path) {
-                    if (path.Status === true) {
-                        structures.notify('File đã tồn tại trong hệ thống', 'warning');
-                        $('#txtImage').val(path.FileName);
-                        $('#linkImg').append('<img class="imgR" width="200"  data-path="' + path.FileName + '" src="' + path.FileName + '">');
-                        return;
-                    }
-                    $('#txtImage').val(path);
-                    $('#linkImg').append('<div class="imgR col-md-6"><img width="200"  data-path="' + path + '" src="' + path + '"></div>');
-                    structures.notify('Upload image succesful!', 'success');
+                success: function (rsp) {
+                    $.each(rsp, function (i, path) {
+                        if (path.Status === true) {
+                            structures.notify('File đã tồn tại trong hệ thống', 'warning');
+                            $('#txtImage').val(path.FileName);
+                            $('#linkImg').append('<img class="imgR" width="200"  data-path="' + path.FileName + '" src="' + path.FileName + '">');
+                            return;
+                        }
+                        $('#txtImage').val(path);
+                        $('#linkImg').append('<div class="imgR col-md-6"><img width="200"  data-path="' + path.FileName + '" src="' + path.FileName + '"></div>');
+                        structures.notify('Upload image succesful!', 'success');
+                    });
                 },
                 error: function () {
                     structures.notify('There was error uploading files!', 'error');

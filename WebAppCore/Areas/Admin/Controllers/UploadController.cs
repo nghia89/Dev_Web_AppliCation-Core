@@ -6,16 +6,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using WebAppCore.Models.UtilModel;
 
 namespace WebAppCore.Areas.Admin.Controllers
 {
 
 	public class UploadController:BaseController
 	{
-		private readonly IHostingEnvironment _hostingEnvironment;
-		public UploadController(IHostingEnvironment hostingEnvironment)
+		private readonly IWebHostEnvironment _webHostEnvironment;
+		public UploadController(IWebHostEnvironment webHostEnvironment)
 		{
-			_hostingEnvironment = hostingEnvironment;
+			_webHostEnvironment = webHostEnvironment;
 		}
 
 		[HttpPost]
@@ -36,7 +37,7 @@ namespace WebAppCore.Areas.Admin.Controllers
 
 				var imageFolder = $@"\uploaded\images\{now.ToString("yyyyMMdd")}";
 
-				string folder = _hostingEnvironment.WebRootPath + imageFolder;
+				string folder = _webHostEnvironment.WebRootPath + imageFolder;
 
 				if(!Directory.Exists(folder))
 				{
@@ -66,34 +67,44 @@ namespace WebAppCore.Areas.Admin.Controllers
 			}
 			else
 			{
-				var file = files[0];
-				var filename = ContentDispositionHeaderValue
+				var listFile = new List<FileImageModel>();
+				
+				foreach (var item in files)
+				{
+					var file = item;
+					var filename = ContentDispositionHeaderValue
 									.Parse(file.ContentDisposition)
 									.FileName
 									.Trim('"');
 
-				var imageFolder = $@"\uploaded\images\{now.ToString("yyyyMMdd")}";
+					var imageFolder = $@"\uploaded\images\{now.ToString("yyyyMMdd")}";
 
-				string folder = _hostingEnvironment.WebRootPath + imageFolder;
+					string folder = _webHostEnvironment.WebRootPath + imageFolder;
 
-				if(!Directory.Exists(folder))
-				{
-					Directory.CreateDirectory(folder);
+					if (!Directory.Exists(folder))
+					{
+						Directory.CreateDirectory(folder);
+					}
+					var linkFullFile = folder + @"\" + filename;
+					if (System.IO.File.Exists(linkFullFile))
+					{
+						var status = true;
+						var fileName = Path.Combine(imageFolder, filename).Replace(@"\", @"/");
+						listFile.Add(new FileImageModel { Status = status, FileName = fileName });
+					}
+					else
+					{
+						var path = new FileImageModel { Status = true, FileName = Path.Combine(imageFolder, filename).Replace(@"\", @"/") };
+						listFile.Add(path);
+						string filePath = Path.Combine(folder, filename);
+						using (FileStream fs = System.IO.File.Create(filePath))
+						{
+							file.CopyTo(fs);
+							fs.Flush();
+						}
+					}
 				}
-				var linkFullFile = folder + @"\" + filename;
-				if(System.IO.File.Exists(linkFullFile))
-				{
-					var status = true;
-					var fileName = Path.Combine(imageFolder,filename).Replace(@"\",@"/");
-					return new OkObjectResult(new { Status = status,FileName = fileName});
-				}
-				string filePath = Path.Combine(folder,filename);
-				using(FileStream fs = System.IO.File.Create(filePath))
-				{
-					file.CopyTo(fs);
-					fs.Flush();
-				}
-				return new OkObjectResult(Path.Combine(imageFolder,filename).Replace(@"\",@"/"));
+				return new OkObjectResult(listFile);
 			}
 		}
 
@@ -116,7 +127,7 @@ namespace WebAppCore.Areas.Admin.Controllers
 
 				var imageFolder = $@"\client-side\images\{now.ToString("yyyyMMdd")}";
 
-				string folder = _hostingEnvironment.WebRootPath + imageFolder;
+				string folder = _webHostEnvironment.WebRootPath + imageFolder;
 
 				if(!Directory.Exists(folder))
 				{
@@ -151,7 +162,7 @@ namespace WebAppCore.Areas.Admin.Controllers
 
 				var imageFolder = $@"\client-side\logo\{now.ToString("yyyyMMdd")}";
 
-				string folder = _hostingEnvironment.WebRootPath + imageFolder;
+				string folder = _webHostEnvironment.WebRootPath + imageFolder;
 
 				if(!Directory.Exists(folder))
 				{

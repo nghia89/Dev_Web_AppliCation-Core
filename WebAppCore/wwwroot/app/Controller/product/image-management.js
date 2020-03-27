@@ -34,10 +34,14 @@
                 contentType: false,
                 processData: false,
                 data: data,
-                success: function (path) {
+                success: function (rsp) {
                     clearFileInput($("#fileImage"));
-                    images.push(path);
-                    $('#image-list').append('<div class="col-md-3"><img width="100"  data-path="' + path.FileName + '" src="' + path.FileName + '"></div>');
+                   
+                    $.each(rsp, function (i, item) {
+                        //images.push(item);
+                        $('#image-list').append('<div class="col-md-3"><img width="100"  data-path="' + item.FileName + '" src="' + item.FileName + '"><br/><a href="#" class="btn-delete-image">Xóa</a></div>');
+                    })
+                 
                     structures.notify('Đã tải ảnh lên thành công!', 'success');
 
                 },
@@ -56,7 +60,7 @@
             $.ajax({
                 url: '/admin/Product/SaveImages',
                 data: {
-                    productId: $('#hidId').val(),
+                    productId: $('#hidIdM').val(),
                     images: imageList
                 },
                 type: 'post',
@@ -73,7 +77,7 @@
         $.ajax({
             url: '/admin/Product/GetImages',
             data: {
-                productId: $('#hidId').val()
+                productId: $('#hidIdM').val()
             },
             type: 'get',
             dataType: 'json',
