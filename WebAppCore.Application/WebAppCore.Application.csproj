@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="6.2.0" />
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
     <PackageReference Include="EPPlus.Core" Version="1.5.4" />
     <PackageReference Include="Git-Windows-Minimal" Version="2.18.0" />
   </ItemGroup>
