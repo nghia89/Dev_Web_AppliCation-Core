@@ -10,14 +10,14 @@ using WebAppCore.Data.EF;
 namespace WebAppCore.Data.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200315114914_init")]
-    partial class init
+    [Migration("20210228113437_init_db")]
+    partial class init_db
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.0.0")
+                .HasAnnotation("ProductVersion", "3.1.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -83,7 +83,7 @@ namespace WebAppCore.Data.EF.Migrations
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
-                    b.HasAlternateKey("UserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("AspNetUserLogins");
                 });
@@ -98,7 +98,7 @@ namespace WebAppCore.Data.EF.Migrations
 
                     b.HasKey("UserId", "RoleId");
 
-                    b.HasAlternateKey("RoleId", "UserId");
+                    b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
                 });
@@ -118,8 +118,6 @@ namespace WebAppCore.Data.EF.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
-
-                    b.HasAlternateKey("UserId");
 
                     b.ToTable("AspNetUserTokens");
                 });
