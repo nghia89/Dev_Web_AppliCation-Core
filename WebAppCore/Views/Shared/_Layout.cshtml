@@ -15,8 +15,8 @@
         var author = ViewData["Author"];
     }
     <meta name="description" content="@metaDescription">
-    <meta name="keywords" content="@metaKeyword"/>
-    <meta name="copyright" content="@copyright"/>
+    <meta name="keywords" content="@metaKeyword" />
+    <meta name="copyright" content="@copyright" />
     <meta name="author" content="@author" />
 
     <!-- Mobile specific metas  -->
@@ -26,27 +26,12 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
     <!-- CSS Style -->
-    @RenderSection("Style",required: false)
-
+    @RenderSection("Style", required: false)
+    <link rel="stylesheet" href="~/client-side/style.css">
     <environment names="Development">
-        <link rel="stylesheet" href="~/client-side/style.css">
-        <link rel="stylesheet" href="~/client-side/css/style.css">
     </environment>
     <environment names="Staging,Production">
-        <link rel="stylesheet" href="~/client-side/style.css">
-        <link rel="stylesheet" href="~/client-side/css/style.min.css">
     </environment>
-
-    <!-- Google Tag Manager -->
-    <script>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-TL8WVRH');</script>
     <!-- End Google Tag Manager -->
     @*<link href="~/lib/notifyjs/dist/styles/metro/notify-metro.css" rel="stylesheet" />*@
 </head>
@@ -93,73 +78,40 @@
 
 
     <environment names="Development">
-        <!-- JS -->
-        <!-- jquery js -->
-        <script type="text/javascript" src="~/client-side/js/jquery.min.js"></script>
-
-        <!-- bootstrap js -->
-        <script type="text/javascript" src="~/client-side/js/bootstrap.min.js"></script>
-
-        <!-- owl.carousel.min js -->
-        <script type="text/javascript" src="~/client-side/js/owl.carousel.min.js"></script>
-
-        <!-- jquery.mobile-menu js -->
-        <script type="text/javascript" src="~/client-side/js/mobile-menu.js"></script>
-
-        <!--jquery-ui.min js -->
-        <script type="text/javascript" src="~/client-side/js/jquery-ui.js"></script>
-
-        <!-- main js -->
-        <script type="text/javascript" src="~/client-side/js/main.js"></script>
-
-        <!-- countdown js -->
-        <script type="text/javascript" src="~/client-side/js/countdown.js"></script>
-
-        <!-- Slider Js -->
-        <script type="text/javascript" src="~/client-side/js/revolution-slider.js"></script>
+     @*JS 
+     jquery js*@ 
+    <script type="text/javascript" src="~/client-side/js/jquery.min.js"></script>
+     @*bootstrap js*@ 
+    <script type="text/javascript" src="~/client-side/js/bootstrap.min.js"></script>
+     @*owl.carousel.min js*@ 
+    <script type="text/javascript" src="~/client-side/js/owl.carousel.min.js"></script>
+     @*jquery.mobile-menu js*@ 
+    <script type="text/javascript" src="~/client-side/js/mobile-menu.js"></script>
+    @*jquery-ui.min js*@ 
+    <script type="text/javascript" src="~/client-side/js/jquery-ui.js"></script>
+     @*main js*@ 
+    <script type="text/javascript" src="~/client-side/js/main.js"></script>
+     @*countdown js*@ 
+    <script type="text/javascript" src="~/client-side/js/countdown.js"></script>
+     @*Slider Js*@ 
+    <script type="text/javascript" src="~/client-side/js/revolution-slider.js"></script>
         <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
         <script src="~/client-app/shared/structures-client.js"></script>
         <script src="~/client-app/base/index.js"></script>
         <script src="~/lib/notifyjs/dist/notify.js"></script>
         <script src="~/lib/mustache/mustache.js"></script>
     </environment>
-
-    <environment names="Staging,Production">
-        <!-- JS -->
-        <!-- jquery js -->
-        <script type="text/javascript" src="~/client-side/js/jquery.min.js"></script>
-
-        <!-- bootstrap js -->
-        <script type="text/javascript" src="~/client-side/js/bootstrap.min.js"></script>
-
-        <!-- owl.carousel.min js -->
-        <script type="text/javascript" src="~/client-side/js/owl.carousel.min.js"></script>
-
-        <!-- jquery.mobile-menu js -->
-        <script type="text/javascript" src="~/client-side/js/mobile-menu.min.js"></script>
-
-        <!--jquery-ui.min js -->
-        <script type="text/javascript" src="~/client-side/js/jquery-ui.min.js"></script>
-
-        <!-- main js -->
-        <script type="text/javascript" src="~/client-side/js/main.min.js"></script>
-
-        <!-- countdown js -->
-        <script type="text/javascript" src="~/client-side/js/countdown.min.js"></script>
-
-        <!-- Slider Js -->
-        <script type="text/javascript" src="~/client-side/js/revolution-slider.js"></script>
-        <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
-        <script src="~/client-app/shared/structures-client.js"></script>
-        <script src="~/client-app/base/index.js"></script>
+    <environment names="Production">
+        <script type="text/javascript" src="~/js/site.client.min.js"></script>
         <script src="~/lib/notifyjs/dist/notify.min.js"></script>
         <script src="~/lib/mustache/mustache.min.js"></script>
     </environment>
+  
     <script>
         var Baseobj = new BaseController()
         Baseobj.initialize();
     </script>
-    @RenderSection("Scripts",required: false)
+    @RenderSection("Scripts", required: false)
     <!-- Google Tag Manager (noscript) -->
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL8WVRH"

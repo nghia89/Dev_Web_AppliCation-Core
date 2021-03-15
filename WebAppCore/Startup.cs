@@ -108,7 +108,7 @@ namespace WebAppCore
             });
 
             //services.AddImageResizer();
-            services.AddAutoMapper(typeof(Startup));
+            //services.AddAutoMapper(typeof(Startup));
 
             // Add application services.
             services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
@@ -129,7 +129,7 @@ namespace WebAppCore
             .AddNewtonsoftJson(options =>
                   options.SerializerSettings.ContractResolver =
                      new DefaultContractResolver());
-
+            services.AddAutoMapper();
             services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
             //cho phép các domain khác ở ngoài truy cập vào được
             services.AddCors(options => options.AddPolicy("CorsPolicy",
