@@ -28,6 +28,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
     <PackageReference Include="Git-Windows-Minimal" Version="2.18.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.0" />
@@ -43,7 +44,6 @@
 
   <ItemGroup>
     <None Include="wwwroot\admin-side\js\custom.js" />
-    <None Include="wwwroot\admin-side\js\custom.min.js" />
     <None Include="wwwroot\client-side\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <None Include="wwwroot\client-side\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
     <None Include="wwwroot\client-side\font-awesome-4.7.0\less\animated.less" />

@@ -2,16 +2,39 @@
 // More info at https://go.microsoft.com/fwlink/?LinkId=808241
 [
   {
-    "outputFileName": "wwwroot/css/site.min.css",
+    "outputFileName": "wwwroot/css/site_client.min.css",
     // An array of relative input file paths. Globbing patterns supported
     "inputFiles": [
-      "wwwroot/css/site.css"
+      "wwwroot/client-app/css/StyleSheet.css"
     ]
   },
   {
-    "outputFileName": "wwwroot/js/site.min.js",
+    "outputFileName": "wwwroot/js/site.client.min.js",
     "inputFiles": [
-      "wwwroot/js/site.js"
+      "wwwroot/client-side/js/jquery.min.js",
+      "wwwroot/client-side/js/bootstrap.min.js",
+      "wwwroot/client-side/js/owl.carousel.min.js",
+      "wwwroot/client-side/js/mobile-menu.min.js",
+      "wwwroot/client-side/js/jquery-ui.min.js",
+      "wwwroot/client-side/js/main.min.js",
+      "wwwroot/client-side/js/countdown.min.js",
+      "wwwroot/client-side/js/revolution-slider.js",
+      "wwwroot/client-app/base/**/!(*.min).js",
+      "wwwroot/client-app/shared/**/!(*.min).js"
+    ]
+    //// Optionally specify minification options
+    //"minify": {
+    //  "enabled": false,
+    //  "renameLocals": true
+    //},
+    //// Optionally generate .map file
+    //"sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/site.admin.min.js",
+    "inputFiles": [
+      "wwwroot/app/Controller/**/!(*.min).js",
+      "wwwroot/app/shared/**/!(*.min).js"
     ],
     // Optionally specify minification options
     "minify": {
