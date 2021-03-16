@@ -5,6 +5,7 @@
     "outputFileName": "wwwroot/css/site_client.min.css",
     // An array of relative input file paths. Globbing patterns supported
     "inputFiles": [
+      "wwwroot/client-side/css/style.css",
       "wwwroot/client-app/css/StyleSheet.css",
       "wwwroot/client-side/css/bootstrap.min.css",
       "wwwroot/client-side/css/animate.min.css",

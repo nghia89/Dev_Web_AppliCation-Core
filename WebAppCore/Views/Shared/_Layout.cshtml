@@ -25,12 +25,12 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
     <!-- CSS Style -->
-    <environment names="Development>
-        <link rel="preload" href="~/client-side/css/style.css">
+    <environment names="Development">
+        <link href="~/client-side/css/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="~/client-side/style.css">
     </environment>
     <environment names="Staging,Production">
-        <link rel="preload" href="~/client-side/css/style.min.css">
+        @*<link rel="preload" href="~/client-side/css/style.min.css">*@
         <link rel="stylesheet" href="~/css/site_client.min.css">
     </environment>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" />
