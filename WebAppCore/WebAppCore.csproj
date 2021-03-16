@@ -101,7 +101,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dapper\WebAppCore.Application.Dapper.csproj" />
     <ProjectReference Include="..\WebAppCore.Application\WebAppCore.Application.csproj" />
     <ProjectReference Include="..\WebAppCore.Data.EF\WebAppCore.Data.EF.csproj" />
     <ProjectReference Include="..\WebAppCore.Data\WebAppCore.Data.csproj" />

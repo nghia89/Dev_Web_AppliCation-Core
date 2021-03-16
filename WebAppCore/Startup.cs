@@ -14,8 +14,6 @@ using System;
 using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq;
-using WebAppCore.Application.Dapper.Implementation;
-using WebAppCore.Application.Dapper.Interfaces;
 using WebAppCore.Application.Implementation;
 using WebAppCore.Application.Interfaces;
 using WebAppCore.Authorization;
@@ -155,7 +153,6 @@ namespace WebAppCore
             services.AddTransient<IContactService, ContactService>();
             services.AddTransient<IFeedbackService, FeedbackService>();
             services.AddTransient<IPageService, PageService>();
-            services.AddTransient<IReportService, ReportService>();
             services.AddTransient<IAnnouncementService, AnnouncementService>();
             services.AddTransient<ISlideShowService, SlideShowService>();
             services.AddTransient<IAnnouncementUserService, AnnouncementUserService>();
