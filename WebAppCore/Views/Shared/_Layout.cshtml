@@ -21,19 +21,21 @@
 
     <!-- Mobile specific metas  -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Favicons Icon -->
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
     <!-- CSS Style -->
-    @RenderSection("Style", required: false)
-    <link rel="stylesheet" href="~/client-side/style.css">
-    <environment names="Development">
+    <environment names="Development>
+        <link rel="preload" href="~/client-side/css/style.css">
+        <link rel="stylesheet" href="~/client-side/style.css">
     </environment>
     <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/client-side/css/style.min.css">
+        <link rel="stylesheet" href="~/css/site_client.min.css">
     </environment>
-    <!-- End Google Tag Manager -->
-    @*<link href="~/lib/notifyjs/dist/styles/metro/notify-metro.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" />
+
+    @RenderSection("Style", required: false)
 </head>
 
 <body class="@ViewData["BodyClass"]">
@@ -78,23 +80,23 @@
 
 
     <environment names="Development">
-     @*JS 
-     jquery js*@ 
-    <script type="text/javascript" src="~/client-side/js/jquery.min.js"></script>
-     @*bootstrap js*@ 
-    <script type="text/javascript" src="~/client-side/js/bootstrap.min.js"></script>
-     @*owl.carousel.min js*@ 
-    <script type="text/javascript" src="~/client-side/js/owl.carousel.min.js"></script>
-     @*jquery.mobile-menu js*@ 
-    <script type="text/javascript" src="~/client-side/js/mobile-menu.js"></script>
-    @*jquery-ui.min js*@ 
-    <script type="text/javascript" src="~/client-side/js/jquery-ui.js"></script>
-     @*main js*@ 
-    <script type="text/javascript" src="~/client-side/js/main.js"></script>
-     @*countdown js*@ 
-    <script type="text/javascript" src="~/client-side/js/countdown.js"></script>
-     @*Slider Js*@ 
-    <script type="text/javascript" src="~/client-side/js/revolution-slider.js"></script>
+        @*JS
+            jquery js*@
+        <script type="text/javascript" src="~/client-side/js/jquery.min.js"></script>
+        @*bootstrap js*@
+        <script type="text/javascript" src="~/client-side/js/bootstrap.min.js"></script>
+        @*owl.carousel.min js*@
+        <script type="text/javascript" src="~/client-side/js/owl.carousel.min.js"></script>
+        @*jquery.mobile-menu js*@
+        <script type="text/javascript" src="~/client-side/js/mobile-menu.js"></script>
+        @*jquery-ui.min js*@
+        <script type="text/javascript" src="~/client-side/js/jquery-ui.js"></script>
+        @*main js*@
+        <script type="text/javascript" src="~/client-side/js/main.js"></script>
+        @*countdown js*@
+        <script type="text/javascript" src="~/client-side/js/countdown.js"></script>
+        @*Slider Js*@
+        <script type="text/javascript" src="~/client-side/js/revolution-slider.js"></script>
         <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
         <script src="~/client-app/shared/structures-client.js"></script>
         <script src="~/client-app/base/index.js"></script>
@@ -106,7 +108,7 @@
         <script src="~/lib/notifyjs/dist/notify.min.js"></script>
         <script src="~/lib/mustache/mustache.min.js"></script>
     </environment>
-  
+
     <script>
         var Baseobj = new BaseController()
         Baseobj.initialize();
