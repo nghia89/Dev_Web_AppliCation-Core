@@ -27,6 +27,7 @@ using WebAppCore.Repository.Interfaces;
 using WebAppCore.Services;
 using WebAppCore.SignalR;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 
 namespace WebAppCore
 {
@@ -116,14 +117,15 @@ namespace WebAppCore
             services.AddTransient<DbInitializer>();
 
             services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, CustomClaimsPrincipalFactory>();
-            //services.AddMvc();
-
 
             services.AddRazorPages();
             services.AddControllers()
-            .AddNewtonsoftJson(options =>
-                  options.SerializerSettings.ContractResolver =
-                     new DefaultContractResolver());
+             .AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            }
+         );
 
             services.AddAutoMapper();
             services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
@@ -198,10 +200,10 @@ namespace WebAppCore
             app.UseAuthorization();
             app.UseSession();
             app.UseCors("CorsPolicy");
-            //app.UseSignalR(hubs =>
-            //{
-            //    hubs.MapHub<SignalRHub>("/signalRHub");
-            //});
+            app.UseSignalR(hubs =>
+            {
+                hubs.MapHub<SignalRHub>("/signalRHub");
+            });
 
             app.UseEndpoints(endpoints =>
             {
@@ -211,9 +213,9 @@ namespace WebAppCore
                   name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 //endpoints.MapControllerRoute("Product", "{alias}-c.{id}.html", new {controller= "Product", action= "Catalog" });  
-                endpoints.MapControllerRoute("Product", "{alias}-p.{id}.html", new {controller= "Product", action= "Detail" });  
-                endpoints.MapControllerRoute("Blogs", "{name}.{id}.html", new {controller= "Blogs", action= "Detail" });
-                endpoints.MapControllerRoute("Blogs", "tintuc.html", new {controller= "Blogs", action= "Index" });
+                endpoints.MapControllerRoute("Product", "{alias}-p.{id}.html", new { controller = "Product", action = "Detail" });
+                endpoints.MapControllerRoute("Blogs", "{name}.{id}.html", new { controller = "Blogs", action = "Detail" });
+                endpoints.MapControllerRoute("Blogs", "tintuc.html", new { controller = "Blogs", action = "Index" });
 
                 endpoints.MapControllerRoute(
                  name: "areasRouter",
