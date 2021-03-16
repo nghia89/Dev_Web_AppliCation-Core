@@ -12,7 +12,7 @@ namespace WebAppCore.Application.Interfaces
 
         void Delete(int id);
 
-        List<ProductCategoryViewModel> GetAll();
+        Task<List<ProductCategoryViewModel>> GetAll();
 
         List<ProductCategoryViewModel> GetAll(string keyword);
 

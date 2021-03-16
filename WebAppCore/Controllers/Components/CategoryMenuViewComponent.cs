@@ -20,10 +20,10 @@ namespace WebAppCore.Controllers.Components
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var categories = _memoryCache.GetOrCreate(CacheKeys.ProductCategories, entry =>
+            var categories =await _memoryCache.GetOrCreateAsync(CacheKeys.ProductCategories, async entry =>
               {
-                  entry.SlidingExpiration = TimeSpan.FromSeconds(3);
-                  return _productCategoryService.GetAll();
+                  entry.SlidingExpiration = TimeSpan.FromSeconds(12);
+                  return await _productCategoryService.GetAll();
               });
             return View(categories);
         }

@@ -7,6 +7,7 @@ namespace WebAppCore.Infrastructure.Enums
     public enum CacheKeys
     {
         ProductCategories,
-		SystemConfig
+		SystemConfig,
+        Slides
     }
 }

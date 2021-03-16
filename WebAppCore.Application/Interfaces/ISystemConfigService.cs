@@ -11,7 +11,7 @@ namespace WebAppCore.Application.Interfaces
 		void Create(SystemConfigViewModel slideVM);
 		void Update(SystemConfigViewModel slideVM);
 		Task<SystemConfigViewModel> GetByIdOrDefault();
-		SystemConfigViewModel GetById();
+		Task<SystemConfigViewModel> GetById();
 		void Save();
 	}
 }

@@ -48,9 +48,9 @@ namespace WebAppCore.Application.Implementation
 			_systemRepository.Update(slide);
 		}
 
-		public SystemConfigViewModel GetById()
+		public async Task<SystemConfigViewModel> GetById()
 		{
-			var data =  _context.Set<SystemConfig>().FirstOrDefault();
+			var data =await _context.Set<SystemConfig>().FirstOrDefaultAsync();
 			return data.ToModel();
 		}
 	}
