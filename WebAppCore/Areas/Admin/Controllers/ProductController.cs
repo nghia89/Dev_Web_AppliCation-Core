@@ -50,9 +50,9 @@ namespace WebAppCore.Areas.Admin.Controllers
             return new OkObjectResult(model);
         }
 
-        public IActionResult GetAllCategory()
+        public async Task<IActionResult> GetAllCategory()
         {
-            var model = _productCategoryService.GetAll();
+            var model =await _productCategoryService.GetAll();
             return new OkObjectResult(model);
         }
 

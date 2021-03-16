@@ -9,12 +9,10 @@ namespace WebAppCore.Application.Mappers
 	{
 		public ProductMapperProfile()
 		{
-			CreateMap<Product, ProductViewModel>().MaxDepth(2)
-				.ReverseMap();
-			//CreateMap<Product,ProductViewModel>().ForMember(a => a.ProductTags,o => o.ResolveUsing(b => b.ProductTags == null
-			//	? null: b.ProductTags.Select(c => c.ToModel()).ToList())).MaxDepth(2)
-			//	.ReverseMap();
-		}
+            CreateMap<Product, ProductViewModel>().ForMember(a => a.ProductTags, o => o.MapFrom(b => b.ProductTags == null
+                  ? null : b.ProductTags.Select(c => c.ToModel()).ToList())).MaxDepth(2)
+                .ReverseMap();
+        }
 	}
 	public static class ProductMapper
 	{

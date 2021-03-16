@@ -17,16 +17,26 @@
     <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <!-- NProgress -->
     @*<link href="../vendors/nprogress/nprogress.css" rel="stylesheet">*@
-    <link href="~/lib/nprogress/nprogress.css" rel="stylesheet" />
-    <!-- bootstrap-daterangepicker -->
-    <link href="~/lib/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
-    <link href="~/lib/notifyjs/dist/styles/metro/notify-metro.css" rel="stylesheet" />
-    <link href="~/lib/ckeditor/skins/moono/editor.css" rel="stylesheet" />
-    <link href="~/client-app/css/StyleSheet.css" rel="stylesheet" />
-    @RenderSection("Style",required: false)
-    <!-- Custom Theme Style -->
-    <link href="~/admin-side/css/custom.min.css" rel="stylesheet" />
-    <link href="~/admin-side/css/style.css" rel="stylesheet" />
+
+    <environment names="Development">
+        <link href="~/lib/nprogress/nprogress.css" rel="stylesheet" />
+        <!-- bootstrap-daterangepicker -->
+        <link href="~/lib/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+        <link href="~/lib/notifyjs/dist/styles/metro/notify-metro.css" rel="stylesheet" />
+        <link href="~/lib/ckeditor/skins/moono/editor.css" rel="stylesheet" />
+        <link href="~/client-app/css/StyleSheet.css" rel="stylesheet" />
+        <!-- Custom Theme Style -->
+        <link href="~/admin-side/css/custom.css" rel="stylesheet" />
+        <link href="~/admin-side/css/style.css" rel="stylesheet" />
+
+    </environment>
+
+    <environment names="Production">
+
+
+    </environment>
+
+    @RenderSection("Style", required: false)
 </head>
 
 <body class="nav-md">
@@ -145,51 +155,55 @@
         </li>
     </script>
 
-    <!-- jQuery -->
-    @*<script src="../vendors/jquery/dist/jquery.min.js"></script>*@
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/signalr/dist/browser/signalr.js"></script>
-    <script src="~/lib/notifyjs/dist/notify.js"></script>
-    <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-    @*<script src="~/app/shared/structures.js"></script>*@
-    <!-- Bootstrap -->
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <!-- FastClick -->
-    <script src="~/lib/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="~/lib/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="~/lib/mustache/mustache.js"></script>
-    <script src="~/lib/Chart.js/dist/Chart.js"></script>
-    <!-- jQuery Sparklines -->
-    <script src="~/lib/twbs-pagination/jquery.twbsPagination.js"></script>
-    <script src="~/lib/jquery-sparkline/dist/jquery.sparkline.js"></script>
-    <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-    <script src="~/lib/ckeditor/ckeditor.js"></script>
-    <!-- bootstrap-daterangepicker -->
+  
+    <environment names="Development">
+        <!-- jQuery -->
+        @*<script src="../vendors/jquery/dist/jquery.min.js"></script>*@
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/signalr/dist/browser/signalr.js"></script>
+        <script src="~/lib/notifyjs/dist/notify.js"></script>
+        <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        @*<script src="~/app/shared/structures.js"></script>*@
+        <!-- Bootstrap -->
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <!-- FastClick -->
+        <script src="~/lib/fastclick/lib/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="~/lib/nprogress/nprogress.js"></script>
+        <!-- Chart.js -->
+        <script src="~/lib/mustache/mustache.js"></script>
+        <script src="~/lib/Chart.js/dist/Chart.js"></script>
+        <!-- jQuery Sparklines -->
+        <script src="~/lib/twbs-pagination/jquery.twbsPagination.js"></script>
+        <script src="~/lib/jquery-sparkline/dist/jquery.sparkline.js"></script>
+        <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        <script src="~/lib/ckeditor/ckeditor.js"></script>
+        <!-- bootstrap-daterangepicker -->
 
-    <script src="~/lib/moment/moment.js"></script>
-    <script src="~/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <script src="~/lib/notifyjs/dist/notify.js"></script>
-    <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
-    <script src="~/lib/bootbox/bootbox.js"></script>
+        <script src="~/lib/moment/moment.js"></script>
+        <script src="~/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script src="~/lib/notifyjs/dist/notify.js"></script>
+        <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
+        <script src="~/lib/bootbox/bootbox.js"></script>
 
-    <script src="~/app/shared/structures.js"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="~/admin-side/js/custom.js"></script>
-    <script src="~/app/shared/base.js"></script>
-    <script src="~/app/shared/signalR.js"></script>
-    <script>
-        var baseObj = new BaseController();
-        baseObj.initialize();
-    </script>
+        <script src="~/app/shared/structures.js"></script>
+        <!-- Custom Theme Scripts -->
+        <script src="~/admin-side/js/custom.js"></script>
+        <script src="~/app/shared/base.js"></script>
+        <script src="~/app/shared/signalR.js"></script>
+
+    </environment>
     <environment names="Staging,Production">
         <link href="~/bundled/site-admin.min.css" rel="stylesheet" />
         <script src="~/bundled/site-admin.min.js"></script>
     </environment>
     }
+    <script>
+        var baseObj = new BaseController();
+        baseObj.initialize();
+    </script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

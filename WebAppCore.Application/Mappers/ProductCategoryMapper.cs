@@ -12,10 +12,10 @@ namespace WebAppCore.Application.Mappers
 	{
 		public ProductCategoryMapperProfile()
 		{
-			CreateMap<ProductCategory, ProductCategoryViewModel>().MaxDepth(2).ReverseMap();
-			//CreateMap<ProductCategory,ProductCategoryViewModel>().ForMember(a=>a.Products,o=>o.ResolveUsing(b=>b.Products!=null
-			//? b.Products.Select(c=>c.ToModel()).ToList():null)).MaxDepth(2).ReverseMap();
-		}
+			//CreateMap<ProductCategory, ProductCategoryViewModel>().MaxDepth(2).ReverseMap();
+            CreateMap<ProductCategory, ProductCategoryViewModel>().ForMember(a => a.Products, o => o.MapFrom(b => b.Products != null
+                  ? b.Products.Select(c => c.ToModel()).ToList() : null)).MaxDepth(2).ReverseMap();
+        }
 	}
 	public static class ProductCategoryMapper
 	{

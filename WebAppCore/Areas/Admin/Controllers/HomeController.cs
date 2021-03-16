@@ -12,23 +12,16 @@ namespace WebAppCore.Areas.Admin.Controllers
     [Area("Admin")]
     public class HomeController : BaseController
     {
-        //private readonly IReportService _reportService;
+        public IActionResult Index()
+        {
+            var email = User.GetSpecificClaim("Email");
 
-        //public HomeController(IReportService reportService)
-        //{
-        //    _reportService = reportService;
-        //}
+            return View();
+        }
 
-        //public IActionResult Index()
-        //{
-        //    var email = User.GetSpecificClaim("Email");
-
-        //    return View();
-        //}
-
-        //public async Task<IActionResult> GetRevenue(string fromDate, string toDate)
-        //{
-        //    return new OkObjectResult(await _reportService.GetReportAsync(fromDate, toDate));
-        //}
+        public async Task<IActionResult> GetRevenue(string fromDate, string toDate)
+        {
+            return new OkObjectResult(new { });
+        }
     }
 }
